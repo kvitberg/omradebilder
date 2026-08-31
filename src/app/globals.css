@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
+/*
+ * Redaksjonell palett. Designet er bevisst låst til én lys "papir"-følelse —
+ * en kremhvit magasinflate mister poenget sitt i mørk modus, så vi lar den
+ * være lys uansett systeminnstilling.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f2f0ec;
+  --paper-deep: #e8e5df;
+  --ink: #12110f;
+  --ink-soft: #6b6862;
+  --rule: #c9c5bd;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --font-sans: var(--font-archivo);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-archivo), Helvetica, Arial, sans-serif;
+}
+
+/* Liten hjelpeklasse for de roterte etikettene i magasin-oppslagene. */
+.vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+/*
+ * Forsidetypografien står som ekte CSS, ikke som arbitrære Tailwind-verdier.
+ * Skalaen her er avstemt som en helhet: «Områdebilder» er ca. 6,3 ganger
+ * bredere enn skriftstørrelsen, så 17rem-taket er det største som holder
+ * ordet på én linje inne i .cover-block sin maksbredde på 1800px — også på
+ * ultrabred skjerm.
+ */
+.cover-block {
+  width: 100%;
+  max-width: min(92vw, 1800px);
+}
+
+.cover-title {
+  font-size: clamp(2.6rem, 9vw, 17rem);
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+}
+
+.cover-lede {
+  max-width: 52ch; /* måles i tegn, så linjelengden holder seg lesbar */
+  font-size: clamp(0.95rem, 1.05vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.cover-form {
+  max-width: min(100%, 44rem);
+  /* Tydelig luft ned fra ingressen, som i et magasinoppslag. */
+  margin-top: clamp(3rem, 6vw, 7rem);
+}
+
+.cover-input {
+  font-size: clamp(1.05rem, 1.35vw, 1.6rem);
 }

@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.local.example
 
 # vercel
 .vercel
@@ -39,3 +40,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.cache/
+
+# Miniatyrene MÅ committes: GitHub Actions bygger siden uten Dropbox-tilgang,
+# så bildene må ligge i repoet for at den publiserte siden skal vise noe.
+
+# Sikkerhetskopier fra synkroniseringen hører ikke hjemme i repoet.
+data/index.backup-*.json
