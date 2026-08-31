@@ -143,21 +143,22 @@ npm run dev
 
 ### 8. Deploy
 
-Appen er en helt vanlig Next.js-app og kan deployes til f.eks. Vercel eller
-Netlify:
+Siden er publisert på GitHub Pages: <https://kvitberg.github.io/omradebilder/>
 
-1. Push repoet til GitHub.
-2. Koble repoet til Vercel/Netlify.
-3. Legg inn de samme miljøvariablene fra `.env.local` i
-   plattformens miljøvariabel-innstillinger.
-4. `data/index.json` må være committet — den bygges ikke på
-   hosting-plattformen.
+Deploy skjer ved å bygge lokalt og pushe resultatet til `gh-pages`-grenen:
 
-**Om miniatyrene:** `public/thumbs` er i `.gitignore` fordi den vokser fort.
-Deployer du uten den, faller siden tilbake på å hente hvert bilde fra Dropbox,
-som tar 5–10 sekunder per bilde og treffer ratebegrensninger. Alternativene er
-å committe mappa likevel (enklest, men tungt repo), eller å legge bildene i et
-objektlager og peke `thumb`-feltet dit.
+```bash
+NEXT_PUBLIC_BASE_PATH=/omradebilder npm run build
+cd out && git init -b gh-pages && git add -A && git commit -m "Deploy" \
+  && git push -f https://github.com/kvitberg/omradebilder.git gh-pages
+```
+
+Automatisk deploy ved push til main ligger klar i `docs-workflow/` — se
+`docs-workflow/LES-MEG.md` for hva som mangler før den kan aktiveres.
+
+Miniatyrene i `public/thumbs` committes til repoet, siden byggingen ikke har
+Dropbox-tilgang. Nøklene i `.env.local` brukes bare av skriptene lokalt og
+skal aldri til GitHub.
 
 ## Vedlikehold
 
