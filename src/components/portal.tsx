@@ -207,7 +207,11 @@ function AddressField({
       }
 
       try {
-        const found = await suggest(query);
+        // Et forslag som er identisk med det som alt står i feltet tilfører
+        // ingenting — da ville lista bare blitt stående og skygge for resten.
+        const found = (await suggest(query)).filter(
+          (s) => s.label.toLowerCase() !== query.toLowerCase()
+        );
         if (id !== requestId.current) return;
         setSuggestions(found);
         setOpen(found.length > 0);
@@ -276,7 +280,7 @@ function AddressField({
         <ul
           id="adresseforslag"
           role="listbox"
-          className="absolute left-0 right-0 top-full z-30 mt-px max-h-72 overflow-y-auto border-x border-b border-rule bg-paper shadow-sm"
+          className="max-h-56 overflow-y-auto border-x border-b border-rule bg-paper"
         >
           {suggestions.map((s, i) => (
             <li key={`${s.label}-${s.lat}-${s.lng}`} role="option" aria-selected={i === active}>
