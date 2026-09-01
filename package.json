@@ -12,7 +12,8 @@
     "thumbs": "tsx scripts/build-thumbs.ts",
     "get-dropbox-token": "tsx scripts/get-dropbox-refresh-token.ts",
     "bygarder": "tsx scripts/build-bygarder.ts",
-    "prepare-static": "tsx scripts/prepare-static.ts"
+    "prepare-static": "tsx scripts/prepare-static.ts",
+    "sync-immich": "tsx scripts/sync-immich.ts"
   },
   "dependencies": {
     "dropbox": "^10.46.0",
