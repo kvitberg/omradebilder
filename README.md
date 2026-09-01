@@ -148,10 +148,11 @@ Siden er publisert på GitHub Pages: <https://kvitberg.github.io/omradebilder/>
 Deploy skjer ved å bygge lokalt og pushe resultatet til `gh-pages`-grenen:
 
 ```bash
-NEXT_PUBLIC_BASE_PATH=/omradebilder npm run build
-cd out && git init -b gh-pages && git add -A && git commit -m "Deploy" \
-  && git push -f https://github.com/kvitberg/omradebilder.git gh-pages
+npm run deploy
 ```
+
+Skriptet holder en varig klone i `.deploy-gh-pages/`, så bare endrede filer
+lastes opp — første kjøring laster ned grenen én gang.
 
 Automatisk deploy ved push til main ligger klar i `docs-workflow/` — se
 `docs-workflow/LES-MEG.md` for hva som mangler før den kan aktiveres.

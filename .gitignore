@@ -47,3 +47,6 @@ next-env.d.ts
 
 # Sikkerhetskopier fra synkroniseringen hører ikke hjemme i repoet.
 data/index.backup-*.json
+
+# Varig gh-pages-klone brukt av scripts/deploy.sh
+.deploy-gh-pages/
