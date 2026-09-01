@@ -71,22 +71,97 @@ const KATEGORI_BOYNING: Record<string, [string, string]> = {
 /** Ser navnet ut som en ren gateadresse ("Kjølberggata 17B")? */
 const erAdresse = (navn: string) => /\d+\s*[A-ZÆØÅ]?$/.test(navn.trim());
 
+/** "Godt brød - Økologisk Bakeverksted" -> "Godt brød". */
+const kortNavn = (navn: string) => navn.split(/\s+[–—-]\s+/)[0].trim();
+
+/** Gangtid ved 80 m/min, formulert slik en megler ville sagt det. */
+function gangtid(meter: number): string {
+  const min = Math.max(1, Math.round(meter / 80));
+  if (min <= 1) return "et knapt minutts gange";
+  if (min <= 3) return "et par minutters gange";
+  return `${min} minutters gange`;
+}
+
+/** Deterministisk variasjon: samme adresse gir samme tekst, naboadressen en annen. */
+function frø(tekst: string): number {
+  let h = 0;
+  for (const c of tekst) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return h;
+}
+
+/** De nærmeste navngitte stedene i en kategori, uten dubletter. */
+function navngitte(groups: Group[], kategoriId: string, antall: number) {
+  const gruppe = groups.find((g) => g.category.id === kategoriId);
+  if (!gruppe) return [];
+  const sett = new Set<string>();
+  const ut: Array<{ navn: string; meter: number }> = [];
+  for (const p of [...gruppe.photos].sort((a, b) => a.distanceMeters - b.distanceMeters)) {
+    if (!p.placeName || erAdresse(p.placeName)) continue;
+    const navn = kortNavn(p.placeName);
+    const key = navn.toLowerCase();
+    // «Håndbakt» og «Håndbakt Tøyen» er samme sted i denne sammenhengen.
+    if ([...sett].some((k) => k.startsWith(key) || key.startsWith(k))) continue;
+    sett.add(key);
+    ut.push({ navn, meter: p.distanceMeters });
+    if (ut.length === antall) break;
+  }
+  return ut;
+}
+
 /**
- * Redaksjonell tekst om området, generert fra det søket faktisk fant.
- * Står i plassen til det tredje bildet på første oppslag.
+ * Beliggenhetstekst i prospekt-stil, generert fra det søket faktisk fant.
+ * Skal kunne stå rett i en salgsoppgave: varm og konkret, men uten å påstå
+ * noe bildene ikke dekker — ingen skoler, kollektivtilbud eller solforhold
+ * vi ikke vet noe om.
  */
 function composeAreaText(groups: Group[], address: string, radiusMeters: number): string {
   const all = groups.flatMap((g) => g.photos);
   if (all.length === 0) return "";
+
   const shortAddr = address.split(",")[0].trim();
+  const gate = shortAddr.replace(/\s+\d+.*$/, "");
+  const velg = frø(shortAddr);
+
+  const kafeer = navngitte(groups, "kafe", 2);
+  const restauranter = navngitte(groups, "restaurant", 2);
+  const parker = navngitte(groups, "park", 1);
+
+  const setninger: string[] = [];
+
+  const apninger = [
+    `Fra ${shortAddr} har du nabolaget for hånden — det meste ligger innen en kort spasertur.`,
+    `Rundt ${shortAddr} ligger hverdagen tett på: gatene her rommer det meste du trenger i løpet av en uke.`,
+    `${gate} ligger midt i et nabolag der det meste kan nås til fots.`,
+  ];
+  setninger.push(apninger[velg % apninger.length]);
+
+  if (kafeer.length === 2) {
+    setninger.push(
+      `Morgenkaffen tar du hos ${kafeer[0].navn}, ${gangtid(kafeer[0].meter)} unna, eller hos ${kafeer[1].navn} litt lenger bort.`
+    );
+  } else if (kafeer.length === 1) {
+    setninger.push(`Morgenkaffen tar du hos ${kafeer[0].navn}, ${gangtid(kafeer[0].meter)} unna.`);
+  }
+
+  if (restauranter.length === 2) {
+    setninger.push(
+      `Til middag frister ${restauranter[0].navn} og ${restauranter[1].navn} — og flere spisesteder ligger i gatene rundt.`
+    );
+  } else if (restauranter.length === 1) {
+    setninger.push(
+      `Til middag frister ${restauranter[0].navn}, ${gangtid(restauranter[0].meter)} unna.`
+    );
+  }
+
+  if (parker.length === 1) {
+    setninger.push(
+      `${parker[0].navn} gir en grønn lunge ${gangtid(parker[0].meter)} fra døra — for trening, lek eller bare en benk i sola.`
+    );
+  }
 
   const deler: string[] = [];
-  let annet = 0;
   for (const g of groups) {
-    if (g.category.id === "annet") {
-      annet = g.photos.length;
-      continue;
-    }
+    if (g.category.id === "annet") continue;
     const n = g.photos.length;
     const [entall, flertall] = KATEGORI_BOYNING[g.category.id] ?? [
       g.category.label.toLowerCase(),
@@ -94,33 +169,16 @@ function composeAreaText(groups: Group[], address: string, radiusMeters: number)
     ];
     deler.push(n === 1 ? `én ${entall}` : `${n} ${flertall}`);
   }
-  const liste =
-    deler.length === 0
-      ? null
-      : deler.length === 1
-        ? deler[0]
-        : `${deler.slice(0, -1).join(", ")} og ${deler[deler.length - 1]}`;
-
-  const setninger: string[] = [];
-  setninger.push(
-    `Alt på disse sidene er fotografert innen ${formatRadius(radiusMeters)} fra ${shortAddr} — ${
-      all.length === 1 ? "ett bilde" : `${all.length} bilder`
-    } av nabolaget slik det faktisk ser ut.`
-  );
-  if (liste) {
-    setninger.push(
-      `I utvalget: ${liste}${annet > 0 ? `, i tillegg til ${annet} andre glimt fra gatene rundt` : ""}.`
-    );
-  } else if (annet > 0) {
-    setninger.push(`${annet} glimt fra gatene rundt.`);
+  if (deler.length > 1) {
+    const liste = `${deler.slice(0, -1).join(", ")} og ${deler[deler.length - 1]}`;
+    setninger.push(`Innenfor ${formatRadius(radiusMeters)} finner du til sammen ${liste}.`);
   }
 
-  const navngitt = all
-    .filter((p) => p.placeName && !erAdresse(p.placeName))
-    .sort((a, b) => a.distanceMeters - b.distanceMeters)[0];
-  if (navngitt) {
-    setninger.push(`Nærmest ligger ${navngitt.placeName}, ${navngitt.distanceMeters} meter unna.`);
-  }
+  const avslutninger = [
+    `Alt i denne presentasjonen er fotografert på stedet — ${all.length} bilder av nabolaget slik det faktisk møter deg.`,
+    `De ${all.length} bildene på disse sidene er tatt her, i dette nabolaget, slik det så ut den dagen fotografen gikk gatelangs.`,
+  ];
+  setninger.push(avslutninger[velg % avslutninger.length]);
 
   return setninger.join(" ");
 }
