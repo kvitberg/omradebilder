@@ -18,6 +18,8 @@ type SpreadData = {
   photos: Photo[];
   part: number;
   partCount: number;
+  /** Første oppslag i resultatet: én bildeplass er byttet ut med områdeteksten. */
+  intro: boolean;
 };
 
 const PHOTOS_PER_SPREAD = 3;
@@ -31,18 +33,96 @@ const RADIUS_OPTIONS = [
 ];
 
 function buildSpreads(groups: Group[]): SpreadData[] {
-  return groups.flatMap((group) => {
-    const chunks: Photo[][] = [];
-    for (let i = 0; i < group.photos.length; i += PHOTOS_PER_SPREAD) {
-      chunks.push(group.photos.slice(i, i + PHOTOS_PER_SPREAD));
+  const spreads: SpreadData[] = [];
+  for (const group of groups) {
+    const queue = [...group.photos];
+    const mine: SpreadData[] = [];
+    while (queue.length) {
+      const isFirstOverall = spreads.length + mine.length === 0;
+      const take = isFirstOverall ? PHOTOS_PER_SPREAD - 1 : PHOTOS_PER_SPREAD;
+      mine.push({
+        category: group.category,
+        photos: queue.splice(0, take),
+        part: 0,
+        partCount: 0,
+        intro: isFirstOverall,
+      });
     }
-    return chunks.map((photos, i) => ({
-      category: group.category,
-      photos,
-      part: i + 1,
-      partCount: chunks.length,
-    }));
-  });
+    mine.forEach((sp, i) => {
+      sp.part = i + 1;
+      sp.partCount = mine.length;
+    });
+    spreads.push(...mine);
+  }
+  return spreads;
+}
+
+/* -------------------------------------------------------- Områdetekst */
+
+const KATEGORI_BOYNING: Record<string, [string, string]> = {
+  kafe: ["kafé", "kafeer"],
+  restaurant: ["restaurant", "restauranter"],
+  park: ["park", "parker"],
+  fasade: ["fasade", "fasader"],
+  takterrasse: ["takterrasse", "takterrasser"],
+  bakgard: ["bakgård", "bakgårder"],
+};
+
+/** Ser navnet ut som en ren gateadresse ("Kjølberggata 17B")? */
+const erAdresse = (navn: string) => /\d+\s*[A-ZÆØÅ]?$/.test(navn.trim());
+
+/**
+ * Redaksjonell tekst om området, generert fra det søket faktisk fant.
+ * Står i plassen til det tredje bildet på første oppslag.
+ */
+function composeAreaText(groups: Group[], address: string, radiusMeters: number): string {
+  const all = groups.flatMap((g) => g.photos);
+  if (all.length === 0) return "";
+  const shortAddr = address.split(",")[0].trim();
+
+  const deler: string[] = [];
+  let annet = 0;
+  for (const g of groups) {
+    if (g.category.id === "annet") {
+      annet = g.photos.length;
+      continue;
+    }
+    const n = g.photos.length;
+    const [entall, flertall] = KATEGORI_BOYNING[g.category.id] ?? [
+      g.category.label.toLowerCase(),
+      g.category.label.toLowerCase(),
+    ];
+    deler.push(n === 1 ? `én ${entall}` : `${n} ${flertall}`);
+  }
+  const liste =
+    deler.length === 0
+      ? null
+      : deler.length === 1
+        ? deler[0]
+        : `${deler.slice(0, -1).join(", ")} og ${deler[deler.length - 1]}`;
+
+  const setninger: string[] = [];
+  setninger.push(
+    `Alt på disse sidene er fotografert innen ${formatRadius(radiusMeters)} fra ${shortAddr} — ${
+      all.length === 1 ? "ett bilde" : `${all.length} bilder`
+    } av nabolaget slik det faktisk ser ut.`
+  );
+  if (liste) {
+    setninger.push(
+      `I utvalget: ${liste}${annet > 0 ? `, i tillegg til ${annet} andre glimt fra gatene rundt` : ""}.`
+    );
+  } else if (annet > 0) {
+    setninger.push(`${annet} glimt fra gatene rundt.`);
+  }
+
+  const navngitt = all
+    .filter((p) => p.placeName && !erAdresse(p.placeName))
+    .sort((a, b) => a.distanceMeters - b.distanceMeters)[0];
+  if (navngitt) {
+    setninger.push(`Nærmest ligger ${navngitt.placeName}, ${navngitt.distanceMeters} meter unna.`);
+  }
+
+  return setninger.join(" ");
 }
 
 const pageLabel = (n: number) => String(n).padStart(2, "0");
@@ -63,6 +143,7 @@ export default function Portal({
   const [error, setError] = useState<string | null>(null);
   const [warning, setWarning] = useState<string | null>(null);
   const [spreads, setSpreads] = useState<SpreadData[] | null>(null);
+  const [areaText, setAreaText] = useState("");
   const [searched, setSearched] = useState<{ address: string; radius: number } | null>(null);
   const [page, setPage] = useState(0); // 0 = forside
 
@@ -99,6 +180,7 @@ export default function Portal({
         const data = await search(trimmed, radiusMeters, coords);
         const built = buildSpreads(data.groups);
         setSpreads(built);
+        setAreaText(composeAreaText(data.groups, trimmed, radiusMeters));
         setWarning(data.warning ?? null);
         setSearched({ address: trimmed, radius: radiusMeters });
         setPage(built.length > 0 ? 1 : 0);
@@ -139,6 +221,7 @@ export default function Portal({
           totalPages={totalPages}
           address={searched?.address ?? ""}
           radius={searched?.radius ?? radius}
+          areaText={areaText}
           goTo={goTo}
         />
       ) : (
@@ -453,6 +536,7 @@ function Spread({
   totalPages,
   address,
   radius,
+  areaText,
   goTo,
 }: {
   spread: SpreadData;
@@ -460,6 +544,7 @@ function Spread({
   totalPages: number;
   address: string;
   radius: number;
+  areaText: string;
   goTo: (n: number) => void;
 }) {
   const [hero, ...rest] = spread.photos;
@@ -500,6 +585,16 @@ function Spread({
             {rest.map((photo) => (
               <Frame key={photo.id} photo={photo} className="min-h-[150px] flex-1" />
             ))}
+            {/* På første oppslag står områdeteksten der det tredje bildet
+                ellers ville stått — en kort tekst om det søket faktisk fant. */}
+            {spread.intro && areaText && (
+              <div className="flex min-h-0 flex-1 flex-col justify-end">
+                <p className="mb-3 border-t border-rule pt-4 text-[10px] uppercase tracking-[0.3em] text-ink-soft">
+                  Området
+                </p>
+                <p className="text-[13px] leading-relaxed text-ink-soft">{areaText}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
