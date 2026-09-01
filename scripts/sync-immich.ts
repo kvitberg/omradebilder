@@ -5,6 +5,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 import { detectCategory } from "../src/lib/categories";
+import { lookupPoi, type Poi } from "../src/lib/poi";
 import type { PhotoEntry, SearchIndex } from "../src/lib/index-store";
 
 /**
@@ -77,6 +78,20 @@ async function listAssetIds(): Promise<string[]> {
  * bildeserier fra samme sted ligger få meter fra hverandre.
  */
 const addressCache = new Map<string, string | null>();
+// POI-oppslaget mellomlagres på samme måte — bildeserier deler sted.
+const poiCache = new Map<string, Poi | null>();
+
+async function cachedPoi(lat: number, lng: number): Promise<Poi | null> {
+  const cacheKey = `${lat.toFixed(4)},${lng.toFixed(4)}`;
+  if (poiCache.has(cacheKey)) return poiCache.get(cacheKey)!;
+  const poi = await lookupPoi(lat, lng);
+  poiCache.set(cacheKey, poi);
+  // Uten Google-nøkkel går oppslaget mot Photon, som vil ha rolig tempo.
+  if (!process.env.GOOGLE_PLACES_API_KEY) {
+    await new Promise((r) => setTimeout(r, 400));
+  }
+  return poi;
+}
 
 async function nearestAddress(lat: number, lng: number): Promise<string | null> {
   const cacheKey = `${lat.toFixed(4)},${lng.toFixed(4)}`;
@@ -143,6 +158,7 @@ async function main() {
   const photos: PhotoEntry[] = [];
   let withGps = 0;
   let named = 0;
+  let fromPoi = 0;
   let failed = 0;
 
   const queue = [...ids];
@@ -161,13 +177,21 @@ async function main() {
         if (hasGps) withGps++;
 
         const description = asset.exifInfo?.description?.trim() || null;
-        let placeName = description;
+
+        // Stedsnavn i prioritert rekkefølge: fotografens egen beskrivelse,
+        // stedet som faktisk ligger på koordinatet (kafeen, parken), og til
+        // slutt nærmeste adresse som nøytral reserve.
+        const poi = !description && hasGps ? await cachedPoi(lat!, lng!) : null;
+        let placeName = description ?? poi?.name ?? null;
         if (!placeName && hasGps) {
           placeName = await nearestAddress(lat!, lng!);
         }
         if (placeName) named++;
+        if (poi) fromPoi++;
 
-        const { categoryId } = detectCategory([description ?? "", asset.originalFileName]);
+        const detected = detectCategory([description ?? "", asset.originalFileName]);
+        const categoryId =
+          detected.categoryId !== "annet" ? detected.categoryId : poi?.categoryId ?? "annet";
 
         const entryId = `immich:${asset.id}`;
         const outPath = path.join(OUT_DIR, thumbFileName(entryId));
@@ -212,7 +236,9 @@ async function main() {
 
   const secs = Math.round((Date.now() - started) / 1000);
   console.log(`\nFerdig på ${secs}s. ${photos.length} bilder (${failed} feilet).`);
-  console.log(`  ${withGps} med GPS, ${named} med stedsnavn (beskrivelse eller nærmeste adresse)`);
+  console.log(
+    `  ${withGps} med GPS, ${named} med stedsnavn — ${fromPoi} fra stedsoppslag (${process.env.GOOGLE_PLACES_API_KEY ? "Google Places" : "OpenStreetMap"})`
+  );
   console.log(`Indeksen har nå ${index.photos.length} bilder totalt (${others.length} fra før).`);
 }
 
