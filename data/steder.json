@@ -34,6 +34,11 @@
     "kategori": "nabolag",
     "kilde": "osm"
   },
+  "Bislett Stadion": {
+    "kategori": "aktivitet",
+    "navn": "Bislett stadion",
+    "kilde": "osm"
+  },
   "Bjerke": {
     "kategori": "nabolag",
     "kilde": "osm"
@@ -52,6 +57,10 @@
   },
   "Boulangerie M": {
     "kategori": "kafe",
+    "kilde": "osm"
+  },
+  "Brugata": {
+    "kategori": "nabolag",
     "kilde": "osm"
   },
   "Carl Berner": {
@@ -73,6 +82,10 @@
     "navn": "Coop Prix Marsveien",
     "kilde": "osm"
   },
+  "Damstredet": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
   "Dapper": {
     "kategori": "kafe",
     "kilde": "osm"
@@ -86,8 +99,18 @@
     "navn": "Etterstadjordet barnehage",
     "kilde": "osm"
   },
+  "Fagerborg Kirke": {
+    "kategori": "kultur",
+    "navn": "Fagerborg kirke",
+    "kilde": "osm"
+  },
   "Farine": {
     "kategori": "kafe",
+    "kilde": "osm"
+  },
+  "Fix": {
+    "kategori": "aktivitet",
+    "navn": "Fix Arena",
     "kilde": "osm"
   },
   "Fomoto": {
@@ -132,8 +155,16 @@
     "navn": "Godt Brød",
     "kilde": "osm"
   },
+  "Grefsen kirke": {
+    "kategori": "kultur",
+    "kilde": "osm"
+  },
   "Grefsen skole": {
     "kategori": "skole",
+    "kilde": "osm"
+  },
+  "Grefsen stadion": {
+    "kategori": "aktivitet",
     "kilde": "osm"
   },
   "Grefsen Stasjon": {
@@ -155,6 +186,10 @@
   },
   "Gråbein": {
     "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Gyldenløves gate": {
+    "kategori": "nabolag",
     "kilde": "osm"
   },
   "Hasle": {
@@ -252,9 +287,18 @@
     "kategori": "nabolag",
     "kilde": "osm"
   },
+  "Majorstuen T-bane": {
+    "kategori": "nabolag",
+    "navn": "Majorstuen",
+    "kilde": "osm"
+  },
   "Maridalen Skole": {
     "kategori": "skole",
     "navn": "Maridalen skole",
+    "kilde": "osm"
+  },
+  "Markveien": {
+    "kategori": "nabolag",
     "kilde": "osm"
   },
   "Maschmanns": {
@@ -294,12 +338,22 @@
     "kategori": "kafe",
     "kilde": "osm"
   },
+  "Njårdhallen": {
+    "kategori": "aktivitet",
+    "navn": "Njårdhallen tennis",
+    "kilde": "osm"
+  },
   "Nordre Aker": {
     "kategori": "nabolag",
     "kilde": "osm"
   },
   "Nydalen": {
     "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Nydalen (1)": {
+    "kategori": "nabolag",
+    "navn": "Nydalen",
     "kilde": "osm"
   },
   "Odeon": {
@@ -320,6 +374,11 @@
   },
   "Oslo Konserthus": {
     "kategori": "kultur",
+    "kilde": "osm"
+  },
+  "Oslo Tennisklubb": {
+    "kategori": "aktivitet",
+    "navn": "Oslo tennisklubb",
     "kilde": "osm"
   },
   "Palazzo Comunale": {
@@ -344,6 +403,10 @@
     "kategori": "restaurant",
     "kilde": "osm"
   },
+  "Rostockgata": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
   "Rouleur": {
     "kategori": "restaurant",
     "kilde": "osm"
@@ -352,8 +415,25 @@
     "kategori": "natur",
     "kilde": "osm"
   },
+  "Sagene kirke": {
+    "kategori": "kultur",
+    "kilde": "osm"
+  },
+  "Sagveien": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Sandermoen": {
+    "kategori": "aktivitet",
+    "navn": "Sandermoen treningsfelt",
+    "kilde": "osm"
+  },
   "Sentrum": {
     "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Skeidbanen": {
+    "kategori": "aktivitet",
     "kilde": "osm"
   },
   "Skrenten Pizza": {
@@ -430,11 +510,19 @@
     "kategori": "nabolag",
     "kilde": "osm"
   },
+  "Thorvald Meyers gate": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
   "Tim Wendelboe": {
     "kategori": "kafe",
     "kilde": "osm"
   },
   "Tjuvholmen": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Torggata": {
     "kategori": "nabolag",
     "kilde": "osm"
   },
@@ -461,6 +549,16 @@
   },
   "Tveita": {
     "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "tyren": {
+    "kategori": "nabolag",
+    "navn": "Tyren",
+    "kilde": "osm"
+  },
+  "Tøyen (1)": {
+    "kategori": "nabolag",
+    "navn": "Tøyen",
     "kilde": "osm"
   },
   "Ullevål": {
@@ -522,6 +620,10 @@
   "Øyungen": {
     "kategori": "nabolag",
     "navn": "Øyungen hyttefelt",
+    "kilde": "osm"
+  },
+  "Åkebergveien": {
+    "kategori": "nabolag",
     "kilde": "osm"
   },
   "Årvoll": {

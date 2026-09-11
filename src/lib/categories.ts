@@ -87,6 +87,13 @@ export const CATEGORIES: Category[] = [
     keywords: ["dagligvare", "butikk", "kjøpesenter", "senter", "bunnpris", "kiwi", "rema", "meny", "coop", "joker"],
   },
   {
+    id: "aktivitet",
+    label: "Idrett og aktivitet",
+    description:
+      "Banene, hallene og badene i nærheten — der nabolaget holder seg i bevegelse.",
+    keywords: ["stadion", "hall", "bad", "idrett", "bane", "løkka", "gym", "buldrevegg"],
+  },
+  {
     id: "nabolag",
     label: "Nabolag",
     description:

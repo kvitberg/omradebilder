@@ -95,8 +95,11 @@ const OSM_TYPES: Array<[RegExp, string | null, number]> = [
   [/^natural\/(water|beach|peak|wood|scrub)$/, "natur", 1],
   [/^leisure\/(nature_reserve|swimming_area|marina|beach_resort)$/, "natur", 1],
   [/^waterway\//, "natur", 2],
-  [/^leisure\/(sports_centre|stadium|swimming_pool|water_park|pitch|fitness_centre)$/, null, 2],
-  [/^tourism\/(attraction|viewpoint)$/, null, 2],
+  [/^leisure\/(sports_centre|stadium|swimming_pool|water_park|pitch|fitness_centre|track|horse_riding)$/, "aktivitet", 1],
+  [/^amenity\/(gym|public_bath)$/, "aktivitet", 1],
+  [/^tourism\/(attraction|viewpoint)$/, "kultur", 2],
+  [/^amenity\/place_of_worship$/, "kultur", 2],
+  [/^highway\/(residential|pedestrian|living_street|unclassified|tertiary|secondary)$/, "nabolag", 5],
   [/^place\/(suburb|neighbourhood|quarter|borough|locality)$/, "nabolag", 3],
   [/^boundary\/administrative$/, "nabolag", 4],
   [/^shop\//, "butikk", 4],
@@ -128,14 +131,21 @@ export async function lookupPoiByName(
   lat: number,
   lng: number
 ): Promise<Poi | null> {
+  const norm = (t: string) => t.toLowerCase().replace(/\s+/g, " ").trim();
+  // Mappenavn bærer ofte tillegg OSM ikke har: «Tøyen (1)» fra duplikate
+  // mapper, og «Majorstuen T-bane» der stasjonen bare heter «Majorstuen».
+  const ryddet =
+    name
+      .replace(/\s*\(\d+\)\s*$/, "")
+      .replace(/\s+(t-banestasjon|t-bane|tbane|stasjon|holdeplass|T)\s*$/i, "")
+      .trim() || name;
+  const ønsket = norm(ryddet);
+
   const url = new URL("https://photon.komoot.io/api");
-  url.searchParams.set("q", name);
+  url.searchParams.set("q", ryddet);
   url.searchParams.set("lat", String(lat));
   url.searchParams.set("lon", String(lng));
   url.searchParams.set("limit", "8");
-
-  const norm = (t: string) => t.toLowerCase().replace(/\s+/g, " ").trim();
-  const ønsket = norm(name);
 
   try {
     const res = await fetch(url.toString(), { headers: { "User-Agent": "omradeportal/1.0" } });
