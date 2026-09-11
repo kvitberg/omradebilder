@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Varig gh-pages-klone fra scripts/deploy.sh — inneholder minifiserte
+    // byggfiler som ellers drukner lint-resultatet i tusenvis av funn.
+    ".deploy-gh-pages/**",
   ]),
 ]);
 

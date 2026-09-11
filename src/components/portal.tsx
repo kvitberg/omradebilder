@@ -89,6 +89,12 @@ function frø(tekst: string): number {
   return h;
 }
 
+/**
+ * Kjeder som gjerne ligger i nabolaget, men som ikke selger det. Bildene
+ * deres vises fortsatt — de nevnes bare ikke ved navn i beliggenhetsteksten.
+ */
+const KJEDER = /mcdonald|burger king|\bkfc\b|subway|7-eleven|narvesen|deli de luca|pizzabakeren|domino/i;
+
 /** De nærmeste navngitte stedene i en kategori, uten dubletter. */
 function navngitte(groups: Group[], kategoriId: string, antall: number) {
   const gruppe = groups.find((g) => g.category.id === kategoriId);
@@ -96,7 +102,7 @@ function navngitte(groups: Group[], kategoriId: string, antall: number) {
   const sett = new Set<string>();
   const ut: Array<{ navn: string; meter: number }> = [];
   for (const p of [...gruppe.photos].sort((a, b) => a.distanceMeters - b.distanceMeters)) {
-    if (!p.placeName || erAdresse(p.placeName)) continue;
+    if (!p.placeName || erAdresse(p.placeName) || KJEDER.test(p.placeName)) continue;
     const navn = kortNavn(p.placeName);
     const key = navn.toLowerCase();
     // «Håndbakt» og «Håndbakt Tøyen» er samme sted i denne sammenhengen.
