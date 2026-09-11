@@ -66,6 +66,12 @@ const KATEGORI_BOYNING: Record<string, [string, string]> = {
   kafe: ["kafé", "kafeer"],
   restaurant: ["restaurant", "restauranter"],
   park: ["park", "parker"],
+  natur: ["naturperle", "naturperler"],
+  kollektiv: ["kollektivpunkt", "kollektivpunkter"],
+  skole: ["skole", "skoler og barnehager"],
+  kultur: ["kulturtilbud", "kulturtilbud"],
+  butikk: ["butikk", "butikker"],
+  nabolag: ["nabolagsmotiv", "nabolagsmotiver"],
   fasade: ["fasade", "fasader"],
   takterrasse: ["takterrasse", "takterrasser"],
   bakgard: ["bakgård", "bakgårder"],
@@ -166,6 +172,18 @@ function composeAreaText(groups: Group[], address: string, radiusMeters: number)
     setninger.push(
       `${parker[0].navn} gir en grønn lunge ${gangtid(parker[0].meter)} fra døra — for trening, lek eller bare en benk i sola.`
     );
+  }
+
+  const kollektiv = navngitte(groups, "kollektiv", 1);
+  if (kollektiv.length === 1) {
+    setninger.push(
+      `${kollektiv[0].navn} ligger ${gangtid(kollektiv[0].meter)} unna, så morgenen inn til byen blir kort.`
+    );
+  }
+
+  const skoler = navngitte(groups, "skole", 1);
+  if (skoler.length === 1) {
+    setninger.push(`${skoler[0].navn} ligger ${gangtid(skoler[0].meter)} fra døra.`);
   }
 
   const deler: string[] = [];

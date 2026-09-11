@@ -14,7 +14,8 @@
     "bygarder": "tsx scripts/build-bygarder.ts",
     "prepare-static": "tsx scripts/prepare-static.ts",
     "sync-immich": "tsx scripts/sync-immich.ts",
-    "deploy": "bash scripts/deploy.sh"
+    "deploy": "bash scripts/deploy.sh",
+    "steder": "tsx scripts/classify-places.ts"
   },
   "dependencies": {
     "dropbox": "^10.46.0",

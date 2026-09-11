@@ -52,6 +52,48 @@ export const CATEGORIES: Category[] = [
     keywords: ["bakgård", "bakgard", "gårdsrom", "gardsrom", "innhage"],
   },
   {
+    id: "kollektiv",
+    label: "Kollektiv",
+    description:
+      "T-bane, tog og trikk i nærheten — det som avgjør hvor lang morgenen faktisk blir.",
+    keywords: ["t-bane", "tbane", "stasjon", "holdeplass", "trikk", "kollektiv"],
+  },
+  {
+    id: "skole",
+    label: "Skole og barnehage",
+    description:
+      "Skolene og barnehagene i nabolaget, fotografert fra gata slik de møter deg på veien forbi.",
+    keywords: ["skole", "barnehage", "gymnas", "videregående"],
+  },
+  {
+    id: "natur",
+    label: "Natur",
+    description:
+      "Vann, marka og utsiktspunktene rundt — nabolagets pusterom utenfor kvartalene.",
+    keywords: ["vann", "marka", "skogen", "kollen", "elva", "badeplass", "strand"],
+  },
+  {
+    id: "kultur",
+    label: "Kultur",
+    description:
+      "Kino, museer og scener i nærområdet — det som gjør en kveld hjemme til et valg.",
+    keywords: ["kino", "museum", "teater", "galleri", "bibliotek", "scene"],
+  },
+  {
+    id: "butikk",
+    label: "Handel",
+    description:
+      "Dagligvare og butikker innen gangavstand — hverdagslogistikken som avgjør hvor enkelt livet blir.",
+    keywords: ["dagligvare", "butikk", "kjøpesenter", "senter", "bunnpris", "kiwi", "rema", "meny", "coop", "joker"],
+  },
+  {
+    id: "nabolag",
+    label: "Nabolag",
+    description:
+      "Selve området — gatene, plassene og stemningen som ikke lar seg feste til én adresse.",
+    keywords: [],
+  },
+  {
     id: "annet",
     label: "Annet",
     description: "Bilder som ikke faller inn under de andre kategoriene.",

@@ -24,6 +24,16 @@ async function main() {
     await fs.readFile(path.join(process.cwd(), "data", "index.json"), "utf-8")
   );
 
+  // Overstyringer fra `npm run steder` (og dine egne rettelser der).
+  let steder: Record<string, { kategori: string; navn?: string }> = {};
+  try {
+    steder = JSON.parse(
+      await fs.readFile(path.join(process.cwd(), "data", "steder.json"), "utf-8")
+    );
+  } catch {
+    steder = {};
+  }
+
   // Hvilke bilder som har miniatyr avgjøres av hva som faktisk ligger på
   // disk, ikke av `thumb`-feltet i indeksen. Genereringen tar timer og kan
   // bli avbrutt underveis; da ville feltet vært utdatert, mens filene er
@@ -42,7 +52,15 @@ async function main() {
   // Bilder uten posisjon kan aldri treffes av et søk, og bilder uten miniatyr
   // ville bare blitt et hull i oppslaget. Begge utelates.
   const publishable = index.photos
-    .map((p) => ({ ...p, thumb: thumbFor(p.id) }))
+    .map((p) => {
+      const overstyring = steder[p.placeName];
+      return {
+        ...p,
+        thumb: thumbFor(p.id),
+        category: overstyring?.kategori ?? p.category,
+        placeName: overstyring?.navn ?? p.placeName,
+      };
+    })
     .filter((p) => p.lat !== null && p.lng !== null && p.thumb);
 
   const slim = publishable.map((p) => ({

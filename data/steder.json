@@ -1,0 +1,547 @@
+{
+  "200": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Aker Brygge": {
+    "kategori": "nabolag",
+    "navn": "Aker brygge",
+    "kilde": "osm"
+  },
+  "Astrup Fearnley": {
+    "kategori": "kultur",
+    "navn": "Astrup Fearnley Museet",
+    "kilde": "osm"
+  },
+  "Babbo Collective": {
+    "kategori": "kafe",
+    "kilde": "osm"
+  },
+  "Barcode": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "billingstad": {
+    "kategori": "nabolag",
+    "navn": "Billingstad",
+    "kilde": "osm"
+  },
+  "Birkelunden": {
+    "kategori": "park",
+    "kilde": "osm"
+  },
+  "Bislett": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Bjerke": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Bjølsen": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Bjørvika Blomster": {
+    "kategori": "butikk",
+    "kilde": "osm"
+  },
+  "Blomsterenga": {
+    "kategori": "butikk",
+    "kilde": "osm"
+  },
+  "Boulangerie M": {
+    "kategori": "kafe",
+    "kilde": "osm"
+  },
+  "Carl Berner": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Colosseum": {
+    "kategori": "kultur",
+    "navn": "Colosseum kino",
+    "kilde": "osm"
+  },
+  "Colosseum Senter": {
+    "kategori": "butikk",
+    "navn": "Colosseum senter",
+    "kilde": "osm"
+  },
+  "Coop Prix": {
+    "kategori": "butikk",
+    "navn": "Coop Prix Marsveien",
+    "kilde": "osm"
+  },
+  "Dapper": {
+    "kategori": "kafe",
+    "kilde": "osm"
+  },
+  "Disen skole": {
+    "kategori": "skole",
+    "kilde": "osm"
+  },
+  "Etterstadjordet": {
+    "kategori": "skole",
+    "navn": "Etterstadjordet barnehage",
+    "kilde": "osm"
+  },
+  "Farine": {
+    "kategori": "kafe",
+    "kilde": "osm"
+  },
+  "Fomoto": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Fredensborg": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Frogner": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Frogner Kino": {
+    "kategori": "kultur",
+    "navn": "Frogner kino",
+    "kilde": "osm"
+  },
+  "Frognerkilen": {
+    "kategori": "kollektiv",
+    "kilde": "osm"
+  },
+  "Fuglen": {
+    "kategori": "kafe",
+    "kilde": "osm"
+  },
+  "Funkisgården": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Galgeberg Corner": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Gimle": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Godt brød": {
+    "kategori": "kafe",
+    "navn": "Godt Brød",
+    "kilde": "osm"
+  },
+  "Grefsen skole": {
+    "kategori": "skole",
+    "kilde": "osm"
+  },
+  "Grefsen Stasjon": {
+    "kategori": "kollektiv",
+    "navn": "Grefsen stasjon",
+    "kilde": "osm"
+  },
+  "Grefsenkollen": {
+    "kategori": "natur",
+    "kilde": "osm"
+  },
+  "Grisen": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Grønnland": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Gråbein": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Hasle": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Hos Peder": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Hovseter": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Hrimnir": {
+    "kategori": "restaurant",
+    "navn": "Hrimnir Ramen",
+    "kilde": "osm"
+  },
+  "Isdammen": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Jacobs": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Jernbanetorget": {
+    "kategori": "kollektiv",
+    "kilde": "osm"
+  },
+  "Jimmy": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Jordal": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Kaffebrenneriet": {
+    "kategori": "kafe",
+    "kilde": "osm"
+  },
+  "Kanpai Izakaya": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Kastellet": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Kjelsås skole": {
+    "kategori": "skole",
+    "kilde": "osm"
+  },
+  "Kjelsås stasjon": {
+    "kategori": "kollektiv",
+    "kilde": "osm"
+  },
+  "Klosterenga": {
+    "kategori": "park",
+    "kilde": "osm"
+  },
+  "Kongen Marina": {
+    "kategori": "natur",
+    "kilde": "osm"
+  },
+  "Kuba": {
+    "kategori": "park",
+    "navn": "Kuba park",
+    "kilde": "osm"
+  },
+  "Kværnerbyen": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Lilleborg": {
+    "kategori": "kollektiv",
+    "kilde": "osm"
+  },
+  "Lillo Gård": {
+    "kategori": "kollektiv",
+    "navn": "Lillo gård",
+    "kilde": "osm"
+  },
+  "Lorry": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Løren": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Majorstuen": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Maridalen Skole": {
+    "kategori": "skole",
+    "navn": "Maridalen skole",
+    "kilde": "osm"
+  },
+  "Maschmanns": {
+    "kategori": "butikk",
+    "navn": "Maschmanns Matmarked",
+    "kilde": "osm"
+  },
+  "Mathallen": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Mjøl": {
+    "kategori": "kafe",
+    "kilde": "osm"
+  },
+  "Mucho Mas": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Munch": {
+    "kategori": "kultur",
+    "kilde": "osm"
+  },
+  "Muselunden": {
+    "kategori": "park",
+    "kilde": "osm"
+  },
+  "Myraløkka": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Myrerjordet": {
+    "kategori": "park",
+    "kilde": "osm"
+  },
+  "Månefisken": {
+    "kategori": "kafe",
+    "kilde": "osm"
+  },
+  "Nordre Aker": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Nydalen": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Odeon": {
+    "kategori": "kultur",
+    "kilde": "osm"
+  },
+  "Odins gate": {
+    "kategori": "kollektiv",
+    "kilde": "osm"
+  },
+  "Operaen": {
+    "kategori": "kultur",
+    "kilde": "osm"
+  },
+  "Oppegård": {
+    "kategori": "kollektiv",
+    "kilde": "osm"
+  },
+  "Oslo Konserthus": {
+    "kategori": "kultur",
+    "kilde": "osm"
+  },
+  "Palazzo Comunale": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Pascal": {
+    "kategori": "kafe",
+    "kilde": "osm"
+  },
+  "Poppel vinbar": {
+    "kategori": "restaurant",
+    "navn": "Poppel Vinbar",
+    "kilde": "osm"
+  },
+  "Poppelhagen blomster": {
+    "kategori": "butikk",
+    "navn": "PoppelHagen Blomster",
+    "kilde": "osm"
+  },
+  "Radio": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Rouleur": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Sagadammen": {
+    "kategori": "natur",
+    "kilde": "osm"
+  },
+  "Sentrum": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Skrenten Pizza": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Skøyen": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Skaal matbar": {
+    "kategori": "restaurant",
+    "navn": "SKAAL Matbar",
+    "kilde": "osm"
+  },
+  "Slemdal skole": {
+    "kategori": "skole",
+    "kilde": "osm"
+  },
+  "Sognsvann": {
+    "kategori": "natur",
+    "kilde": "osm"
+  },
+  "Sommerfrydhagen": {
+    "kategori": "park",
+    "kilde": "osm"
+  },
+  "Sommero": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Sporveismuseet": {
+    "kategori": "kultur",
+    "kilde": "osm"
+  },
+  "St. Hanshaugen": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Steinerskolen": {
+    "kategori": "kollektiv",
+    "kilde": "osm"
+  },
+  "Stilla": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Storo": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Syng": {
+    "kategori": "restaurant",
+    "navn": "SYNG",
+    "kilde": "osm"
+  },
+  "Sætre": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Sørenga": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Sørengkaia": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Søylegården": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Teisen": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Tim Wendelboe": {
+    "kategori": "kafe",
+    "kilde": "osm"
+  },
+  "Tjuvholmen": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Torshov": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Torshovdalen": {
+    "kategori": "park",
+    "kilde": "osm"
+  },
+  "TRANEN": {
+    "kategori": "restaurant",
+    "navn": "Tranen",
+    "kilde": "osm"
+  },
+  "Trappa": {
+    "kategori": "kollektiv",
+    "kilde": "osm"
+  },
+  "Trikkestallen": {
+    "kategori": "kultur",
+    "kilde": "osm"
+  },
+  "Tveita": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Ullevål": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Valkyrien": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Vestre Aker": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Via Village": {
+    "kategori": "restaurant",
+    "navn": "VIA Village",
+    "kilde": "osm"
+  },
+  "Vika": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Vinland": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
+  "Vinslottet": {
+    "kategori": "butikk",
+    "navn": "Vinslottet Greve",
+    "kilde": "osm"
+  },
+  "Voldsløkka": {
+    "kategori": "park",
+    "kilde": "osm"
+  },
+  "Vulkan": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Vålerenga": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Vår frelsers gravlund": {
+    "kategori": "kollektiv",
+    "navn": "Vår Frelsers gravlund (A)",
+    "kilde": "osm"
+  },
+  "ZZ pizza": {
+    "kategori": "restaurant",
+    "navn": "ZZ Pizza",
+    "kilde": "osm"
+  },
+  "Østensjø": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Øyungen": {
+    "kategori": "nabolag",
+    "navn": "Øyungen hyttefelt",
+    "kilde": "osm"
+  },
+  "Årvoll": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Årvoll senter": {
+    "kategori": "butikk",
+    "kilde": "osm"
+  },
+  "Årvoll skole": {
+    "kategori": "skole",
+    "kilde": "osm"
+  },
+  "Årvollveien": {
+    "kategori": "kollektiv",
+    "kilde": "osm"
+  },
+  "Åsen": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  }
+}
