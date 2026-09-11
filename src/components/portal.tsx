@@ -11,6 +11,7 @@ import {
   type SearchPhoto as Photo,
   type Suggestion,
 } from "@/lib/search-client";
+import AreaMap, { KATEGORI_FARGER, type MapDot } from "@/components/area-map";
 
 /** Ett magasinoppslag: én kategori, maks tre bilder. */
 type SpreadData = {
@@ -39,7 +40,9 @@ function buildSpreads(groups: Group[]): SpreadData[] {
     const mine: SpreadData[] = [];
     while (queue.length) {
       const isFirstOverall = spreads.length + mine.length === 0;
-      const take = isFirstOverall ? PHOTOS_PER_SPREAD - 1 : PHOTOS_PER_SPREAD;
+      // Første oppslag: kartet tar hovedplassen og områdeteksten den tredje,
+      // så bare én bildeplass er igjen.
+      const take = isFirstOverall ? 1 : PHOTOS_PER_SPREAD;
       mine.push({
         category: group.category,
         photos: queue.splice(0, take),
@@ -208,7 +211,13 @@ export default function Portal({
   const [warning, setWarning] = useState<string | null>(null);
   const [spreads, setSpreads] = useState<SpreadData[] | null>(null);
   const [areaText, setAreaText] = useState("");
-  const [searched, setSearched] = useState<{ address: string; radius: number } | null>(null);
+  const [mapDots, setMapDots] = useState<MapDot[]>([]);
+  const [mapLegend, setMapLegend] = useState<Array<{ id: string; label: string }>>([]);
+  const [searched, setSearched] = useState<{
+    address: string;
+    radius: number;
+    center: { lat: number; lng: number };
+  } | null>(null);
   const [page, setPage] = useState(0); // 0 = forside
 
   // Koordinater fra et valgt adresseforslag, så vi slipper å geokode på nytt.
@@ -245,8 +254,14 @@ export default function Portal({
         const built = buildSpreads(data.groups);
         setSpreads(built);
         setAreaText(composeAreaText(data.groups, trimmed, radiusMeters));
+        setMapDots(
+          data.groups.flatMap((g) =>
+            g.photos.map((ph) => ({ lat: ph.lat, lng: ph.lng, category: g.category.id }))
+          )
+        );
+        setMapLegend(data.groups.map((g) => ({ id: g.category.id, label: g.category.label })));
         setWarning(data.warning ?? null);
-        setSearched({ address: trimmed, radius: radiusMeters });
+        setSearched({ address: trimmed, radius: radiusMeters, center: data.center });
         setPage(built.length > 0 ? 1 : 0);
       } catch (err) {
         setError(
@@ -285,6 +300,9 @@ export default function Portal({
           totalPages={totalPages}
           address={searched?.address ?? ""}
           radius={searched?.radius ?? radius}
+          center={searched?.center ?? null}
+          mapDots={mapDots}
+          mapLegend={mapLegend}
           areaText={areaText}
           goTo={goTo}
         />
@@ -600,6 +618,9 @@ function Spread({
   totalPages,
   address,
   radius,
+  center,
+  mapDots,
+  mapLegend,
   areaText,
   goTo,
 }: {
@@ -608,11 +629,17 @@ function Spread({
   totalPages: number;
   address: string;
   radius: number;
+  center: { lat: number; lng: number } | null;
+  mapDots: MapDot[];
+  mapLegend: Array<{ id: string; label: string }>;
   areaText: string;
   goTo: (n: number) => void;
 }) {
   const [hero, ...rest] = spread.photos;
-  const soloHero = rest.length === 0;
+  // På første oppslag står kartet i hovedplassen; alle fotoene går til høyre.
+  const heroIsMap = spread.intro && center !== null;
+  const rightPhotos = heroIsMap ? spread.photos : rest;
+  const soloHero = !heroIsMap && rest.length === 0;
 
   return (
     <section className="flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14 lg:h-screen">
@@ -622,9 +649,32 @@ function Spread({
       </header>
 
       <div className="grid min-h-0 flex-1 grid-cols-1 gap-10 py-8 lg:grid-cols-12 lg:gap-12">
-        {/* Venstre: hovedbildet med tittel og brødtekst under. */}
+        {/* Venstre: kartet (første oppslag) eller hovedbildet, med tekst under. */}
         <div className={`flex min-h-0 flex-col ${soloHero ? "lg:col-span-9" : "lg:col-span-7"}`}>
-          <Frame photo={hero} className="min-h-[220px] flex-1" />
+          {heroIsMap && center ? (
+            <figure className="flex min-h-0 flex-1 flex-col">
+              <div className="min-h-[220px] flex-1 overflow-hidden border border-rule">
+                <AreaMap center={center} radiusMeters={radius} dots={mapDots} />
+              </div>
+              <figcaption className="mt-2 flex shrink-0 flex-wrap items-baseline justify-between gap-x-3 gap-y-1 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
+                <span className="truncate">{address.split(",")[0]}</span>
+                <span className="flex shrink-0 items-center gap-3">
+                  {mapLegend.map((item) => (
+                    <span key={item.id} className="flex items-center gap-1.5">
+                      <span
+                        className="inline-block h-2 w-2 rounded-full"
+                        style={{ background: KATEGORI_FARGER[item.id] ?? KATEGORI_FARGER.annet }}
+                      />
+                      {item.label}
+                    </span>
+                  ))}
+                  <span>{formatRadius(radius)} gangavstand</span>
+                </span>
+              </figcaption>
+            </figure>
+          ) : (
+            <Frame photo={hero} className="min-h-[220px] flex-1" />
+          )}
 
           <div className="mt-6 grid shrink-0 grid-cols-1 gap-5 sm:grid-cols-12">
             <h2 className="text-xl font-semibold uppercase leading-[0.95] tracking-tight sm:col-span-4">
@@ -646,7 +696,7 @@ function Spread({
           </span>
 
           <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-5">
-            {rest.map((photo) => (
+            {rightPhotos.map((photo) => (
               <Frame key={photo.id} photo={photo} className="min-h-[150px] flex-1" />
             ))}
             {/* På første oppslag står områdeteksten der det tredje bildet
@@ -665,7 +715,14 @@ function Spread({
 
       <footer className="flex shrink-0 items-center justify-between border-t border-rule pt-5 text-[10px] uppercase tracking-[0.2em] text-ink-soft">
         <span>Side {pageLabel(page + 1)}</span>
-        <span className="hidden sm:block">Områdebilder</span>
+        <button
+          type="button"
+          onClick={() => goTo(0)}
+          title="Til forsiden"
+          className="hidden uppercase tracking-[0.2em] transition-colors hover:text-ink sm:block"
+        >
+          Områdebilder
+        </button>
         <Nav page={page} totalPages={totalPages} goTo={goTo} />
       </footer>
     </section>

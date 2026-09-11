@@ -20,6 +20,9 @@ export type SearchPhoto = {
   placeName: string;
   distanceMeters: number;
   thumb: string | null;
+  /** Til kartet på første oppslag. */
+  lat: number;
+  lng: number;
 };
 
 export type Group = { category: Category; photos: SearchPhoto[] };
@@ -116,6 +119,8 @@ export async function search(
         placeName: p.placeName,
         distanceMeters: Math.round(p.distanceMeters),
         thumb: p.thumb ? withBasePath(p.thumb) : null,
+        lat: p.lat,
+        lng: p.lng,
       })),
   })).filter((g) => g.photos.length > 0);
 

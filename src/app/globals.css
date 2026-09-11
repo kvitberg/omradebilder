@@ -67,3 +67,17 @@ body {
 .cover-input {
   font-size: clamp(1.05rem, 1.35vw, 1.6rem);
 }
+
+/*
+ * Kartet på første oppslag: OSM-flisene avmettes så kartet leses som en
+ * figur i papirpaletten. Filteret ligger kun på flislaget — sirkelen og
+ * prikkene beholder fargene sine.
+ */
+.area-map .leaflet-tile-pane {
+  filter: grayscale(1) brightness(1.07) contrast(0.88);
+}
+.area-map .leaflet-control-attribution {
+  background: rgba(242, 240, 236, 0.8);
+  color: var(--ink-soft);
+  font-size: 9px;
+}
