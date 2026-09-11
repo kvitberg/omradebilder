@@ -62,19 +62,24 @@ function buildSpreads(groups: Group[]): SpreadData[] {
 
 /* -------------------------------------------------------- Områdetekst */
 
+/**
+ * Entallsformen står med artikkel, siden norsk skiller kjønn: det heter
+ * «én kafé», men «ett kollektivpunkt».
+ */
 const KATEGORI_BOYNING: Record<string, [string, string]> = {
-  kafe: ["kafé", "kafeer"],
-  restaurant: ["restaurant", "restauranter"],
-  park: ["park", "parker"],
-  natur: ["naturperle", "naturperler"],
-  kollektiv: ["kollektivpunkt", "kollektivpunkter"],
-  skole: ["skole", "skoler og barnehager"],
-  kultur: ["kulturtilbud", "kulturtilbud"],
-  butikk: ["butikk", "butikker"],
-  nabolag: ["nabolagsmotiv", "nabolagsmotiver"],
-  fasade: ["fasade", "fasader"],
-  takterrasse: ["takterrasse", "takterrasser"],
-  bakgard: ["bakgård", "bakgårder"],
+  kafe: ["én kafé", "kafeer"],
+  restaurant: ["én restaurant", "restauranter"],
+  park: ["én park", "parker"],
+  natur: ["én naturperle", "naturperler"],
+  kollektiv: ["ett kollektivpunkt", "kollektivpunkter"],
+  skole: ["én skole", "skoler og barnehager"],
+  kultur: ["ett kulturtilbud", "kulturtilbud"],
+  aktivitet: ["ett idrettsanlegg", "idrettsanlegg"],
+  butikk: ["én butikk", "butikker"],
+  nabolag: ["ett nabolagsmotiv", "nabolagsmotiver"],
+  fasade: ["én fasade", "fasader"],
+  takterrasse: ["én takterrasse", "takterrasser"],
+  bakgard: ["én bakgård", "bakgårder"],
 };
 
 /** Ser navnet ut som en ren gateadresse ("Kjølberggata 17B")? */
@@ -191,10 +196,10 @@ function composeAreaText(groups: Group[], address: string, radiusMeters: number)
     if (g.category.id === "annet") continue;
     const n = g.photos.length;
     const [entall, flertall] = KATEGORI_BOYNING[g.category.id] ?? [
-      g.category.label.toLowerCase(),
+      `én ${g.category.label.toLowerCase()}`,
       g.category.label.toLowerCase(),
     ];
-    deler.push(n === 1 ? `én ${entall}` : `${n} ${flertall}`);
+    deler.push(n === 1 ? entall : `${n} ${flertall}`);
   }
   if (deler.length > 1) {
     const liste = `${deler.slice(0, -1).join(", ")} og ${deler[deler.length - 1]}`;
