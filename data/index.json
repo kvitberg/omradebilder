@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T20:00:21.801Z",
+  "generatedAt": "2026-09-12T21:36:25.811Z",
   "photos": [
     {
       "id": "id:TSjIbtJ56bAAAAAAAAc6Mg",
@@ -34118,17 +34118,6 @@
       "thumb": "/thumbs/TSjIbtJ56bAAAAAAABNqzg.webp"
     },
     {
-      "id": "immich:620e409c-ae52-418c-9fed-c3869c454958",
-      "dropboxPath": "immich://620e409c-ae52-418c-9fed-c3869c454958",
-      "category": "annet",
-      "placeName": "Godt brød - Økologisk Bakeverksted",
-      "lat": 59.925792,
-      "lng": 10.731219,
-      "locationSource": "exif",
-      "clientModified": "2026-01-08T09:16:45.167+00:00",
-      "thumb": "/thumbs/immich620e409c-ae52-418c-9fed-c3869c454958.webp"
-    },
-    {
       "id": "immich:71b062ea-2afb-4ad0-9194-e0d93e15b13b",
       "dropboxPath": "immich://71b062ea-2afb-4ad0-9194-e0d93e15b13b",
       "category": "annet",
@@ -34151,6 +34140,17 @@
       "thumb": "/thumbs/immichb5c8946f-78f0-4ff4-8610-b424553e295f.webp"
     },
     {
+      "id": "immich:620e409c-ae52-418c-9fed-c3869c454958",
+      "dropboxPath": "immich://620e409c-ae52-418c-9fed-c3869c454958",
+      "category": "annet",
+      "placeName": "Godt brød - Økologisk Bakeverksted",
+      "lat": 59.925792,
+      "lng": 10.731219,
+      "locationSource": "exif",
+      "clientModified": "2026-01-08T09:16:45.167+00:00",
+      "thumb": "/thumbs/immich620e409c-ae52-418c-9fed-c3869c454958.webp"
+    },
+    {
       "id": "immich:bbf15beb-6bb7-4416-9057-ecfc8f19193c",
       "dropboxPath": "immich://bbf15beb-6bb7-4416-9057-ecfc8f19193c",
       "category": "annet",
@@ -34162,92 +34162,81 @@
       "thumb": "/thumbs/immichbbf15beb-6bb7-4416-9057-ecfc8f19193c.webp"
     },
     {
-      "id": "immich:9f091b69-b965-4a2f-aaba-0f34924c54d3",
-      "dropboxPath": "immich://9f091b69-b965-4a2f-aaba-0f34924c54d3",
-      "category": "annet",
-      "placeName": "00221-31.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-10-08T13:56:37+00:00",
-      "thumb": "/thumbs/immich9f091b69-b965-4a2f-aaba-0f34924c54d3.webp"
-    },
-    {
       "id": "immich:e35472da-8d88-4f36-a173-789b190e8546",
       "dropboxPath": "immich://e35472da-8d88-4f36-a173-789b190e8546",
-      "category": "annet",
-      "placeName": "00221-32.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "aktivitet",
+      "placeName": "Arkitekt Rivertz' plass",
+      "lat": 59.934723,
+      "lng": 10.750744,
+      "locationSource": "exif",
       "clientModified": "2025-10-08T14:03:19+00:00",
       "thumb": "/thumbs/immiche35472da-8d88-4f36-a173-789b190e8546.webp"
     },
     {
-      "id": "immich:2551298d-25eb-4522-b7ee-a496b91e6d83",
-      "dropboxPath": "immich://2551298d-25eb-4522-b7ee-a496b91e6d83",
-      "category": "annet",
-      "placeName": "00221-29.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-10-08T13:55:42+00:00",
-      "thumb": "/thumbs/immich2551298d-25eb-4522-b7ee-a496b91e6d83.webp"
-    },
-    {
       "id": "immich:1b7dbe96-49ca-4d45-95a2-36730b10644d",
       "dropboxPath": "immich://1b7dbe96-49ca-4d45-95a2-36730b10644d",
-      "category": "annet",
-      "placeName": "00221-30.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "bakgard",
+      "placeName": "Fjørtofts gate 7",
+      "lat": 59.9349,
+      "lng": 10.7529,
+      "locationSource": "exif",
       "clientModified": "2025-10-08T13:56:02+00:00",
       "thumb": "/thumbs/immich1b7dbe96-49ca-4d45-95a2-36730b10644d.webp"
     },
     {
       "id": "immich:61ad9d68-bd80-4e97-8ab0-5859301c4b8e",
       "dropboxPath": "immich://61ad9d68-bd80-4e97-8ab0-5859301c4b8e",
-      "category": "annet",
-      "placeName": "00221-27.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "bakgard",
+      "placeName": "Fjørtofts gate 7",
+      "lat": 59.9349,
+      "lng": 10.7529,
+      "locationSource": "exif",
       "clientModified": "2025-10-08T13:53:55.69+00:00",
       "thumb": "/thumbs/immich61ad9d68-bd80-4e97-8ab0-5859301c4b8e.webp"
     },
     {
       "id": "immich:276fda5a-d1ae-4095-be9b-fe6a316f40c4",
       "dropboxPath": "immich://276fda5a-d1ae-4095-be9b-fe6a316f40c4",
-      "category": "annet",
-      "placeName": "00221-3.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "fasade",
+      "placeName": "Fjørtofts gate 7",
+      "lat": 59.9349,
+      "lng": 10.7529,
+      "locationSource": "exif",
       "clientModified": "2025-10-08T12:49:41.16+00:00",
       "thumb": "/thumbs/immich276fda5a-d1ae-4095-be9b-fe6a316f40c4.webp"
     },
     {
       "id": "immich:c270523c-1048-48e1-85e0-b0987cbdbfa3",
       "dropboxPath": "immich://c270523c-1048-48e1-85e0-b0987cbdbfa3",
-      "category": "annet",
-      "placeName": "00221-2.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "fasade",
+      "placeName": "Fjørtofts gate 7",
+      "lat": 59.9349,
+      "lng": 10.7529,
+      "locationSource": "exif",
       "clientModified": "2025-10-08T12:47:43.16+00:00",
       "thumb": "/thumbs/immichc270523c-1048-48e1-85e0-b0987cbdbfa3.webp"
     },
     {
       "id": "immich:5cc073b7-45b1-4381-b900-a7fb2a40e25e",
       "dropboxPath": "immich://5cc073b7-45b1-4381-b900-a7fb2a40e25e",
+      "category": "fasade",
+      "placeName": "Fjørtofts gate 7",
+      "lat": 59.9349,
+      "lng": 10.7529,
+      "locationSource": "exif",
+      "clientModified": "2025-10-08T12:47:15+00:00",
+      "thumb": "/thumbs/immich5cc073b7-45b1-4381-b900-a7fb2a40e25e.webp"
+    },
+    {
+      "id": "immich:7398e9f7-a8b2-4dd7-a2cb-fcfb7a7417ef",
+      "dropboxPath": "immich://7398e9f7-a8b2-4dd7-a2cb-fcfb7a7417ef",
       "category": "annet",
-      "placeName": "00221.jpg",
+      "placeName": "00222-39.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-10-08T12:47:15+00:00",
-      "thumb": "/thumbs/immich5cc073b7-45b1-4381-b900-a7fb2a40e25e.webp"
+      "clientModified": "2025-10-08T12:23:40.78+00:00",
+      "thumb": "/thumbs/immich7398e9f7-a8b2-4dd7-a2cb-fcfb7a7417ef.webp"
     },
     {
       "id": "immich:522aff22-7f8a-4815-ba2e-0b97cd275df4",
@@ -34261,15 +34250,15 @@
       "thumb": "/thumbs/immich522aff22-7f8a-4815-ba2e-0b97cd275df4.webp"
     },
     {
-      "id": "immich:7398e9f7-a8b2-4dd7-a2cb-fcfb7a7417ef",
-      "dropboxPath": "immich://7398e9f7-a8b2-4dd7-a2cb-fcfb7a7417ef",
+      "id": "immich:8057719f-e130-4916-abf0-051ba51c10d0",
+      "dropboxPath": "immich://8057719f-e130-4916-abf0-051ba51c10d0",
       "category": "annet",
-      "placeName": "00222-39.jpg",
+      "placeName": "00222-37.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-10-08T12:23:40.78+00:00",
-      "thumb": "/thumbs/immich7398e9f7-a8b2-4dd7-a2cb-fcfb7a7417ef.webp"
+      "clientModified": "2025-10-08T12:22:53.31+00:00",
+      "thumb": "/thumbs/immich8057719f-e130-4916-abf0-051ba51c10d0.webp"
     },
     {
       "id": "immich:2fb6b5c9-1ca4-48f6-8430-b501127a3004",
@@ -34292,17 +34281,6 @@
       "locationSource": "none",
       "clientModified": "2025-10-08T12:13:17.13+00:00",
       "thumb": "/thumbs/immich6925d909-692e-4444-906d-660a29e81d9c.webp"
-    },
-    {
-      "id": "immich:8057719f-e130-4916-abf0-051ba51c10d0",
-      "dropboxPath": "immich://8057719f-e130-4916-abf0-051ba51c10d0",
-      "category": "annet",
-      "placeName": "00222-37.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-10-08T12:22:53.31+00:00",
-      "thumb": "/thumbs/immich8057719f-e130-4916-abf0-051ba51c10d0.webp"
     },
     {
       "id": "immich:388a9273-696a-49d9-aa88-5dd8d1f1785d",
@@ -34349,17 +34327,6 @@
       "thumb": "/thumbs/immich0b4299c5-7910-4769-ba94-a52fca85ab7c.webp"
     },
     {
-      "id": "immich:51639d7b-8030-452f-a4a1-29abdd1fd495",
-      "dropboxPath": "immich://51639d7b-8030-452f-a4a1-29abdd1fd495",
-      "category": "annet",
-      "placeName": "00221-28.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-10-08T13:55:09.51+00:00",
-      "thumb": "/thumbs/immich51639d7b-8030-452f-a4a1-29abdd1fd495.webp"
-    },
-    {
       "id": "immich:0254c5bb-01fe-4737-8b00-47fc69b0268b",
       "dropboxPath": "immich://0254c5bb-01fe-4737-8b00-47fc69b0268b",
       "category": "annet",
@@ -34404,17 +34371,6 @@
       "thumb": "/thumbs/immich73c907a9-72ae-4263-b541-c3c2d31047b4.webp"
     },
     {
-      "id": "immich:cf5e6dad-a380-44de-9545-27d95fdfc381",
-      "dropboxPath": "immich://cf5e6dad-a380-44de-9545-27d95fdfc381",
-      "category": "annet",
-      "placeName": "00213-33.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-10-03T09:13:14.95+00:00",
-      "thumb": "/thumbs/immichcf5e6dad-a380-44de-9545-27d95fdfc381.webp"
-    },
-    {
       "id": "immich:42171817-7277-412c-ba62-3840e8f6ad88",
       "dropboxPath": "immich://42171817-7277-412c-ba62-3840e8f6ad88",
       "category": "annet",
@@ -34426,6 +34382,17 @@
       "thumb": "/thumbs/immich42171817-7277-412c-ba62-3840e8f6ad88.webp"
     },
     {
+      "id": "immich:cf5e6dad-a380-44de-9545-27d95fdfc381",
+      "dropboxPath": "immich://cf5e6dad-a380-44de-9545-27d95fdfc381",
+      "category": "annet",
+      "placeName": "00213-33.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-10-03T09:13:14.95+00:00",
+      "thumb": "/thumbs/immichcf5e6dad-a380-44de-9545-27d95fdfc381.webp"
+    },
+    {
       "id": "immich:c0757cdb-720f-41ad-97a9-a8683e92f487",
       "dropboxPath": "immich://c0757cdb-720f-41ad-97a9-a8683e92f487",
       "category": "annet",
@@ -34435,6 +34402,28 @@
       "locationSource": "none",
       "clientModified": "2025-10-03T09:12:55.12+00:00",
       "thumb": "/thumbs/immichc0757cdb-720f-41ad-97a9-a8683e92f487.webp"
+    },
+    {
+      "id": "immich:347dc1b6-dbbd-4077-88d2-b9a5a6ba24bf",
+      "dropboxPath": "immich://347dc1b6-dbbd-4077-88d2-b9a5a6ba24bf",
+      "category": "annet",
+      "placeName": "00213-31.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-10-03T09:12:24.21+00:00",
+      "thumb": "/thumbs/immich347dc1b6-dbbd-4077-88d2-b9a5a6ba24bf.webp"
+    },
+    {
+      "id": "immich:7eab27c9-4331-4b8f-9418-cbcb1fac4cf9",
+      "dropboxPath": "immich://7eab27c9-4331-4b8f-9418-cbcb1fac4cf9",
+      "category": "annet",
+      "placeName": "00213-30.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-10-03T09:11:08.12+00:00",
+      "thumb": "/thumbs/immich7eab27c9-4331-4b8f-9418-cbcb1fac4cf9.webp"
     },
     {
       "id": "immich:f1a9389d-a36b-49c9-9047-b251e89fced0",
@@ -34457,17 +34446,6 @@
       "locationSource": "none",
       "clientModified": "2025-10-02T08:09:55.47+00:00",
       "thumb": "/thumbs/immich8fc15590-e824-416a-b012-b439895f9d0d.webp"
-    },
-    {
-      "id": "immich:347dc1b6-dbbd-4077-88d2-b9a5a6ba24bf",
-      "dropboxPath": "immich://347dc1b6-dbbd-4077-88d2-b9a5a6ba24bf",
-      "category": "annet",
-      "placeName": "00213-31.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-10-03T09:12:24.21+00:00",
-      "thumb": "/thumbs/immich347dc1b6-dbbd-4077-88d2-b9a5a6ba24bf.webp"
     },
     {
       "id": "immich:f7ff5f32-2372-4f92-a368-8f6b71fdd399",
@@ -34558,6 +34536,28 @@
       "thumb": "/thumbs/immichb850ff82-262f-443f-a0dc-df98176251ce.webp"
     },
     {
+      "id": "immich:96a500fc-a911-4d9c-8456-a0dabde732e6",
+      "dropboxPath": "immich://96a500fc-a911-4d9c-8456-a0dabde732e6",
+      "category": "annet",
+      "placeName": "00208-48.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-30T13:16:06.17+00:00",
+      "thumb": "/thumbs/immich96a500fc-a911-4d9c-8456-a0dabde732e6.webp"
+    },
+    {
+      "id": "immich:2551298d-25eb-4522-b7ee-a496b91e6d83",
+      "dropboxPath": "immich://2551298d-25eb-4522-b7ee-a496b91e6d83",
+      "category": "bakgard",
+      "placeName": "Fjørtofts gate 7",
+      "lat": 59.9349,
+      "lng": 10.7529,
+      "locationSource": "exif",
+      "clientModified": "2025-10-08T13:55:42+00:00",
+      "thumb": "/thumbs/immich2551298d-25eb-4522-b7ee-a496b91e6d83.webp"
+    },
+    {
       "id": "immich:48e1be2b-f7bf-4e81-8ea3-4481d1961e19",
       "dropboxPath": "immich://48e1be2b-f7bf-4e81-8ea3-4481d1961e19",
       "category": "annet",
@@ -34567,6 +34567,17 @@
       "locationSource": "none",
       "clientModified": "2025-09-30T13:15:48.28+00:00",
       "thumb": "/thumbs/immich48e1be2b-f7bf-4e81-8ea3-4481d1961e19.webp"
+    },
+    {
+      "id": "immich:8cec0d13-18e7-4c95-9223-223ebcc40ed0",
+      "dropboxPath": "immich://8cec0d13-18e7-4c95-9223-223ebcc40ed0",
+      "category": "annet",
+      "placeName": "00210-70.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-30T12:02:30.65+00:00",
+      "thumb": "/thumbs/immich8cec0d13-18e7-4c95-9223-223ebcc40ed0.webp"
     },
     {
       "id": "immich:9e8b3080-7e42-40e3-bc32-e907701201be",
@@ -34591,48 +34602,15 @@
       "thumb": "/thumbs/immich8021a3e6-1e15-466d-b929-16b6718f3a09.webp"
     },
     {
-      "id": "immich:96a500fc-a911-4d9c-8456-a0dabde732e6",
-      "dropboxPath": "immich://96a500fc-a911-4d9c-8456-a0dabde732e6",
+      "id": "immich:d4d683dc-e7ae-4cb2-925b-63d29558bd4d",
+      "dropboxPath": "immich://d4d683dc-e7ae-4cb2-925b-63d29558bd4d",
       "category": "annet",
-      "placeName": "00208-48.jpg",
+      "placeName": "00210-4.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-09-30T13:16:06.17+00:00",
-      "thumb": "/thumbs/immich96a500fc-a911-4d9c-8456-a0dabde732e6.webp"
-    },
-    {
-      "id": "immich:8cec0d13-18e7-4c95-9223-223ebcc40ed0",
-      "dropboxPath": "immich://8cec0d13-18e7-4c95-9223-223ebcc40ed0",
-      "category": "annet",
-      "placeName": "00210-70.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-30T12:02:30.65+00:00",
-      "thumb": "/thumbs/immich8cec0d13-18e7-4c95-9223-223ebcc40ed0.webp"
-    },
-    {
-      "id": "immich:4dcd95b7-3142-49f8-86b9-ad91917b8f3d",
-      "dropboxPath": "immich://4dcd95b7-3142-49f8-86b9-ad91917b8f3d",
-      "category": "annet",
-      "placeName": "00210-2.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-30T10:15:09.43+00:00",
-      "thumb": "/thumbs/immich4dcd95b7-3142-49f8-86b9-ad91917b8f3d.webp"
-    },
-    {
-      "id": "immich:7eab27c9-4331-4b8f-9418-cbcb1fac4cf9",
-      "dropboxPath": "immich://7eab27c9-4331-4b8f-9418-cbcb1fac4cf9",
-      "category": "annet",
-      "placeName": "00213-30.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-10-03T09:11:08.12+00:00",
-      "thumb": "/thumbs/immich7eab27c9-4331-4b8f-9418-cbcb1fac4cf9.webp"
+      "clientModified": "2025-09-30T10:16:52.53+00:00",
+      "thumb": "/thumbs/immichd4d683dc-e7ae-4cb2-925b-63d29558bd4d.webp"
     },
     {
       "id": "immich:d5827796-08e5-46b7-b70a-9b674be27f03",
@@ -34646,6 +34624,17 @@
       "thumb": "/thumbs/immichd5827796-08e5-46b7-b70a-9b674be27f03.webp"
     },
     {
+      "id": "immich:4dcd95b7-3142-49f8-86b9-ad91917b8f3d",
+      "dropboxPath": "immich://4dcd95b7-3142-49f8-86b9-ad91917b8f3d",
+      "category": "annet",
+      "placeName": "00210-2.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-30T10:15:09.43+00:00",
+      "thumb": "/thumbs/immich4dcd95b7-3142-49f8-86b9-ad91917b8f3d.webp"
+    },
+    {
       "id": "immich:12e64977-a923-450c-9f5b-0db90993c548",
       "dropboxPath": "immich://12e64977-a923-450c-9f5b-0db90993c548",
       "category": "annet",
@@ -34657,15 +34646,15 @@
       "thumb": "/thumbs/immich12e64977-a923-450c-9f5b-0db90993c548.webp"
     },
     {
-      "id": "immich:d4d683dc-e7ae-4cb2-925b-63d29558bd4d",
-      "dropboxPath": "immich://d4d683dc-e7ae-4cb2-925b-63d29558bd4d",
+      "id": "immich:6f8b77f9-0eb3-40bf-8b72-1c0fd9c1e1d2",
+      "dropboxPath": "immich://6f8b77f9-0eb3-40bf-8b72-1c0fd9c1e1d2",
       "category": "annet",
-      "placeName": "00210-4.jpg",
+      "placeName": "00204-43.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-09-30T10:16:52.53+00:00",
-      "thumb": "/thumbs/immichd4d683dc-e7ae-4cb2-925b-63d29558bd4d.webp"
+      "clientModified": "2025-09-25T11:08:44.24+00:00",
+      "thumb": "/thumbs/immich6f8b77f9-0eb3-40bf-8b72-1c0fd9c1e1d2.webp"
     },
     {
       "id": "immich:7b2b3bdb-9cc4-4244-a204-7a3d2cd0c9e0",
@@ -34677,17 +34666,6 @@
       "locationSource": "none",
       "clientModified": "2025-09-25T11:07:41.24+00:00",
       "thumb": "/thumbs/immich7b2b3bdb-9cc4-4244-a204-7a3d2cd0c9e0.webp"
-    },
-    {
-      "id": "immich:6f8b77f9-0eb3-40bf-8b72-1c0fd9c1e1d2",
-      "dropboxPath": "immich://6f8b77f9-0eb3-40bf-8b72-1c0fd9c1e1d2",
-      "category": "annet",
-      "placeName": "00204-43.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-25T11:08:44.24+00:00",
-      "thumb": "/thumbs/immich6f8b77f9-0eb3-40bf-8b72-1c0fd9c1e1d2.webp"
     },
     {
       "id": "immich:9f707841-96f7-4650-b7e4-d0d2cd4976ed",
@@ -34745,6 +34723,17 @@
       "thumb": "/thumbs/immichecd25768-e30e-41bf-8ccc-3303061937b7.webp"
     },
     {
+      "id": "immich:8638f4a3-5e4a-4630-b322-01012f985ea7",
+      "dropboxPath": "immich://8638f4a3-5e4a-4630-b322-01012f985ea7",
+      "category": "annet",
+      "placeName": "00194-50.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-22T18:36:15.8+00:00",
+      "thumb": "/thumbs/immich8638f4a3-5e4a-4630-b322-01012f985ea7.webp"
+    },
+    {
       "id": "immich:209703ff-612a-40f6-a4c6-2f755cafb5b4",
       "dropboxPath": "immich://209703ff-612a-40f6-a4c6-2f755cafb5b4",
       "category": "annet",
@@ -34756,15 +34745,15 @@
       "thumb": "/thumbs/immich209703ff-612a-40f6-a4c6-2f755cafb5b4.webp"
     },
     {
-      "id": "immich:8638f4a3-5e4a-4630-b322-01012f985ea7",
-      "dropboxPath": "immich://8638f4a3-5e4a-4630-b322-01012f985ea7",
-      "category": "annet",
-      "placeName": "00194-50.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-22T18:36:15.8+00:00",
-      "thumb": "/thumbs/immich8638f4a3-5e4a-4630-b322-01012f985ea7.webp"
+      "id": "immich:9f091b69-b965-4a2f-aaba-0f34924c54d3",
+      "dropboxPath": "immich://9f091b69-b965-4a2f-aaba-0f34924c54d3",
+      "category": "bakgard",
+      "placeName": "Fjørtofts gate 7",
+      "lat": 59.934872,
+      "lng": 10.752945,
+      "locationSource": "exif",
+      "clientModified": "2025-10-08T13:56:37+00:00",
+      "thumb": "/thumbs/immich9f091b69-b965-4a2f-aaba-0f34924c54d3.webp"
     },
     {
       "id": "immich:1150e4e4-4218-4369-90ef-fffe9982b741",
@@ -34811,17 +34800,6 @@
       "thumb": "/thumbs/immich61c24d41-e3a0-4a5f-b300-1f9e15edd0b4.webp"
     },
     {
-      "id": "immich:d6b53964-0e8b-4917-ab9e-e73b84cf610d",
-      "dropboxPath": "immich://d6b53964-0e8b-4917-ab9e-e73b84cf610d",
-      "category": "annet",
-      "placeName": "00194-32.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-22T13:34:39.02+00:00",
-      "thumb": "/thumbs/immichd6b53964-0e8b-4917-ab9e-e73b84cf610d.webp"
-    },
-    {
       "id": "immich:95292942-6fee-4fb2-8ffb-f7c16c7d0706",
       "dropboxPath": "immich://95292942-6fee-4fb2-8ffb-f7c16c7d0706",
       "category": "annet",
@@ -34831,6 +34809,17 @@
       "locationSource": "none",
       "clientModified": "2025-09-22T13:34:59.25+00:00",
       "thumb": "/thumbs/immich95292942-6fee-4fb2-8ffb-f7c16c7d0706.webp"
+    },
+    {
+      "id": "immich:d6b53964-0e8b-4917-ab9e-e73b84cf610d",
+      "dropboxPath": "immich://d6b53964-0e8b-4917-ab9e-e73b84cf610d",
+      "category": "annet",
+      "placeName": "00194-32.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-22T13:34:39.02+00:00",
+      "thumb": "/thumbs/immichd6b53964-0e8b-4917-ab9e-e73b84cf610d.webp"
     },
     {
       "id": "immich:f67044d8-fc25-4094-9eac-0ea6da02a86b",
@@ -34899,17 +34888,6 @@
       "thumb": "/thumbs/immich9ed82602-9c3d-45e5-a406-500e6767fbd8.webp"
     },
     {
-      "id": "immich:d9e8711f-0e96-42e2-b874-d92bacb6091c",
-      "dropboxPath": "immich://d9e8711f-0e96-42e2-b874-d92bacb6091c",
-      "category": "annet",
-      "placeName": "00188-14.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-17T15:17:55.43+00:00",
-      "thumb": "/thumbs/immichd9e8711f-0e96-42e2-b874-d92bacb6091c.webp"
-    },
-    {
       "id": "immich:70cb1f20-2a39-4510-bfe1-0c3b117e1bc7",
       "dropboxPath": "immich://70cb1f20-2a39-4510-bfe1-0c3b117e1bc7",
       "category": "annet",
@@ -34919,6 +34897,17 @@
       "locationSource": "none",
       "clientModified": "2025-09-17T18:11:26.06+00:00",
       "thumb": "/thumbs/immich70cb1f20-2a39-4510-bfe1-0c3b117e1bc7.webp"
+    },
+    {
+      "id": "immich:d9e8711f-0e96-42e2-b874-d92bacb6091c",
+      "dropboxPath": "immich://d9e8711f-0e96-42e2-b874-d92bacb6091c",
+      "category": "annet",
+      "placeName": "00188-14.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-17T15:17:55.43+00:00",
+      "thumb": "/thumbs/immichd9e8711f-0e96-42e2-b874-d92bacb6091c.webp"
     },
     {
       "id": "immich:8106ab5e-43f7-4ef3-b75e-2d0e25e36418",
@@ -35031,17 +35020,6 @@
       "thumb": "/thumbs/immich3b77f1ca-197f-40e7-af2e-ecc2a95a213d.webp"
     },
     {
-      "id": "immich:146e1dc2-574f-40ca-98ad-24bdf9ce86a4",
-      "dropboxPath": "immich://146e1dc2-574f-40ca-98ad-24bdf9ce86a4",
-      "category": "annet",
-      "placeName": "00188-48.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-17T11:46:33+00:00",
-      "thumb": "/thumbs/immich146e1dc2-574f-40ca-98ad-24bdf9ce86a4.webp"
-    },
-    {
       "id": "immich:f6f49858-46fa-435b-bf22-a1881c755650",
       "dropboxPath": "immich://f6f49858-46fa-435b-bf22-a1881c755650",
       "category": "annet",
@@ -35051,6 +35029,17 @@
       "locationSource": "none",
       "clientModified": "2025-09-17T11:49:16.12+00:00",
       "thumb": "/thumbs/immichf6f49858-46fa-435b-bf22-a1881c755650.webp"
+    },
+    {
+      "id": "immich:146e1dc2-574f-40ca-98ad-24bdf9ce86a4",
+      "dropboxPath": "immich://146e1dc2-574f-40ca-98ad-24bdf9ce86a4",
+      "category": "annet",
+      "placeName": "00188-48.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-17T11:46:33+00:00",
+      "thumb": "/thumbs/immich146e1dc2-574f-40ca-98ad-24bdf9ce86a4.webp"
     },
     {
       "id": "immich:a95af4a6-e684-4322-8347-399f4e3d4eaa",
@@ -35097,28 +35086,6 @@
       "thumb": "/thumbs/immich3f706821-0399-4ef5-a2dc-3475dfcc7a5f.webp"
     },
     {
-      "id": "immich:b524956d-1adf-4b59-8ba8-0468965946f2",
-      "dropboxPath": "immich://b524956d-1adf-4b59-8ba8-0468965946f2",
-      "category": "annet",
-      "placeName": "00181-42.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-16T08:14:38.7+00:00",
-      "thumb": "/thumbs/immichb524956d-1adf-4b59-8ba8-0468965946f2.webp"
-    },
-    {
-      "id": "immich:3021ffb3-7d3e-402d-8952-a81c9bafc1b5",
-      "dropboxPath": "immich://3021ffb3-7d3e-402d-8952-a81c9bafc1b5",
-      "category": "natur",
-      "placeName": "Alna",
-      "lat": 59.90369,
-      "lng": 10.788906,
-      "locationSource": "exif",
-      "clientModified": "2025-09-22T13:49:03.12+00:00",
-      "thumb": "/thumbs/immich3021ffb3-7d3e-402d-8952-a81c9bafc1b5.webp"
-    },
-    {
       "id": "immich:67f0a6d2-6a41-4519-b192-155fc7126746",
       "dropboxPath": "immich://67f0a6d2-6a41-4519-b192-155fc7126746",
       "category": "annet",
@@ -35128,6 +35095,17 @@
       "locationSource": "none",
       "clientModified": "2025-09-16T12:27:55.78+00:00",
       "thumb": "/thumbs/immich67f0a6d2-6a41-4519-b192-155fc7126746.webp"
+    },
+    {
+      "id": "immich:b524956d-1adf-4b59-8ba8-0468965946f2",
+      "dropboxPath": "immich://b524956d-1adf-4b59-8ba8-0468965946f2",
+      "category": "annet",
+      "placeName": "00181-42.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-16T08:14:38.7+00:00",
+      "thumb": "/thumbs/immichb524956d-1adf-4b59-8ba8-0468965946f2.webp"
     },
     {
       "id": "immich:891ec27b-75d7-4c38-9b9d-9a1c8cfdcb26",
@@ -35218,15 +35196,15 @@
       "thumb": "/thumbs/immich86e696d2-869d-4777-913e-3cd0665e40c5.webp"
     },
     {
-      "id": "immich:67638fde-0777-441c-a1d2-5e84175711f9",
-      "dropboxPath": "immich://67638fde-0777-441c-a1d2-5e84175711f9",
-      "category": "annet",
-      "placeName": "00173-4.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-08T12:23:08.93+00:00",
-      "thumb": "/thumbs/immich67638fde-0777-441c-a1d2-5e84175711f9.webp"
+      "id": "immich:51639d7b-8030-452f-a4a1-29abdd1fd495",
+      "dropboxPath": "immich://51639d7b-8030-452f-a4a1-29abdd1fd495",
+      "category": "bakgard",
+      "placeName": "Fjørtofts gate 7",
+      "lat": 59.9349,
+      "lng": 10.7529,
+      "locationSource": "exif",
+      "clientModified": "2025-10-08T13:55:09.51+00:00",
+      "thumb": "/thumbs/immich51639d7b-8030-452f-a4a1-29abdd1fd495.webp"
     },
     {
       "id": "immich:ea446027-af48-42f6-850a-5b8fd00d4025",
@@ -35240,15 +35218,15 @@
       "thumb": "/thumbs/immichea446027-af48-42f6-850a-5b8fd00d4025.webp"
     },
     {
-      "id": "immich:59de863e-6b4f-4558-90f0-a7fb7f463c8d",
-      "dropboxPath": "immich://59de863e-6b4f-4558-90f0-a7fb7f463c8d",
+      "id": "immich:67638fde-0777-441c-a1d2-5e84175711f9",
+      "dropboxPath": "immich://67638fde-0777-441c-a1d2-5e84175711f9",
       "category": "annet",
-      "placeName": "00173-3.jpg",
+      "placeName": "00173-4.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-09-08T12:22:55.95+00:00",
-      "thumb": "/thumbs/immich59de863e-6b4f-4558-90f0-a7fb7f463c8d.webp"
+      "clientModified": "2025-09-08T12:23:08.93+00:00",
+      "thumb": "/thumbs/immich67638fde-0777-441c-a1d2-5e84175711f9.webp"
     },
     {
       "id": "immich:77b120b9-c326-4201-8d9c-2da71e4dffd9",
@@ -35262,37 +35240,15 @@
       "thumb": "/thumbs/immich77b120b9-c326-4201-8d9c-2da71e4dffd9.webp"
     },
     {
-      "id": "immich:0da7d116-ba19-435c-8d7a-07a281b89421",
-      "dropboxPath": "immich://0da7d116-ba19-435c-8d7a-07a281b89421",
+      "id": "immich:59de863e-6b4f-4558-90f0-a7fb7f463c8d",
+      "dropboxPath": "immich://59de863e-6b4f-4558-90f0-a7fb7f463c8d",
       "category": "annet",
-      "placeName": "00173.jpg",
+      "placeName": "00173-3.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-09-08T12:21:57.95+00:00",
-      "thumb": "/thumbs/immich0da7d116-ba19-435c-8d7a-07a281b89421.webp"
-    },
-    {
-      "id": "immich:b8afc1e8-aae5-4f74-94d5-2018b1d83175",
-      "dropboxPath": "immich://b8afc1e8-aae5-4f74-94d5-2018b1d83175",
-      "category": "annet",
-      "placeName": "00180-5.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-07T12:22:16.12+00:00",
-      "thumb": "/thumbs/immichb8afc1e8-aae5-4f74-94d5-2018b1d83175.webp"
-    },
-    {
-      "id": "immich:800ca431-c385-49d1-8dee-024c3ca07f44",
-      "dropboxPath": "immich://800ca431-c385-49d1-8dee-024c3ca07f44",
-      "category": "annet",
-      "placeName": "00180-4.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-07T12:21:40.19+00:00",
-      "thumb": "/thumbs/immich800ca431-c385-49d1-8dee-024c3ca07f44.webp"
+      "clientModified": "2025-09-08T12:22:55.95+00:00",
+      "thumb": "/thumbs/immich59de863e-6b4f-4558-90f0-a7fb7f463c8d.webp"
     },
     {
       "id": "immich:f7c91147-2c99-445f-932e-a5466ce3211c",
@@ -35306,26 +35262,37 @@
       "thumb": "/thumbs/immichf7c91147-2c99-445f-932e-a5466ce3211c.webp"
     },
     {
-      "id": "immich:d17b694f-1cdb-4c4b-b955-d4d3718ac411",
-      "dropboxPath": "immich://d17b694f-1cdb-4c4b-b955-d4d3718ac411",
+      "id": "immich:0da7d116-ba19-435c-8d7a-07a281b89421",
+      "dropboxPath": "immich://0da7d116-ba19-435c-8d7a-07a281b89421",
       "category": "annet",
-      "placeName": "00181-3.jpg",
+      "placeName": "00173.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-09-07T12:21:26.12+00:00",
-      "thumb": "/thumbs/immichd17b694f-1cdb-4c4b-b955-d4d3718ac411.webp"
+      "clientModified": "2025-09-08T12:21:57.95+00:00",
+      "thumb": "/thumbs/immich0da7d116-ba19-435c-8d7a-07a281b89421.webp"
     },
     {
-      "id": "immich:526cb5b1-72f1-4a2d-bb0e-ff3ded10fff6",
-      "dropboxPath": "immich://526cb5b1-72f1-4a2d-bb0e-ff3ded10fff6",
+      "id": "immich:800ca431-c385-49d1-8dee-024c3ca07f44",
+      "dropboxPath": "immich://800ca431-c385-49d1-8dee-024c3ca07f44",
       "category": "annet",
-      "placeName": "00181.jpg",
+      "placeName": "00180-4.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-09-07T12:18:54+00:00",
-      "thumb": "/thumbs/immich526cb5b1-72f1-4a2d-bb0e-ff3ded10fff6.webp"
+      "clientModified": "2025-09-07T12:21:40.19+00:00",
+      "thumb": "/thumbs/immich800ca431-c385-49d1-8dee-024c3ca07f44.webp"
+    },
+    {
+      "id": "immich:b8afc1e8-aae5-4f74-94d5-2018b1d83175",
+      "dropboxPath": "immich://b8afc1e8-aae5-4f74-94d5-2018b1d83175",
+      "category": "annet",
+      "placeName": "00180-5.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-07T12:22:16.12+00:00",
+      "thumb": "/thumbs/immichb8afc1e8-aae5-4f74-94d5-2018b1d83175.webp"
     },
     {
       "id": "immich:799310af-6834-45e5-8c29-5e9d4bc012f5",
@@ -35339,15 +35306,15 @@
       "thumb": "/thumbs/immich799310af-6834-45e5-8c29-5e9d4bc012f5.webp"
     },
     {
-      "id": "immich:e19e9d8f-7fc0-4f07-a3e8-ccc2d83ac877",
-      "dropboxPath": "immich://e19e9d8f-7fc0-4f07-a3e8-ccc2d83ac877",
+      "id": "immich:d17b694f-1cdb-4c4b-b955-d4d3718ac411",
+      "dropboxPath": "immich://d17b694f-1cdb-4c4b-b955-d4d3718ac411",
       "category": "annet",
-      "placeName": "00180.jpg",
+      "placeName": "00181-3.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-09-07T12:17:31+00:00",
-      "thumb": "/thumbs/immiche19e9d8f-7fc0-4f07-a3e8-ccc2d83ac877.webp"
+      "clientModified": "2025-09-07T12:21:26.12+00:00",
+      "thumb": "/thumbs/immichd17b694f-1cdb-4c4b-b955-d4d3718ac411.webp"
     },
     {
       "id": "immich:618f1eac-2df9-4b8d-a31f-e915c3f41068",
@@ -35361,6 +35328,17 @@
       "thumb": "/thumbs/immich618f1eac-2df9-4b8d-a31f-e915c3f41068.webp"
     },
     {
+      "id": "immich:526cb5b1-72f1-4a2d-bb0e-ff3ded10fff6",
+      "dropboxPath": "immich://526cb5b1-72f1-4a2d-bb0e-ff3ded10fff6",
+      "category": "annet",
+      "placeName": "00181.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-07T12:18:54+00:00",
+      "thumb": "/thumbs/immich526cb5b1-72f1-4a2d-bb0e-ff3ded10fff6.webp"
+    },
+    {
       "id": "immich:9935db43-aecc-4d36-a8d9-26b46e8a5420",
       "dropboxPath": "immich://9935db43-aecc-4d36-a8d9-26b46e8a5420",
       "category": "annet",
@@ -35372,15 +35350,15 @@
       "thumb": "/thumbs/immich9935db43-aecc-4d36-a8d9-26b46e8a5420.webp"
     },
     {
-      "id": "immich:30c73288-1d63-478c-8c38-385b318a0c77",
-      "dropboxPath": "immich://30c73288-1d63-478c-8c38-385b318a0c77",
+      "id": "immich:e19e9d8f-7fc0-4f07-a3e8-ccc2d83ac877",
+      "dropboxPath": "immich://e19e9d8f-7fc0-4f07-a3e8-ccc2d83ac877",
       "category": "annet",
-      "placeName": "00175-55.jpg",
+      "placeName": "00180.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-09-07T11:30:38.17+00:00",
-      "thumb": "/thumbs/immich30c73288-1d63-478c-8c38-385b318a0c77.webp"
+      "clientModified": "2025-09-07T12:17:31+00:00",
+      "thumb": "/thumbs/immiche19e9d8f-7fc0-4f07-a3e8-ccc2d83ac877.webp"
     },
     {
       "id": "immich:543fc43e-3c08-4479-9a60-0473037f8816",
@@ -35394,6 +35372,17 @@
       "thumb": "/thumbs/immich543fc43e-3c08-4479-9a60-0473037f8816.webp"
     },
     {
+      "id": "immich:30c73288-1d63-478c-8c38-385b318a0c77",
+      "dropboxPath": "immich://30c73288-1d63-478c-8c38-385b318a0c77",
+      "category": "annet",
+      "placeName": "00175-55.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-07T11:30:38.17+00:00",
+      "thumb": "/thumbs/immich30c73288-1d63-478c-8c38-385b318a0c77.webp"
+    },
+    {
       "id": "immich:32d68118-6575-4e8b-9449-3d762f00a439",
       "dropboxPath": "immich://32d68118-6575-4e8b-9449-3d762f00a439",
       "category": "annet",
@@ -35403,17 +35392,6 @@
       "locationSource": "none",
       "clientModified": "2025-09-07T11:30:04.17+00:00",
       "thumb": "/thumbs/immich32d68118-6575-4e8b-9449-3d762f00a439.webp"
-    },
-    {
-      "id": "immich:d04da054-2493-44ec-a23b-540819e479fc",
-      "dropboxPath": "immich://d04da054-2493-44ec-a23b-540819e479fc",
-      "category": "annet",
-      "placeName": "00175-7.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-07T09:55:41.29+00:00",
-      "thumb": "/thumbs/immichd04da054-2493-44ec-a23b-540819e479fc.webp"
     },
     {
       "id": "immich:08e40d07-bf96-4895-9c94-20c9c2750748",
@@ -35427,6 +35405,17 @@
       "thumb": "/thumbs/immich08e40d07-bf96-4895-9c94-20c9c2750748.webp"
     },
     {
+      "id": "immich:d04da054-2493-44ec-a23b-540819e479fc",
+      "dropboxPath": "immich://d04da054-2493-44ec-a23b-540819e479fc",
+      "category": "annet",
+      "placeName": "00175-7.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-07T09:55:41.29+00:00",
+      "thumb": "/thumbs/immichd04da054-2493-44ec-a23b-540819e479fc.webp"
+    },
+    {
       "id": "immich:6e5a9e30-0055-490f-b033-e48b2e6e21a0",
       "dropboxPath": "immich://6e5a9e30-0055-490f-b033-e48b2e6e21a0",
       "category": "annet",
@@ -35436,17 +35425,6 @@
       "locationSource": "none",
       "clientModified": "2025-09-07T09:54:53+00:00",
       "thumb": "/thumbs/immich6e5a9e30-0055-490f-b033-e48b2e6e21a0.webp"
-    },
-    {
-      "id": "immich:28b6a4d1-547e-47ff-8bb2-01d91b0c3d1b",
-      "dropboxPath": "immich://28b6a4d1-547e-47ff-8bb2-01d91b0c3d1b",
-      "category": "annet",
-      "placeName": "00175-5.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-07T09:54:11.49+00:00",
-      "thumb": "/thumbs/immich28b6a4d1-547e-47ff-8bb2-01d91b0c3d1b.webp"
     },
     {
       "id": "immich:b03bffdb-246f-458b-9524-0029a4a97bef",
@@ -35460,6 +35438,17 @@
       "thumb": "/thumbs/immichb03bffdb-246f-458b-9524-0029a4a97bef.webp"
     },
     {
+      "id": "immich:28b6a4d1-547e-47ff-8bb2-01d91b0c3d1b",
+      "dropboxPath": "immich://28b6a4d1-547e-47ff-8bb2-01d91b0c3d1b",
+      "category": "annet",
+      "placeName": "00175-5.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-07T09:54:11.49+00:00",
+      "thumb": "/thumbs/immich28b6a4d1-547e-47ff-8bb2-01d91b0c3d1b.webp"
+    },
+    {
       "id": "immich:7a4f225a-676c-48eb-a43f-f840a74681ef",
       "dropboxPath": "immich://7a4f225a-676c-48eb-a43f-f840a74681ef",
       "category": "annet",
@@ -35469,17 +35458,6 @@
       "locationSource": "none",
       "clientModified": "2025-09-07T09:53:16.91+00:00",
       "thumb": "/thumbs/immich7a4f225a-676c-48eb-a43f-f840a74681ef.webp"
-    },
-    {
-      "id": "immich:cb9f8ac4-28f1-48ed-b1d3-dc702f7aa5c6",
-      "dropboxPath": "immich://cb9f8ac4-28f1-48ed-b1d3-dc702f7aa5c6",
-      "category": "annet",
-      "placeName": "00171-15.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-06T15:12:26+00:00",
-      "thumb": "/thumbs/immichcb9f8ac4-28f1-48ed-b1d3-dc702f7aa5c6.webp"
     },
     {
       "id": "immich:0bd3d414-f12b-4ed3-b7bd-937ebcfcd562",
@@ -35493,15 +35471,15 @@
       "thumb": "/thumbs/immich0bd3d414-f12b-4ed3-b7bd-937ebcfcd562.webp"
     },
     {
-      "id": "immich:d510fadf-a18c-4cc7-8f95-784d7a44ca34",
-      "dropboxPath": "immich://d510fadf-a18c-4cc7-8f95-784d7a44ca34",
+      "id": "immich:cb9f8ac4-28f1-48ed-b1d3-dc702f7aa5c6",
+      "dropboxPath": "immich://cb9f8ac4-28f1-48ed-b1d3-dc702f7aa5c6",
       "category": "annet",
-      "placeName": "00171-13.jpg",
+      "placeName": "00171-15.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-09-06T15:07:24+00:00",
-      "thumb": "/thumbs/immichd510fadf-a18c-4cc7-8f95-784d7a44ca34.webp"
+      "clientModified": "2025-09-06T15:12:26+00:00",
+      "thumb": "/thumbs/immichcb9f8ac4-28f1-48ed-b1d3-dc702f7aa5c6.webp"
     },
     {
       "id": "immich:ce11a6ad-49d7-49bc-bd15-684de44dc20d",
@@ -35524,6 +35502,17 @@
       "locationSource": "none",
       "clientModified": "2025-09-06T14:51:11+00:00",
       "thumb": "/thumbs/immichef00d722-ff4f-4941-bf86-4771a89967ca.webp"
+    },
+    {
+      "id": "immich:d510fadf-a18c-4cc7-8f95-784d7a44ca34",
+      "dropboxPath": "immich://d510fadf-a18c-4cc7-8f95-784d7a44ca34",
+      "category": "annet",
+      "placeName": "00171-13.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-06T15:07:24+00:00",
+      "thumb": "/thumbs/immichd510fadf-a18c-4cc7-8f95-784d7a44ca34.webp"
     },
     {
       "id": "immich:ceec04ad-ba38-40da-b64b-0ae0f712d67c",
@@ -35581,9 +35570,20 @@
       "thumb": "/thumbs/immich594069ef-0eaf-4fa7-8925-d8af08307a2b.webp"
     },
     {
+      "id": "immich:e00e433d-3275-40b6-a64e-1b6243e97366",
+      "dropboxPath": "immich://e00e433d-3275-40b6-a64e-1b6243e97366",
+      "category": "natur",
+      "placeName": "Alna",
+      "lat": 59.90369,
+      "lng": 10.788906,
+      "locationSource": "exif",
+      "clientModified": "2025-09-22T13:49:41.71+00:00",
+      "thumb": "/thumbs/immiche00e433d-3275-40b6-a64e-1b6243e97366.webp"
+    },
+    {
       "id": "immich:345ed049-d17f-4c3f-bdf2-b2c15b268182",
       "dropboxPath": "immich://345ed049-d17f-4c3f-bdf2-b2c15b268182",
-      "category": "restaurant",
+      "category": "kafe",
       "placeName": "Brauo toastbar",
       "lat": 59.924857,
       "lng": 10.759163,
@@ -35605,7 +35605,7 @@
     {
       "id": "immich:ed354b51-7fcd-4cbd-b76e-27960cc1c776",
       "dropboxPath": "immich://ed354b51-7fcd-4cbd-b76e-27960cc1c776",
-      "category": "restaurant",
+      "category": "kafe",
       "placeName": "Hos Peder",
       "lat": 59.924857,
       "lng": 10.759163,
@@ -35616,7 +35616,7 @@
     {
       "id": "immich:13e98502-5501-44ca-b3cd-26d250443c7d",
       "dropboxPath": "immich://13e98502-5501-44ca-b3cd-26d250443c7d",
-      "category": "restaurant",
+      "category": "kafe",
       "placeName": "Carls",
       "lat": 59.926426,
       "lng": 10.776882,
@@ -35627,7 +35627,7 @@
     {
       "id": "immich:d79cba87-26f5-4218-a4c5-8023a6022b17",
       "dropboxPath": "immich://d79cba87-26f5-4218-a4c5-8023a6022b17",
-      "category": "restaurant",
+      "category": "kafe",
       "placeName": "Carls",
       "lat": 59.926426,
       "lng": 10.776882,
@@ -35735,17 +35735,6 @@
       "thumb": "/thumbs/immichf051d7cb-d56c-4038-962b-e150a41aeabc.webp"
     },
     {
-      "id": "immich:e00e433d-3275-40b6-a64e-1b6243e97366",
-      "dropboxPath": "immich://e00e433d-3275-40b6-a64e-1b6243e97366",
-      "category": "natur",
-      "placeName": "Alna",
-      "lat": 59.90369,
-      "lng": 10.788906,
-      "locationSource": "exif",
-      "clientModified": "2025-09-22T13:49:41.71+00:00",
-      "thumb": "/thumbs/immiche00e433d-3275-40b6-a64e-1b6243e97366.webp"
-    },
-    {
       "id": "immich:ec0ef0a5-bdc8-4dab-b04d-ea556d4f414a",
       "dropboxPath": "immich://ec0ef0a5-bdc8-4dab-b04d-ea556d4f414a",
       "category": "annet",
@@ -35755,17 +35744,6 @@
       "locationSource": "none",
       "clientModified": "2025-09-03T11:10:39.74+00:00",
       "thumb": "/thumbs/immichec0ef0a5-bdc8-4dab-b04d-ea556d4f414a.webp"
-    },
-    {
-      "id": "immich:3463fc03-36ce-4839-b7af-865e7920a64a",
-      "dropboxPath": "immich://3463fc03-36ce-4839-b7af-865e7920a64a",
-      "category": "annet",
-      "placeName": "00168-43.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-09-03T10:36:18.15+00:00",
-      "thumb": "/thumbs/immich3463fc03-36ce-4839-b7af-865e7920a64a.webp"
     },
     {
       "id": "immich:f24e66ca-fb48-450f-9bda-15b36291f702",
@@ -35779,15 +35757,15 @@
       "thumb": "/thumbs/immichf24e66ca-fb48-450f-9bda-15b36291f702.webp"
     },
     {
-      "id": "immich:f05f9e95-f22f-4843-b7e5-146b8c01b6d0",
-      "dropboxPath": "immich://f05f9e95-f22f-4843-b7e5-146b8c01b6d0",
+      "id": "immich:3463fc03-36ce-4839-b7af-865e7920a64a",
+      "dropboxPath": "immich://3463fc03-36ce-4839-b7af-865e7920a64a",
       "category": "annet",
-      "placeName": "00168.jpg",
+      "placeName": "00168-43.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-09-03T09:29:52.81+00:00",
-      "thumb": "/thumbs/immichf05f9e95-f22f-4843-b7e5-146b8c01b6d0.webp"
+      "clientModified": "2025-09-03T10:36:18.15+00:00",
+      "thumb": "/thumbs/immich3463fc03-36ce-4839-b7af-865e7920a64a.webp"
     },
     {
       "id": "immich:42cad3f8-0f59-4c98-b279-e451e7edfdfa",
@@ -35799,6 +35777,17 @@
       "locationSource": "none",
       "clientModified": "2025-09-03T10:36:06.39+00:00",
       "thumb": "/thumbs/immich42cad3f8-0f59-4c98-b279-e451e7edfdfa.webp"
+    },
+    {
+      "id": "immich:f05f9e95-f22f-4843-b7e5-146b8c01b6d0",
+      "dropboxPath": "immich://f05f9e95-f22f-4843-b7e5-146b8c01b6d0",
+      "category": "annet",
+      "placeName": "00168.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-09-03T09:29:52.81+00:00",
+      "thumb": "/thumbs/immichf05f9e95-f22f-4843-b7e5-146b8c01b6d0.webp"
     },
     {
       "id": "immich:cba098e4-311a-43c7-9730-b463ef49e725",
@@ -35823,59 +35812,70 @@
       "thumb": "/thumbs/immich53692116-5fac-4bc7-be41-778a81c5646b.webp"
     },
     {
-      "id": "immich:a98481f1-cef5-4a15-8926-9dbc6824f02c",
-      "dropboxPath": "immich://a98481f1-cef5-4a15-8926-9dbc6824f02c",
-      "category": "annet",
-      "placeName": "00173-2.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-08-31T10:31:07+00:00",
-      "thumb": "/thumbs/immicha98481f1-cef5-4a15-8926-9dbc6824f02c.webp"
+      "id": "immich:3021ffb3-7d3e-402d-8952-a81c9bafc1b5",
+      "dropboxPath": "immich://3021ffb3-7d3e-402d-8952-a81c9bafc1b5",
+      "category": "natur",
+      "placeName": "Alna",
+      "lat": 59.90369,
+      "lng": 10.788906,
+      "locationSource": "exif",
+      "clientModified": "2025-09-22T13:49:03.12+00:00",
+      "thumb": "/thumbs/immich3021ffb3-7d3e-402d-8952-a81c9bafc1b5.webp"
+    },
+    {
+      "id": "immich:1fc1ad1d-dfcd-4929-bf45-f3d8b2e96e12",
+      "dropboxPath": "immich://1fc1ad1d-dfcd-4929-bf45-f3d8b2e96e12",
+      "category": "kafe",
+      "placeName": "Fomoto Kafé og Interiør",
+      "lat": 59.931646,
+      "lng": 10.758776,
+      "locationSource": "exif",
+      "clientModified": "2025-09-06T12:22:18+00:00",
+      "thumb": "/thumbs/immich1fc1ad1d-dfcd-4929-bf45-f3d8b2e96e12.webp"
+    },
+    {
+      "id": "immich:4cd61b3c-6972-41b3-ba0e-98e8691a3b4d",
+      "dropboxPath": "immich://4cd61b3c-6972-41b3-ba0e-98e8691a3b4d",
+      "category": "kafe",
+      "placeName": "Creamy",
+      "lat": 59.924927,
+      "lng": 10.75934,
+      "locationSource": "exif",
+      "clientModified": "2025-09-06T11:48:14+00:00",
+      "thumb": "/thumbs/immich4cd61b3c-6972-41b3-ba0e-98e8691a3b4d.webp"
     },
     {
       "id": "immich:931357cc-5990-4fa4-8994-1e5d7b74bf82",
       "dropboxPath": "immich://931357cc-5990-4fa4-8994-1e5d7b74bf82",
-      "category": "annet",
-      "placeName": "00173-3.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "kafe",
+      "placeName": "Raade's hagekafe",
+      "lat": 59.9345,
+      "lng": 10.7558,
+      "locationSource": "exif",
       "clientModified": "2025-08-31T10:38:14+00:00",
       "thumb": "/thumbs/immich931357cc-5990-4fa4-8994-1e5d7b74bf82.webp"
     },
     {
-      "id": "immich:a64c8910-5f35-4c06-bfac-16498df91aa3",
-      "dropboxPath": "immich://a64c8910-5f35-4c06-bfac-16498df91aa3",
-      "category": "annet",
-      "placeName": "00167-44.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-08-31T07:05:51+00:00",
-      "thumb": "/thumbs/immicha64c8910-5f35-4c06-bfac-16498df91aa3.webp"
+      "id": "immich:a98481f1-cef5-4a15-8926-9dbc6824f02c",
+      "dropboxPath": "immich://a98481f1-cef5-4a15-8926-9dbc6824f02c",
+      "category": "kafe",
+      "placeName": "Raade's hagekafe",
+      "lat": 59.934508,
+      "lng": 10.755786,
+      "locationSource": "exif",
+      "clientModified": "2025-08-31T10:31:07+00:00",
+      "thumb": "/thumbs/immicha98481f1-cef5-4a15-8926-9dbc6824f02c.webp"
     },
     {
       "id": "immich:ecf7c5f0-900b-451d-9522-e007d4e18237",
       "dropboxPath": "immich://ecf7c5f0-900b-451d-9522-e007d4e18237",
-      "category": "annet",
-      "placeName": "00173.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "kafe",
+      "placeName": "Raade's hagekafe",
+      "lat": 59.9345,
+      "lng": 10.7558,
+      "locationSource": "exif",
       "clientModified": "2025-08-31T10:24:17+00:00",
       "thumb": "/thumbs/immichecf7c5f0-900b-451d-9522-e007d4e18237.webp"
-    },
-    {
-      "id": "immich:afbd2061-17df-4104-90d1-17f629f1c2eb",
-      "dropboxPath": "immich://afbd2061-17df-4104-90d1-17f629f1c2eb",
-      "category": "annet",
-      "placeName": "00167-43.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-08-31T07:03:24+00:00",
-      "thumb": "/thumbs/immichafbd2061-17df-4104-90d1-17f629f1c2eb.webp"
     },
     {
       "id": "immich:14d07ab7-966e-4f0d-bc35-9c6bbae8d0c1",
@@ -35911,101 +35911,101 @@
       "thumb": "/thumbs/immich19823fc4-ac36-4498-ae02-b88672df3fa2.webp"
     },
     {
+      "id": "immich:a64c8910-5f35-4c06-bfac-16498df91aa3",
+      "dropboxPath": "immich://a64c8910-5f35-4c06-bfac-16498df91aa3",
+      "category": "kafe",
+      "placeName": "Raade's hagekafe",
+      "lat": 59.9345,
+      "lng": 10.7558,
+      "locationSource": "exif",
+      "clientModified": "2025-08-31T07:05:51+00:00",
+      "thumb": "/thumbs/immicha64c8910-5f35-4c06-bfac-16498df91aa3.webp"
+    },
+    {
+      "id": "immich:afbd2061-17df-4104-90d1-17f629f1c2eb",
+      "dropboxPath": "immich://afbd2061-17df-4104-90d1-17f629f1c2eb",
+      "category": "kafe",
+      "placeName": "Arv Kaffe & Retro",
+      "lat": 59.908162,
+      "lng": 10.769669,
+      "locationSource": "exif",
+      "clientModified": "2025-08-31T07:03:24+00:00",
+      "thumb": "/thumbs/immichafbd2061-17df-4104-90d1-17f629f1c2eb.webp"
+    },
+    {
+      "id": "immich:ee50ac0f-18b2-4030-829b-1992479d098a",
+      "dropboxPath": "immich://ee50ac0f-18b2-4030-829b-1992479d098a",
+      "category": "annet",
+      "placeName": "Selvbyggerveien 1D",
+      "lat": 59.948435,
+      "lng": 10.820266,
+      "locationSource": "exif",
+      "clientModified": "2025-08-30T12:08:33+00:00",
+      "thumb": "/thumbs/immichee50ac0f-18b2-4030-829b-1992479d098a.webp"
+    },
+    {
       "id": "immich:3758e935-48d9-490a-9818-24e313a95746",
       "dropboxPath": "immich://3758e935-48d9-490a-9818-24e313a95746",
-      "category": "annet",
-      "placeName": "00158-52.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "takterrasse",
+      "placeName": "Dronningens kebab",
+      "lat": 59.946271,
+      "lng": 10.77258,
+      "locationSource": "exif",
       "clientModified": "2025-08-26T12:51:58.91+00:00",
       "thumb": "/thumbs/immich3758e935-48d9-490a-9818-24e313a95746.webp"
     },
     {
-      "id": "immich:9ffec0e9-d5b4-4eac-a4d6-40ecbb1d257c",
-      "dropboxPath": "immich://9ffec0e9-d5b4-4eac-a4d6-40ecbb1d257c",
-      "category": "annet",
-      "placeName": "00158-51.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-08-26T12:51:47.69+00:00",
-      "thumb": "/thumbs/immich9ffec0e9-d5b4-4eac-a4d6-40ecbb1d257c.webp"
-    },
-    {
-      "id": "immich:1135ad55-04d8-4be1-967a-7a7dd6f102e6",
-      "dropboxPath": "immich://1135ad55-04d8-4be1-967a-7a7dd6f102e6",
-      "category": "annet",
-      "placeName": "00158-50.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-08-26T12:51:35.93+00:00",
-      "thumb": "/thumbs/immich1135ad55-04d8-4be1-967a-7a7dd6f102e6.webp"
-    },
-    {
-      "id": "immich:d865dba6-8353-476d-b20f-516241073f43",
-      "dropboxPath": "immich://d865dba6-8353-476d-b20f-516241073f43",
-      "category": "annet",
-      "placeName": "00158-49.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-08-26T12:51:18.65+00:00",
-      "thumb": "/thumbs/immichd865dba6-8353-476d-b20f-516241073f43.webp"
-    },
-    {
       "id": "immich:aa5a21d3-2f54-4707-8f6d-d7ca47fc0353",
       "dropboxPath": "immich://aa5a21d3-2f54-4707-8f6d-d7ca47fc0353",
-      "category": "annet",
-      "placeName": "00158-48.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "takterrasse",
+      "placeName": "Dronningens kebab",
+      "lat": 59.9463,
+      "lng": 10.7726,
+      "locationSource": "exif",
       "clientModified": "2025-08-26T12:51:09+00:00",
       "thumb": "/thumbs/immichaa5a21d3-2f54-4707-8f6d-d7ca47fc0353.webp"
     },
     {
       "id": "immich:18f3896a-cada-4851-b0d5-04704425d326",
       "dropboxPath": "immich://18f3896a-cada-4851-b0d5-04704425d326",
-      "category": "annet",
-      "placeName": "00158-47.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "bakgard",
+      "placeName": "Dronningens kebab",
+      "lat": 59.9463,
+      "lng": 10.7726,
+      "locationSource": "exif",
       "clientModified": "2025-08-26T12:49:43+00:00",
       "thumb": "/thumbs/immich18f3896a-cada-4851-b0d5-04704425d326.webp"
     },
     {
       "id": "immich:ac4fda2f-064f-4b59-ac78-f2c5ebab82bd",
       "dropboxPath": "immich://ac4fda2f-064f-4b59-ac78-f2c5ebab82bd",
-      "category": "annet",
-      "placeName": "00158-46.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "bakgard",
+      "placeName": "Dronningens kebab",
+      "lat": 59.9463,
+      "lng": 10.7726,
+      "locationSource": "exif",
       "clientModified": "2025-08-26T12:49:16+00:00",
       "thumb": "/thumbs/immichac4fda2f-064f-4b59-ac78-f2c5ebab82bd.webp"
     },
     {
       "id": "immich:0e4141e3-f0ca-4ee2-87db-b6da9b52cfea",
       "dropboxPath": "immich://0e4141e3-f0ca-4ee2-87db-b6da9b52cfea",
-      "category": "annet",
-      "placeName": "00158-45.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "bakgard",
+      "placeName": "Dronningens kebab",
+      "lat": 59.9463,
+      "lng": 10.7726,
+      "locationSource": "exif",
       "clientModified": "2025-08-26T12:48:37+00:00",
       "thumb": "/thumbs/immich0e4141e3-f0ca-4ee2-87db-b6da9b52cfea.webp"
     },
     {
       "id": "immich:8b830e0d-940c-4162-bc05-492bc3e07854",
       "dropboxPath": "immich://8b830e0d-940c-4162-bc05-492bc3e07854",
-      "category": "annet",
-      "placeName": "00158-44.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "bakgard",
+      "placeName": "Dronningens kebab",
+      "lat": 59.9463,
+      "lng": 10.7726,
+      "locationSource": "exif",
       "clientModified": "2025-08-26T12:48:16.58+00:00",
       "thumb": "/thumbs/immich8b830e0d-940c-4162-bc05-492bc3e07854.webp"
     },
@@ -36054,26 +36054,26 @@
       "thumb": "/thumbs/immich05429f05-4267-48ec-93f0-03edcec207b1.webp"
     },
     {
-      "id": "immich:1fc1ad1d-dfcd-4929-bf45-f3d8b2e96e12",
-      "dropboxPath": "immich://1fc1ad1d-dfcd-4929-bf45-f3d8b2e96e12",
-      "category": "kafe",
-      "placeName": "Fomoto Kafé og Interiør",
-      "lat": 59.931646,
-      "lng": 10.758776,
+      "id": "immich:9ffec0e9-d5b4-4eac-a4d6-40ecbb1d257c",
+      "dropboxPath": "immich://9ffec0e9-d5b4-4eac-a4d6-40ecbb1d257c",
+      "category": "takterrasse",
+      "placeName": "Dronningens kebab",
+      "lat": 59.9463,
+      "lng": 10.7726,
       "locationSource": "exif",
-      "clientModified": "2025-09-06T12:22:18+00:00",
-      "thumb": "/thumbs/immich1fc1ad1d-dfcd-4929-bf45-f3d8b2e96e12.webp"
+      "clientModified": "2025-08-26T12:51:47.69+00:00",
+      "thumb": "/thumbs/immich9ffec0e9-d5b4-4eac-a4d6-40ecbb1d257c.webp"
     },
     {
-      "id": "immich:4cd61b3c-6972-41b3-ba0e-98e8691a3b4d",
-      "dropboxPath": "immich://4cd61b3c-6972-41b3-ba0e-98e8691a3b4d",
-      "category": "kafe",
-      "placeName": "Creamy",
-      "lat": 59.924927,
-      "lng": 10.75934,
+      "id": "immich:1135ad55-04d8-4be1-967a-7a7dd6f102e6",
+      "dropboxPath": "immich://1135ad55-04d8-4be1-967a-7a7dd6f102e6",
+      "category": "takterrasse",
+      "placeName": "Dronningens kebab",
+      "lat": 59.9463,
+      "lng": 10.7726,
       "locationSource": "exif",
-      "clientModified": "2025-09-06T11:48:14+00:00",
-      "thumb": "/thumbs/immich4cd61b3c-6972-41b3-ba0e-98e8691a3b4d.webp"
+      "clientModified": "2025-08-26T12:51:35.93+00:00",
+      "thumb": "/thumbs/immich1135ad55-04d8-4be1-967a-7a7dd6f102e6.webp"
     },
     {
       "id": "immich:660b0eff-54a6-4d07-9f86-4809000cddeb",
@@ -36098,17 +36098,6 @@
       "thumb": "/thumbs/immich8fb348a8-b063-43b6-ad9e-79197d3f728d.webp"
     },
     {
-      "id": "immich:0366319e-3865-4540-a14d-2b4fbeb8b841",
-      "dropboxPath": "immich://0366319e-3865-4540-a14d-2b4fbeb8b841",
-      "category": "annet",
-      "placeName": "00154-2.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-08-19T17:25:53.12+00:00",
-      "thumb": "/thumbs/immich0366319e-3865-4540-a14d-2b4fbeb8b841.webp"
-    },
-    {
       "id": "immich:82847997-104e-4c8e-8dbe-02b56e03d21d",
       "dropboxPath": "immich://82847997-104e-4c8e-8dbe-02b56e03d21d",
       "category": "bakgard",
@@ -36118,6 +36107,17 @@
       "locationSource": "exif",
       "clientModified": "2025-08-19T17:25:53.12+00:00",
       "thumb": "/thumbs/immich82847997-104e-4c8e-8dbe-02b56e03d21d.webp"
+    },
+    {
+      "id": "immich:0366319e-3865-4540-a14d-2b4fbeb8b841",
+      "dropboxPath": "immich://0366319e-3865-4540-a14d-2b4fbeb8b841",
+      "category": "annet",
+      "placeName": "00154-2.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-19T17:25:53.12+00:00",
+      "thumb": "/thumbs/immich0366319e-3865-4540-a14d-2b4fbeb8b841.webp"
     },
     {
       "id": "immich:54cdb2a3-9ddf-4663-90e2-8ffae6bf30d4",
@@ -36439,17 +36439,6 @@
       "thumb": "/thumbs/immiche7d997a4-0d6b-4b42-87be-3e058f199212.webp"
     },
     {
-      "id": "immich:ee50ac0f-18b2-4030-829b-1992479d098a",
-      "dropboxPath": "immich://ee50ac0f-18b2-4030-829b-1992479d098a",
-      "category": "annet",
-      "placeName": "Selvbyggerveien 1D",
-      "lat": 59.948435,
-      "lng": 10.820266,
-      "locationSource": "exif",
-      "clientModified": "2025-08-30T12:08:33+00:00",
-      "thumb": "/thumbs/immichee50ac0f-18b2-4030-829b-1992479d098a.webp"
-    },
-    {
       "id": "immich:1f6d0107-179a-401a-bb0e-b38524a50b47",
       "dropboxPath": "immich://1f6d0107-179a-401a-bb0e-b38524a50b47",
       "category": "annet",
@@ -36569,6 +36558,17 @@
       "locationSource": "exif",
       "clientModified": "2025-08-14T10:37:13.65+00:00",
       "thumb": "/thumbs/immich45258031-539f-45da-9e34-3d4dce28bc2f.webp"
+    },
+    {
+      "id": "immich:d865dba6-8353-476d-b20f-516241073f43",
+      "dropboxPath": "immich://d865dba6-8353-476d-b20f-516241073f43",
+      "category": "takterrasse",
+      "placeName": "Dronningens kebab",
+      "lat": 59.9463,
+      "lng": 10.7726,
+      "locationSource": "exif",
+      "clientModified": "2025-08-26T12:51:18.65+00:00",
+      "thumb": "/thumbs/immichd865dba6-8353-476d-b20f-516241073f43.webp"
     },
     {
       "id": "immich:01c988e5-4103-4067-827a-cd10ccd7587e",
@@ -36989,17 +36989,6 @@
       "thumb": "/thumbs/immich97d61bf0-bcdb-4bdd-a832-aa94ffc013d8.webp"
     },
     {
-      "id": "immich:e8e45d80-29f7-44c4-9f44-d045760e2769",
-      "dropboxPath": "immich://e8e45d80-29f7-44c4-9f44-d045760e2769",
-      "category": "annet",
-      "placeName": "00129.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-08-07T07:51:15+00:00",
-      "thumb": "/thumbs/immiche8e45d80-29f7-44c4-9f44-d045760e2769.webp"
-    },
-    {
       "id": "immich:2e6e3d77-f900-47f9-9ac4-df54f40dcac2",
       "dropboxPath": "immich://2e6e3d77-f900-47f9-9ac4-df54f40dcac2",
       "category": "annet",
@@ -37009,6 +36998,17 @@
       "locationSource": "none",
       "clientModified": "2025-08-07T07:51:15+00:00",
       "thumb": "/thumbs/immich2e6e3d77-f900-47f9-9ac4-df54f40dcac2.webp"
+    },
+    {
+      "id": "immich:e8e45d80-29f7-44c4-9f44-d045760e2769",
+      "dropboxPath": "immich://e8e45d80-29f7-44c4-9f44-d045760e2769",
+      "category": "annet",
+      "placeName": "00129.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-07T07:51:15+00:00",
+      "thumb": "/thumbs/immiche8e45d80-29f7-44c4-9f44-d045760e2769.webp"
     },
     {
       "id": "immich:d2fd3ddf-0f19-4d21-869e-e5870eb0b140",
@@ -37279,9 +37279,9 @@
       "dropboxPath": "immich://e84c46a6-8d42-4937-af53-6611fb33259c",
       "category": "kollektiv",
       "placeName": "Disen Trikkestopp",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "lat": 59.946323,
+      "lng": 10.787784,
+      "locationSource": "exif",
       "clientModified": "2025-07-25T14:10:32+00:00",
       "thumb": "/thumbs/immiche84c46a6-8d42-4937-af53-6611fb33259c.webp"
     },
@@ -37290,9 +37290,9 @@
       "dropboxPath": "immich://ae973b6b-fc38-4dbc-a7ff-276307913c0d",
       "category": "park",
       "placeName": "Park GRefsentunet",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "lat": 59.946408,
+      "lng": 10.787007,
+      "locationSource": "exif",
       "clientModified": "2025-07-25T14:10:18+00:00",
       "thumb": "/thumbs/immichae973b6b-fc38-4dbc-a7ff-276307913c0d.webp"
     },
@@ -37301,9 +37301,9 @@
       "dropboxPath": "immich://7fff798b-99e0-41e1-993c-a0bf867b0beb",
       "category": "butikk",
       "placeName": "Coop Prix",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "lat": 59.963111,
+      "lng": 10.783686,
+      "locationSource": "exif",
       "clientModified": "2025-07-25T14:01:01+00:00",
       "thumb": "/thumbs/immich7fff798b-99e0-41e1-993c-a0bf867b0beb.webp"
     },
@@ -37312,9 +37312,9 @@
       "dropboxPath": "immich://b0789b42-9696-4d28-b027-c3764a302851",
       "category": "kultur",
       "placeName": "Teknisk Museum",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "lat": 59.96685,
+      "lng": 10.783405,
+      "locationSource": "exif",
       "clientModified": "2025-07-25T13:54:02+00:00",
       "thumb": "/thumbs/immichb0789b42-9696-4d28-b027-c3764a302851.webp"
     },
@@ -37323,9 +37323,9 @@
       "dropboxPath": "immich://e4a03b78-8119-4339-bfda-2aa25a34e29c",
       "category": "park",
       "placeName": "Frysja",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "lat": 59.966579,
+      "lng": 10.778592,
+      "locationSource": "exif",
       "clientModified": "2025-07-25T10:05:42+00:00",
       "thumb": "/thumbs/immiche4a03b78-8119-4339-bfda-2aa25a34e29c.webp"
     },
@@ -37339,17 +37339,6 @@
       "locationSource": "exif",
       "clientModified": "2025-07-25T10:02:33+00:00",
       "thumb": "/thumbs/immichea69b1e6-b3ad-40da-9e2e-0eb6870fc3b4.webp"
-    },
-    {
-      "id": "immich:4a91560d-c1dd-48ef-89be-b313aa7fe6d1",
-      "dropboxPath": "immich://4a91560d-c1dd-48ef-89be-b313aa7fe6d1",
-      "category": "park",
-      "placeName": "00285-2.jpg",
-      "lat": 59.920514,
-      "lng": 10.799544,
-      "locationSource": "exif",
-      "clientModified": "2025-08-10T06:59:48+00:00",
-      "thumb": "/thumbs/immich4a91560d-c1dd-48ef-89be-b313aa7fe6d1.webp"
     },
     {
       "id": "immich:56787969-216d-4382-bad1-823a0b3e72a6",
@@ -37385,6 +37374,17 @@
       "thumb": "/thumbs/immichbc8b53ee-e24e-4044-8128-6db078509b29.webp"
     },
     {
+      "id": "immich:4a91560d-c1dd-48ef-89be-b313aa7fe6d1",
+      "dropboxPath": "immich://4a91560d-c1dd-48ef-89be-b313aa7fe6d1",
+      "category": "park",
+      "placeName": "00285-2.jpg",
+      "lat": 59.920514,
+      "lng": 10.799544,
+      "locationSource": "exif",
+      "clientModified": "2025-08-10T06:59:48+00:00",
+      "thumb": "/thumbs/immich4a91560d-c1dd-48ef-89be-b313aa7fe6d1.webp"
+    },
+    {
       "id": "immich:8ef0c829-99a3-490c-8df3-88b89d920178",
       "dropboxPath": "immich://8ef0c829-99a3-490c-8df3-88b89d920178",
       "category": "park",
@@ -37409,7 +37409,7 @@
     {
       "id": "immich:d273d602-f9fd-4eab-8460-429ec5fba6f1",
       "dropboxPath": "immich://d273d602-f9fd-4eab-8460-429ec5fba6f1",
-      "category": "annet",
+      "category": "bakgard",
       "placeName": "Hegermanns gate 9C",
       "lat": 59.934628,
       "lng": 10.765193,
@@ -37420,7 +37420,7 @@
     {
       "id": "immich:3760fed9-3981-4152-90dd-725db006791d",
       "dropboxPath": "immich://3760fed9-3981-4152-90dd-725db006791d",
-      "category": "annet",
+      "category": "bakgard",
       "placeName": "Hegermanns gate 9C",
       "lat": 59.9346,
       "lng": 10.7652,
@@ -37431,7 +37431,7 @@
     {
       "id": "immich:6b35b7d0-6eb6-4b6d-b50a-18ef6aa5fede",
       "dropboxPath": "immich://6b35b7d0-6eb6-4b6d-b50a-18ef6aa5fede",
-      "category": "annet",
+      "category": "bakgard",
       "placeName": "Hegermanns gate 9C",
       "lat": 59.9346,
       "lng": 10.7652,
@@ -37442,7 +37442,7 @@
     {
       "id": "immich:73d913b3-4e82-47fa-910e-304159e077bb",
       "dropboxPath": "immich://73d913b3-4e82-47fa-910e-304159e077bb",
-      "category": "annet",
+      "category": "bakgard",
       "placeName": "Hegermanns gate 9C",
       "lat": 59.9346,
       "lng": 10.7652,
@@ -37453,7 +37453,7 @@
     {
       "id": "immich:339452c4-3eca-40ea-9b48-c5179bd11434",
       "dropboxPath": "immich://339452c4-3eca-40ea-9b48-c5179bd11434",
-      "category": "annet",
+      "category": "bakgard",
       "placeName": "Hegermanns gate 9C",
       "lat": 59.9346,
       "lng": 10.7652,
@@ -37464,7 +37464,7 @@
     {
       "id": "immich:c0646652-9fd5-4c9d-abf2-a34c4eaae000",
       "dropboxPath": "immich://c0646652-9fd5-4c9d-abf2-a34c4eaae000",
-      "category": "annet",
+      "category": "bakgard",
       "placeName": "Hegermanns gate 9C",
       "lat": 59.9346,
       "lng": 10.7652,
@@ -37550,48 +37550,48 @@
       "thumb": "/thumbs/immichca944535-959f-4b9f-8f08-122c78385d6b.webp"
     },
     {
+      "id": "immich:86d6de46-78ce-4058-916e-7864e6dcd596",
+      "dropboxPath": "immich://86d6de46-78ce-4058-916e-7864e6dcd596",
+      "category": "bakgard",
+      "placeName": "Hegermanns gate 9C",
+      "lat": 59.9346,
+      "lng": 10.7652,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T11:00:48.82+00:00",
+      "thumb": "/thumbs/immich86d6de46-78ce-4058-916e-7864e6dcd596.webp"
+    },
+    {
+      "id": "immich:6bf1201a-5727-4046-b3de-8fe2efebcd05",
+      "dropboxPath": "immich://6bf1201a-5727-4046-b3de-8fe2efebcd05",
+      "category": "bakgard",
+      "placeName": "Hegermanns gate 9C",
+      "lat": 59.9346,
+      "lng": 10.7652,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T11:00:31.28+00:00",
+      "thumb": "/thumbs/immich6bf1201a-5727-4046-b3de-8fe2efebcd05.webp"
+    },
+    {
+      "id": "immich:3d37f7d5-a09e-4ee8-9310-868f9c37334f",
+      "dropboxPath": "immich://3d37f7d5-a09e-4ee8-9310-868f9c37334f",
+      "category": "bakgard",
+      "placeName": "Hegermanns gate 9C",
+      "lat": 59.9346,
+      "lng": 10.7652,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T11:00:17.68+00:00",
+      "thumb": "/thumbs/immich3d37f7d5-a09e-4ee8-9310-868f9c37334f.webp"
+    },
+    {
       "id": "immich:a62b98eb-2297-434b-802f-42fb28fe2d9e",
       "dropboxPath": "immich://a62b98eb-2297-434b-802f-42fb28fe2d9e",
-      "category": "annet",
-      "placeName": "00112-15.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "category": "park",
+      "placeName": "Sagadammen 17",
+      "lat": 59.967223,
+      "lng": 10.777309,
+      "locationSource": "exif",
       "clientModified": "2025-07-23T10:18:46+00:00",
       "thumb": "/thumbs/immicha62b98eb-2297-434b-802f-42fb28fe2d9e.webp"
-    },
-    {
-      "id": "immich:1c4ce8c1-6b53-4707-a47b-e03d5bef83d7",
-      "dropboxPath": "immich://1c4ce8c1-6b53-4707-a47b-e03d5bef83d7",
-      "category": "annet",
-      "placeName": "00112-14.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-07-23T10:06:46+00:00",
-      "thumb": "/thumbs/immich1c4ce8c1-6b53-4707-a47b-e03d5bef83d7.webp"
-    },
-    {
-      "id": "immich:27b7cd09-b2f7-4819-bb69-68aa119e54f8",
-      "dropboxPath": "immich://27b7cd09-b2f7-4819-bb69-68aa119e54f8",
-      "category": "annet",
-      "placeName": "00112-13.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-07-23T09:57:19+00:00",
-      "thumb": "/thumbs/immich27b7cd09-b2f7-4819-bb69-68aa119e54f8.webp"
-    },
-    {
-      "id": "immich:7751ff5f-0299-4909-a466-4fed7935731a",
-      "dropboxPath": "immich://7751ff5f-0299-4909-a466-4fed7935731a",
-      "category": "annet",
-      "placeName": "00112-12.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-07-23T09:25:16+00:00",
-      "thumb": "/thumbs/immich7751ff5f-0299-4909-a466-4fed7935731a.webp"
     },
     {
       "id": "immich:ff81e3b1-892c-4d0b-a9ec-fb2912cd0bb7",
@@ -37616,37 +37616,37 @@
       "thumb": "/thumbs/immich1dd04631-e93b-4ae1-87d7-bac8f4c58cb8.webp"
     },
     {
-      "id": "immich:af1a95f2-7a8d-461d-8e3e-b4243e3f3ce6",
-      "dropboxPath": "immich://af1a95f2-7a8d-461d-8e3e-b4243e3f3ce6",
-      "category": "annet",
-      "placeName": "00112-9.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-07-23T08:21:17+00:00",
-      "thumb": "/thumbs/immichaf1a95f2-7a8d-461d-8e3e-b4243e3f3ce6.webp"
+      "id": "immich:1c4ce8c1-6b53-4707-a47b-e03d5bef83d7",
+      "dropboxPath": "immich://1c4ce8c1-6b53-4707-a47b-e03d5bef83d7",
+      "category": "park",
+      "placeName": "Sagadammen 17",
+      "lat": 59.9672,
+      "lng": 10.7773,
+      "locationSource": "exif",
+      "clientModified": "2025-07-23T10:06:46+00:00",
+      "thumb": "/thumbs/immich1c4ce8c1-6b53-4707-a47b-e03d5bef83d7.webp"
     },
     {
-      "id": "immich:678c27d8-9a53-4514-a274-8264e282424c",
-      "dropboxPath": "immich://678c27d8-9a53-4514-a274-8264e282424c",
+      "id": "immich:27b7cd09-b2f7-4819-bb69-68aa119e54f8",
+      "dropboxPath": "immich://27b7cd09-b2f7-4819-bb69-68aa119e54f8",
       "category": "annet",
-      "placeName": "00112-8.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-07-23T08:21:00+00:00",
-      "thumb": "/thumbs/immich678c27d8-9a53-4514-a274-8264e282424c.webp"
+      "placeName": "Kjelsåsveien 139C",
+      "lat": 59.965585,
+      "lng": 10.782097,
+      "locationSource": "exif",
+      "clientModified": "2025-07-23T09:57:19+00:00",
+      "thumb": "/thumbs/immich27b7cd09-b2f7-4819-bb69-68aa119e54f8.webp"
     },
     {
-      "id": "immich:aa64823e-b642-40c5-ae96-432163a72b03",
-      "dropboxPath": "immich://aa64823e-b642-40c5-ae96-432163a72b03",
+      "id": "immich:7751ff5f-0299-4909-a466-4fed7935731a",
+      "dropboxPath": "immich://7751ff5f-0299-4909-a466-4fed7935731a",
       "category": "annet",
-      "placeName": "00112-7.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-07-23T08:20:52+00:00",
-      "thumb": "/thumbs/immichaa64823e-b642-40c5-ae96-432163a72b03.webp"
+      "placeName": "Grefsen allé 2B",
+      "lat": 59.946417,
+      "lng": 10.787103,
+      "locationSource": "exif",
+      "clientModified": "2025-07-23T09:25:16+00:00",
+      "thumb": "/thumbs/immich7751ff5f-0299-4909-a466-4fed7935731a.webp"
     },
     {
       "id": "immich:9102a817-1b2a-4eb1-a3d0-3fbf15400d12",
@@ -37660,35 +37660,35 @@
       "thumb": "/thumbs/immich9102a817-1b2a-4eb1-a3d0-3fbf15400d12.webp"
     },
     {
-      "id": "immich:4f82aeea-0b3a-4975-be51-7c78261ddabe",
-      "dropboxPath": "immich://4f82aeea-0b3a-4975-be51-7c78261ddabe",
+      "id": "immich:af1a95f2-7a8d-461d-8e3e-b4243e3f3ce6",
+      "dropboxPath": "immich://af1a95f2-7a8d-461d-8e3e-b4243e3f3ce6",
       "category": "annet",
-      "placeName": "00112-5.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-07-22T13:00:33+00:00",
-      "thumb": "/thumbs/immich4f82aeea-0b3a-4975-be51-7c78261ddabe.webp"
+      "placeName": "Åsensvingen 3C",
+      "lat": 59.93995,
+      "lng": 10.783745,
+      "locationSource": "exif",
+      "clientModified": "2025-07-23T08:21:17+00:00",
+      "thumb": "/thumbs/immichaf1a95f2-7a8d-461d-8e3e-b4243e3f3ce6.webp"
     },
     {
-      "id": "immich:e5320da8-f689-482c-8532-65fd5723602c",
-      "dropboxPath": "immich://e5320da8-f689-482c-8532-65fd5723602c",
+      "id": "immich:678c27d8-9a53-4514-a274-8264e282424c",
+      "dropboxPath": "immich://678c27d8-9a53-4514-a274-8264e282424c",
       "category": "annet",
-      "placeName": "00112-4.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-07-22T13:00:24+00:00",
-      "thumb": "/thumbs/immiche5320da8-f689-482c-8532-65fd5723602c.webp"
+      "placeName": "Åsensvingen 3C",
+      "lat": 59.9399,
+      "lng": 10.7837,
+      "locationSource": "exif",
+      "clientModified": "2025-07-23T08:21:00+00:00",
+      "thumb": "/thumbs/immich678c27d8-9a53-4514-a274-8264e282424c.webp"
     },
     {
       "id": "immich:48a4b7e6-addf-4a2c-98b3-3a42e9f55ccd",
       "dropboxPath": "immich://48a4b7e6-addf-4a2c-98b3-3a42e9f55ccd",
       "category": "annet",
-      "placeName": "00112-3.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "placeName": "Åsensvingen 3C",
+      "lat": 59.9399,
+      "lng": 10.7837,
+      "locationSource": "exif",
       "clientModified": "2025-07-22T12:59:30+00:00",
       "thumb": "/thumbs/immich48a4b7e6-addf-4a2c-98b3-3a42e9f55ccd.webp"
     },
@@ -37696,10 +37696,10 @@
       "id": "immich:76963ca3-5e08-46e2-b675-9b46315bd7c6",
       "dropboxPath": "immich://76963ca3-5e08-46e2-b675-9b46315bd7c6",
       "category": "annet",
-      "placeName": "00112-2.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "placeName": "Åsensvingen 3C",
+      "lat": 59.9399,
+      "lng": 10.7837,
+      "locationSource": "exif",
       "clientModified": "2025-07-22T12:59:23+00:00",
       "thumb": "/thumbs/immich76963ca3-5e08-46e2-b675-9b46315bd7c6.webp"
     },
@@ -37707,23 +37707,12 @@
       "id": "immich:30b86ab3-45c8-4f1f-a8d6-84c6e95d3740",
       "dropboxPath": "immich://30b86ab3-45c8-4f1f-a8d6-84c6e95d3740",
       "category": "annet",
-      "placeName": "00112.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
+      "placeName": "Åsensvingen 3C",
+      "lat": 59.9399,
+      "lng": 10.7837,
+      "locationSource": "exif",
       "clientModified": "2025-07-22T12:58:45+00:00",
       "thumb": "/thumbs/immich30b86ab3-45c8-4f1f-a8d6-84c6e95d3740.webp"
-    },
-    {
-      "id": "immich:86d6de46-78ce-4058-916e-7864e6dcd596",
-      "dropboxPath": "immich://86d6de46-78ce-4058-916e-7864e6dcd596",
-      "category": "annet",
-      "placeName": "Hegermanns gate 9C",
-      "lat": 59.9346,
-      "lng": 10.7652,
-      "locationSource": "exif",
-      "clientModified": "2025-07-24T11:00:48.82+00:00",
-      "thumb": "/thumbs/immich86d6de46-78ce-4058-916e-7864e6dcd596.webp"
     },
     {
       "id": "immich:93928c95-09b3-4187-acd4-5ff8bd10d9b3",
@@ -37737,17 +37726,6 @@
       "thumb": "/thumbs/immich93928c95-09b3-4187-acd4-5ff8bd10d9b3.webp"
     },
     {
-      "id": "immich:f85a5958-a13a-49ae-b7a4-3d7bc15eff19",
-      "dropboxPath": "immich://f85a5958-a13a-49ae-b7a4-3d7bc15eff19",
-      "category": "annet",
-      "placeName": "00101-53.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-07-21T11:31:34.69+00:00",
-      "thumb": "/thumbs/immichf85a5958-a13a-49ae-b7a4-3d7bc15eff19.webp"
-    },
-    {
       "id": "immich:6cf41a99-14d4-4712-80b6-d468af59682c",
       "dropboxPath": "immich://6cf41a99-14d4-4712-80b6-d468af59682c",
       "category": "annet",
@@ -37759,15 +37737,15 @@
       "thumb": "/thumbs/immich6cf41a99-14d4-4712-80b6-d468af59682c.webp"
     },
     {
-      "id": "immich:43424fc5-19e8-4e3c-ba05-6112c9484fd9",
-      "dropboxPath": "immich://43424fc5-19e8-4e3c-ba05-6112c9484fd9",
+      "id": "immich:f85a5958-a13a-49ae-b7a4-3d7bc15eff19",
+      "dropboxPath": "immich://f85a5958-a13a-49ae-b7a4-3d7bc15eff19",
       "category": "annet",
-      "placeName": "00101-51.jpg",
+      "placeName": "00101-53.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-07-21T11:30:59.31+00:00",
-      "thumb": "/thumbs/immich43424fc5-19e8-4e3c-ba05-6112c9484fd9.webp"
+      "clientModified": "2025-07-21T11:31:34.69+00:00",
+      "thumb": "/thumbs/immichf85a5958-a13a-49ae-b7a4-3d7bc15eff19.webp"
     },
     {
       "id": "immich:e6b2b415-6117-4e26-baec-3ecac9f1c03c",
@@ -37779,6 +37757,17 @@
       "locationSource": "none",
       "clientModified": "2025-07-21T11:31:12.35+00:00",
       "thumb": "/thumbs/immiche6b2b415-6117-4e26-baec-3ecac9f1c03c.webp"
+    },
+    {
+      "id": "immich:43424fc5-19e8-4e3c-ba05-6112c9484fd9",
+      "dropboxPath": "immich://43424fc5-19e8-4e3c-ba05-6112c9484fd9",
+      "category": "annet",
+      "placeName": "00101-51.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T11:30:59.31+00:00",
+      "thumb": "/thumbs/immich43424fc5-19e8-4e3c-ba05-6112c9484fd9.webp"
     },
     {
       "id": "immich:3e5f7107-99d6-4eef-848b-9685317a362b",
@@ -37803,17 +37792,6 @@
       "thumb": "/thumbs/immichb8f1f32f-c936-44d3-8805-05e58a0a5185.webp"
     },
     {
-      "id": "immich:728d691a-0305-4be0-8b09-67dbcea81518",
-      "dropboxPath": "immich://728d691a-0305-4be0-8b09-67dbcea81518",
-      "category": "annet",
-      "placeName": "00101-9.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-07-21T10:32:04.79+00:00",
-      "thumb": "/thumbs/immich728d691a-0305-4be0-8b09-67dbcea81518.webp"
-    },
-    {
       "id": "immich:b7b61a85-c996-4eca-8be3-11f141670e83",
       "dropboxPath": "immich://b7b61a85-c996-4eca-8be3-11f141670e83",
       "category": "annet",
@@ -37825,15 +37803,15 @@
       "thumb": "/thumbs/immichb7b61a85-c996-4eca-8be3-11f141670e83.webp"
     },
     {
-      "id": "immich:457c5a9c-a6e3-47f3-8932-a3b7400537ba",
-      "dropboxPath": "immich://457c5a9c-a6e3-47f3-8932-a3b7400537ba",
+      "id": "immich:728d691a-0305-4be0-8b09-67dbcea81518",
+      "dropboxPath": "immich://728d691a-0305-4be0-8b09-67dbcea81518",
       "category": "annet",
-      "placeName": "00101-5.jpg",
+      "placeName": "00101-9.jpg",
       "lat": null,
       "lng": null,
       "locationSource": "none",
-      "clientModified": "2025-07-21T10:27:54.16+00:00",
-      "thumb": "/thumbs/immich457c5a9c-a6e3-47f3-8932-a3b7400537ba.webp"
+      "clientModified": "2025-07-21T10:32:04.79+00:00",
+      "thumb": "/thumbs/immich728d691a-0305-4be0-8b09-67dbcea81518.webp"
     },
     {
       "id": "immich:7219cd9b-b255-4c5d-b052-85495326ed22",
@@ -37845,6 +37823,17 @@
       "locationSource": "none",
       "clientModified": "2025-07-21T10:28:03.37+00:00",
       "thumb": "/thumbs/immich7219cd9b-b255-4c5d-b052-85495326ed22.webp"
+    },
+    {
+      "id": "immich:457c5a9c-a6e3-47f3-8932-a3b7400537ba",
+      "dropboxPath": "immich://457c5a9c-a6e3-47f3-8932-a3b7400537ba",
+      "category": "annet",
+      "placeName": "00101-5.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T10:27:54.16+00:00",
+      "thumb": "/thumbs/immich457c5a9c-a6e3-47f3-8932-a3b7400537ba.webp"
     },
     {
       "id": "immich:a26a6495-55c1-4bf1-82b5-0b2b13c909b0",
@@ -37891,17 +37880,6 @@
       "thumb": "/thumbs/immich2f2f9946-3dee-4500-950e-78cc66262d35.webp"
     },
     {
-      "id": "immich:5e204812-c726-4f36-862d-c2a17e31694f",
-      "dropboxPath": "immich://5e204812-c726-4f36-862d-c2a17e31694f",
-      "category": "annet",
-      "placeName": "00146.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2025-06-24T08:37:28+00:00",
-      "thumb": "/thumbs/immich5e204812-c726-4f36-862d-c2a17e31694f.webp"
-    },
-    {
       "id": "immich:8f977073-5256-4126-8ea7-7399a839f48f",
       "dropboxPath": "immich://8f977073-5256-4126-8ea7-7399a839f48f",
       "category": "bakgard",
@@ -37913,15 +37891,15 @@
       "thumb": "/thumbs/immich8f977073-5256-4126-8ea7-7399a839f48f.webp"
     },
     {
-      "id": "immich:aee5b47a-2beb-4953-8a57-656454e083de",
-      "dropboxPath": "immich://aee5b47a-2beb-4953-8a57-656454e083de",
-      "category": "aktivitet",
-      "placeName": "Bislett Stadion",
-      "lat": 59.92398,
-      "lng": 10.734557,
-      "locationSource": "exif",
-      "clientModified": "2025-06-19T11:10:58+00:00",
-      "thumb": "/thumbs/immichaee5b47a-2beb-4953-8a57-656454e083de.webp"
+      "id": "immich:5e204812-c726-4f36-862d-c2a17e31694f",
+      "dropboxPath": "immich://5e204812-c726-4f36-862d-c2a17e31694f",
+      "category": "annet",
+      "placeName": "00146.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-06-24T08:37:28+00:00",
+      "thumb": "/thumbs/immich5e204812-c726-4f36-862d-c2a17e31694f.webp"
     },
     {
       "id": "immich:7defb83f-3053-433d-8524-23f63c93925c",
@@ -37933,6 +37911,17 @@
       "locationSource": "exif",
       "clientModified": "2025-06-19T12:18:21+00:00",
       "thumb": "/thumbs/immich7defb83f-3053-433d-8524-23f63c93925c.webp"
+    },
+    {
+      "id": "immich:aee5b47a-2beb-4953-8a57-656454e083de",
+      "dropboxPath": "immich://aee5b47a-2beb-4953-8a57-656454e083de",
+      "category": "aktivitet",
+      "placeName": "Bislett Stadion",
+      "lat": 59.92398,
+      "lng": 10.734557,
+      "locationSource": "exif",
+      "clientModified": "2025-06-19T11:10:58+00:00",
+      "thumb": "/thumbs/immichaee5b47a-2beb-4953-8a57-656454e083de.webp"
     },
     {
       "id": "immich:1f58fb06-6fab-4784-ba86-29f7af8aac39",
@@ -37957,26 +37946,37 @@
       "thumb": "/thumbs/immich52d257ac-4aa8-48a7-a6cd-4fa1616e1704.webp"
     },
     {
-      "id": "immich:6bf1201a-5727-4046-b3de-8fe2efebcd05",
-      "dropboxPath": "immich://6bf1201a-5727-4046-b3de-8fe2efebcd05",
+      "id": "immich:aa64823e-b642-40c5-ae96-432163a72b03",
+      "dropboxPath": "immich://aa64823e-b642-40c5-ae96-432163a72b03",
       "category": "annet",
-      "placeName": "Hegermanns gate 9C",
-      "lat": 59.9346,
-      "lng": 10.7652,
+      "placeName": "Åsensvingen 3C",
+      "lat": 59.9399,
+      "lng": 10.7837,
       "locationSource": "exif",
-      "clientModified": "2025-07-24T11:00:31.28+00:00",
-      "thumb": "/thumbs/immich6bf1201a-5727-4046-b3de-8fe2efebcd05.webp"
+      "clientModified": "2025-07-23T08:20:52+00:00",
+      "thumb": "/thumbs/immichaa64823e-b642-40c5-ae96-432163a72b03.webp"
     },
     {
-      "id": "immich:3d37f7d5-a09e-4ee8-9310-868f9c37334f",
-      "dropboxPath": "immich://3d37f7d5-a09e-4ee8-9310-868f9c37334f",
+      "id": "immich:4f82aeea-0b3a-4975-be51-7c78261ddabe",
+      "dropboxPath": "immich://4f82aeea-0b3a-4975-be51-7c78261ddabe",
       "category": "annet",
-      "placeName": "Hegermanns gate 9C",
-      "lat": 59.9346,
-      "lng": 10.7652,
+      "placeName": "Åsensvingen 3C",
+      "lat": 59.9399,
+      "lng": 10.7837,
       "locationSource": "exif",
-      "clientModified": "2025-07-24T11:00:17.68+00:00",
-      "thumb": "/thumbs/immich3d37f7d5-a09e-4ee8-9310-868f9c37334f.webp"
+      "clientModified": "2025-07-22T13:00:33+00:00",
+      "thumb": "/thumbs/immich4f82aeea-0b3a-4975-be51-7c78261ddabe.webp"
+    },
+    {
+      "id": "immich:e5320da8-f689-482c-8532-65fd5723602c",
+      "dropboxPath": "immich://e5320da8-f689-482c-8532-65fd5723602c",
+      "category": "annet",
+      "placeName": "Åsensvingen 3C",
+      "lat": 59.9399,
+      "lng": 10.7837,
+      "locationSource": "exif",
+      "clientModified": "2025-07-22T13:00:24+00:00",
+      "thumb": "/thumbs/immiche5320da8-f689-482c-8532-65fd5723602c.webp"
     },
     {
       "id": "immich:d485f451-06f7-4230-8e31-a3237a3e0ea0",
@@ -38023,17 +38023,6 @@
       "thumb": "/thumbs/immichd16ee035-a888-4646-8a37-b18d46fba5dc.webp"
     },
     {
-      "id": "immich:83184977-6a0d-43e0-8e51-683e096434ed",
-      "dropboxPath": "immich://83184977-6a0d-43e0-8e51-683e096434ed",
-      "category": "annet",
-      "placeName": "Dyna brygge 9",
-      "lat": 59.907724,
-      "lng": 10.719318,
-      "locationSource": "exif",
-      "clientModified": "2025-06-12T21:38:28.05+00:00",
-      "thumb": "/thumbs/immich83184977-6a0d-43e0-8e51-683e096434ed.webp"
-    },
-    {
       "id": "immich:454f80d1-172f-424f-957c-f68b69769bf1",
       "dropboxPath": "immich://454f80d1-172f-424f-957c-f68b69769bf1",
       "category": "restaurant",
@@ -38043,6 +38032,17 @@
       "locationSource": "exif",
       "clientModified": "2025-06-12T21:42:43.17+00:00",
       "thumb": "/thumbs/immich454f80d1-172f-424f-957c-f68b69769bf1.webp"
+    },
+    {
+      "id": "immich:83184977-6a0d-43e0-8e51-683e096434ed",
+      "dropboxPath": "immich://83184977-6a0d-43e0-8e51-683e096434ed",
+      "category": "annet",
+      "placeName": "Dyna brygge 9",
+      "lat": 59.907724,
+      "lng": 10.719318,
+      "locationSource": "exif",
+      "clientModified": "2025-06-12T21:38:28.05+00:00",
+      "thumb": "/thumbs/immich83184977-6a0d-43e0-8e51-683e096434ed.webp"
     },
     {
       "id": "immich:382b9df1-be8f-462a-90fe-0aa28752ef6e",
@@ -39475,17 +39475,6 @@
       "thumb": "/thumbs/immich7dddf8a8-2a77-4006-90d5-5f753fcf0ca2.webp"
     },
     {
-      "id": "immich:39187840-45c2-4bc3-8831-4ed67974a189",
-      "dropboxPath": "immich://39187840-45c2-4bc3-8831-4ed67974a189",
-      "category": "annet",
-      "placeName": "00095-17.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2023-05-24T09:02:51.07+00:00",
-      "thumb": "/thumbs/immich39187840-45c2-4bc3-8831-4ed67974a189.webp"
-    },
-    {
       "id": "immich:a31026a7-ebfb-4d52-83bb-ad5a8719b8de",
       "dropboxPath": "immich://a31026a7-ebfb-4d52-83bb-ad5a8719b8de",
       "category": "restaurant",
@@ -39508,20 +39497,9 @@
       "thumb": "/thumbs/immicha23c24cb-bd4f-43f9-b063-370e4f4e1a9e.webp"
     },
     {
-      "id": "immich:a0312b04-c1f8-4789-a7ac-5a6f0fbd3385",
-      "dropboxPath": "immich://a0312b04-c1f8-4789-a7ac-5a6f0fbd3385",
-      "category": "annet",
-      "placeName": "00095-16.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2023-05-24T08:59:54.43+00:00",
-      "thumb": "/thumbs/immicha0312b04-c1f8-4789-a7ac-5a6f0fbd3385.webp"
-    },
-    {
       "id": "immich:d731de0c-163b-4d61-b52d-8f5d4c31fb05",
       "dropboxPath": "immich://d731de0c-163b-4d61-b52d-8f5d4c31fb05",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Hedmarksgata 20",
       "lat": 59.911347,
       "lng": 10.785102,
@@ -39530,15 +39508,15 @@
       "thumb": "/thumbs/immichd731de0c-163b-4d61-b52d-8f5d4c31fb05.webp"
     },
     {
-      "id": "immich:16c6c7ea-d730-4f06-8a5d-ba7aa5be6706",
-      "dropboxPath": "immich://16c6c7ea-d730-4f06-8a5d-ba7aa5be6706",
-      "category": "annet",
-      "placeName": "00095-15.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2023-05-24T08:58:56+00:00",
-      "thumb": "/thumbs/immich16c6c7ea-d730-4f06-8a5d-ba7aa5be6706.webp"
+      "id": "immich:39187840-45c2-4bc3-8831-4ed67974a189",
+      "dropboxPath": "immich://39187840-45c2-4bc3-8831-4ed67974a189",
+      "category": "park",
+      "placeName": "Stensparken",
+      "lat": 59.928719,
+      "lng": 10.730601,
+      "locationSource": "exif",
+      "clientModified": "2023-05-24T09:02:51.07+00:00",
+      "thumb": "/thumbs/immich39187840-45c2-4bc3-8831-4ed67974a189.webp"
     },
     {
       "id": "immich:19f82ffa-7ed7-4057-a249-aa59e9f6d5b8",
@@ -39550,6 +39528,28 @@
       "locationSource": "exif",
       "clientModified": "2023-05-24T09:02:51.07+00:00",
       "thumb": "/thumbs/immich19f82ffa-7ed7-4057-a249-aa59e9f6d5b8.webp"
+    },
+    {
+      "id": "immich:16c6c7ea-d730-4f06-8a5d-ba7aa5be6706",
+      "dropboxPath": "immich://16c6c7ea-d730-4f06-8a5d-ba7aa5be6706",
+      "category": "park",
+      "placeName": "Stensparken",
+      "lat": 59.9287,
+      "lng": 10.7306,
+      "locationSource": "exif",
+      "clientModified": "2023-05-24T08:58:56+00:00",
+      "thumb": "/thumbs/immich16c6c7ea-d730-4f06-8a5d-ba7aa5be6706.webp"
+    },
+    {
+      "id": "immich:52dece56-b998-451e-ba0f-b831a72a3beb",
+      "dropboxPath": "immich://52dece56-b998-451e-ba0f-b831a72a3beb",
+      "category": "annet",
+      "placeName": "Thereses gate 31G",
+      "lat": 59.928544,
+      "lng": 10.73049,
+      "locationSource": "exif",
+      "clientModified": "2023-05-24T08:58:56+00:00",
+      "thumb": "/thumbs/immich52dece56-b998-451e-ba0f-b831a72a3beb.webp"
     },
     {
       "id": "immich:407726d1-e87d-48ae-91d4-11b88c622194",
@@ -39618,15 +39618,15 @@
       "thumb": "/thumbs/immich79a0a0f0-0fe7-4670-98ec-9c0b278ef3c1.webp"
     },
     {
-      "id": "immich:9fb6f536-79ea-4aae-ace8-bf4058363eaf",
-      "dropboxPath": "immich://9fb6f536-79ea-4aae-ace8-bf4058363eaf",
-      "category": "annet",
-      "placeName": "Thereses gate 31G",
-      "lat": 59.928544,
-      "lng": 10.73049,
+      "id": "immich:a0312b04-c1f8-4789-a7ac-5a6f0fbd3385",
+      "dropboxPath": "immich://a0312b04-c1f8-4789-a7ac-5a6f0fbd3385",
+      "category": "park",
+      "placeName": "Stensparken",
+      "lat": 59.9287,
+      "lng": 10.7306,
       "locationSource": "exif",
       "clientModified": "2023-05-24T08:59:54.43+00:00",
-      "thumb": "/thumbs/immich9fb6f536-79ea-4aae-ace8-bf4058363eaf.webp"
+      "thumb": "/thumbs/immicha0312b04-c1f8-4789-a7ac-5a6f0fbd3385.webp"
     },
     {
       "id": "immich:0b26c90f-ccd8-4d74-b065-62fdf0f523cc",
@@ -39640,15 +39640,15 @@
       "thumb": "/thumbs/immich0b26c90f-ccd8-4d74-b065-62fdf0f523cc.webp"
     },
     {
-      "id": "immich:52dece56-b998-451e-ba0f-b831a72a3beb",
-      "dropboxPath": "immich://52dece56-b998-451e-ba0f-b831a72a3beb",
+      "id": "immich:9fb6f536-79ea-4aae-ace8-bf4058363eaf",
+      "dropboxPath": "immich://9fb6f536-79ea-4aae-ace8-bf4058363eaf",
       "category": "annet",
       "placeName": "Thereses gate 31G",
       "lat": 59.928544,
       "lng": 10.73049,
       "locationSource": "exif",
-      "clientModified": "2023-05-24T08:58:56+00:00",
-      "thumb": "/thumbs/immich52dece56-b998-451e-ba0f-b831a72a3beb.webp"
+      "clientModified": "2023-05-24T08:59:54.43+00:00",
+      "thumb": "/thumbs/immich9fb6f536-79ea-4aae-ace8-bf4058363eaf.webp"
     },
     {
       "id": "immich:966df60f-157a-4802-a24c-f44196fccfa8",
@@ -39719,7 +39719,7 @@
     {
       "id": "immich:004f0641-161e-4bae-a6b4-a1fb678f0058",
       "dropboxPath": "immich://004f0641-161e-4bae-a6b4-a1fb678f0058",
-      "category": "natur",
+      "category": "park",
       "placeName": "Frysja",
       "lat": 59.96718,
       "lng": 10.779449,
@@ -39730,7 +39730,7 @@
     {
       "id": "immich:e5e49000-94de-4460-8942-11dcf207b903",
       "dropboxPath": "immich://e5e49000-94de-4460-8942-11dcf207b903",
-      "category": "natur",
+      "category": "park",
       "placeName": "Frysja",
       "lat": 59.966878,
       "lng": 10.779668,
