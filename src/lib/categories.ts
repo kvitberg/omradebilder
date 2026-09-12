@@ -49,7 +49,7 @@ export const CATEGORIES: Category[] = [
     label: "Bakgård",
     description:
       "Gårdsrommene bak fasadene — de som avgjør om en leilighet har et sted å sitte ute.",
-    keywords: ["bakgård", "bakgard", "gårdsrom", "gardsrom", "innhage"],
+    keywords: ["bakgård", "bakgard", "gårdsrom", "gardsrom", "innhage", "fellesareal"],
   },
   {
     id: "kollektiv",

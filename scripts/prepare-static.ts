@@ -17,6 +17,18 @@ const OUT_DIR = path.join(process.cwd(), "public", "data");
 
 type BygardData = { adresseTilBygard: Record<string, string> };
 
+/** Kategorier der tilgangen følger bygningen, ikke gangavstanden. */
+const FELLESAREAL = new Set(["bakgard", "takterrasse"]);
+
+/**
+ * Teig-grupperingen limer av og til sammen store områder der eiendommer
+ * berører hverandre uten at en gate skiller dem. Et gårdsrom deles ikke av
+ * tusenvis av adresser, så slike klumper forkastes — bildet faller da
+ * tilbake på avstandsfilteret, som er mindre galt enn å vise en takterrasse
+ * til et helt bydel.
+ */
+const MAKS_ADRESSER_I_KVARTAL = 60;
+
 async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true });
 
@@ -100,13 +112,25 @@ async function main() {
     }
 
     if (!beste || beste.d > 80) return null;
-    return bygarder.adresseTilBygard[beste.adresse] ?? null;
+    return rimeligKvartal(bygarder.adresseTilBygard[beste.adresse] ?? null);
+  }
+
+  /** Forkaster kvartaler som er for store til å være ett gårdsrom. */
+  const kvartalStorrelse = new Map<string, number>();
+  for (const g of (bygarder as unknown as { bygarder?: Array<{ id: string; adresser: string[] }> })
+    .bygarder ?? []) {
+    kvartalStorrelse.set(g.id, g.adresser.length);
+  }
+  function rimeligKvartal(id: string | null): string | null {
+    if (!id) return null;
+    const n = kvartalStorrelse.get(id) ?? 0;
+    return n > 0 && n <= MAKS_ADRESSER_I_KVARTAL ? id : null;
   }
 
   function bygardFor(placeName: string): string | null {
     for (const [navn, adresse] of Object.entries(kallenavn)) {
       if (placeName.toLowerCase().includes(navn.toLowerCase())) {
-        const treff = slåOpp(adresse);
+        const treff = rimeligKvartal(slåOpp(adresse));
         if (treff) return treff;
       }
     }
@@ -116,7 +140,7 @@ async function main() {
     for (const del of placeName.split(/\s*[–—,-]\s*/)) {
       ADRESSE.lastIndex = 0;
       for (const m of del.matchAll(ADRESSE)) {
-        const treff = slåOpp(m[1]);
+        const treff = rimeligKvartal(slåOpp(m[1]));
         if (treff) return treff;
       }
     }
@@ -160,7 +184,7 @@ async function main() {
         category,
         placeName: overstyring?.navn ?? p.placeName,
         bygardId:
-          category === "bakgard"
+          FELLESAREAL.has(category)
             ? bygardFor(p.placeName) ??
               (p.lat !== null && p.lng !== null ? bygardFraPunkt(p.lat, p.lng) : null)
             : p.bygardId ?? null,
@@ -185,7 +209,7 @@ async function main() {
 
   // Bare kvartaler som har minst ett bakgårdsbilde er verdt å ta med.
   const relevante = new Set(
-    publishable.filter((p) => p.category === "bakgard" && p.bygardId).map((p) => p.bygardId!)
+    publishable.filter((p) => FELLESAREAL.has(p.category) && p.bygardId).map((p) => p.bygardId!)
   );
 
   let addresses = 0;

@@ -31,6 +31,8 @@ type ImmichAsset = {
   id: string;
   originalFileName: string;
   fileCreatedAt: string;
+  /** Tagger satt i Immich — den mest pålitelige kilden til kategori. */
+  tags?: Array<{ name?: string; value?: string }>;
   exifInfo?: {
     latitude?: number | null;
     longitude?: number | null;
@@ -189,9 +191,19 @@ async function main() {
         if (placeName) named++;
         if (poi) fromPoi++;
 
-        const detected = detectCategory([description ?? "", asset.originalFileName]);
+        // Tagger i Immich går foran alt: de er satt av fotografen med
+        // vitende vilje, mens beskrivelse og stedsoppslag er tolkninger.
+        const tagger = (asset.tags ?? [])
+          .map((t) => t.value || t.name || "")
+          .filter(Boolean);
+        const fraTag = detectCategory(tagger);
+        const fraTekst = detectCategory([description ?? "", asset.originalFileName]);
         const categoryId =
-          detected.categoryId !== "annet" ? detected.categoryId : poi?.categoryId ?? "annet";
+          fraTag.categoryId !== "annet"
+            ? fraTag.categoryId
+            : fraTekst.categoryId !== "annet"
+              ? fraTekst.categoryId
+              : poi?.categoryId ?? "annet";
 
         const entryId = `immich:${asset.id}`;
         const outPath = path.join(OUT_DIR, thumbFileName(entryId));

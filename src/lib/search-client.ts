@@ -101,10 +101,12 @@ export async function search(
       ...p,
       distanceMeters: haversineDistanceMeters(center, { lat: p.lat, lng: p.lng }),
     }))
-    // Bakgårder følger kvartalet, ikke avstanden: et gårdsrom hører til de
-    // adressene som deler det, og ville ellers dukket opp i hele nabolaget.
+    // Et bilde med kvartal er et fellesareal — gårdsrom eller takterrasse —
+    // og hører til adressene som deler det, ikke til alle innen gangavstand.
+    // Mangler kvartalet, falt oppslaget gjennom, og avstand er det beste vi
+    // har.
     .filter((p) =>
-      p.category === "bakgard"
+      p.bygardId
         ? bygardId !== null && p.bygardId === bygardId
         : p.distanceMeters <= radiusMeters
     )
