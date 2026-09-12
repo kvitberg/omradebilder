@@ -4,7 +4,7 @@ config({ path: ".env.local" });
 import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
-import { detectCategory } from "../src/lib/categories";
+import { categoryFromTags, detectCategory } from "../src/lib/categories";
 import { lookupPoi, type Poi } from "../src/lib/poi";
 import type { PhotoEntry, SearchIndex } from "../src/lib/index-store";
 
@@ -196,11 +196,11 @@ async function main() {
         const tagger = (asset.tags ?? [])
           .map((t) => t.value || t.name || "")
           .filter(Boolean);
-        const fraTag = detectCategory(tagger);
+        const fraTag = categoryFromTags(tagger) ?? detectCategory(tagger).categoryId;
         const fraTekst = detectCategory([description ?? "", asset.originalFileName]);
         const categoryId =
-          fraTag.categoryId !== "annet"
-            ? fraTag.categoryId
+          fraTag !== "annet"
+            ? fraTag
             : fraTekst.categoryId !== "annet"
               ? fraTekst.categoryId
               : poi?.categoryId ?? "annet";

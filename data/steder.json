@@ -526,10 +526,6 @@
     "kategori": "nabolag",
     "kilde": "osm"
   },
-  "Torshov": {
-    "kategori": "bakgard",
-    "kilde": "manuell"
-  },
   "Torshovdalen": {
     "kategori": "park",
     "kilde": "osm"

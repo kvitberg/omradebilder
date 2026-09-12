@@ -108,6 +108,73 @@ export const CATEGORIES: Category[] = [
   },
 ];
 
+/**
+ * Tagger satt i Immich, oversatt til kategori.
+ *
+ * Tagger slås opp eksakt, ikke som delstreng slik mappenavn gjør. En tagg er
+ * en kuratert verdi fra en kort liste, og delstrengsøk ville her gjort
+ * «Bar» til et treff i «Barnehage».
+ *
+ * Ukjente tagger faller videre til nøkkelordsøket.
+ */
+export const TAGG_TIL_KATEGORI: Record<string, string> = {
+  // Servering
+  cafe: "kafe",
+  kafe: "kafe",
+  kafé: "kafe",
+  bakeri: "kafe",
+  restaurant: "restaurant",
+  bar: "restaurant",
+  pub: "restaurant",
+  // Uteområder
+  park: "park",
+  lekeplass: "park",
+  badeplass: "natur",
+  natur: "natur",
+  utsikt: "natur",
+  // Fellesarealer — følger bygningen, ikke gangavstanden
+  fellesareal: "bakgard",
+  bakgård: "bakgard",
+  bakgard: "bakgard",
+  gårdsrom: "bakgard",
+  innhage: "bakgard",
+  takterrasse: "takterrasse",
+  // Kollektiv
+  busstopp: "kollektiv",
+  trikkestopp: "kollektiv",
+  togstasjon: "kollektiv",
+  "t-banestasjon": "kollektiv",
+  tbanestasjon: "kollektiv",
+  kollektiv: "kollektiv",
+  // Handel
+  matbutikk: "butikk",
+  dagligvare: "butikk",
+  butikk: "butikk",
+  kjøpesenter: "butikk",
+  // Øvrig
+  skole: "skole",
+  barnehage: "skole",
+  museum: "kultur",
+  kino: "kultur",
+  teater: "kultur",
+  bibliotek: "kultur",
+  kultur: "kultur",
+  idrettsarena: "aktivitet",
+  idrett: "aktivitet",
+  treningssenter: "aktivitet",
+  fasade: "fasade",
+  nabolag: "nabolag",
+};
+
+/** Første tagg som er kjent, eller null. */
+export function categoryFromTags(tags: string[]): string | null {
+  for (const tag of tags) {
+    const treff = TAGG_TIL_KATEGORI[tag.trim().toLowerCase()];
+    if (treff) return treff;
+  }
+  return null;
+}
+
 const CATEGORY_BY_ID = new Map(CATEGORIES.map((c) => [c.id, c]));
 
 export function getCategory(id: string): Category {
