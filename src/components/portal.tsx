@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import {
   search,
@@ -232,7 +232,8 @@ export default function Portal({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [warning, setWarning] = useState<string | null>(null);
-  const [spreads, setSpreads] = useState<SpreadData[] | null>(null);
+  const [groups, setGroups] = useState<Group[] | null>(null);
+  const [filter, setFilter] = useState<string | null>(null);
   const [areaText, setAreaText] = useState("");
   const [mapDots, setMapDots] = useState<MapDot[]>([]);
   const [mapLegend, setMapLegend] = useState<Array<{ id: string; label: string }>>([]);
@@ -246,12 +247,25 @@ export default function Portal({
   // Koordinater fra et valgt adresseforslag, så vi slipper å geokode på nytt.
   const chosenCoords = useRef<Suggestion | null>(null);
 
+  // Oppslagene avledes av gruppene og filteret, så et filterklikk bygger
+  // sidene på nytt uten et nytt søk.
+  const spreads = useMemo(() => {
+    if (!groups) return null;
+    const valgte = filter ? groups.filter((g) => g.category.id === filter) : groups;
+    return buildSpreads(valgte);
+  }, [groups, filter]);
+
   const totalPages = 1 + (spreads?.length ?? 0);
 
   const goTo = useCallback(
     (next: number) => setPage(Math.max(0, Math.min(next, totalPages - 1))),
     [totalPages]
   );
+
+  function velgFilter(id: string | null) {
+    setFilter((nå) => (nå === id ? null : id));
+    setPage(1);
+  }
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -275,11 +289,19 @@ export default function Portal({
       try {
         const data = await search(trimmed, radiusMeters, coords);
         const built = buildSpreads(data.groups);
-        setSpreads(built);
+        setGroups(data.groups);
+        setFilter(null);
         setAreaText(composeAreaText(data.groups, trimmed, radiusMeters));
         setMapDots(
           data.groups.flatMap((g) =>
-            g.photos.map((ph) => ({ lat: ph.lat, lng: ph.lng, category: g.category.id }))
+            g.photos.map((ph) => ({
+              lat: ph.lat,
+              lng: ph.lng,
+              category: g.category.id,
+              placeName: ph.placeName,
+              distanceMeters: ph.distanceMeters,
+              thumb: ph.thumb,
+            }))
           )
         );
         setMapLegend(data.groups.map((g) => ({ id: g.category.id, label: g.category.label })));
@@ -290,7 +312,7 @@ export default function Portal({
         setError(
           err instanceof SearchError ? err.message : "Noe gikk galt under søket"
         );
-        setSpreads(null);
+        setGroups(null);
       } finally {
         setLoading(false);
       }
@@ -326,6 +348,8 @@ export default function Portal({
           center={searched?.center ?? null}
           mapDots={mapDots}
           mapLegend={mapLegend}
+          filter={filter}
+          onVelgFilter={velgFilter}
           areaText={areaText}
           goTo={goTo}
         />
@@ -644,6 +668,8 @@ function Spread({
   center,
   mapDots,
   mapLegend,
+  filter,
+  onVelgFilter,
   areaText,
   goTo,
 }: {
@@ -655,6 +681,8 @@ function Spread({
   center: { lat: number; lng: number } | null;
   mapDots: MapDot[];
   mapLegend: Array<{ id: string; label: string }>;
+  filter: string | null;
+  onVelgFilter: (id: string | null) => void;
   areaText: string;
   goTo: (n: number) => void;
 }) {
@@ -681,16 +709,36 @@ function Spread({
               </div>
               <figcaption className="mt-2 flex shrink-0 flex-wrap items-baseline justify-between gap-x-3 gap-y-1 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
                 <span className="truncate">{address.split(",")[0]}</span>
-                <span className="flex shrink-0 items-center gap-3">
-                  {mapLegend.map((item) => (
-                    <span key={item.id} className="flex items-center gap-1.5">
-                      <span
-                        className="inline-block h-2 w-2 rounded-full"
-                        style={{ background: KATEGORI_FARGER[item.id] ?? KATEGORI_FARGER.annet }}
-                      />
-                      {item.label}
-                    </span>
-                  ))}
+                <span className="flex shrink-0 flex-wrap items-center gap-x-3 gap-y-1">
+                  {mapLegend.map((item) => {
+                    const aktiv = filter === item.id;
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => onVelgFilter(item.id)}
+                        title={aktiv ? "Vis alle igjen" : `Vis bare ${item.label.toLowerCase()}`}
+                        className={`flex items-center gap-1.5 uppercase tracking-[0.18em] transition-opacity ${
+                          aktiv ? "text-ink" : filter ? "opacity-40 hover:opacity-100" : "hover:text-ink"
+                        }`}
+                      >
+                        <span
+                          className="inline-block h-2 w-2 rounded-full"
+                          style={{ background: KATEGORI_FARGER[item.id] ?? KATEGORI_FARGER.annet }}
+                        />
+                        {item.label}
+                      </button>
+                    );
+                  })}
+                  {filter && (
+                    <button
+                      type="button"
+                      onClick={() => onVelgFilter(null)}
+                      className="uppercase tracking-[0.18em] text-ink underline underline-offset-4"
+                    >
+                      Vis alle
+                    </button>
+                  )}
                   <span>{formatRadius(radius)} gangavstand</span>
                 </span>
               </figcaption>

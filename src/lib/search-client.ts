@@ -1,6 +1,6 @@
 import { haversineDistanceMeters } from "@/lib/geo";
 import { CATEGORIES } from "@/lib/categories";
-import { withBasePath } from "@/lib/site";
+import { dataUrl, withBasePath } from "@/lib/site";
 import type { SearchIndex, PhotoEntry } from "@/lib/index-store";
 
 /**
@@ -39,7 +39,7 @@ let indexPromise: Promise<SearchIndex> | null = null;
 let bygardPromise: Promise<Record<string, string> | null> | null = null;
 
 function loadIndex(): Promise<SearchIndex> {
-  indexPromise ??= fetch(withBasePath("/data/index.json")).then((r) => {
+  indexPromise ??= fetch(dataUrl("/data/index.json")).then((r) => {
     if (!r.ok) throw new SearchError("Fant ingen bildeindeks");
     return r.json();
   });
@@ -51,7 +51,7 @@ function loadIndex(): Promise<SearchIndex> {
  * Det hentes derfor separat, og en feil her skal ikke stoppe resten av søket.
  */
 function loadBygardMap(): Promise<Record<string, string> | null> {
-  bygardPromise ??= fetch(withBasePath("/data/adresse-til-bygard.json"))
+  bygardPromise ??= fetch(dataUrl("/data/adresse-til-bygard.json"))
     .then((r) => (r.ok ? r.json() : null))
     .catch(() => null);
   return bygardPromise;
@@ -93,7 +93,8 @@ export async function search(
 
   const index = await loadIndex();
   const bygardMap = await loadBygardMap();
-  const bygardId = bygardMap?.[normalizeAddress(address)] ?? null;
+  const søktAdresse = normalizeAddress(address);
+  const bygardId = bygardMap?.[søktAdresse] ?? null;
 
   const withDistance = index.photos
     .filter((p): p is PhotoEntry & { lat: number; lng: number } => p.lat !== null && p.lng !== null)
@@ -101,15 +102,16 @@ export async function search(
       ...p,
       distanceMeters: haversineDistanceMeters(center, { lat: p.lat, lng: p.lng }),
     }))
-    // Et bilde med kvartal er et fellesareal — gårdsrom eller takterrasse —
-    // og hører til adressene som deler det, ikke til alle innen gangavstand.
-    // Mangler kvartalet, falt oppslaget gjennom, og avstand er det beste vi
-    // har.
-    .filter((p) =>
-      p.bygardId
-        ? bygardId !== null && p.bygardId === bygardId
-        : p.distanceMeters <= radiusMeters
-    )
+    // Et bilde bundet til en adresse eller et kvartal er et fellesareal —
+    // gårdsrom, takterrasse eller fasade — og hører til dem som deler
+    // bygningen, ikke til alle innen gangavstand. Adressen er den presise
+    // koblingen; kvartalet fanger naboene rundt samme gårdsrom. Mangler
+    // begge, falt oppslaget gjennom, og avstand er det beste vi har.
+    .filter((p) => {
+      if (p.adresse) return p.adresse === søktAdresse || (!!p.bygardId && p.bygardId === bygardId);
+      if (p.bygardId) return bygardId !== null && p.bygardId === bygardId;
+      return p.distanceMeters <= radiusMeters;
+    })
     .sort((a, b) => a.distanceMeters - b.distanceMeters);
 
   const groups: Group[] = CATEGORIES.map((category) => ({

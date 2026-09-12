@@ -19,6 +19,12 @@ export type PhotoEntry = {
    * samme gårdsrom i stedet for å filtreres på avstand.
    */
   bygardId?: string | null;
+  /**
+   * Adressen som står i bildets eget navn. Bindes bildet til én adresse, er
+   * det den som gjelder — også når kvartalet rundt er for spredt til å si
+   * noe meningsfullt.
+   */
+  adresse?: string | null;
 };
 
 export type SearchIndex = {

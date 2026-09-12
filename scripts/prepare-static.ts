@@ -17,17 +17,22 @@ const OUT_DIR = path.join(process.cwd(), "public", "data");
 
 type BygardData = { adresseTilBygard: Record<string, string> };
 
-/** Kategorier der tilgangen følger bygningen, ikke gangavstanden. */
-const FELLESAREAL = new Set(["bakgard", "takterrasse"]);
+/**
+ * Kategorier som hører til en bestemt bygning, ikke til gangavstanden.
+ * Et gårdsrom og en takterrasse deles av kvartalet, og en fasade er selve
+ * bygget — ingen av dem hører hjemme i naboens salgsoppgave.
+ */
+const FELLESAREAL = new Set(["bakgard", "takterrasse", "fasade"]);
 
 /**
  * Teig-grupperingen limer av og til sammen store områder der eiendommer
- * berører hverandre uten at en gate skiller dem. Et gårdsrom deles ikke av
- * tusenvis av adresser, så slike klumper forkastes — bildet faller da
- * tilbake på avstandsfilteret, som er mindre galt enn å vise en takterrasse
- * til et helt bydel.
+ * berører hverandre uten at en gate skiller dem. Slike klumper forkastes.
+ *
+ * Målestokken er utstrekning, ikke antall adresser: et tett kvartal kan ha
+ * 76 adresser og likevel være ett gårdsrom, mens en sammenlimt klump
+ * strekker seg over kilometer. Diagonalen i omslutningsboksen skiller de to.
  */
-const MAKS_ADRESSER_I_KVARTAL = 60;
+const MAKS_KVARTAL_METER = 300;
 
 async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true });
@@ -115,16 +120,57 @@ async function main() {
     return rimeligKvartal(bygarder.adresseTilBygard[beste.adresse] ?? null);
   }
 
-  /** Forkaster kvartaler som er for store til å være ett gårdsrom. */
-  const kvartalStorrelse = new Map<string, number>();
+  /** Forkaster kvartaler som strekker seg for langt til å være ett gårdsrom. */
+  const kvartalOk = new Map<string, boolean>();
   for (const g of (bygarder as unknown as { bygarder?: Array<{ id: string; adresser: string[] }> })
     .bygarder ?? []) {
-    kvartalStorrelse.set(g.id, g.adresser.length);
+    let minLat = Infinity;
+    let maxLat = -Infinity;
+    let minLng = Infinity;
+    let maxLng = -Infinity;
+    let n = 0;
+    for (const a of g.adresser) {
+      const pkt = adressepunkter[a];
+      if (!pkt) continue;
+      n++;
+      minLat = Math.min(minLat, pkt[0]);
+      maxLat = Math.max(maxLat, pkt[0]);
+      minLng = Math.min(minLng, pkt[1]);
+      maxLng = Math.max(maxLng, pkt[1]);
+    }
+    if (n === 0) {
+      kvartalOk.set(g.id, false);
+      continue;
+    }
+    // Grader til meter: 111 km per breddegrad, og lengdegrad krympet med
+    // breddegraden (cos ≈ 0,5 i Oslo).
+    const høyde = (maxLat - minLat) * 111_320;
+    const bredde = (maxLng - minLng) * 111_320 * Math.cos((minLat * Math.PI) / 180);
+    kvartalOk.set(g.id, Math.hypot(høyde, bredde) <= MAKS_KVARTAL_METER);
   }
   function rimeligKvartal(id: string | null): string | null {
-    if (!id) return null;
-    const n = kvartalStorrelse.get(id) ?? 0;
-    return n > 0 && n <= MAKS_ADRESSER_I_KVARTAL ? id : null;
+    return id && kvartalOk.get(id) ? id : null;
+  }
+
+  /**
+   * Adressen som står i selve stedsnavnet, f.eks. «Fasade -Brekkeveien 19».
+   * Dette er den presise koblingen: bildet hører til den adressen, uansett
+   * hvor stort eller spredt kvartalet rundt måtte være.
+   */
+  function adresseFor(placeName: string): string | null {
+    for (const [navn, adresse] of Object.entries(kallenavn)) {
+      if (adresse && placeName.toLowerCase().includes(navn.toLowerCase())) {
+        if (bygarder.adresseTilBygard[adresse] || utenBokstav.has(adresse)) return adresse;
+      }
+    }
+    for (const del of placeName.split(/\s*[–—,-]\s*/)) {
+      ADRESSE.lastIndex = 0;
+      for (const m of del.matchAll(ADRESSE)) {
+        const kandidat = m[1].replace(/\s+/g, " ").trim();
+        if (bygarder.adresseTilBygard[kandidat] || utenBokstav.has(kandidat)) return kandidat;
+      }
+    }
+    return null;
   }
 
   function bygardFor(placeName: string): string | null {
@@ -183,6 +229,7 @@ async function main() {
         thumb: thumbFor(p.id),
         category,
         placeName: overstyring?.navn ?? p.placeName,
+        adresse: FELLESAREAL.has(category) ? adresseFor(p.placeName) : null,
         bygardId:
           FELLESAREAL.has(category)
             ? bygardFor(p.placeName) ??
@@ -200,6 +247,7 @@ async function main() {
     lng: p.lng,
     thumb: p.thumb,
     ...(p.bygardId ? { bygardId: p.bygardId } : {}),
+    ...(p.adresse ? { adresse: p.adresse } : {}),
   }));
 
   await fs.writeFile(

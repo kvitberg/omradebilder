@@ -10,7 +10,7 @@ cd "$(dirname "$0")/.."
 DEPLOY_DIR="${DEPLOY_DIR:-.deploy-gh-pages}"
 REPO_URL="https://github.com/kvitberg/omradebilder.git"
 
-NEXT_PUBLIC_BASE_PATH=/omradebilder npm run build
+NEXT_PUBLIC_BASE_PATH=/omradebilder NEXT_PUBLIC_BUILD_ID="$(date +%s)" npm run build
 
 if [ ! -d "$DEPLOY_DIR/.git" ]; then
   git clone --depth 1 --branch gh-pages --single-branch "$REPO_URL" "$DEPLOY_DIR"

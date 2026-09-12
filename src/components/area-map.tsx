@@ -13,7 +13,14 @@ import "leaflet/dist/leaflet.css";
  * av, slik at det oppfører seg som et trykt kartutsnitt i en salgsoppgave.
  */
 
-export type MapDot = { lat: number; lng: number; category: string };
+export type MapDot = {
+  lat: number;
+  lng: number;
+  category: string;
+  placeName: string;
+  distanceMeters: number;
+  thumb: string | null;
+};
 
 export const KATEGORI_FARGER: Record<string, string> = {
   kafe: "#b3892f",
@@ -87,18 +94,38 @@ export default function AreaMap({
       }).addTo(map);
 
       // Én prikk per sted, ikke per bilde — bildeserier ligger oppå hverandre.
-      const seen = new Set<string>();
+      // Popup-en teller hvor mange bilder stedet har.
+      const perSted = new Map<string, { dot: MapDot; antall: number }>();
       for (const dot of dots) {
         const key = `${dot.lat.toFixed(4)},${dot.lng.toFixed(4)}`;
-        if (seen.has(key)) continue;
-        seen.add(key);
-        L.circleMarker([dot.lat, dot.lng], {
+        const funn = perSted.get(key);
+        if (funn) funn.antall++;
+        else perSted.set(key, { dot, antall: 1 });
+      }
+
+      const escape = (t: string) =>
+        t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
+
+      for (const { dot, antall } of perSted.values()) {
+        const markør = L.circleMarker([dot.lat, dot.lng], {
           radius: 4,
           color: "#f2f0ec",
           weight: 1,
           fillColor: KATEGORI_FARGER[dot.category] ?? KATEGORI_FARGER.annet,
           fillOpacity: 0.9,
         }).addTo(map);
+
+        const bilde = dot.thumb
+          ? `<img src="${escape(dot.thumb)}" alt="" loading="lazy"
+               style="width:100%;height:96px;object-fit:cover;display:block;margin-bottom:6px" />`
+          : "";
+        markør.bindPopup(
+          `<div style="width:170px;font-family:inherit">${bilde}` +
+            `<div style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#12110f">${escape(dot.placeName)}</div>` +
+            `<div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6b6862;margin-top:2px">` +
+            `${dot.distanceMeters} m${antall > 1 ? ` · ${antall} bilder` : ""}</div></div>`,
+          { closeButton: false, offset: [0, -2] }
+        );
       }
 
       // Adressen selv, øverst.

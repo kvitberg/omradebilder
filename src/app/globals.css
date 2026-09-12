@@ -81,3 +81,19 @@ body {
   color: var(--ink-soft);
   font-size: 9px;
 }
+
+/* Popup på kartet holder samme papirflate som resten av oppslaget. */
+.area-map .leaflet-popup-content-wrapper {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  box-shadow: 0 2px 10px rgb(18 17 15 / 0.12);
+}
+.area-map .leaflet-popup-content {
+  margin: 8px;
+}
+.area-map .leaflet-popup-tip {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
