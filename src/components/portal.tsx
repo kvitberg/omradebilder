@@ -751,9 +751,14 @@ function Spread({
               <div className="min-h-[220px] flex-1 overflow-hidden border border-rule">
                 <AreaMap center={center} radiusMeters={radius} dots={mapDots} />
               </div>
-              <figcaption className="mt-2 flex shrink-0 flex-wrap items-baseline justify-between gap-x-3 gap-y-1 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
-                <span className="truncate">{address.split(",")[0]}</span>
-                <span className="flex shrink-0 flex-wrap items-center gap-x-3 gap-y-1">
+              <figcaption className="mt-2 shrink-0 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
+                <div className="flex items-baseline justify-between gap-3">
+                  <span className="min-w-0 truncate">{address.split(",")[0]}</span>
+                  <span className="shrink-0">{formatRadius(radius)} gangavstand</span>
+                </div>
+                {/* Filteret får egen linje: med ni kategorier flyter det ellers
+                    ut av kolonnen og legger seg over områdeteksten. */}
+                <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5">
                   {mapLegend.map((item) => {
                     const av = skjulte.has(item.id);
                     return (
@@ -769,12 +774,12 @@ function Spread({
                               ? `Vis ${item.label.toLowerCase()}`
                               : `Skjul ${item.label.toLowerCase()}`
                         }
-                        className={`flex items-center gap-1.5 uppercase tracking-[0.18em] transition-opacity hover:text-ink ${
+                        className={`flex items-center gap-1.5 whitespace-nowrap uppercase tracking-[0.18em] transition-opacity hover:text-ink ${
                           av ? "opacity-35 line-through" : ""
                         }`}
                       >
                         <span
-                          className="inline-block h-2 w-2 rounded-full"
+                          className="inline-block h-2 w-2 shrink-0 rounded-full"
                           style={{
                             background: av
                               ? "transparent"
@@ -793,13 +798,12 @@ function Spread({
                     <button
                       type="button"
                       onClick={onVisAlle}
-                      className="uppercase tracking-[0.18em] text-ink underline underline-offset-4"
+                      className="whitespace-nowrap uppercase tracking-[0.18em] text-ink underline underline-offset-4"
                     >
                       Vis alle
                     </button>
                   )}
-                  <span>{formatRadius(radius)} gangavstand</span>
-                </span>
+                </div>
               </figcaption>
             </figure>
           ) : (
