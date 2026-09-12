@@ -366,6 +366,14 @@ export default function Portal({
     runSearch(address, radius, chosenCoords.current);
   }
 
+  /** Nytt søk på samme adresse med annen radius. */
+  function endreRadius(meter: number) {
+    setRadius(meter);
+    if (!searched) return;
+    const senter = searched.center;
+    runSearch(searched.address, meter, { label: searched.address, ...senter });
+  }
+
   function handlePickSuggestion(s: Suggestion) {
     chosenCoords.current = s;
     setAddress(s.label);
@@ -392,6 +400,8 @@ export default function Portal({
           skjulte={skjulte}
           onVekslKategori={vekslKategori}
           onVisAlle={visAlle}
+          onEndreRadius={endreRadius}
+          laster={loading}
           areaText={areaText}
           goTo={goTo}
         />
@@ -713,6 +723,8 @@ function Spread({
   skjulte,
   onVekslKategori,
   onVisAlle,
+  onEndreRadius,
+  laster,
   areaText,
   goTo,
 }: {
@@ -727,6 +739,8 @@ function Spread({
   skjulte: Set<string>;
   onVekslKategori: (id: string) => void;
   onVisAlle: () => void;
+  onEndreRadius: (meter: number) => void;
+  laster: boolean;
   areaText: string;
   goTo: (n: number) => void;
 }) {
@@ -810,15 +824,53 @@ function Spread({
             <Frame photo={hero} className="min-h-[220px] flex-1" />
           )}
 
-          <div className="mt-6 grid shrink-0 grid-cols-1 gap-5 sm:grid-cols-12">
-            <h2 className="text-xl font-semibold uppercase leading-[0.95] tracking-tight sm:col-span-4">
-              {spread.category.label}
-            </h2>
-            <p className="text-[13px] leading-relaxed text-ink-soft sm:col-span-8">
-              {spread.category.description} Bildene her er tatt innen {formatRadius(radius)} fra{" "}
-              {address}.
-            </p>
-          </div>
+          {heroIsMap ? (
+            // Kartet tegner allerede radius-sirkelen, så kontrollen hører
+            // hjemme her framfor kategoriteksten.
+            <div className="mt-6 grid shrink-0 grid-cols-1 gap-5 sm:grid-cols-12">
+              <h2 className="text-xl font-semibold uppercase leading-[0.95] tracking-tight sm:col-span-4">
+                Gangavstand
+              </h2>
+              <div className="sm:col-span-8">
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                  {RADIUS_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      disabled={laster}
+                      onClick={() => onEndreRadius(opt.value)}
+                      className={`text-[11px] uppercase tracking-[0.18em] transition-colors disabled:opacity-40 ${
+                        radius === opt.value
+                          ? "text-ink underline underline-offset-[6px]"
+                          : "text-ink-soft hover:text-ink"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                  {laster && (
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-ink-soft">
+                      Søker …
+                    </span>
+                  )}
+                </div>
+                <p className="mt-3 text-[13px] leading-relaxed text-ink-soft">
+                  Juster hvor stort område presentasjonen dekker. Sirkelen på kartet viser
+                  utsnittet.
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="mt-6 grid shrink-0 grid-cols-1 gap-5 sm:grid-cols-12">
+              <h2 className="text-xl font-semibold uppercase leading-[0.95] tracking-tight sm:col-span-4">
+                {spread.category.label}
+              </h2>
+              <p className="text-[13px] leading-relaxed text-ink-soft sm:col-span-8">
+                {spread.category.description} Bildene her er tatt innen {formatRadius(radius)} fra{" "}
+                {address}.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Høyre: rotert etikett og de mindre bildene stablet. */}
