@@ -527,8 +527,8 @@
     "kilde": "osm"
   },
   "Torshov": {
-    "kategori": "nabolag",
-    "kilde": "osm"
+    "kategori": "bakgard",
+    "kilde": "manuell"
   },
   "Torshovdalen": {
     "kategori": "park",

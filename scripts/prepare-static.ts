@@ -35,6 +35,18 @@ async function main() {
     /* uten fila faller bakgårdene tilbake på avstandsfilteret */
   }
 
+  // Adressepunkter fra matrikkelen: lar et bakgårdsbilde finne kvartalet
+  // sitt ut fra hvor det faktisk er tatt. Immich-bilder har ekte GPS, men
+  // stedsnavnet sier gjerne bare «Torshov» — da er punktet eneste holdepunkt.
+  let adressepunkter: Record<string, [number, number]> = {};
+  try {
+    adressepunkter = JSON.parse(
+      await fs.readFile(path.join(process.cwd(), "data", "adressepunkter.json"), "utf-8")
+    );
+  } catch {
+    adressepunkter = {};
+  }
+
   let kallenavn: Record<string, string> = {};
   try {
     kallenavn = JSON.parse(
@@ -67,6 +79,28 @@ async function main() {
   function slåOpp(adresse: string): string | null {
     const ren = adresse.replace(/\s+/g, " ").trim();
     return bygarder.adresseTilBygard[ren] ?? utenBokstav.get(ren) ?? null;
+  }
+
+  /** Nærmeste adresse innen 80 m — lenger unna er vi ikke i samme kvartal. */
+  function bygardFraPunkt(lat: number, lng: number): string | null {
+    const R = 6371000;
+    const rad = (d: number) => (d * Math.PI) / 180;
+    let beste: { adresse: string; d: number } | null = null;
+
+    for (const [adresse, [alat, alng]] of Object.entries(adressepunkter)) {
+      // Grovfilter først: ett breddegrad-minutt er ca. 1,85 km.
+      if (Math.abs(alat - lat) > 0.002 || Math.abs(alng - lng) > 0.004) continue;
+      const dLat = rad(alat - lat);
+      const dLng = rad(alng - lng);
+      const h =
+        Math.sin(dLat / 2) ** 2 +
+        Math.cos(rad(lat)) * Math.cos(rad(alat)) * Math.sin(dLng / 2) ** 2;
+      const d = 2 * R * Math.asin(Math.sqrt(h));
+      if (!beste || d < beste.d) beste = { adresse, d };
+    }
+
+    if (!beste || beste.d > 80) return null;
+    return bygarder.adresseTilBygard[beste.adresse] ?? null;
   }
 
   function bygardFor(placeName: string): string | null {
@@ -125,7 +159,11 @@ async function main() {
         thumb: thumbFor(p.id),
         category,
         placeName: overstyring?.navn ?? p.placeName,
-        bygardId: category === "bakgard" ? bygardFor(p.placeName) : p.bygardId ?? null,
+        bygardId:
+          category === "bakgard"
+            ? bygardFor(p.placeName) ??
+              (p.lat !== null && p.lng !== null ? bygardFraPunkt(p.lat, p.lng) : null)
+            : p.bygardId ?? null,
       };
     })
     .filter((p) => p.lat !== null && p.lng !== null && p.thumb);
