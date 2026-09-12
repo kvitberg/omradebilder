@@ -233,7 +233,8 @@ export default function Portal({
   const [error, setError] = useState<string | null>(null);
   const [warning, setWarning] = useState<string | null>(null);
   const [groups, setGroups] = useState<Group[] | null>(null);
-  const [filter, setFilter] = useState<string | null>(null);
+  // Kategorier som er skrudd av. Tom mengde betyr at alt vises.
+  const [skjulte, setSkjulte] = useState<Set<string>>(new Set());
   const [areaText, setAreaText] = useState("");
   const [mapDots, setMapDots] = useState<MapDot[]>([]);
   const [mapLegend, setMapLegend] = useState<Array<{ id: string; label: string }>>([]);
@@ -251,9 +252,15 @@ export default function Portal({
   // sidene på nytt uten et nytt søk.
   const spreads = useMemo(() => {
     if (!groups) return null;
-    const valgte = filter ? groups.filter((g) => g.category.id === filter) : groups;
-    return buildSpreads(valgte);
-  }, [groups, filter]);
+    return buildSpreads(groups.filter((g) => !skjulte.has(g.category.id)));
+  }, [groups, skjulte]);
+
+  // Kartet viser det samme som sidene — skrus en kategori av, forsvinner
+  // også prikkene dens.
+  const synligeDots = useMemo(
+    () => mapDots.filter((d) => !skjulte.has(d.category)),
+    [mapDots, skjulte]
+  );
 
   const totalPages = 1 + (spreads?.length ?? 0);
 
@@ -262,8 +269,19 @@ export default function Portal({
     [totalPages]
   );
 
-  function velgFilter(id: string | null) {
-    setFilter((nå) => (nå === id ? null : id));
+  /** Skrur én kategori av eller på. */
+  function vekslKategori(id: string) {
+    setSkjulte((nå) => {
+      const neste = new Set(nå);
+      if (neste.has(id)) neste.delete(id);
+      else neste.add(id);
+      return neste;
+    });
+    setPage(1);
+  }
+
+  function visAlle() {
+    setSkjulte(new Set());
     setPage(1);
   }
 
@@ -290,7 +308,7 @@ export default function Portal({
         const data = await search(trimmed, radiusMeters, coords);
         const built = buildSpreads(data.groups);
         setGroups(data.groups);
-        setFilter(null);
+        setSkjulte(new Set());
         setAreaText(composeAreaText(data.groups, trimmed, radiusMeters));
         setMapDots(
           data.groups.flatMap((g) =>
@@ -346,10 +364,11 @@ export default function Portal({
           address={searched?.address ?? ""}
           radius={searched?.radius ?? radius}
           center={searched?.center ?? null}
-          mapDots={mapDots}
+          mapDots={synligeDots}
           mapLegend={mapLegend}
-          filter={filter}
-          onVelgFilter={velgFilter}
+          skjulte={skjulte}
+          onVekslKategori={vekslKategori}
+          onVisAlle={visAlle}
           areaText={areaText}
           goTo={goTo}
         />
@@ -668,8 +687,9 @@ function Spread({
   center,
   mapDots,
   mapLegend,
-  filter,
-  onVelgFilter,
+  skjulte,
+  onVekslKategori,
+  onVisAlle,
   areaText,
   goTo,
 }: {
@@ -681,8 +701,9 @@ function Spread({
   center: { lat: number; lng: number } | null;
   mapDots: MapDot[];
   mapLegend: Array<{ id: string; label: string }>;
-  filter: string | null;
-  onVelgFilter: (id: string | null) => void;
+  skjulte: Set<string>;
+  onVekslKategori: (id: string) => void;
+  onVisAlle: () => void;
   areaText: string;
   goTo: (n: number) => void;
 }) {
@@ -711,29 +732,37 @@ function Spread({
                 <span className="truncate">{address.split(",")[0]}</span>
                 <span className="flex shrink-0 flex-wrap items-center gap-x-3 gap-y-1">
                   {mapLegend.map((item) => {
-                    const aktiv = filter === item.id;
+                    const av = skjulte.has(item.id);
                     return (
                       <button
                         key={item.id}
                         type="button"
-                        onClick={() => onVelgFilter(item.id)}
-                        title={aktiv ? "Vis alle igjen" : `Vis bare ${item.label.toLowerCase()}`}
-                        className={`flex items-center gap-1.5 uppercase tracking-[0.18em] transition-opacity ${
-                          aktiv ? "text-ink" : filter ? "opacity-40 hover:opacity-100" : "hover:text-ink"
+                        aria-pressed={!av}
+                        onClick={() => onVekslKategori(item.id)}
+                        title={av ? `Vis ${item.label.toLowerCase()}` : `Skjul ${item.label.toLowerCase()}`}
+                        className={`flex items-center gap-1.5 uppercase tracking-[0.18em] transition-opacity hover:text-ink ${
+                          av ? "opacity-35 line-through" : ""
                         }`}
                       >
                         <span
                           className="inline-block h-2 w-2 rounded-full"
-                          style={{ background: KATEGORI_FARGER[item.id] ?? KATEGORI_FARGER.annet }}
+                          style={{
+                            background: av
+                              ? "transparent"
+                              : KATEGORI_FARGER[item.id] ?? KATEGORI_FARGER.annet,
+                            boxShadow: av
+                              ? `inset 0 0 0 1px ${KATEGORI_FARGER[item.id] ?? KATEGORI_FARGER.annet}`
+                              : undefined,
+                          }}
                         />
                         {item.label}
                       </button>
                     );
                   })}
-                  {filter && (
+                  {skjulte.size > 0 && (
                     <button
                       type="button"
-                      onClick={() => onVelgFilter(null)}
+                      onClick={onVisAlle}
                       className="uppercase tracking-[0.18em] text-ink underline underline-offset-4"
                     >
                       Vis alle
