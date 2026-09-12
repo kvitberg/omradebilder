@@ -1,5 +1,10 @@
 {
   "Italiagården": "Torshovgata 10",
-  "Grüners gate": "",
-  "Brettevilles gate borettslag": ""
+  "Grefsen Terrassehus": [
+    "Grefsenkollveien 12A",
+    "Grefsenkollveien 12B",
+    "Grefsenkollveien 12C",
+    "Grefsenkollveien 12D",
+    "Grefsenkollveien 12E"
+  ]
 }

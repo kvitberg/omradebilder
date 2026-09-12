@@ -32,7 +32,14 @@ const FELLESAREAL = new Set(["bakgard", "takterrasse", "fasade"]);
  * 76 adresser og likevel være ett gårdsrom, mens en sammenlimt klump
  * strekker seg over kilometer. Diagonalen i omslutningsboksen skiller de to.
  */
-const MAKS_KVARTAL_METER = 300;
+const MAKS_KVARTAL_METER = 600;
+
+/**
+ * Utstrekning alene er ikke nok: en sammenlimt klump kan være både lang og
+ * folkerik (2169 adresser over 52 gater), mens et ekte kvartal er langt,
+ * men tynt befolket. Begge grensene må holde.
+ */
+const MAKS_ADRESSER_I_KVARTAL = 80;
 
 async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true });
@@ -64,7 +71,9 @@ async function main() {
     adressepunkter = {};
   }
 
-  let kallenavn: Record<string, string> = {};
+  // En oppføring kan peke på én adresse eller flere: Grefsen Terrassehus
+  // dekker Grefsenkollveien 12A til 12E.
+  let kallenavn: Record<string, string | string[]> = {};
   try {
     kallenavn = JSON.parse(
       await fs.readFile(path.join(process.cwd(), "data", "bakgard-navn.json"), "utf-8")
@@ -146,7 +155,10 @@ async function main() {
     // breddegraden (cos ≈ 0,5 i Oslo).
     const høyde = (maxLat - minLat) * 111_320;
     const bredde = (maxLng - minLng) * 111_320 * Math.cos((minLat * Math.PI) / 180);
-    kvartalOk.set(g.id, Math.hypot(høyde, bredde) <= MAKS_KVARTAL_METER);
+    kvartalOk.set(
+      g.id,
+      Math.hypot(høyde, bredde) <= MAKS_KVARTAL_METER && n <= MAKS_ADRESSER_I_KVARTAL
+    );
   }
   function rimeligKvartal(id: string | null): string | null {
     return id && kvartalOk.get(id) ? id : null;
@@ -157,26 +169,29 @@ async function main() {
    * Dette er den presise koblingen: bildet hører til den adressen, uansett
    * hvor stort eller spredt kvartalet rundt måtte være.
    */
-  function adresseFor(placeName: string): string | null {
-    for (const [navn, adresse] of Object.entries(kallenavn)) {
-      if (adresse && placeName.toLowerCase().includes(navn.toLowerCase())) {
-        if (bygarder.adresseTilBygard[adresse] || utenBokstav.has(adresse)) return adresse;
-      }
+  function adresserFor(placeName: string): string[] | null {
+    for (const [navn, verdi] of Object.entries(kallenavn)) {
+      if (!placeName.toLowerCase().includes(navn.toLowerCase())) continue;
+      const liste = (Array.isArray(verdi) ? verdi : [verdi]).filter(
+        (a) => a && (bygarder.adresseTilBygard[a] || utenBokstav.has(a))
+      );
+      if (liste.length) return liste;
     }
     for (const del of placeName.split(/\s*[–—,-]\s*/)) {
       ADRESSE.lastIndex = 0;
       for (const m of del.matchAll(ADRESSE)) {
         const kandidat = m[1].replace(/\s+/g, " ").trim();
-        if (bygarder.adresseTilBygard[kandidat] || utenBokstav.has(kandidat)) return kandidat;
+        if (bygarder.adresseTilBygard[kandidat] || utenBokstav.has(kandidat)) return [kandidat];
       }
     }
     return null;
   }
 
   function bygardFor(placeName: string): string | null {
-    for (const [navn, adresse] of Object.entries(kallenavn)) {
-      if (placeName.toLowerCase().includes(navn.toLowerCase())) {
-        const treff = rimeligKvartal(slåOpp(adresse));
+    for (const [navn, verdi] of Object.entries(kallenavn)) {
+      if (!placeName.toLowerCase().includes(navn.toLowerCase())) continue;
+      for (const a of Array.isArray(verdi) ? verdi : [verdi]) {
+        const treff = rimeligKvartal(slåOpp(a));
         if (treff) return treff;
       }
     }
@@ -229,7 +244,7 @@ async function main() {
         thumb: thumbFor(p.id),
         category,
         placeName: overstyring?.navn ?? p.placeName,
-        adresse: FELLESAREAL.has(category) ? adresseFor(p.placeName) : null,
+        adresser: FELLESAREAL.has(category) ? adresserFor(p.placeName) : null,
         bygardId:
           FELLESAREAL.has(category)
             ? bygardFor(p.placeName) ??
@@ -247,7 +262,7 @@ async function main() {
     lng: p.lng,
     thumb: p.thumb,
     ...(p.bygardId ? { bygardId: p.bygardId } : {}),
-    ...(p.adresse ? { adresse: p.adresse } : {}),
+    ...(p.adresser?.length ? { adresser: p.adresser } : {}),
   }));
 
   await fs.writeFile(

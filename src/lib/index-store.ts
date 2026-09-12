@@ -20,11 +20,12 @@ export type PhotoEntry = {
    */
   bygardId?: string | null;
   /**
-   * Adressen som står i bildets eget navn. Bindes bildet til én adresse, er
-   * det den som gjelder — også når kvartalet rundt er for spredt til å si
-   * noe meningsfullt.
+   * Adressene bildet hører til, fra bildets eget navn eller fra
+   * data/bakgard-navn.json. Bindes bildet til adresser, er det de som
+   * gjelder — også når kvartalet rundt er for spredt til å si noe
+   * meningsfullt. Et terrassehus dekker gjerne flere oppganger.
    */
-  adresse?: string | null;
+  adresser?: string[] | null;
 };
 
 export type SearchIndex = {

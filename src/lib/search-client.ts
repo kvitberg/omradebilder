@@ -108,7 +108,9 @@ export async function search(
     // koblingen; kvartalet fanger naboene rundt samme gårdsrom. Mangler
     // begge, falt oppslaget gjennom, og avstand er det beste vi har.
     .filter((p) => {
-      if (p.adresse) return p.adresse === søktAdresse || (!!p.bygardId && p.bygardId === bygardId);
+      if (p.adresser?.length) {
+        return p.adresser.includes(søktAdresse) || (!!p.bygardId && p.bygardId === bygardId);
+      }
       if (p.bygardId) return bygardId !== null && p.bygardId === bygardId;
       return p.distanceMeters <= radiusMeters;
     })
