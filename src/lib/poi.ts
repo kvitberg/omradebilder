@@ -19,6 +19,16 @@ export type Poi = {
 
 const MAX_DISTANCE_METERS = 35;
 
+/**
+ * Kategorier som aldri skal gjettes ut fra en koordinat alene.
+ *
+ * Holdeplasser og nabolagsnavn ligger overalt i en by, så nærmeste treff
+ * blir dem uansett hva bildet faktisk viser — en bakgård 20 m fra Torshov
+ * trikkestopp ble til «kollektiv». Slike kategorier krever en tagg eller et
+ * mappenavn som sier det uttrykkelig.
+ */
+const IKKE_FRA_PUNKT = new Set(["kollektiv", "nabolag"]);
+
 /* ------------------------------------------------------------- Google */
 
 /** Google-typene vi bryr oss om, i prioritert rekkefølge, med kategori. */
@@ -73,7 +83,9 @@ async function lookupGoogle(lat: number, lng: number, apiKey: string): Promise<P
     const name = place.displayName?.text;
     if (!name) continue;
     const match = GOOGLE_TYPES.find(([t]) => place.types?.includes(t));
-    return { name, categoryId: match?.[1] ?? null };
+    const categoryId = match?.[1] ?? null;
+    if (categoryId && IKKE_FRA_PUNKT.has(categoryId)) continue;
+    return { name, categoryId };
   }
   return null;
 }
@@ -208,6 +220,7 @@ async function lookupPhoton(lat: number, lng: number): Promise<Poi | null> {
       const match = osmMatch(f.properties.osm_key, f.properties.osm_value);
       const coords = f.geometry?.coordinates;
       if (!name || !match || !coords) return [];
+      if (match.categoryId && IKKE_FRA_PUNKT.has(match.categoryId)) return [];
       const distance = haversineDistanceMeters(
         { lat, lng },
         { lat: coords[1], lng: coords[0] }
