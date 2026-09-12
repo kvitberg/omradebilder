@@ -25,6 +25,13 @@ type SpreadData = {
 
 const PHOTOS_PER_SPREAD = 3;
 
+/**
+ * Kategorier som hører til adressen selv, ikke til nabolaget rundt. De
+ * settes først i filteret og får en egen markering, siden det er dem som
+ * skiller denne adressen fra naboen.
+ */
+const FELLESAREAL = new Set(["bakgard", "takterrasse", "fasade"]);
+
 const RADIUS_OPTIONS = [
   { value: 300, label: "300 m" },
   { value: 500, label: "500 m" },
@@ -252,7 +259,14 @@ export default function Portal({
   // sidene på nytt uten et nytt søk.
   const spreads = useMemo(() => {
     if (!groups) return null;
-    return buildSpreads(groups.filter((g) => !skjulte.has(g.category.id)));
+    const synlige = groups.filter((g) => !skjulte.has(g.category.id));
+    // Fellesarealene åpner presentasjonen — de er det adressen har som
+    // naboen ikke har.
+    const sortert = [...synlige].sort(
+      (a, b) =>
+        (FELLESAREAL.has(b.category.id) ? 1 : 0) - (FELLESAREAL.has(a.category.id) ? 1 : 0)
+    );
+    return buildSpreads(sortert);
   }, [groups, skjulte]);
 
   // Kartet viser det samme som sidene — skrus en kategori av, forsvinner
@@ -322,7 +336,16 @@ export default function Portal({
             }))
           )
         );
-        setMapLegend(data.groups.map((g) => ({ id: g.category.id, label: g.category.label })));
+        // Fellesarealene står først: de er knyttet til nettopp denne
+        // adressen, mens resten av nabolaget deles med alle rundt.
+        setMapLegend(
+          [...data.groups]
+            .sort(
+              (a, b) =>
+                (FELLESAREAL.has(b.category.id) ? 1 : 0) - (FELLESAREAL.has(a.category.id) ? 1 : 0)
+            )
+            .map((g) => ({ id: g.category.id, label: g.category.label }))
+        );
         setWarning(data.warning ?? null);
         setSearched({ address: trimmed, radius: radiusMeters, center: data.center });
         setPage(built.length > 0 ? 1 : 0);
@@ -739,7 +762,13 @@ function Spread({
                         type="button"
                         aria-pressed={!av}
                         onClick={() => onVekslKategori(item.id)}
-                        title={av ? `Vis ${item.label.toLowerCase()}` : `Skjul ${item.label.toLowerCase()}`}
+                        title={
+                          FELLESAREAL.has(item.id)
+                            ? `Hører til denne adressen — ${av ? "vis" : "skjul"}`
+                            : av
+                              ? `Vis ${item.label.toLowerCase()}`
+                              : `Skjul ${item.label.toLowerCase()}`
+                        }
                         className={`flex items-center gap-1.5 uppercase tracking-[0.18em] transition-opacity hover:text-ink ${
                           av ? "opacity-35 line-through" : ""
                         }`}
@@ -756,6 +785,7 @@ function Spread({
                           }}
                         />
                         {item.label}
+                        {FELLESAREAL.has(item.id) && <span aria-hidden>&#9642;</span>}
                       </button>
                     );
                   })}
