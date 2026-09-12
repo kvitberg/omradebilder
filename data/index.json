@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-01T10:12:56.393Z",
+  "generatedAt": "2026-09-12T06:07:25.283Z",
   "photos": [
     {
       "id": "id:TSjIbtJ56bAAAAAAAAc6Mg",
@@ -34118,6 +34118,17 @@
       "thumb": "/thumbs/TSjIbtJ56bAAAAAAABNqzg.webp"
     },
     {
+      "id": "immich:71b062ea-2afb-4ad0-9194-e0d93e15b13b",
+      "dropboxPath": "immich://71b062ea-2afb-4ad0-9194-e0d93e15b13b",
+      "category": "annet",
+      "placeName": "Kaffebrenneriet",
+      "lat": 59.927423,
+      "lng": 10.731635,
+      "locationSource": "exif",
+      "clientModified": "2026-01-08T09:17:36.946+00:00",
+      "thumb": "/thumbs/immich71b062ea-2afb-4ad0-9194-e0d93e15b13b.webp"
+    },
+    {
       "id": "immich:620e409c-ae52-418c-9fed-c3869c454958",
       "dropboxPath": "immich://620e409c-ae52-418c-9fed-c3869c454958",
       "category": "annet",
@@ -34129,26 +34140,26 @@
       "thumb": "/thumbs/immich620e409c-ae52-418c-9fed-c3869c454958.webp"
     },
     {
-      "id": "immich:71b062ea-2afb-4ad0-9194-e0d93e15b13b",
-      "dropboxPath": "immich://71b062ea-2afb-4ad0-9194-e0d93e15b13b",
-      "category": "kafe",
-      "placeName": "Kaffebrenneriet",
-      "lat": 59.927423,
-      "lng": 10.731635,
-      "locationSource": "exif",
-      "clientModified": "2026-01-08T09:17:36.946+00:00",
-      "thumb": "/thumbs/immich71b062ea-2afb-4ad0-9194-e0d93e15b13b.webp"
-    },
-    {
       "id": "immich:bbf15beb-6bb7-4416-9057-ecfc8f19193c",
       "dropboxPath": "immich://bbf15beb-6bb7-4416-9057-ecfc8f19193c",
-      "category": "restaurant",
+      "category": "annet",
       "placeName": "Lorry",
       "lat": 59.920778,
       "lng": 10.728851,
       "locationSource": "exif",
       "clientModified": "2026-01-08T09:13:55.386+00:00",
       "thumb": "/thumbs/immichbbf15beb-6bb7-4416-9057-ecfc8f19193c.webp"
+    },
+    {
+      "id": "immich:b5c8946f-78f0-4ff4-8610-b424553e295f",
+      "dropboxPath": "immich://b5c8946f-78f0-4ff4-8610-b424553e295f",
+      "category": "annet",
+      "placeName": "Baker Hansen",
+      "lat": 59.922931,
+      "lng": 10.726616,
+      "locationSource": "exif",
+      "clientModified": "2026-01-08T09:15:12.816+00:00",
+      "thumb": "/thumbs/immichb5c8946f-78f0-4ff4-8610-b424553e295f.webp"
     },
     {
       "id": "immich:1150e4e4-4218-4369-90ef-fffe9982b741",
@@ -34184,28 +34195,6 @@
       "thumb": "/thumbs/immichceec04ad-ba38-40da-b64b-0ae0f712d67c.webp"
     },
     {
-      "id": "immich:e00e433d-3275-40b6-a64e-1b6243e97366",
-      "dropboxPath": "immich://e00e433d-3275-40b6-a64e-1b6243e97366",
-      "category": "annet",
-      "placeName": "Turbinveien 28",
-      "lat": 59.90369,
-      "lng": 10.788906,
-      "locationSource": "exif",
-      "clientModified": "2025-09-22T13:49:41.71+00:00",
-      "thumb": "/thumbs/immiche00e433d-3275-40b6-a64e-1b6243e97366.webp"
-    },
-    {
-      "id": "immich:b5c8946f-78f0-4ff4-8610-b424553e295f",
-      "dropboxPath": "immich://b5c8946f-78f0-4ff4-8610-b424553e295f",
-      "category": "kafe",
-      "placeName": "Baker Hansen",
-      "lat": 59.922931,
-      "lng": 10.726616,
-      "locationSource": "exif",
-      "clientModified": "2026-01-08T09:15:12.816+00:00",
-      "thumb": "/thumbs/immichb5c8946f-78f0-4ff4-8610-b424553e295f.webp"
-    },
-    {
       "id": "immich:a3507546-8b5e-4360-b1fd-effc6bb8d4ab",
       "dropboxPath": "immich://a3507546-8b5e-4360-b1fd-effc6bb8d4ab",
       "category": "annet",
@@ -34215,6 +34204,17 @@
       "locationSource": "exif",
       "clientModified": "2025-09-06T12:22:18+00:00",
       "thumb": "/thumbs/immicha3507546-8b5e-4360-b1fd-effc6bb8d4ab.webp"
+    },
+    {
+      "id": "immich:3021ffb3-7d3e-402d-8952-a81c9bafc1b5",
+      "dropboxPath": "immich://3021ffb3-7d3e-402d-8952-a81c9bafc1b5",
+      "category": "natur",
+      "placeName": "Alna",
+      "lat": 59.90369,
+      "lng": 10.788906,
+      "locationSource": "exif",
+      "clientModified": "2025-09-22T13:49:03.12+00:00",
+      "thumb": "/thumbs/immich3021ffb3-7d3e-402d-8952-a81c9bafc1b5.webp"
     },
     {
       "id": "immich:27a29ef9-fb5a-4c0f-8346-83bf97d88c33",
@@ -34228,37 +34228,37 @@
       "thumb": "/thumbs/immich27a29ef9-fb5a-4c0f-8346-83bf97d88c33.webp"
     },
     {
-      "id": "immich:3021ffb3-7d3e-402d-8952-a81c9bafc1b5",
-      "dropboxPath": "immich://3021ffb3-7d3e-402d-8952-a81c9bafc1b5",
+      "id": "immich:594069ef-0eaf-4fa7-8925-d8af08307a2b",
+      "dropboxPath": "immich://594069ef-0eaf-4fa7-8925-d8af08307a2b",
       "category": "annet",
-      "placeName": "Turbinveien 28",
+      "placeName": "Babbo Collective",
+      "lat": 59.927302,
+      "lng": 10.756765,
+      "locationSource": "exif",
+      "clientModified": "2025-09-06T12:10:11+00:00",
+      "thumb": "/thumbs/immich594069ef-0eaf-4fa7-8925-d8af08307a2b.webp"
+    },
+    {
+      "id": "immich:e00e433d-3275-40b6-a64e-1b6243e97366",
+      "dropboxPath": "immich://e00e433d-3275-40b6-a64e-1b6243e97366",
+      "category": "natur",
+      "placeName": "Alna",
       "lat": 59.90369,
       "lng": 10.788906,
       "locationSource": "exif",
-      "clientModified": "2025-09-22T13:49:03.12+00:00",
-      "thumb": "/thumbs/immich3021ffb3-7d3e-402d-8952-a81c9bafc1b5.webp"
+      "clientModified": "2025-09-22T13:49:41.71+00:00",
+      "thumb": "/thumbs/immiche00e433d-3275-40b6-a64e-1b6243e97366.webp"
     },
     {
-      "id": "immich:7eba71b7-2c0b-4041-9803-f7e9c5eb0b77",
-      "dropboxPath": "immich://7eba71b7-2c0b-4041-9803-f7e9c5eb0b77",
-      "category": "kafe",
-      "placeName": "Fomoto Kafé og Interiør",
-      "lat": 59.931646,
-      "lng": 10.758776,
+      "id": "immich:345ed049-d17f-4c3f-bdf2-b2c15b268182",
+      "dropboxPath": "immich://345ed049-d17f-4c3f-bdf2-b2c15b268182",
+      "category": "annet",
+      "placeName": "Brauo toastbar",
+      "lat": 59.924857,
+      "lng": 10.759163,
       "locationSource": "exif",
-      "clientModified": "2025-09-06T12:22:18+00:00",
-      "thumb": "/thumbs/immich7eba71b7-2c0b-4041-9803-f7e9c5eb0b77.webp"
-    },
-    {
-      "id": "immich:1fc1ad1d-dfcd-4929-bf45-f3d8b2e96e12",
-      "dropboxPath": "immich://1fc1ad1d-dfcd-4929-bf45-f3d8b2e96e12",
-      "category": "kafe",
-      "placeName": "Fomoto Kafé og Interiør",
-      "lat": 59.931646,
-      "lng": 10.758776,
-      "locationSource": "exif",
-      "clientModified": "2025-09-06T12:22:18+00:00",
-      "thumb": "/thumbs/immich1fc1ad1d-dfcd-4929-bf45-f3d8b2e96e12.webp"
+      "clientModified": "2025-09-06T11:43:45+00:00",
+      "thumb": "/thumbs/immich345ed049-d17f-4c3f-bdf2-b2c15b268182.webp"
     },
     {
       "id": "immich:7b1cd86e-f492-4eda-855d-d6bfe97a30f4",
@@ -34305,20 +34305,9 @@
       "thumb": "/thumbs/immichd79cba87-26f5-4218-a4c5-8023a6022b17.webp"
     },
     {
-      "id": "immich:594069ef-0eaf-4fa7-8925-d8af08307a2b",
-      "dropboxPath": "immich://594069ef-0eaf-4fa7-8925-d8af08307a2b",
-      "category": "restaurant",
-      "placeName": "Babbo Collective",
-      "lat": 59.927302,
-      "lng": 10.756765,
-      "locationSource": "exif",
-      "clientModified": "2025-09-06T12:10:11+00:00",
-      "thumb": "/thumbs/immich594069ef-0eaf-4fa7-8925-d8af08307a2b.webp"
-    },
-    {
       "id": "immich:14d07ab7-966e-4f0d-bc35-9c6bbae8d0c1",
       "dropboxPath": "immich://14d07ab7-966e-4f0d-bc35-9c6bbae8d0c1",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Badedammen Årvoll",
       "lat": 59.948435,
       "lng": 10.820266,
@@ -34327,9 +34316,20 @@
       "thumb": "/thumbs/immich14d07ab7-966e-4f0d-bc35-9c6bbae8d0c1.webp"
     },
     {
+      "id": "immich:7eba71b7-2c0b-4041-9803-f7e9c5eb0b77",
+      "dropboxPath": "immich://7eba71b7-2c0b-4041-9803-f7e9c5eb0b77",
+      "category": "kafe",
+      "placeName": "Fomoto Kafé og Interiør",
+      "lat": 59.931646,
+      "lng": 10.758776,
+      "locationSource": "exif",
+      "clientModified": "2025-09-06T12:22:18+00:00",
+      "thumb": "/thumbs/immich7eba71b7-2c0b-4041-9803-f7e9c5eb0b77.webp"
+    },
+    {
       "id": "immich:980ca74a-4284-477a-bdef-191a48a063c7",
       "dropboxPath": "immich://980ca74a-4284-477a-bdef-191a48a063c7",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Badedammen - Årvoll",
       "lat": 59.948435,
       "lng": 10.820266,
@@ -34338,15 +34338,202 @@
       "thumb": "/thumbs/immich980ca74a-4284-477a-bdef-191a48a063c7.webp"
     },
     {
-      "id": "immich:cf6b5bbd-455b-45bf-a329-6c0e342e8219",
-      "dropboxPath": "immich://cf6b5bbd-455b-45bf-a329-6c0e342e8219",
+      "id": "immich:ac5baa35-c845-42c8-8af7-cde09387c7e1",
+      "dropboxPath": "immich://ac5baa35-c845-42c8-8af7-cde09387c7e1",
       "category": "annet",
-      "placeName": "Tøyenbadet",
-      "lat": 59.918422,
-      "lng": 10.77941,
+      "placeName": "00152-43.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-19T17:31:49+00:00",
+      "thumb": "/thumbs/immichac5baa35-c845-42c8-8af7-cde09387c7e1.webp"
+    },
+    {
+      "id": "immich:d904e3a9-6182-4db6-a501-7f8f391cfae5",
+      "dropboxPath": "immich://d904e3a9-6182-4db6-a501-7f8f391cfae5",
+      "category": "annet",
+      "placeName": "00152-41.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-19T17:27:32.12+00:00",
+      "thumb": "/thumbs/immichd904e3a9-6182-4db6-a501-7f8f391cfae5.webp"
+    },
+    {
+      "id": "immich:660b0eff-54a6-4d07-9f86-4809000cddeb",
+      "dropboxPath": "immich://660b0eff-54a6-4d07-9f86-4809000cddeb",
+      "category": "annet",
+      "placeName": "00152-40.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-19T17:26:18+00:00",
+      "thumb": "/thumbs/immich660b0eff-54a6-4d07-9f86-4809000cddeb.webp"
+    },
+    {
+      "id": "immich:82847997-104e-4c8e-8dbe-02b56e03d21d",
+      "dropboxPath": "immich://82847997-104e-4c8e-8dbe-02b56e03d21d",
+      "category": "annet",
+      "placeName": "00152-39.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-19T17:25:53.12+00:00",
+      "thumb": "/thumbs/immich82847997-104e-4c8e-8dbe-02b56e03d21d.webp"
+    },
+    {
+      "id": "immich:28905c55-4e5d-4c78-9dfe-bbf00ad0895d",
+      "dropboxPath": "immich://28905c55-4e5d-4c78-9dfe-bbf00ad0895d",
+      "category": "annet",
+      "placeName": "00152-33.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-19T08:57:46.16+00:00",
+      "thumb": "/thumbs/immich28905c55-4e5d-4c78-9dfe-bbf00ad0895d.webp"
+    },
+    {
+      "id": "immich:1fc1ad1d-dfcd-4929-bf45-f3d8b2e96e12",
+      "dropboxPath": "immich://1fc1ad1d-dfcd-4929-bf45-f3d8b2e96e12",
+      "category": "kafe",
+      "placeName": "Fomoto Kafé og Interiør",
+      "lat": 59.931646,
+      "lng": 10.758776,
       "locationSource": "exif",
-      "clientModified": "2025-08-10T07:50:29+00:00",
-      "thumb": "/thumbs/immichcf6b5bbd-455b-45bf-a329-6c0e342e8219.webp"
+      "clientModified": "2025-09-06T12:22:18+00:00",
+      "thumb": "/thumbs/immich1fc1ad1d-dfcd-4929-bf45-f3d8b2e96e12.webp"
+    },
+    {
+      "id": "immich:9834d54a-c316-4b06-831e-458e99d1d284",
+      "dropboxPath": "immich://9834d54a-c316-4b06-831e-458e99d1d284",
+      "category": "annet",
+      "placeName": "00152-31.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-19T08:54:43.15+00:00",
+      "thumb": "/thumbs/immich9834d54a-c316-4b06-831e-458e99d1d284.webp"
+    },
+    {
+      "id": "immich:4acb452c-0426-4565-b81e-69274d5bc7a2",
+      "dropboxPath": "immich://4acb452c-0426-4565-b81e-69274d5bc7a2",
+      "category": "annet",
+      "placeName": "00152-28.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-19T08:47:13.18+00:00",
+      "thumb": "/thumbs/immich4acb452c-0426-4565-b81e-69274d5bc7a2.webp"
+    },
+    {
+      "id": "immich:ca25aa8f-5ae3-4fb5-ac01-474fbffe9715",
+      "dropboxPath": "immich://ca25aa8f-5ae3-4fb5-ac01-474fbffe9715",
+      "category": "annet",
+      "placeName": "00152-27.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-19T08:47:03+00:00",
+      "thumb": "/thumbs/immichca25aa8f-5ae3-4fb5-ac01-474fbffe9715.webp"
+    },
+    {
+      "id": "immich:562c8013-c7df-486b-8627-528c56b6a261",
+      "dropboxPath": "immich://562c8013-c7df-486b-8627-528c56b6a261",
+      "category": "annet",
+      "placeName": "00152-26.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-19T08:46:16.61+00:00",
+      "thumb": "/thumbs/immich562c8013-c7df-486b-8627-528c56b6a261.webp"
+    },
+    {
+      "id": "immich:e2e57eab-2860-4e58-bffe-fd94bb76f775",
+      "dropboxPath": "immich://e2e57eab-2860-4e58-bffe-fd94bb76f775",
+      "category": "annet",
+      "placeName": "00142-7.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-14T10:37:28.23+00:00",
+      "thumb": "/thumbs/immiche2e57eab-2860-4e58-bffe-fd94bb76f775.webp"
+    },
+    {
+      "id": "immich:45258031-539f-45da-9e34-3d4dce28bc2f",
+      "dropboxPath": "immich://45258031-539f-45da-9e34-3d4dce28bc2f",
+      "category": "annet",
+      "placeName": "00142-6.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-14T10:37:13.65+00:00",
+      "thumb": "/thumbs/immich45258031-539f-45da-9e34-3d4dce28bc2f.webp"
+    },
+    {
+      "id": "immich:01c988e5-4103-4067-827a-cd10ccd7587e",
+      "dropboxPath": "immich://01c988e5-4103-4067-827a-cd10ccd7587e",
+      "category": "annet",
+      "placeName": "00142-5.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-14T10:36:52.72+00:00",
+      "thumb": "/thumbs/immich01c988e5-4103-4067-827a-cd10ccd7587e.webp"
+    },
+    {
+      "id": "immich:92a1773f-485b-46c4-b072-0dedfbc7b908",
+      "dropboxPath": "immich://92a1773f-485b-46c4-b072-0dedfbc7b908",
+      "category": "annet",
+      "placeName": "00142-4.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-14T10:36:05+00:00",
+      "thumb": "/thumbs/immich92a1773f-485b-46c4-b072-0dedfbc7b908.webp"
+    },
+    {
+      "id": "immich:a1f15e36-f81d-44a7-a83d-2148dbf51b37",
+      "dropboxPath": "immich://a1f15e36-f81d-44a7-a83d-2148dbf51b37",
+      "category": "annet",
+      "placeName": "00142-3.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-14T10:34:24.33+00:00",
+      "thumb": "/thumbs/immicha1f15e36-f81d-44a7-a83d-2148dbf51b37.webp"
+    },
+    {
+      "id": "immich:b848ce7a-f176-44da-9238-535543d56fef",
+      "dropboxPath": "immich://b848ce7a-f176-44da-9238-535543d56fef",
+      "category": "annet",
+      "placeName": "00146-5.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T18:01:45.27+00:00",
+      "thumb": "/thumbs/immichb848ce7a-f176-44da-9238-535543d56fef.webp"
+    },
+    {
+      "id": "immich:a3c50767-0ebd-4706-83f9-4b6272c6ae87",
+      "dropboxPath": "immich://a3c50767-0ebd-4706-83f9-4b6272c6ae87",
+      "category": "annet",
+      "placeName": "00146-4.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T18:01:33.18+00:00",
+      "thumb": "/thumbs/immicha3c50767-0ebd-4706-83f9-4b6272c6ae87.webp"
+    },
+    {
+      "id": "immich:82f727f1-306b-4e46-9525-d250eaf6b7a4",
+      "dropboxPath": "immich://82f727f1-306b-4e46-9525-d250eaf6b7a4",
+      "category": "annet",
+      "placeName": "00146-3.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T18:00:34.16+00:00",
+      "thumb": "/thumbs/immich82f727f1-306b-4e46-9525-d250eaf6b7a4.webp"
     },
     {
       "id": "immich:4cd61b3c-6972-41b3-ba0e-98e8691a3b4d",
@@ -34358,6 +34545,160 @@
       "locationSource": "exif",
       "clientModified": "2025-09-06T11:48:14+00:00",
       "thumb": "/thumbs/immich4cd61b3c-6972-41b3-ba0e-98e8691a3b4d.webp"
+    },
+    {
+      "id": "immich:cdd0c955-2bbd-4107-a44a-780048c4e14d",
+      "dropboxPath": "immich://cdd0c955-2bbd-4107-a44a-780048c4e14d",
+      "category": "annet",
+      "placeName": "00146-2.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T18:00:03.51+00:00",
+      "thumb": "/thumbs/immichcdd0c955-2bbd-4107-a44a-780048c4e14d.webp"
+    },
+    {
+      "id": "immich:9122dc90-4344-4279-a5c7-222bcc45dc8a",
+      "dropboxPath": "immich://9122dc90-4344-4279-a5c7-222bcc45dc8a",
+      "category": "annet",
+      "placeName": "00146.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T17:59:44.16+00:00",
+      "thumb": "/thumbs/immich9122dc90-4344-4279-a5c7-222bcc45dc8a.webp"
+    },
+    {
+      "id": "immich:a18728d6-534d-403f-be2f-d14ee9421459",
+      "dropboxPath": "immich://a18728d6-534d-403f-be2f-d14ee9421459",
+      "category": "annet",
+      "placeName": "00141-6.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T15:25:40.12+00:00",
+      "thumb": "/thumbs/immicha18728d6-534d-403f-be2f-d14ee9421459.webp"
+    },
+    {
+      "id": "immich:27dead1b-3e72-44e8-bc12-08bdfd561c54",
+      "dropboxPath": "immich://27dead1b-3e72-44e8-bc12-08bdfd561c54",
+      "category": "annet",
+      "placeName": "00141-5.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T15:25:16.23+00:00",
+      "thumb": "/thumbs/immich27dead1b-3e72-44e8-bc12-08bdfd561c54.webp"
+    },
+    {
+      "id": "immich:60cc579a-02af-4fc7-9416-8e0aa0ac7701",
+      "dropboxPath": "immich://60cc579a-02af-4fc7-9416-8e0aa0ac7701",
+      "category": "annet",
+      "placeName": "00141.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T14:56:48.67+00:00",
+      "thumb": "/thumbs/immich60cc579a-02af-4fc7-9416-8e0aa0ac7701.webp"
+    },
+    {
+      "id": "immich:ac4ed01e-403a-4860-8dd6-440b5d4e0263",
+      "dropboxPath": "immich://ac4ed01e-403a-4860-8dd6-440b5d4e0263",
+      "category": "annet",
+      "placeName": "00141-2.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T15:03:54.14+00:00",
+      "thumb": "/thumbs/immichac4ed01e-403a-4860-8dd6-440b5d4e0263.webp"
+    },
+    {
+      "id": "immich:b8b73797-54e8-4480-91d1-47f85dc19cb9",
+      "dropboxPath": "immich://b8b73797-54e8-4480-91d1-47f85dc19cb9",
+      "category": "annet",
+      "placeName": "00135-37.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T13:53:53+00:00",
+      "thumb": "/thumbs/immichb8b73797-54e8-4480-91d1-47f85dc19cb9.webp"
+    },
+    {
+      "id": "immich:cd62d85e-2295-4a1b-b3b0-1df801fbb622",
+      "dropboxPath": "immich://cd62d85e-2295-4a1b-b3b0-1df801fbb622",
+      "category": "annet",
+      "placeName": "00135-36.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T13:52:56.74+00:00",
+      "thumb": "/thumbs/immichcd62d85e-2295-4a1b-b3b0-1df801fbb622.webp"
+    },
+    {
+      "id": "immich:1df65941-f9ee-42b7-b439-236fb12aa1ed",
+      "dropboxPath": "immich://1df65941-f9ee-42b7-b439-236fb12aa1ed",
+      "category": "annet",
+      "placeName": "00135-35.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T13:52:10.76+00:00",
+      "thumb": "/thumbs/immich1df65941-f9ee-42b7-b439-236fb12aa1ed.webp"
+    },
+    {
+      "id": "immich:37b90461-0623-4bf9-9af1-99d487e1aa7c",
+      "dropboxPath": "immich://37b90461-0623-4bf9-9af1-99d487e1aa7c",
+      "category": "annet",
+      "placeName": "00135-31.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-13T13:49:28.9+00:00",
+      "thumb": "/thumbs/immich37b90461-0623-4bf9-9af1-99d487e1aa7c.webp"
+    },
+    {
+      "id": "immich:290b97e4-f395-4331-91c0-2973b1904c37",
+      "dropboxPath": "immich://290b97e4-f395-4331-91c0-2973b1904c37",
+      "category": "annet",
+      "placeName": "00150.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-12T13:36:56.22+00:00",
+      "thumb": "/thumbs/immich290b97e4-f395-4331-91c0-2973b1904c37.webp"
+    },
+    {
+      "id": "immich:486f7e35-6663-46ee-b580-68714acf7d62",
+      "dropboxPath": "immich://486f7e35-6663-46ee-b580-68714acf7d62",
+      "category": "annet",
+      "placeName": "00130-4.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-10T12:32:22+00:00",
+      "thumb": "/thumbs/immich486f7e35-6663-46ee-b580-68714acf7d62.webp"
+    },
+    {
+      "id": "immich:cf6b5bbd-455b-45bf-a329-6c0e342e8219",
+      "dropboxPath": "immich://cf6b5bbd-455b-45bf-a329-6c0e342e8219",
+      "category": "aktivitet",
+      "placeName": "Tøyenbadet",
+      "lat": 59.918422,
+      "lng": 10.77941,
+      "locationSource": "exif",
+      "clientModified": "2025-08-10T07:50:29+00:00",
+      "thumb": "/thumbs/immichcf6b5bbd-455b-45bf-a329-6c0e342e8219.webp"
+    },
+    {
+      "id": "immich:bcbc4f3b-51cb-499b-81c1-f50cdfbd2975",
+      "dropboxPath": "immich://bcbc4f3b-51cb-499b-81c1-f50cdfbd2975",
+      "category": "annet",
+      "placeName": "00130-3.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-10T12:30:31+00:00",
+      "thumb": "/thumbs/immichbcbc4f3b-51cb-499b-81c1-f50cdfbd2975.webp"
     },
     {
       "id": "immich:83f9a408-e9f6-4148-9fba-0cb5e4ce9460",
@@ -34382,15 +34723,59 @@
       "thumb": "/thumbs/immich948292a7-162c-4216-bf02-9543e0a16861.webp"
     },
     {
-      "id": "immich:345ed049-d17f-4c3f-bdf2-b2c15b268182",
-      "dropboxPath": "immich://345ed049-d17f-4c3f-bdf2-b2c15b268182",
-      "category": "restaurant",
-      "placeName": "McDonald's",
-      "lat": 59.924857,
-      "lng": 10.759163,
+      "id": "immich:121e2744-5858-4528-b757-51c3edcc093a",
+      "dropboxPath": "immich://121e2744-5858-4528-b757-51c3edcc093a",
+      "category": "annet",
+      "placeName": "Åpent Bakeri Lille Tøyen",
+      "lat": 59.920683,
+      "lng": 10.784301,
       "locationSource": "exif",
-      "clientModified": "2025-09-06T11:43:45+00:00",
-      "thumb": "/thumbs/immich345ed049-d17f-4c3f-bdf2-b2c15b268182.webp"
+      "clientModified": "2025-08-10T07:31:56+00:00",
+      "thumb": "/thumbs/immich121e2744-5858-4528-b757-51c3edcc093a.webp"
+    },
+    {
+      "id": "immich:11703e58-9273-4721-b857-1e872d9fa87a",
+      "dropboxPath": "immich://11703e58-9273-4721-b857-1e872d9fa87a",
+      "category": "annet",
+      "placeName": "Åpent Bakeri Lille Tøyen",
+      "lat": 59.920683,
+      "lng": 10.784301,
+      "locationSource": "exif",
+      "clientModified": "2025-08-10T07:29:42+00:00",
+      "thumb": "/thumbs/immich11703e58-9273-4721-b857-1e872d9fa87a.webp"
+    },
+    {
+      "id": "immich:df624788-3453-4150-95be-6a2ed1eeb1f4",
+      "dropboxPath": "immich://df624788-3453-4150-95be-6a2ed1eeb1f4",
+      "category": "annet",
+      "placeName": "Åpent Bakeri Lille Tøyen",
+      "lat": 59.920683,
+      "lng": 10.784301,
+      "locationSource": "exif",
+      "clientModified": "2025-08-10T07:29:35+00:00",
+      "thumb": "/thumbs/immichdf624788-3453-4150-95be-6a2ed1eeb1f4.webp"
+    },
+    {
+      "id": "immich:79ae06b8-9e66-4f31-bd88-d187fcce13e1",
+      "dropboxPath": "immich://79ae06b8-9e66-4f31-bd88-d187fcce13e1",
+      "category": "annet",
+      "placeName": "Åpent Bakeri Lille Tøyen",
+      "lat": 59.920683,
+      "lng": 10.784301,
+      "locationSource": "exif",
+      "clientModified": "2025-08-10T07:29:30+00:00",
+      "thumb": "/thumbs/immich79ae06b8-9e66-4f31-bd88-d187fcce13e1.webp"
+    },
+    {
+      "id": "immich:378dd1ad-1f4e-46bf-b6c5-f40e0146b48d",
+      "dropboxPath": "immich://378dd1ad-1f4e-46bf-b6c5-f40e0146b48d",
+      "category": "annet",
+      "placeName": "Åpent Bakeri Lille Tøyen",
+      "lat": 59.920683,
+      "lng": 10.784301,
+      "locationSource": "exif",
+      "clientModified": "2025-08-10T07:25:39+00:00",
+      "thumb": "/thumbs/immich378dd1ad-1f4e-46bf-b6c5-f40e0146b48d.webp"
     },
     {
       "id": "immich:ee50ac0f-18b2-4030-829b-1992479d098a",
@@ -34402,61 +34787,6 @@
       "locationSource": "exif",
       "clientModified": "2025-08-30T12:08:33+00:00",
       "thumb": "/thumbs/immichee50ac0f-18b2-4030-829b-1992479d098a.webp"
-    },
-    {
-      "id": "immich:f9a2de11-01f7-4cf2-97f4-b594c9947406",
-      "dropboxPath": "immich://f9a2de11-01f7-4cf2-97f4-b594c9947406",
-      "category": "annet",
-      "placeName": "Hovinveien 2",
-      "lat": 59.918422,
-      "lng": 10.77941,
-      "locationSource": "exif",
-      "clientModified": "2025-08-10T07:50:23+00:00",
-      "thumb": "/thumbs/immichf9a2de11-01f7-4cf2-97f4-b594c9947406.webp"
-    },
-    {
-      "id": "immich:121e2744-5858-4528-b757-51c3edcc093a",
-      "dropboxPath": "immich://121e2744-5858-4528-b757-51c3edcc093a",
-      "category": "kafe",
-      "placeName": "Åpent Bakeri",
-      "lat": 59.920683,
-      "lng": 10.784301,
-      "locationSource": "exif",
-      "clientModified": "2025-08-10T07:31:56+00:00",
-      "thumb": "/thumbs/immich121e2744-5858-4528-b757-51c3edcc093a.webp"
-    },
-    {
-      "id": "immich:378dd1ad-1f4e-46bf-b6c5-f40e0146b48d",
-      "dropboxPath": "immich://378dd1ad-1f4e-46bf-b6c5-f40e0146b48d",
-      "category": "kafe",
-      "placeName": "Åpent Bakeri",
-      "lat": 59.920683,
-      "lng": 10.784301,
-      "locationSource": "exif",
-      "clientModified": "2025-08-10T07:25:39+00:00",
-      "thumb": "/thumbs/immich378dd1ad-1f4e-46bf-b6c5-f40e0146b48d.webp"
-    },
-    {
-      "id": "immich:11703e58-9273-4721-b857-1e872d9fa87a",
-      "dropboxPath": "immich://11703e58-9273-4721-b857-1e872d9fa87a",
-      "category": "kafe",
-      "placeName": "Åpent Bakeri",
-      "lat": 59.920683,
-      "lng": 10.784301,
-      "locationSource": "exif",
-      "clientModified": "2025-08-10T07:29:42+00:00",
-      "thumb": "/thumbs/immich11703e58-9273-4721-b857-1e872d9fa87a.webp"
-    },
-    {
-      "id": "immich:df624788-3453-4150-95be-6a2ed1eeb1f4",
-      "dropboxPath": "immich://df624788-3453-4150-95be-6a2ed1eeb1f4",
-      "category": "kafe",
-      "placeName": "Åpent Bakeri",
-      "lat": 59.920683,
-      "lng": 10.784301,
-      "locationSource": "exif",
-      "clientModified": "2025-08-10T07:29:35+00:00",
-      "thumb": "/thumbs/immichdf624788-3453-4150-95be-6a2ed1eeb1f4.webp"
     },
     {
       "id": "immich:ed7137ef-219f-4c01-b7be-8b850bbea96f",
@@ -34481,15 +34811,15 @@
       "thumb": "/thumbs/immich8e2abd77-8e63-42e4-af72-75e4204450da.webp"
     },
     {
-      "id": "immich:79ae06b8-9e66-4f31-bd88-d187fcce13e1",
-      "dropboxPath": "immich://79ae06b8-9e66-4f31-bd88-d187fcce13e1",
-      "category": "kafe",
-      "placeName": "Åpent Bakeri",
-      "lat": 59.920683,
-      "lng": 10.784301,
+      "id": "immich:f9a2de11-01f7-4cf2-97f4-b594c9947406",
+      "dropboxPath": "immich://f9a2de11-01f7-4cf2-97f4-b594c9947406",
+      "category": "annet",
+      "placeName": "Hovinveien 2",
+      "lat": 59.918422,
+      "lng": 10.77941,
       "locationSource": "exif",
-      "clientModified": "2025-08-10T07:29:30+00:00",
-      "thumb": "/thumbs/immich79ae06b8-9e66-4f31-bd88-d187fcce13e1.webp"
+      "clientModified": "2025-08-10T07:50:23+00:00",
+      "thumb": "/thumbs/immichf9a2de11-01f7-4cf2-97f4-b594c9947406.webp"
     },
     {
       "id": "immich:e2661119-1a2a-4417-8827-f41a07f95abf",
@@ -34525,6 +34855,83 @@
       "thumb": "/thumbs/immich06a466e9-5aab-499e-8328-a1dc4648c843.webp"
     },
     {
+      "id": "immich:92b2c40e-9eb3-4fc4-8150-08f6b8238cae",
+      "dropboxPath": "immich://92b2c40e-9eb3-4fc4-8150-08f6b8238cae",
+      "category": "annet",
+      "placeName": "00129-4.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-07T07:52:52+00:00",
+      "thumb": "/thumbs/immich92b2c40e-9eb3-4fc4-8150-08f6b8238cae.webp"
+    },
+    {
+      "id": "immich:ef1100f4-1129-4c9c-b28e-fcb76e6190fb",
+      "dropboxPath": "immich://ef1100f4-1129-4c9c-b28e-fcb76e6190fb",
+      "category": "annet",
+      "placeName": "00129-3.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-07T07:51:42+00:00",
+      "thumb": "/thumbs/immichef1100f4-1129-4c9c-b28e-fcb76e6190fb.webp"
+    },
+    {
+      "id": "immich:97d61bf0-bcdb-4bdd-a832-aa94ffc013d8",
+      "dropboxPath": "immich://97d61bf0-bcdb-4bdd-a832-aa94ffc013d8",
+      "category": "annet",
+      "placeName": "00129-2.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-07T07:51:27+00:00",
+      "thumb": "/thumbs/immich97d61bf0-bcdb-4bdd-a832-aa94ffc013d8.webp"
+    },
+    {
+      "id": "immich:e8e45d80-29f7-44c4-9f44-d045760e2769",
+      "dropboxPath": "immich://e8e45d80-29f7-44c4-9f44-d045760e2769",
+      "category": "annet",
+      "placeName": "00129.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-07T07:51:15+00:00",
+      "thumb": "/thumbs/immiche8e45d80-29f7-44c4-9f44-d045760e2769.webp"
+    },
+    {
+      "id": "immich:2e6e3d77-f900-47f9-9ac4-df54f40dcac2",
+      "dropboxPath": "immich://2e6e3d77-f900-47f9-9ac4-df54f40dcac2",
+      "category": "annet",
+      "placeName": "00130-5.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-08-07T07:51:15+00:00",
+      "thumb": "/thumbs/immich2e6e3d77-f900-47f9-9ac4-df54f40dcac2.webp"
+    },
+    {
+      "id": "immich:d2fd3ddf-0f19-4d21-869e-e5870eb0b140",
+      "dropboxPath": "immich://d2fd3ddf-0f19-4d21-869e-e5870eb0b140",
+      "category": "annet",
+      "placeName": "Kampen torg",
+      "lat": 59.911856,
+      "lng": 10.781183,
+      "locationSource": "exif",
+      "clientModified": "2025-08-04T11:19:53.19+00:00",
+      "thumb": "/thumbs/immichd2fd3ddf-0f19-4d21-869e-e5870eb0b140.webp"
+    },
+    {
+      "id": "immich:a16c28d8-2d38-4fd0-9c0e-970b25461a43",
+      "dropboxPath": "immich://a16c28d8-2d38-4fd0-9c0e-970b25461a43",
+      "category": "annet",
+      "placeName": "Kampen torg",
+      "lat": 59.911856,
+      "lng": 10.781183,
+      "locationSource": "exif",
+      "clientModified": "2025-08-04T11:19:28.53+00:00",
+      "thumb": "/thumbs/immicha16c28d8-2d38-4fd0-9c0e-970b25461a43.webp"
+    },
+    {
       "id": "immich:065baa19-d209-4ab2-bd4e-92d6da1a55e2",
       "dropboxPath": "immich://065baa19-d209-4ab2-bd4e-92d6da1a55e2",
       "category": "annet",
@@ -34534,6 +34941,116 @@
       "locationSource": "exif",
       "clientModified": "2025-08-10T07:00:14+00:00",
       "thumb": "/thumbs/immich065baa19-d209-4ab2-bd4e-92d6da1a55e2.webp"
+    },
+    {
+      "id": "immich:58a214e4-2d70-4eda-a0a0-66b9e80cebe5",
+      "dropboxPath": "immich://58a214e4-2d70-4eda-a0a0-66b9e80cebe5",
+      "category": "park",
+      "placeName": "Park",
+      "lat": 59.907162,
+      "lng": 10.778325,
+      "locationSource": "exif",
+      "clientModified": "2025-08-03T05:33:26+00:00",
+      "thumb": "/thumbs/immich58a214e4-2d70-4eda-a0a0-66b9e80cebe5.webp"
+    },
+    {
+      "id": "immich:d7f1f6d6-3ef2-42f3-9e83-d9a01c604b12",
+      "dropboxPath": "immich://d7f1f6d6-3ef2-42f3-9e83-d9a01c604b12",
+      "category": "aktivitet",
+      "placeName": "Tøyen badet",
+      "lat": 59.919952,
+      "lng": 10.778611,
+      "locationSource": "exif",
+      "clientModified": "2025-07-30T14:51:25.67+00:00",
+      "thumb": "/thumbs/immichd7f1f6d6-3ef2-42f3-9e83-d9a01c604b12.webp"
+    },
+    {
+      "id": "immich:3931e0b4-5e6c-46a6-bb7c-55c802efe76d",
+      "dropboxPath": "immich://3931e0b4-5e6c-46a6-bb7c-55c802efe76d",
+      "category": "aktivitet",
+      "placeName": "Tøyen badet",
+      "lat": 59.919952,
+      "lng": 10.778611,
+      "locationSource": "exif",
+      "clientModified": "2025-07-30T14:51:02.26+00:00",
+      "thumb": "/thumbs/immich3931e0b4-5e6c-46a6-bb7c-55c802efe76d.webp"
+    },
+    {
+      "id": "immich:2f882747-6409-44e0-85b9-1243a974d53e",
+      "dropboxPath": "immich://2f882747-6409-44e0-85b9-1243a974d53e",
+      "category": "aktivitet",
+      "placeName": "Tøyen badet",
+      "lat": 59.919952,
+      "lng": 10.778611,
+      "locationSource": "exif",
+      "clientModified": "2025-07-30T14:50:58.27+00:00",
+      "thumb": "/thumbs/immich2f882747-6409-44e0-85b9-1243a974d53e.webp"
+    },
+    {
+      "id": "immich:049a5ee8-59f6-40fa-a23e-af6baea66dc4",
+      "dropboxPath": "immich://049a5ee8-59f6-40fa-a23e-af6baea66dc4",
+      "category": "park",
+      "placeName": "Park",
+      "lat": 59.920517,
+      "lng": 10.777903,
+      "locationSource": "exif",
+      "clientModified": "2025-07-30T14:50:51.89+00:00",
+      "thumb": "/thumbs/immich049a5ee8-59f6-40fa-a23e-af6baea66dc4.webp"
+    },
+    {
+      "id": "immich:6c7ce55d-d6f2-41c7-9fbe-e8cdfe91b4b4",
+      "dropboxPath": "immich://6c7ce55d-d6f2-41c7-9fbe-e8cdfe91b4b4",
+      "category": "aktivitet",
+      "placeName": "Tøyen badet",
+      "lat": 59.919952,
+      "lng": 10.778611,
+      "locationSource": "exif",
+      "clientModified": "2025-07-30T14:49:50.82+00:00",
+      "thumb": "/thumbs/immich6c7ce55d-d6f2-41c7-9fbe-e8cdfe91b4b4.webp"
+    },
+    {
+      "id": "immich:30a7f5c2-2d7c-49d3-b0c6-963ea8a2bd83",
+      "dropboxPath": "immich://30a7f5c2-2d7c-49d3-b0c6-963ea8a2bd83",
+      "category": "park",
+      "placeName": "Park",
+      "lat": 59.937058,
+      "lng": 10.776092,
+      "locationSource": "exif",
+      "clientModified": "2025-07-30T14:40:09.95+00:00",
+      "thumb": "/thumbs/immich30a7f5c2-2d7c-49d3-b0c6-963ea8a2bd83.webp"
+    },
+    {
+      "id": "immich:9a5eecf7-7219-40f9-b2da-893e4c62febc",
+      "dropboxPath": "immich://9a5eecf7-7219-40f9-b2da-893e4c62febc",
+      "category": "annet",
+      "placeName": "00112-38.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-26T08:42:33+00:00",
+      "thumb": "/thumbs/immich9a5eecf7-7219-40f9-b2da-893e4c62febc.webp"
+    },
+    {
+      "id": "immich:12affc21-9268-4d2f-a77f-c4e7598a7059",
+      "dropboxPath": "immich://12affc21-9268-4d2f-a77f-c4e7598a7059",
+      "category": "annet",
+      "placeName": "00112-37.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-26T08:42:30+00:00",
+      "thumb": "/thumbs/immich12affc21-9268-4d2f-a77f-c4e7598a7059.webp"
+    },
+    {
+      "id": "immich:44aa9031-ab1a-41d1-a617-caad18b711bd",
+      "dropboxPath": "immich://44aa9031-ab1a-41d1-a617-caad18b711bd",
+      "category": "annet",
+      "placeName": "00112-36.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-26T08:41:10+00:00",
+      "thumb": "/thumbs/immich44aa9031-ab1a-41d1-a617-caad18b711bd.webp"
     },
     {
       "id": "immich:4a91560d-c1dd-48ef-89be-b313aa7fe6d1",
@@ -34547,6 +35064,138 @@
       "thumb": "/thumbs/immich4a91560d-c1dd-48ef-89be-b313aa7fe6d1.webp"
     },
     {
+      "id": "immich:31a6f79d-267a-41a6-87ef-5185a3fed70e",
+      "dropboxPath": "immich://31a6f79d-267a-41a6-87ef-5185a3fed70e",
+      "category": "annet",
+      "placeName": "00112-35.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-26T08:40:43+00:00",
+      "thumb": "/thumbs/immich31a6f79d-267a-41a6-87ef-5185a3fed70e.webp"
+    },
+    {
+      "id": "immich:53794a4e-ef1d-4ac2-9e08-abf21a5cb0f0",
+      "dropboxPath": "immich://53794a4e-ef1d-4ac2-9e08-abf21a5cb0f0",
+      "category": "annet",
+      "placeName": "00112-34.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-26T08:40:11+00:00",
+      "thumb": "/thumbs/immich53794a4e-ef1d-4ac2-9e08-abf21a5cb0f0.webp"
+    },
+    {
+      "id": "immich:3ff90f98-5826-4a47-a684-eb5f11ca1472",
+      "dropboxPath": "immich://3ff90f98-5826-4a47-a684-eb5f11ca1472",
+      "category": "annet",
+      "placeName": "00112-33.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-26T08:37:22+00:00",
+      "thumb": "/thumbs/immich3ff90f98-5826-4a47-a684-eb5f11ca1472.webp"
+    },
+    {
+      "id": "immich:b35834a8-8695-48e2-9916-18da4cc55c48",
+      "dropboxPath": "immich://b35834a8-8695-48e2-9916-18da4cc55c48",
+      "category": "annet",
+      "placeName": "00112-32.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-26T08:37:18+00:00",
+      "thumb": "/thumbs/immichb35834a8-8695-48e2-9916-18da4cc55c48.webp"
+    },
+    {
+      "id": "immich:d60d162e-6db5-4344-98ce-c91f34a5eb30",
+      "dropboxPath": "immich://d60d162e-6db5-4344-98ce-c91f34a5eb30",
+      "category": "annet",
+      "placeName": "00112-31.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-26T08:36:54+00:00",
+      "thumb": "/thumbs/immichd60d162e-6db5-4344-98ce-c91f34a5eb30.webp"
+    },
+    {
+      "id": "immich:a5f18163-4ddc-4200-85e5-712344fd74d1",
+      "dropboxPath": "immich://a5f18163-4ddc-4200-85e5-712344fd74d1",
+      "category": "annet",
+      "placeName": "00112-30.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-26T08:36:01+00:00",
+      "thumb": "/thumbs/immicha5f18163-4ddc-4200-85e5-712344fd74d1.webp"
+    },
+    {
+      "id": "immich:e73cd698-4461-4e99-b0e7-4b8b385db05a",
+      "dropboxPath": "immich://e73cd698-4461-4e99-b0e7-4b8b385db05a",
+      "category": "annet",
+      "placeName": "00112-29.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-26T08:35:29+00:00",
+      "thumb": "/thumbs/immiche73cd698-4461-4e99-b0e7-4b8b385db05a.webp"
+    },
+    {
+      "id": "immich:e84c46a6-8d42-4937-af53-6611fb33259c",
+      "dropboxPath": "immich://e84c46a6-8d42-4937-af53-6611fb33259c",
+      "category": "kollektiv",
+      "placeName": "Disen Trikkestopp",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-25T14:10:32+00:00",
+      "thumb": "/thumbs/immiche84c46a6-8d42-4937-af53-6611fb33259c.webp"
+    },
+    {
+      "id": "immich:ae973b6b-fc38-4dbc-a7ff-276307913c0d",
+      "dropboxPath": "immich://ae973b6b-fc38-4dbc-a7ff-276307913c0d",
+      "category": "park",
+      "placeName": "Park GRefsentunet",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-25T14:10:18+00:00",
+      "thumb": "/thumbs/immichae973b6b-fc38-4dbc-a7ff-276307913c0d.webp"
+    },
+    {
+      "id": "immich:7fff798b-99e0-41e1-993c-a0bf867b0beb",
+      "dropboxPath": "immich://7fff798b-99e0-41e1-993c-a0bf867b0beb",
+      "category": "butikk",
+      "placeName": "Coop Prix",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-25T14:01:01+00:00",
+      "thumb": "/thumbs/immich7fff798b-99e0-41e1-993c-a0bf867b0beb.webp"
+    },
+    {
+      "id": "immich:b0789b42-9696-4d28-b027-c3764a302851",
+      "dropboxPath": "immich://b0789b42-9696-4d28-b027-c3764a302851",
+      "category": "kultur",
+      "placeName": "Teknisk Museum",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-25T13:54:02+00:00",
+      "thumb": "/thumbs/immichb0789b42-9696-4d28-b027-c3764a302851.webp"
+    },
+    {
+      "id": "immich:e4a03b78-8119-4339-bfda-2aa25a34e29c",
+      "dropboxPath": "immich://e4a03b78-8119-4339-bfda-2aa25a34e29c",
+      "category": "annet",
+      "placeName": "Frysja",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-25T10:05:42+00:00",
+      "thumb": "/thumbs/immiche4a03b78-8119-4339-bfda-2aa25a34e29c.webp"
+    },
+    {
       "id": "immich:8ef0c829-99a3-490c-8df3-88b89d920178",
       "dropboxPath": "immich://8ef0c829-99a3-490c-8df3-88b89d920178",
       "category": "annet",
@@ -34558,26 +35207,48 @@
       "thumb": "/thumbs/immich8ef0c829-99a3-490c-8df3-88b89d920178.webp"
     },
     {
-      "id": "immich:d2fd3ddf-0f19-4d21-869e-e5870eb0b140",
-      "dropboxPath": "immich://d2fd3ddf-0f19-4d21-869e-e5870eb0b140",
-      "category": "kafe",
-      "placeName": "Kampen Kaffe & Bar",
-      "lat": 59.911856,
-      "lng": 10.781183,
+      "id": "immich:ea69b1e6-b3ad-40da-9e2e-0eb6870fc3b4",
+      "dropboxPath": "immich://ea69b1e6-b3ad-40da-9e2e-0eb6870fc3b4",
+      "category": "kollektiv",
+      "placeName": "Kjelsås togstasjon",
+      "lat": 59.966091,
+      "lng": 10.782995,
       "locationSource": "exif",
-      "clientModified": "2025-08-04T11:19:53.19+00:00",
-      "thumb": "/thumbs/immichd2fd3ddf-0f19-4d21-869e-e5870eb0b140.webp"
+      "clientModified": "2025-07-25T10:02:33+00:00",
+      "thumb": "/thumbs/immichea69b1e6-b3ad-40da-9e2e-0eb6870fc3b4.webp"
     },
     {
-      "id": "immich:a16c28d8-2d38-4fd0-9c0e-970b25461a43",
-      "dropboxPath": "immich://a16c28d8-2d38-4fd0-9c0e-970b25461a43",
-      "category": "kafe",
-      "placeName": "Kampen Kaffe & Bar",
-      "lat": 59.911856,
-      "lng": 10.781183,
+      "id": "immich:56787969-216d-4382-bad1-823a0b3e72a6",
+      "dropboxPath": "immich://56787969-216d-4382-bad1-823a0b3e72a6",
+      "category": "skole",
+      "placeName": "Kjelsås skole",
+      "lat": 59.965615,
+      "lng": 10.785216,
       "locationSource": "exif",
-      "clientModified": "2025-08-04T11:19:28.53+00:00",
-      "thumb": "/thumbs/immicha16c28d8-2d38-4fd0-9c0e-970b25461a43.webp"
+      "clientModified": "2025-07-25T10:01:31+00:00",
+      "thumb": "/thumbs/immich56787969-216d-4382-bad1-823a0b3e72a6.webp"
+    },
+    {
+      "id": "immich:1f5ce7fe-dae0-4774-99ff-15cd7d10042c",
+      "dropboxPath": "immich://1f5ce7fe-dae0-4774-99ff-15cd7d10042c",
+      "category": "skole",
+      "placeName": "Kjelås skole",
+      "lat": 59.965754,
+      "lng": 10.784816,
+      "locationSource": "exif",
+      "clientModified": "2025-07-25T10:00:24+00:00",
+      "thumb": "/thumbs/immich1f5ce7fe-dae0-4774-99ff-15cd7d10042c.webp"
+    },
+    {
+      "id": "immich:bc8b53ee-e24e-4044-8128-6db078509b29",
+      "dropboxPath": "immich://bc8b53ee-e24e-4044-8128-6db078509b29",
+      "category": "annet",
+      "placeName": "Mjøl",
+      "lat": 59.921289,
+      "lng": 10.729923,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T12:51:11.13+00:00",
+      "thumb": "/thumbs/immichbc8b53ee-e24e-4044-8128-6db078509b29.webp"
     },
     {
       "id": "immich:975a0a76-9c07-4da4-8fd2-4de63e970082",
@@ -34591,64 +35262,515 @@
       "thumb": "/thumbs/immich975a0a76-9c07-4da4-8fd2-4de63e970082.webp"
     },
     {
-      "id": "immich:58a214e4-2d70-4eda-a0a0-66b9e80cebe5",
-      "dropboxPath": "immich://58a214e4-2d70-4eda-a0a0-66b9e80cebe5",
+      "id": "immich:d273d602-f9fd-4eab-8460-429ec5fba6f1",
+      "dropboxPath": "immich://d273d602-f9fd-4eab-8460-429ec5fba6f1",
+      "category": "kollektiv",
+      "placeName": "Torshov",
+      "lat": 59.934628,
+      "lng": 10.765193,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T11:02:17.66+00:00",
+      "thumb": "/thumbs/immichd273d602-f9fd-4eab-8460-429ec5fba6f1.webp"
+    },
+    {
+      "id": "immich:3760fed9-3981-4152-90dd-725db006791d",
+      "dropboxPath": "immich://3760fed9-3981-4152-90dd-725db006791d",
+      "category": "kollektiv",
+      "placeName": "Torshov",
+      "lat": 59.9346,
+      "lng": 10.7652,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T11:00:03.7+00:00",
+      "thumb": "/thumbs/immich3760fed9-3981-4152-90dd-725db006791d.webp"
+    },
+    {
+      "id": "immich:6b35b7d0-6eb6-4b6d-b50a-18ef6aa5fede",
+      "dropboxPath": "immich://6b35b7d0-6eb6-4b6d-b50a-18ef6aa5fede",
+      "category": "kollektiv",
+      "placeName": "Torshov",
+      "lat": 59.9346,
+      "lng": 10.7652,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T10:59:10.62+00:00",
+      "thumb": "/thumbs/immich6b35b7d0-6eb6-4b6d-b50a-18ef6aa5fede.webp"
+    },
+    {
+      "id": "immich:73d913b3-4e82-47fa-910e-304159e077bb",
+      "dropboxPath": "immich://73d913b3-4e82-47fa-910e-304159e077bb",
+      "category": "kollektiv",
+      "placeName": "Torshov",
+      "lat": 59.9346,
+      "lng": 10.7652,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T10:58:35.45+00:00",
+      "thumb": "/thumbs/immich73d913b3-4e82-47fa-910e-304159e077bb.webp"
+    },
+    {
+      "id": "immich:339452c4-3eca-40ea-9b48-c5179bd11434",
+      "dropboxPath": "immich://339452c4-3eca-40ea-9b48-c5179bd11434",
+      "category": "kollektiv",
+      "placeName": "Torshov",
+      "lat": 59.9346,
+      "lng": 10.7652,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T10:57:56.43+00:00",
+      "thumb": "/thumbs/immich339452c4-3eca-40ea-9b48-c5179bd11434.webp"
+    },
+    {
+      "id": "immich:c0646652-9fd5-4c9d-abf2-a34c4eaae000",
+      "dropboxPath": "immich://c0646652-9fd5-4c9d-abf2-a34c4eaae000",
+      "category": "kollektiv",
+      "placeName": "Torshov",
+      "lat": 59.9346,
+      "lng": 10.7652,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T10:57:09.22+00:00",
+      "thumb": "/thumbs/immichc0646652-9fd5-4c9d-abf2-a34c4eaae000.webp"
+    },
+    {
+      "id": "immich:86d6de46-78ce-4058-916e-7864e6dcd596",
+      "dropboxPath": "immich://86d6de46-78ce-4058-916e-7864e6dcd596",
+      "category": "kollektiv",
+      "placeName": "Torshov",
+      "lat": 59.9346,
+      "lng": 10.7652,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T11:00:48.82+00:00",
+      "thumb": "/thumbs/immich86d6de46-78ce-4058-916e-7864e6dcd596.webp"
+    },
+    {
+      "id": "immich:9a53df49-0349-4a4a-8fb9-31b65c069e59",
+      "dropboxPath": "immich://9a53df49-0349-4a4a-8fb9-31b65c069e59",
+      "category": "annet",
+      "placeName": "Oksen",
+      "lat": 59.934519,
+      "lng": 10.766884,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T10:53:23.06+00:00",
+      "thumb": "/thumbs/immich9a53df49-0349-4a4a-8fb9-31b65c069e59.webp"
+    },
+    {
+      "id": "immich:1fabd0f4-fa47-4f09-a229-011775159bfe",
+      "dropboxPath": "immich://1fabd0f4-fa47-4f09-a229-011775159bfe",
+      "category": "annet",
+      "placeName": "Grisen",
+      "lat": 59.934214,
+      "lng": 10.762547,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T10:47:44+00:00",
+      "thumb": "/thumbs/immich1fabd0f4-fa47-4f09-a229-011775159bfe.webp"
+    },
+    {
+      "id": "immich:a6889a75-c557-4e6f-8c46-d0dfe506494c",
+      "dropboxPath": "immich://a6889a75-c557-4e6f-8c46-d0dfe506494c",
+      "category": "skole",
+      "placeName": "Disen skole",
+      "lat": 59.948325,
+      "lng": 10.794263,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T04:48:18+00:00",
+      "thumb": "/thumbs/immicha6889a75-c557-4e6f-8c46-d0dfe506494c.webp"
+    },
+    {
+      "id": "immich:fb9d6cfd-1855-4178-816a-f80cbbe25b7e",
+      "dropboxPath": "immich://fb9d6cfd-1855-4178-816a-f80cbbe25b7e",
+      "category": "annet",
+      "placeName": "Aschehougs vei busstopp",
+      "lat": 59.946514,
+      "lng": 10.792724,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T04:43:24+00:00",
+      "thumb": "/thumbs/immichfb9d6cfd-1855-4178-816a-f80cbbe25b7e.webp"
+    },
+    {
+      "id": "immich:7ea0bc24-3e28-45f5-a8c0-770fc4056921",
+      "dropboxPath": "immich://7ea0bc24-3e28-45f5-a8c0-770fc4056921",
+      "category": "annet",
+      "placeName": "Aschehougs vei busstopp",
+      "lat": 59.946509,
+      "lng": 10.792688,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T04:42:40+00:00",
+      "thumb": "/thumbs/immich7ea0bc24-3e28-45f5-a8c0-770fc4056921.webp"
+    },
+    {
+      "id": "immich:cafe7627-0621-447c-8058-20662c024a6c",
+      "dropboxPath": "immich://cafe7627-0621-447c-8058-20662c024a6c",
       "category": "park",
-      "placeName": "Galgeberg park",
-      "lat": 59.907162,
-      "lng": 10.778325,
+      "placeName": "Frysja badeplass",
+      "lat": 59.966703,
+      "lng": 10.778174,
       "locationSource": "exif",
-      "clientModified": "2025-08-03T05:33:26+00:00",
-      "thumb": "/thumbs/immich58a214e4-2d70-4eda-a0a0-66b9e80cebe5.webp"
+      "clientModified": "2025-07-23T10:21:15+00:00",
+      "thumb": "/thumbs/immichcafe7627-0621-447c-8058-20662c024a6c.webp"
     },
     {
-      "id": "immich:d7f1f6d6-3ef2-42f3-9e83-d9a01c604b12",
-      "dropboxPath": "immich://d7f1f6d6-3ef2-42f3-9e83-d9a01c604b12",
+      "id": "immich:ca944535-959f-4b9f-8f08-122c78385d6b",
+      "dropboxPath": "immich://ca944535-959f-4b9f-8f08-122c78385d6b",
       "category": "annet",
-      "placeName": "Helgesens gate 90",
-      "lat": 59.919952,
-      "lng": 10.778611,
+      "placeName": "Frysja",
+      "lat": 59.967137,
+      "lng": 10.776586,
       "locationSource": "exif",
-      "clientModified": "2025-07-30T14:51:25.67+00:00",
-      "thumb": "/thumbs/immichd7f1f6d6-3ef2-42f3-9e83-d9a01c604b12.webp"
+      "clientModified": "2025-07-23T10:20:38+00:00",
+      "thumb": "/thumbs/immichca944535-959f-4b9f-8f08-122c78385d6b.webp"
     },
     {
-      "id": "immich:6c7ce55d-d6f2-41c7-9fbe-e8cdfe91b4b4",
-      "dropboxPath": "immich://6c7ce55d-d6f2-41c7-9fbe-e8cdfe91b4b4",
+      "id": "immich:a62b98eb-2297-434b-802f-42fb28fe2d9e",
+      "dropboxPath": "immich://a62b98eb-2297-434b-802f-42fb28fe2d9e",
       "category": "annet",
-      "placeName": "Helgesens gate 90",
-      "lat": 59.919952,
-      "lng": 10.778611,
-      "locationSource": "exif",
-      "clientModified": "2025-07-30T14:49:50.82+00:00",
-      "thumb": "/thumbs/immich6c7ce55d-d6f2-41c7-9fbe-e8cdfe91b4b4.webp"
+      "placeName": "00112-15.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-23T10:18:46+00:00",
+      "thumb": "/thumbs/immicha62b98eb-2297-434b-802f-42fb28fe2d9e.webp"
     },
     {
-      "id": "immich:3931e0b4-5e6c-46a6-bb7c-55c802efe76d",
-      "dropboxPath": "immich://3931e0b4-5e6c-46a6-bb7c-55c802efe76d",
-      "category": "annet",
-      "placeName": "Helgesens gate 90",
-      "lat": 59.919952,
-      "lng": 10.778611,
+      "id": "immich:6bf1201a-5727-4046-b3de-8fe2efebcd05",
+      "dropboxPath": "immich://6bf1201a-5727-4046-b3de-8fe2efebcd05",
+      "category": "kollektiv",
+      "placeName": "Torshov",
+      "lat": 59.9346,
+      "lng": 10.7652,
       "locationSource": "exif",
-      "clientModified": "2025-07-30T14:51:02.26+00:00",
-      "thumb": "/thumbs/immich3931e0b4-5e6c-46a6-bb7c-55c802efe76d.webp"
+      "clientModified": "2025-07-24T11:00:31.28+00:00",
+      "thumb": "/thumbs/immich6bf1201a-5727-4046-b3de-8fe2efebcd05.webp"
     },
     {
-      "id": "immich:2f882747-6409-44e0-85b9-1243a974d53e",
-      "dropboxPath": "immich://2f882747-6409-44e0-85b9-1243a974d53e",
+      "id": "immich:1c4ce8c1-6b53-4707-a47b-e03d5bef83d7",
+      "dropboxPath": "immich://1c4ce8c1-6b53-4707-a47b-e03d5bef83d7",
       "category": "annet",
-      "placeName": "Helgesens gate 90",
-      "lat": 59.919952,
-      "lng": 10.778611,
+      "placeName": "00112-14.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-23T10:06:46+00:00",
+      "thumb": "/thumbs/immich1c4ce8c1-6b53-4707-a47b-e03d5bef83d7.webp"
+    },
+    {
+      "id": "immich:27b7cd09-b2f7-4819-bb69-68aa119e54f8",
+      "dropboxPath": "immich://27b7cd09-b2f7-4819-bb69-68aa119e54f8",
+      "category": "annet",
+      "placeName": "00112-13.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-23T09:57:19+00:00",
+      "thumb": "/thumbs/immich27b7cd09-b2f7-4819-bb69-68aa119e54f8.webp"
+    },
+    {
+      "id": "immich:ff81e3b1-892c-4d0b-a9ec-fb2912cd0bb7",
+      "dropboxPath": "immich://ff81e3b1-892c-4d0b-a9ec-fb2912cd0bb7",
+      "category": "annet",
+      "placeName": "Disenjordet",
+      "lat": 59.946054,
+      "lng": 10.78906,
       "locationSource": "exif",
-      "clientModified": "2025-07-30T14:50:58.27+00:00",
-      "thumb": "/thumbs/immich2f882747-6409-44e0-85b9-1243a974d53e.webp"
+      "clientModified": "2025-07-23T09:21:55+00:00",
+      "thumb": "/thumbs/immichff81e3b1-892c-4d0b-a9ec-fb2912cd0bb7.webp"
+    },
+    {
+      "id": "immich:7751ff5f-0299-4909-a466-4fed7935731a",
+      "dropboxPath": "immich://7751ff5f-0299-4909-a466-4fed7935731a",
+      "category": "annet",
+      "placeName": "00112-12.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-23T09:25:16+00:00",
+      "thumb": "/thumbs/immich7751ff5f-0299-4909-a466-4fed7935731a.webp"
+    },
+    {
+      "id": "immich:1dd04631-e93b-4ae1-87d7-bac8f4c58cb8",
+      "dropboxPath": "immich://1dd04631-e93b-4ae1-87d7-bac8f4c58cb8",
+      "category": "annet",
+      "placeName": "Svettern",
+      "lat": 59.944276,
+      "lng": 10.786307,
+      "locationSource": "exif",
+      "clientModified": "2025-07-23T08:25:03+00:00",
+      "thumb": "/thumbs/immich1dd04631-e93b-4ae1-87d7-bac8f4c58cb8.webp"
+    },
+    {
+      "id": "immich:678c27d8-9a53-4514-a274-8264e282424c",
+      "dropboxPath": "immich://678c27d8-9a53-4514-a274-8264e282424c",
+      "category": "annet",
+      "placeName": "00112-8.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-23T08:21:00+00:00",
+      "thumb": "/thumbs/immich678c27d8-9a53-4514-a274-8264e282424c.webp"
+    },
+    {
+      "id": "immich:af1a95f2-7a8d-461d-8e3e-b4243e3f3ce6",
+      "dropboxPath": "immich://af1a95f2-7a8d-461d-8e3e-b4243e3f3ce6",
+      "category": "annet",
+      "placeName": "00112-9.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-23T08:21:17+00:00",
+      "thumb": "/thumbs/immichaf1a95f2-7a8d-461d-8e3e-b4243e3f3ce6.webp"
+    },
+    {
+      "id": "immich:aa64823e-b642-40c5-ae96-432163a72b03",
+      "dropboxPath": "immich://aa64823e-b642-40c5-ae96-432163a72b03",
+      "category": "annet",
+      "placeName": "00112-7.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-23T08:20:52+00:00",
+      "thumb": "/thumbs/immichaa64823e-b642-40c5-ae96-432163a72b03.webp"
+    },
+    {
+      "id": "immich:4f82aeea-0b3a-4975-be51-7c78261ddabe",
+      "dropboxPath": "immich://4f82aeea-0b3a-4975-be51-7c78261ddabe",
+      "category": "annet",
+      "placeName": "00112-5.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-22T13:00:33+00:00",
+      "thumb": "/thumbs/immich4f82aeea-0b3a-4975-be51-7c78261ddabe.webp"
+    },
+    {
+      "id": "immich:9102a817-1b2a-4eb1-a3d0-3fbf15400d12",
+      "dropboxPath": "immich://9102a817-1b2a-4eb1-a3d0-3fbf15400d12",
+      "category": "annet",
+      "placeName": "00112-6.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-23T06:04:33+00:00",
+      "thumb": "/thumbs/immich9102a817-1b2a-4eb1-a3d0-3fbf15400d12.webp"
+    },
+    {
+      "id": "immich:e5320da8-f689-482c-8532-65fd5723602c",
+      "dropboxPath": "immich://e5320da8-f689-482c-8532-65fd5723602c",
+      "category": "annet",
+      "placeName": "00112-4.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-22T13:00:24+00:00",
+      "thumb": "/thumbs/immiche5320da8-f689-482c-8532-65fd5723602c.webp"
+    },
+    {
+      "id": "immich:48a4b7e6-addf-4a2c-98b3-3a42e9f55ccd",
+      "dropboxPath": "immich://48a4b7e6-addf-4a2c-98b3-3a42e9f55ccd",
+      "category": "annet",
+      "placeName": "00112-3.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-22T12:59:30+00:00",
+      "thumb": "/thumbs/immich48a4b7e6-addf-4a2c-98b3-3a42e9f55ccd.webp"
+    },
+    {
+      "id": "immich:76963ca3-5e08-46e2-b675-9b46315bd7c6",
+      "dropboxPath": "immich://76963ca3-5e08-46e2-b675-9b46315bd7c6",
+      "category": "annet",
+      "placeName": "00112-2.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-22T12:59:23+00:00",
+      "thumb": "/thumbs/immich76963ca3-5e08-46e2-b675-9b46315bd7c6.webp"
+    },
+    {
+      "id": "immich:30b86ab3-45c8-4f1f-a8d6-84c6e95d3740",
+      "dropboxPath": "immich://30b86ab3-45c8-4f1f-a8d6-84c6e95d3740",
+      "category": "annet",
+      "placeName": "00112.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-22T12:58:45+00:00",
+      "thumb": "/thumbs/immich30b86ab3-45c8-4f1f-a8d6-84c6e95d3740.webp"
+    },
+    {
+      "id": "immich:93928c95-09b3-4187-acd4-5ff8bd10d9b3",
+      "dropboxPath": "immich://93928c95-09b3-4187-acd4-5ff8bd10d9b3",
+      "category": "annet",
+      "placeName": "00101-55.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T11:36:21.16+00:00",
+      "thumb": "/thumbs/immich93928c95-09b3-4187-acd4-5ff8bd10d9b3.webp"
+    },
+    {
+      "id": "immich:3d37f7d5-a09e-4ee8-9310-868f9c37334f",
+      "dropboxPath": "immich://3d37f7d5-a09e-4ee8-9310-868f9c37334f",
+      "category": "kollektiv",
+      "placeName": "Torshov",
+      "lat": 59.9346,
+      "lng": 10.7652,
+      "locationSource": "exif",
+      "clientModified": "2025-07-24T11:00:17.68+00:00",
+      "thumb": "/thumbs/immich3d37f7d5-a09e-4ee8-9310-868f9c37334f.webp"
+    },
+    {
+      "id": "immich:6cf41a99-14d4-4712-80b6-d468af59682c",
+      "dropboxPath": "immich://6cf41a99-14d4-4712-80b6-d468af59682c",
+      "category": "annet",
+      "placeName": "00101-54.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T11:34:15+00:00",
+      "thumb": "/thumbs/immich6cf41a99-14d4-4712-80b6-d468af59682c.webp"
+    },
+    {
+      "id": "immich:e6b2b415-6117-4e26-baec-3ecac9f1c03c",
+      "dropboxPath": "immich://e6b2b415-6117-4e26-baec-3ecac9f1c03c",
+      "category": "annet",
+      "placeName": "00101-52.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T11:31:12.35+00:00",
+      "thumb": "/thumbs/immiche6b2b415-6117-4e26-baec-3ecac9f1c03c.webp"
+    },
+    {
+      "id": "immich:f85a5958-a13a-49ae-b7a4-3d7bc15eff19",
+      "dropboxPath": "immich://f85a5958-a13a-49ae-b7a4-3d7bc15eff19",
+      "category": "annet",
+      "placeName": "00101-53.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T11:31:34.69+00:00",
+      "thumb": "/thumbs/immichf85a5958-a13a-49ae-b7a4-3d7bc15eff19.webp"
+    },
+    {
+      "id": "immich:43424fc5-19e8-4e3c-ba05-6112c9484fd9",
+      "dropboxPath": "immich://43424fc5-19e8-4e3c-ba05-6112c9484fd9",
+      "category": "annet",
+      "placeName": "00101-51.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T11:30:59.31+00:00",
+      "thumb": "/thumbs/immich43424fc5-19e8-4e3c-ba05-6112c9484fd9.webp"
+    },
+    {
+      "id": "immich:3e5f7107-99d6-4eef-848b-9685317a362b",
+      "dropboxPath": "immich://3e5f7107-99d6-4eef-848b-9685317a362b",
+      "category": "annet",
+      "placeName": "00101-50.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T11:30:45+00:00",
+      "thumb": "/thumbs/immich3e5f7107-99d6-4eef-848b-9685317a362b.webp"
+    },
+    {
+      "id": "immich:b8f1f32f-c936-44d3-8805-05e58a0a5185",
+      "dropboxPath": "immich://b8f1f32f-c936-44d3-8805-05e58a0a5185",
+      "category": "annet",
+      "placeName": "00101-11.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T10:33:14.17+00:00",
+      "thumb": "/thumbs/immichb8f1f32f-c936-44d3-8805-05e58a0a5185.webp"
+    },
+    {
+      "id": "immich:b7b61a85-c996-4eca-8be3-11f141670e83",
+      "dropboxPath": "immich://b7b61a85-c996-4eca-8be3-11f141670e83",
+      "category": "annet",
+      "placeName": "00101-10.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T10:32:26.15+00:00",
+      "thumb": "/thumbs/immichb7b61a85-c996-4eca-8be3-11f141670e83.webp"
+    },
+    {
+      "id": "immich:7219cd9b-b255-4c5d-b052-85495326ed22",
+      "dropboxPath": "immich://7219cd9b-b255-4c5d-b052-85495326ed22",
+      "category": "annet",
+      "placeName": "00101-6.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T10:28:03.37+00:00",
+      "thumb": "/thumbs/immich7219cd9b-b255-4c5d-b052-85495326ed22.webp"
+    },
+    {
+      "id": "immich:728d691a-0305-4be0-8b09-67dbcea81518",
+      "dropboxPath": "immich://728d691a-0305-4be0-8b09-67dbcea81518",
+      "category": "annet",
+      "placeName": "00101-9.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T10:32:04.79+00:00",
+      "thumb": "/thumbs/immich728d691a-0305-4be0-8b09-67dbcea81518.webp"
+    },
+    {
+      "id": "immich:457c5a9c-a6e3-47f3-8932-a3b7400537ba",
+      "dropboxPath": "immich://457c5a9c-a6e3-47f3-8932-a3b7400537ba",
+      "category": "annet",
+      "placeName": "00101-5.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T10:27:54.16+00:00",
+      "thumb": "/thumbs/immich457c5a9c-a6e3-47f3-8932-a3b7400537ba.webp"
+    },
+    {
+      "id": "immich:a26a6495-55c1-4bf1-82b5-0b2b13c909b0",
+      "dropboxPath": "immich://a26a6495-55c1-4bf1-82b5-0b2b13c909b0",
+      "category": "annet",
+      "placeName": "00101-4.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T10:25:26.03+00:00",
+      "thumb": "/thumbs/immicha26a6495-55c1-4bf1-82b5-0b2b13c909b0.webp"
+    },
+    {
+      "id": "immich:e26a8730-c874-4449-aef4-e073fbe0cc19",
+      "dropboxPath": "immich://e26a8730-c874-4449-aef4-e073fbe0cc19",
+      "category": "annet",
+      "placeName": "00101-2.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T10:24:56+00:00",
+      "thumb": "/thumbs/immiche26a8730-c874-4449-aef4-e073fbe0cc19.webp"
+    },
+    {
+      "id": "immich:96b5af25-19ce-426a-93e6-0d7c67a5b59b",
+      "dropboxPath": "immich://96b5af25-19ce-426a-93e6-0d7c67a5b59b",
+      "category": "annet",
+      "placeName": "00101-3.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-07-21T10:25:05.86+00:00",
+      "thumb": "/thumbs/immich96b5af25-19ce-426a-93e6-0d7c67a5b59b.webp"
+    },
+    {
+      "id": "immich:7defb83f-3053-433d-8524-23f63c93925c",
+      "dropboxPath": "immich://7defb83f-3053-433d-8524-23f63c93925c",
+      "category": "annet",
+      "placeName": "Skovveiens kolonial",
+      "lat": 59.918252,
+      "lng": 10.718917,
+      "locationSource": "exif",
+      "clientModified": "2025-06-19T12:18:21+00:00",
+      "thumb": "/thumbs/immich7defb83f-3053-433d-8524-23f63c93925c.webp"
     },
     {
       "id": "immich:aee5b47a-2beb-4953-8a57-656454e083de",
       "dropboxPath": "immich://aee5b47a-2beb-4953-8a57-656454e083de",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Bislett Stadion",
       "lat": 59.92398,
       "lng": 10.734557,
@@ -34657,42 +35779,31 @@
       "thumb": "/thumbs/immichaee5b47a-2beb-4953-8a57-656454e083de.webp"
     },
     {
-      "id": "immich:049a5ee8-59f6-40fa-a23e-af6baea66dc4",
-      "dropboxPath": "immich://049a5ee8-59f6-40fa-a23e-af6baea66dc4",
-      "category": "annet",
-      "placeName": "Sofienberggata 63A",
-      "lat": 59.920517,
-      "lng": 10.777903,
+      "id": "immich:2f2f9946-3dee-4500-950e-78cc66262d35",
+      "dropboxPath": "immich://2f2f9946-3dee-4500-950e-78cc66262d35",
+      "category": "butikk",
+      "placeName": "Kolsås Senter",
+      "lat": 59.916538,
+      "lng": 10.500383,
       "locationSource": "exif",
-      "clientModified": "2025-07-30T14:50:51.89+00:00",
-      "thumb": "/thumbs/immich049a5ee8-59f6-40fa-a23e-af6baea66dc4.webp"
+      "clientModified": "2025-07-17T12:10:41.06+00:00",
+      "thumb": "/thumbs/immich2f2f9946-3dee-4500-950e-78cc66262d35.webp"
     },
     {
-      "id": "immich:30a7f5c2-2d7c-49d3-b0c6-963ea8a2bd83",
-      "dropboxPath": "immich://30a7f5c2-2d7c-49d3-b0c6-963ea8a2bd83",
-      "category": "park",
-      "placeName": "Skilpadden",
-      "lat": 59.937058,
-      "lng": 10.776092,
+      "id": "immich:8f977073-5256-4126-8ea7-7399a839f48f",
+      "dropboxPath": "immich://8f977073-5256-4126-8ea7-7399a839f48f",
+      "category": "bakgard",
+      "placeName": "Bakgård",
+      "lat": 59.903037,
+      "lng": 10.778505,
       "locationSource": "exif",
-      "clientModified": "2025-07-30T14:40:09.95+00:00",
-      "thumb": "/thumbs/immich30a7f5c2-2d7c-49d3-b0c6-963ea8a2bd83.webp"
-    },
-    {
-      "id": "immich:7defb83f-3053-433d-8524-23f63c93925c",
-      "dropboxPath": "immich://7defb83f-3053-433d-8524-23f63c93925c",
-      "category": "annet",
-      "placeName": "Juels 33 Kolonial",
-      "lat": 59.918252,
-      "lng": 10.718917,
-      "locationSource": "exif",
-      "clientModified": "2025-06-19T12:18:21+00:00",
-      "thumb": "/thumbs/immich7defb83f-3053-433d-8524-23f63c93925c.webp"
+      "clientModified": "2025-07-14T11:35:07.12+00:00",
+      "thumb": "/thumbs/immich8f977073-5256-4126-8ea7-7399a839f48f.webp"
     },
     {
       "id": "immich:1f58fb06-6fab-4784-ba86-29f7af8aac39",
       "dropboxPath": "immich://1f58fb06-6fab-4784-ba86-29f7af8aac39",
-      "category": "restaurant",
+      "category": "annet",
       "placeName": "Pollett Bislett",
       "lat": 59.925076,
       "lng": 10.731202,
@@ -34703,8 +35814,8 @@
     {
       "id": "immich:52d257ac-4aa8-48a7-a6cd-4fa1616e1704",
       "dropboxPath": "immich://52d257ac-4aa8-48a7-a6cd-4fa1616e1704",
-      "category": "restaurant",
-      "placeName": "Pollett Bislett",
+      "category": "annet",
+      "placeName": "Polett Bislett",
       "lat": 59.925076,
       "lng": 10.731202,
       "locationSource": "exif",
@@ -34712,26 +35823,59 @@
       "thumb": "/thumbs/immich52d257ac-4aa8-48a7-a6cd-4fa1616e1704.webp"
     },
     {
-      "id": "immich:454f80d1-172f-424f-957c-f68b69769bf1",
-      "dropboxPath": "immich://454f80d1-172f-424f-957c-f68b69769bf1",
-      "category": "restaurant",
-      "placeName": "THIEF BAR",
-      "lat": 59.907666,
-      "lng": 10.721487,
-      "locationSource": "exif",
-      "clientModified": "2025-06-12T21:42:43.17+00:00",
-      "thumb": "/thumbs/immich454f80d1-172f-424f-957c-f68b69769bf1.webp"
+      "id": "immich:5e204812-c726-4f36-862d-c2a17e31694f",
+      "dropboxPath": "immich://5e204812-c726-4f36-862d-c2a17e31694f",
+      "category": "annet",
+      "placeName": "00146.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-06-24T08:37:28+00:00",
+      "thumb": "/thumbs/immich5e204812-c726-4f36-862d-c2a17e31694f.webp"
     },
     {
-      "id": "immich:83184977-6a0d-43e0-8e51-683e096434ed",
-      "dropboxPath": "immich://83184977-6a0d-43e0-8e51-683e096434ed",
+      "id": "immich:d485f451-06f7-4230-8e31-a3237a3e0ea0",
+      "dropboxPath": "immich://d485f451-06f7-4230-8e31-a3237a3e0ea0",
       "category": "annet",
-      "placeName": "Dyna brygge 9",
-      "lat": 59.907724,
-      "lng": 10.719318,
+      "placeName": "Cofee and Cigarettes",
+      "lat": 59.918523,
+      "lng": 10.747749,
       "locationSource": "exif",
-      "clientModified": "2025-06-12T21:38:28.05+00:00",
-      "thumb": "/thumbs/immich83184977-6a0d-43e0-8e51-683e096434ed.webp"
+      "clientModified": "2025-06-12T13:50:03+00:00",
+      "thumb": "/thumbs/immichd485f451-06f7-4230-8e31-a3237a3e0ea0.webp"
+    },
+    {
+      "id": "immich:1d7aca5e-4e4a-4b47-9546-6e1ae7d9cbdc",
+      "dropboxPath": "immich://1d7aca5e-4e4a-4b47-9546-6e1ae7d9cbdc",
+      "category": "annet",
+      "placeName": "Izakaya",
+      "lat": 59.918167,
+      "lng": 10.74084,
+      "locationSource": "exif",
+      "clientModified": "2025-06-12T13:47:44+00:00",
+      "thumb": "/thumbs/immich1d7aca5e-4e4a-4b47-9546-6e1ae7d9cbdc.webp"
+    },
+    {
+      "id": "immich:f5cac354-4692-4b8c-a720-d7308a8568c2",
+      "dropboxPath": "immich://f5cac354-4692-4b8c-a720-d7308a8568c2",
+      "category": "annet",
+      "placeName": "Tekehtopa",
+      "lat": 59.918182,
+      "lng": 10.740454,
+      "locationSource": "exif",
+      "clientModified": "2025-06-12T13:46:53.3+00:00",
+      "thumb": "/thumbs/immichf5cac354-4692-4b8c-a720-d7308a8568c2.webp"
+    },
+    {
+      "id": "immich:d16ee035-a888-4646-8a37-b18d46fba5dc",
+      "dropboxPath": "immich://d16ee035-a888-4646-8a37-b18d46fba5dc",
+      "category": "park",
+      "placeName": "Holbergs Plass",
+      "lat": 59.918021,
+      "lng": 10.740164,
+      "locationSource": "exif",
+      "clientModified": "2025-06-12T13:46:01.63+00:00",
+      "thumb": "/thumbs/immichd16ee035-a888-4646-8a37-b18d46fba5dc.webp"
     },
     {
       "id": "immich:382b9df1-be8f-462a-90fe-0aa28752ef6e",
@@ -34745,54 +35889,131 @@
       "thumb": "/thumbs/immich382b9df1-be8f-462a-90fe-0aa28752ef6e.webp"
     },
     {
-      "id": "immich:d485f451-06f7-4230-8e31-a3237a3e0ea0",
-      "dropboxPath": "immich://d485f451-06f7-4230-8e31-a3237a3e0ea0",
+      "id": "immich:83184977-6a0d-43e0-8e51-683e096434ed",
+      "dropboxPath": "immich://83184977-6a0d-43e0-8e51-683e096434ed",
+      "category": "annet",
+      "placeName": "Dyna brygge 9",
+      "lat": 59.907724,
+      "lng": 10.719318,
+      "locationSource": "exif",
+      "clientModified": "2025-06-12T21:38:28.05+00:00",
+      "thumb": "/thumbs/immich83184977-6a0d-43e0-8e51-683e096434ed.webp"
+    },
+    {
+      "id": "immich:454f80d1-172f-424f-957c-f68b69769bf1",
+      "dropboxPath": "immich://454f80d1-172f-424f-957c-f68b69769bf1",
       "category": "restaurant",
-      "placeName": "Eff Eff",
-      "lat": 59.918523,
-      "lng": 10.747749,
+      "placeName": "THIEF BAR",
+      "lat": 59.907666,
+      "lng": 10.721487,
       "locationSource": "exif",
-      "clientModified": "2025-06-12T13:50:03+00:00",
-      "thumb": "/thumbs/immichd485f451-06f7-4230-8e31-a3237a3e0ea0.webp"
+      "clientModified": "2025-06-12T21:42:43.17+00:00",
+      "thumb": "/thumbs/immich454f80d1-172f-424f-957c-f68b69769bf1.webp"
     },
     {
-      "id": "immich:1d7aca5e-4e4a-4b47-9546-6e1ae7d9cbdc",
-      "dropboxPath": "immich://1d7aca5e-4e4a-4b47-9546-6e1ae7d9cbdc",
-      "category": "kafe",
-      "placeName": "Tekehtopa",
-      "lat": 59.918167,
-      "lng": 10.74084,
+      "id": "immich:814c26fb-1dbf-43d1-87e3-a75afb7041ae",
+      "dropboxPath": "immich://814c26fb-1dbf-43d1-87e3-a75afb7041ae",
+      "category": "park",
+      "placeName": "Sofienbergsparken",
+      "lat": 59.923106,
+      "lng": 10.76338,
       "locationSource": "exif",
-      "clientModified": "2025-06-12T13:47:44+00:00",
-      "thumb": "/thumbs/immich1d7aca5e-4e4a-4b47-9546-6e1ae7d9cbdc.webp"
+      "clientModified": "2025-06-09T12:53:34+00:00",
+      "thumb": "/thumbs/immich814c26fb-1dbf-43d1-87e3-a75afb7041ae.webp"
     },
     {
-      "id": "immich:f5cac354-4692-4b8c-a720-d7308a8568c2",
-      "dropboxPath": "immich://f5cac354-4692-4b8c-a720-d7308a8568c2",
-      "category": "kafe",
-      "placeName": "Tekehtopa",
-      "lat": 59.918182,
-      "lng": 10.740454,
+      "id": "immich:e8b1c5a1-ffbd-40df-be41-a3ca72716021",
+      "dropboxPath": "immich://e8b1c5a1-ffbd-40df-be41-a3ca72716021",
+      "category": "park",
+      "placeName": "Sofienbergsparken",
+      "lat": 59.923106,
+      "lng": 10.76338,
       "locationSource": "exif",
-      "clientModified": "2025-06-12T13:46:53.3+00:00",
-      "thumb": "/thumbs/immichf5cac354-4692-4b8c-a720-d7308a8568c2.webp"
+      "clientModified": "2025-06-09T12:53:04+00:00",
+      "thumb": "/thumbs/immiche8b1c5a1-ffbd-40df-be41-a3ca72716021.webp"
     },
     {
-      "id": "immich:d16ee035-a888-4646-8a37-b18d46fba5dc",
-      "dropboxPath": "immich://d16ee035-a888-4646-8a37-b18d46fba5dc",
-      "category": "restaurant",
-      "placeName": "Happolati",
-      "lat": 59.918021,
-      "lng": 10.740164,
+      "id": "immich:ca209202-20ff-4ef5-9e73-3011baa79bce",
+      "dropboxPath": "immich://ca209202-20ff-4ef5-9e73-3011baa79bce",
+      "category": "annet",
+      "placeName": "Koie Ramen",
+      "lat": 59.923349,
+      "lng": 10.759384,
       "locationSource": "exif",
-      "clientModified": "2025-06-12T13:46:01.63+00:00",
-      "thumb": "/thumbs/immichd16ee035-a888-4646-8a37-b18d46fba5dc.webp"
+      "clientModified": "2025-06-09T12:49:17+00:00",
+      "thumb": "/thumbs/immichca209202-20ff-4ef5-9e73-3011baa79bce.webp"
+    },
+    {
+      "id": "immich:e70d9fed-f03c-4ebb-9306-c2bf40d3307b",
+      "dropboxPath": "immich://e70d9fed-f03c-4ebb-9306-c2bf40d3307b",
+      "category": "annet",
+      "placeName": "Skaal Bar",
+      "lat": 59.923491,
+      "lng": 10.758649,
+      "locationSource": "exif",
+      "clientModified": "2025-06-09T12:48:42+00:00",
+      "thumb": "/thumbs/immiche70d9fed-f03c-4ebb-9306-c2bf40d3307b.webp"
+    },
+    {
+      "id": "immich:81f639b7-c3eb-4895-9b72-f6783199c3b4",
+      "dropboxPath": "immich://81f639b7-c3eb-4895-9b72-f6783199c3b4",
+      "category": "annet",
+      "placeName": "Grünerhaven",
+      "lat": 59.92336,
+      "lng": 10.758253,
+      "locationSource": "exif",
+      "clientModified": "2025-06-09T12:48:34+00:00",
+      "thumb": "/thumbs/immich81f639b7-c3eb-4895-9b72-f6783199c3b4.webp"
+    },
+    {
+      "id": "immich:c289e0b2-c877-4725-82d7-9b86fe7fb105",
+      "dropboxPath": "immich://c289e0b2-c877-4725-82d7-9b86fe7fb105",
+      "category": "annet",
+      "placeName": "Grünerhaven",
+      "lat": 59.92336,
+      "lng": 10.758253,
+      "locationSource": "exif",
+      "clientModified": "2025-06-09T12:48:27+00:00",
+      "thumb": "/thumbs/immichc289e0b2-c877-4725-82d7-9b86fe7fb105.webp"
+    },
+    {
+      "id": "immich:719a2aec-cced-4fd3-92a4-825da0d46cf1",
+      "dropboxPath": "immich://719a2aec-cced-4fd3-92a4-825da0d46cf1",
+      "category": "annet",
+      "placeName": "Skaal Bar",
+      "lat": 59.923508,
+      "lng": 10.758634,
+      "locationSource": "exif",
+      "clientModified": "2025-06-09T12:48:21+00:00",
+      "thumb": "/thumbs/immich719a2aec-cced-4fd3-92a4-825da0d46cf1.webp"
+    },
+    {
+      "id": "immich:58d0836a-b0ea-45f5-8242-4b2ec31cf894",
+      "dropboxPath": "immich://58d0836a-b0ea-45f5-8242-4b2ec31cf894",
+      "category": "park",
+      "placeName": "Parkteateret",
+      "lat": 59.923481,
+      "lng": 10.758312,
+      "locationSource": "exif",
+      "clientModified": "2025-06-09T12:48:11+00:00",
+      "thumb": "/thumbs/immich58d0836a-b0ea-45f5-8242-4b2ec31cf894.webp"
+    },
+    {
+      "id": "immich:e6d518c6-7fa5-420f-859f-4efe1b490a8c",
+      "dropboxPath": "immich://e6d518c6-7fa5-420f-859f-4efe1b490a8c",
+      "category": "park",
+      "placeName": "Parkteateret",
+      "lat": 59.923462,
+      "lng": 10.758258,
+      "locationSource": "exif",
+      "clientModified": "2025-06-09T12:47:48+00:00",
+      "thumb": "/thumbs/immiche6d518c6-7fa5-420f-859f-4efe1b490a8c.webp"
     },
     {
       "id": "immich:0156d921-b02b-4fb6-b0c9-04f441f32d61",
       "dropboxPath": "immich://0156d921-b02b-4fb6-b0c9-04f441f32d61",
-      "category": "annet",
-      "placeName": "Geitmyrsveien 57",
+      "category": "nabolag",
+      "placeName": "Geitmyrsveien",
       "lat": 59.931197,
       "lng": 10.742701,
       "locationSource": "exif",
@@ -34800,15 +36021,37 @@
       "thumb": "/thumbs/immich0156d921-b02b-4fb6-b0c9-04f441f32d61.webp"
     },
     {
+      "id": "immich:48585ba0-6896-47a1-ab8f-1b56353a5a9d",
+      "dropboxPath": "immich://48585ba0-6896-47a1-ab8f-1b56353a5a9d",
+      "category": "annet",
+      "placeName": "Theka",
+      "lat": 59.923467,
+      "lng": 10.758038,
+      "locationSource": "exif",
+      "clientModified": "2025-06-09T12:47:23+00:00",
+      "thumb": "/thumbs/immich48585ba0-6896-47a1-ab8f-1b56353a5a9d.webp"
+    },
+    {
       "id": "immich:9809a6c1-98e5-4159-b3dd-668756a9a3f9",
       "dropboxPath": "immich://9809a6c1-98e5-4159-b3dd-668756a9a3f9",
-      "category": "annet",
-      "placeName": "Geitmyrsveien 57",
+      "category": "nabolag",
+      "placeName": "Geitmyrsveien",
       "lat": 59.931197,
       "lng": 10.742701,
       "locationSource": "exif",
       "clientModified": "2025-06-12T12:30:35.27+00:00",
       "thumb": "/thumbs/immich9809a6c1-98e5-4159-b3dd-668756a9a3f9.webp"
+    },
+    {
+      "id": "immich:c37fdbd6-7d93-4151-b415-6c67d14fb312",
+      "dropboxPath": "immich://c37fdbd6-7d93-4151-b415-6c67d14fb312",
+      "category": "annet",
+      "placeName": "Villa Paradiso",
+      "lat": 59.923464,
+      "lng": 10.757618,
+      "locationSource": "exif",
+      "clientModified": "2025-06-09T11:28:58+00:00",
+      "thumb": "/thumbs/immichc37fdbd6-7d93-4151-b415-6c67d14fb312.webp"
     },
     {
       "id": "immich:977f6143-c242-487e-a9bb-3ac21ffbcc70",
@@ -34822,109 +36065,43 @@
       "thumb": "/thumbs/immich977f6143-c242-487e-a9bb-3ac21ffbcc70.webp"
     },
     {
-      "id": "immich:814c26fb-1dbf-43d1-87e3-a75afb7041ae",
-      "dropboxPath": "immich://814c26fb-1dbf-43d1-87e3-a75afb7041ae",
-      "category": "park",
-      "placeName": "Sofienbergparken",
-      "lat": 59.923106,
-      "lng": 10.76338,
+      "id": "immich:2493b81b-0f7f-41ec-9bb6-720779bed2bf",
+      "dropboxPath": "immich://2493b81b-0f7f-41ec-9bb6-720779bed2bf",
+      "category": "annet",
+      "placeName": "Haralds vaffel",
+      "lat": 59.922055,
+      "lng": 10.757445,
       "locationSource": "exif",
-      "clientModified": "2025-06-09T12:53:34+00:00",
-      "thumb": "/thumbs/immich814c26fb-1dbf-43d1-87e3-a75afb7041ae.webp"
+      "clientModified": "2025-06-09T11:26:29+00:00",
+      "thumb": "/thumbs/immich2493b81b-0f7f-41ec-9bb6-720779bed2bf.webp"
     },
     {
-      "id": "immich:e8b1c5a1-ffbd-40df-be41-a3ca72716021",
-      "dropboxPath": "immich://e8b1c5a1-ffbd-40df-be41-a3ca72716021",
-      "category": "park",
-      "placeName": "Sofienbergparken",
-      "lat": 59.923106,
-      "lng": 10.76338,
+      "id": "immich:46e03728-377e-4bd5-af4f-1cd6d04b0e36",
+      "dropboxPath": "immich://46e03728-377e-4bd5-af4f-1cd6d04b0e36",
+      "category": "aktivitet",
+      "placeName": "Løkka Deli",
+      "lat": 59.922055,
+      "lng": 10.757445,
       "locationSource": "exif",
-      "clientModified": "2025-06-09T12:53:04+00:00",
-      "thumb": "/thumbs/immiche8b1c5a1-ffbd-40df-be41-a3ca72716021.webp"
+      "clientModified": "2025-06-09T11:26:15+00:00",
+      "thumb": "/thumbs/immich46e03728-377e-4bd5-af4f-1cd6d04b0e36.webp"
     },
     {
-      "id": "immich:ca209202-20ff-4ef5-9e73-3011baa79bce",
-      "dropboxPath": "immich://ca209202-20ff-4ef5-9e73-3011baa79bce",
-      "category": "restaurant",
-      "placeName": "Koie Ramen",
-      "lat": 59.923349,
-      "lng": 10.759384,
+      "id": "immich:2a5921c4-532e-4265-a5b7-71cbeb235eeb",
+      "dropboxPath": "immich://2a5921c4-532e-4265-a5b7-71cbeb235eeb",
+      "category": "kafe",
+      "placeName": "Hakone Coffee",
+      "lat": 59.921684,
+      "lng": 10.757509,
       "locationSource": "exif",
-      "clientModified": "2025-06-09T12:49:17+00:00",
-      "thumb": "/thumbs/immichca209202-20ff-4ef5-9e73-3011baa79bce.webp"
-    },
-    {
-      "id": "immich:e70d9fed-f03c-4ebb-9306-c2bf40d3307b",
-      "dropboxPath": "immich://e70d9fed-f03c-4ebb-9306-c2bf40d3307b",
-      "category": "restaurant",
-      "placeName": "Skaal",
-      "lat": 59.923491,
-      "lng": 10.758649,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T12:48:42+00:00",
-      "thumb": "/thumbs/immiche70d9fed-f03c-4ebb-9306-c2bf40d3307b.webp"
-    },
-    {
-      "id": "immich:81f639b7-c3eb-4895-9b72-f6783199c3b4",
-      "dropboxPath": "immich://81f639b7-c3eb-4895-9b72-f6783199c3b4",
-      "category": "restaurant",
-      "placeName": "Grünerhaven",
-      "lat": 59.92336,
-      "lng": 10.758253,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T12:48:34+00:00",
-      "thumb": "/thumbs/immich81f639b7-c3eb-4895-9b72-f6783199c3b4.webp"
-    },
-    {
-      "id": "immich:c289e0b2-c877-4725-82d7-9b86fe7fb105",
-      "dropboxPath": "immich://c289e0b2-c877-4725-82d7-9b86fe7fb105",
-      "category": "restaurant",
-      "placeName": "Grünerhaven",
-      "lat": 59.92336,
-      "lng": 10.758253,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T12:48:27+00:00",
-      "thumb": "/thumbs/immichc289e0b2-c877-4725-82d7-9b86fe7fb105.webp"
-    },
-    {
-      "id": "immich:719a2aec-cced-4fd3-92a4-825da0d46cf1",
-      "dropboxPath": "immich://719a2aec-cced-4fd3-92a4-825da0d46cf1",
-      "category": "restaurant",
-      "placeName": "Skaal",
-      "lat": 59.923508,
-      "lng": 10.758634,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T12:48:21+00:00",
-      "thumb": "/thumbs/immich719a2aec-cced-4fd3-92a4-825da0d46cf1.webp"
-    },
-    {
-      "id": "immich:58d0836a-b0ea-45f5-8242-4b2ec31cf894",
-      "dropboxPath": "immich://58d0836a-b0ea-45f5-8242-4b2ec31cf894",
-      "category": "restaurant",
-      "placeName": "Parkteatret",
-      "lat": 59.923481,
-      "lng": 10.758312,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T12:48:11+00:00",
-      "thumb": "/thumbs/immich58d0836a-b0ea-45f5-8242-4b2ec31cf894.webp"
-    },
-    {
-      "id": "immich:e6d518c6-7fa5-420f-859f-4efe1b490a8c",
-      "dropboxPath": "immich://e6d518c6-7fa5-420f-859f-4efe1b490a8c",
-      "category": "restaurant",
-      "placeName": "Parkteatret",
-      "lat": 59.923462,
-      "lng": 10.758258,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T12:47:48+00:00",
-      "thumb": "/thumbs/immiche6d518c6-7fa5-420f-859f-4efe1b490a8c.webp"
+      "clientModified": "2025-06-09T11:24:39+00:00",
+      "thumb": "/thumbs/immich2a5921c4-532e-4265-a5b7-71cbeb235eeb.webp"
     },
     {
       "id": "immich:6ddf0e5b-2e88-47c2-bc27-7aefce058ead",
       "dropboxPath": "immich://6ddf0e5b-2e88-47c2-bc27-7aefce058ead",
       "category": "restaurant",
-      "placeName": "Theka",
+      "placeName": "Theka - Indian Street Food & Bar",
       "lat": 59.923467,
       "lng": 10.758038,
       "locationSource": "exif",
@@ -34932,15 +36109,37 @@
       "thumb": "/thumbs/immich6ddf0e5b-2e88-47c2-bc27-7aefce058ead.webp"
     },
     {
-      "id": "immich:48585ba0-6896-47a1-ab8f-1b56353a5a9d",
-      "dropboxPath": "immich://48585ba0-6896-47a1-ab8f-1b56353a5a9d",
-      "category": "restaurant",
-      "placeName": "Theka",
-      "lat": 59.923467,
-      "lng": 10.758038,
+      "id": "immich:88060f0c-320c-4b85-a923-01de4ce57d30",
+      "dropboxPath": "immich://88060f0c-320c-4b85-a923-01de4ce57d30",
+      "category": "annet",
+      "placeName": "Smelteverket",
+      "lat": 59.922375,
+      "lng": 10.752583,
       "locationSource": "exif",
-      "clientModified": "2025-06-09T12:47:23+00:00",
-      "thumb": "/thumbs/immich48585ba0-6896-47a1-ab8f-1b56353a5a9d.webp"
+      "clientModified": "2025-06-09T11:14:08+00:00",
+      "thumb": "/thumbs/immich88060f0c-320c-4b85-a923-01de4ce57d30.webp"
+    },
+    {
+      "id": "immich:101ea51c-a661-4a5b-be01-a4795a41d33c",
+      "dropboxPath": "immich://101ea51c-a661-4a5b-be01-a4795a41d33c",
+      "category": "annet",
+      "placeName": "Smelteverket",
+      "lat": 59.922332,
+      "lng": 10.752507,
+      "locationSource": "exif",
+      "clientModified": "2025-06-09T11:13:49+00:00",
+      "thumb": "/thumbs/immich101ea51c-a661-4a5b-be01-a4795a41d33c.webp"
+    },
+    {
+      "id": "immich:cc1ba7c0-4410-4655-8c5b-05a86001ba9b",
+      "dropboxPath": "immich://cc1ba7c0-4410-4655-8c5b-05a86001ba9b",
+      "category": "aktivitet",
+      "placeName": "Mathallen oslo",
+      "lat": 59.922402,
+      "lng": 10.751917,
+      "locationSource": "exif",
+      "clientModified": "2025-06-09T11:13:13+00:00",
+      "thumb": "/thumbs/immichcc1ba7c0-4410-4655-8c5b-05a86001ba9b.webp"
     },
     {
       "id": "immich:bf419c41-70cb-4b47-97be-970fbb5a1bfa",
@@ -34954,17 +36153,6 @@
       "thumb": "/thumbs/immichbf419c41-70cb-4b47-97be-970fbb5a1bfa.webp"
     },
     {
-      "id": "immich:c37fdbd6-7d93-4151-b415-6c67d14fb312",
-      "dropboxPath": "immich://c37fdbd6-7d93-4151-b415-6c67d14fb312",
-      "category": "restaurant",
-      "placeName": "Villa Paradiso Grünerløkka",
-      "lat": 59.923464,
-      "lng": 10.757618,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T11:28:58+00:00",
-      "thumb": "/thumbs/immichc37fdbd6-7d93-4151-b415-6c67d14fb312.webp"
-    },
-    {
       "id": "immich:48528892-270f-4870-ad3d-497a829a56b0",
       "dropboxPath": "immich://48528892-270f-4870-ad3d-497a829a56b0",
       "category": "park",
@@ -34976,81 +36164,48 @@
       "thumb": "/thumbs/immich48528892-270f-4870-ad3d-497a829a56b0.webp"
     },
     {
-      "id": "immich:2493b81b-0f7f-41ec-9bb6-720779bed2bf",
-      "dropboxPath": "immich://2493b81b-0f7f-41ec-9bb6-720779bed2bf",
-      "category": "restaurant",
-      "placeName": "Bar Lupo",
-      "lat": 59.922055,
-      "lng": 10.757445,
+      "id": "immich:fe0fa820-4402-46aa-a3ce-b08fbb3d8109",
+      "dropboxPath": "immich://fe0fa820-4402-46aa-a3ce-b08fbb3d8109",
+      "category": "annet",
+      "placeName": "Way Down South",
+      "lat": 59.91908,
+      "lng": 10.755064,
       "locationSource": "exif",
-      "clientModified": "2025-06-09T11:26:29+00:00",
-      "thumb": "/thumbs/immich2493b81b-0f7f-41ec-9bb6-720779bed2bf.webp"
+      "clientModified": "2025-06-09T10:46:19+00:00",
+      "thumb": "/thumbs/immichfe0fa820-4402-46aa-a3ce-b08fbb3d8109.webp"
     },
     {
-      "id": "immich:46e03728-377e-4bd5-af4f-1cd6d04b0e36",
-      "dropboxPath": "immich://46e03728-377e-4bd5-af4f-1cd6d04b0e36",
-      "category": "restaurant",
-      "placeName": "Bar Lupo",
-      "lat": 59.922055,
-      "lng": 10.757445,
+      "id": "immich:1c589611-7534-4483-a109-d68b219fdfab",
+      "dropboxPath": "immich://1c589611-7534-4483-a109-d68b219fdfab",
+      "category": "annet",
+      "placeName": "Way Down South",
+      "lat": 59.91894,
+      "lng": 10.755225,
       "locationSource": "exif",
-      "clientModified": "2025-06-09T11:26:15+00:00",
-      "thumb": "/thumbs/immich46e03728-377e-4bd5-af4f-1cd6d04b0e36.webp"
+      "clientModified": "2025-06-09T10:46:01+00:00",
+      "thumb": "/thumbs/immich1c589611-7534-4483-a109-d68b219fdfab.webp"
     },
     {
-      "id": "immich:2a5921c4-532e-4265-a5b7-71cbeb235eeb",
-      "dropboxPath": "immich://2a5921c4-532e-4265-a5b7-71cbeb235eeb",
-      "category": "restaurant",
-      "placeName": "Kork",
-      "lat": 59.921684,
-      "lng": 10.757509,
+      "id": "immich:7ae4a2f0-984a-4c2e-8dd6-0a8731362d28",
+      "dropboxPath": "immich://7ae4a2f0-984a-4c2e-8dd6-0a8731362d28",
+      "category": "annet",
+      "placeName": "GRØD",
+      "lat": 59.918682,
+      "lng": 10.757038,
       "locationSource": "exif",
-      "clientModified": "2025-06-09T11:24:39+00:00",
-      "thumb": "/thumbs/immich2a5921c4-532e-4265-a5b7-71cbeb235eeb.webp"
+      "clientModified": "2025-06-09T10:41:33+00:00",
+      "thumb": "/thumbs/immich7ae4a2f0-984a-4c2e-8dd6-0a8731362d28.webp"
     },
     {
       "id": "immich:197d88b6-6d72-4738-88ce-c75aed3a4767",
       "dropboxPath": "immich://197d88b6-6d72-4738-88ce-c75aed3a4767",
-      "category": "annet",
-      "placeName": "Stolmakergata 9G",
+      "category": "nabolag",
+      "placeName": "Nordre gate",
       "lat": 59.921223,
       "lng": 10.755279,
       "locationSource": "exif",
       "clientModified": "2025-06-09T11:21:46+00:00",
       "thumb": "/thumbs/immich197d88b6-6d72-4738-88ce-c75aed3a4767.webp"
-    },
-    {
-      "id": "immich:88060f0c-320c-4b85-a923-01de4ce57d30",
-      "dropboxPath": "immich://88060f0c-320c-4b85-a923-01de4ce57d30",
-      "category": "restaurant",
-      "placeName": "Smelteverket",
-      "lat": 59.922375,
-      "lng": 10.752583,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T11:14:08+00:00",
-      "thumb": "/thumbs/immich88060f0c-320c-4b85-a923-01de4ce57d30.webp"
-    },
-    {
-      "id": "immich:101ea51c-a661-4a5b-be01-a4795a41d33c",
-      "dropboxPath": "immich://101ea51c-a661-4a5b-be01-a4795a41d33c",
-      "category": "restaurant",
-      "placeName": "Smelteverket",
-      "lat": 59.922332,
-      "lng": 10.752507,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T11:13:49+00:00",
-      "thumb": "/thumbs/immich101ea51c-a661-4a5b-be01-a4795a41d33c.webp"
-    },
-    {
-      "id": "immich:cc1ba7c0-4410-4655-8c5b-05a86001ba9b",
-      "dropboxPath": "immich://cc1ba7c0-4410-4655-8c5b-05a86001ba9b",
-      "category": "kafe",
-      "placeName": "Solberg & Hansen",
-      "lat": 59.922402,
-      "lng": 10.751917,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T11:13:13+00:00",
-      "thumb": "/thumbs/immichcc1ba7c0-4410-4655-8c5b-05a86001ba9b.webp"
     },
     {
       "id": "immich:f6d15758-16c1-4094-95f0-99b06f81a313",
@@ -35075,43 +36230,10 @@
       "thumb": "/thumbs/immich0391a7af-3caf-470e-b7b3-52a6e12461e5.webp"
     },
     {
-      "id": "immich:fe0fa820-4402-46aa-a3ce-b08fbb3d8109",
-      "dropboxPath": "immich://fe0fa820-4402-46aa-a3ce-b08fbb3d8109",
-      "category": "restaurant",
-      "placeName": "Way Down South",
-      "lat": 59.91908,
-      "lng": 10.755064,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T10:46:19+00:00",
-      "thumb": "/thumbs/immichfe0fa820-4402-46aa-a3ce-b08fbb3d8109.webp"
-    },
-    {
-      "id": "immich:1c589611-7534-4483-a109-d68b219fdfab",
-      "dropboxPath": "immich://1c589611-7534-4483-a109-d68b219fdfab",
-      "category": "restaurant",
-      "placeName": "Way Down South",
-      "lat": 59.91894,
-      "lng": 10.755225,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T10:46:01+00:00",
-      "thumb": "/thumbs/immich1c589611-7534-4483-a109-d68b219fdfab.webp"
-    },
-    {
-      "id": "immich:7ae4a2f0-984a-4c2e-8dd6-0a8731362d28",
-      "dropboxPath": "immich://7ae4a2f0-984a-4c2e-8dd6-0a8731362d28",
-      "category": "restaurant",
-      "placeName": "Sabrura Sticks & Sushi Markveien",
-      "lat": 59.918682,
-      "lng": 10.757038,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T10:41:33+00:00",
-      "thumb": "/thumbs/immich7ae4a2f0-984a-4c2e-8dd6-0a8731362d28.webp"
-    },
-    {
       "id": "immich:52c9e8c9-6650-44c3-aff6-17ac01f096e7",
       "dropboxPath": "immich://52c9e8c9-6650-44c3-aff6-17ac01f096e7",
-      "category": "restaurant",
-      "placeName": "Grød Oslo",
+      "category": "kultur",
+      "placeName": "Per Gynt knuger reinsdyret",
       "lat": 59.918505,
       "lng": 10.75648,
       "locationSource": "exif",
@@ -35119,42 +36241,9 @@
       "thumb": "/thumbs/immich52c9e8c9-6650-44c3-aff6-17ac01f096e7.webp"
     },
     {
-      "id": "immich:fc7f3d3e-d217-43e6-b097-3f93dd59789d",
-      "dropboxPath": "immich://fc7f3d3e-d217-43e6-b097-3f93dd59789d",
-      "category": "annet",
-      "placeName": "Storgata 55",
-      "lat": 59.917963,
-      "lng": 10.758848,
-      "locationSource": "exif",
-      "clientModified": "2025-06-09T10:34:50+00:00",
-      "thumb": "/thumbs/immichfc7f3d3e-d217-43e6-b097-3f93dd59789d.webp"
-    },
-    {
-      "id": "immich:1c9710ed-2b91-45e0-9a7a-4c578d2ff30a",
-      "dropboxPath": "immich://1c9710ed-2b91-45e0-9a7a-4c578d2ff30a",
-      "category": "annet",
-      "placeName": "Bygdøy allé 51A",
-      "lat": 59.917736,
-      "lng": 10.707204,
-      "locationSource": "exif",
-      "clientModified": "2025-06-08T10:42:15+00:00",
-      "thumb": "/thumbs/immich1c9710ed-2b91-45e0-9a7a-4c578d2ff30a.webp"
-    },
-    {
-      "id": "immich:fb33d3e8-e5f7-4e0a-880a-c66cd346f73b",
-      "dropboxPath": "immich://fb33d3e8-e5f7-4e0a-880a-c66cd346f73b",
-      "category": "annet",
-      "placeName": "Bygdøy allé 51A",
-      "lat": 59.917736,
-      "lng": 10.707204,
-      "locationSource": "exif",
-      "clientModified": "2025-06-08T10:42:08+00:00",
-      "thumb": "/thumbs/immichfb33d3e8-e5f7-4e0a-880a-c66cd346f73b.webp"
-    },
-    {
       "id": "immich:aed0cad7-371e-4007-8870-c48921ea0763",
       "dropboxPath": "immich://aed0cad7-371e-4007-8870-c48921ea0763",
-      "category": "restaurant",
+      "category": "annet",
       "placeName": "Babbo Collective",
       "lat": 59.915828,
       "lng": 10.713928,
@@ -35165,13 +36254,46 @@
     {
       "id": "immich:8754efbb-b924-4a1c-95fd-007fbd9bd13d",
       "dropboxPath": "immich://8754efbb-b924-4a1c-95fd-007fbd9bd13d",
-      "category": "restaurant",
+      "category": "annet",
       "placeName": "Babbo Collective",
       "lat": 59.915828,
       "lng": 10.713928,
       "locationSource": "exif",
       "clientModified": "2025-06-08T10:40:59+00:00",
       "thumb": "/thumbs/immich8754efbb-b924-4a1c-95fd-007fbd9bd13d.webp"
+    },
+    {
+      "id": "immich:fc7f3d3e-d217-43e6-b097-3f93dd59789d",
+      "dropboxPath": "immich://fc7f3d3e-d217-43e6-b097-3f93dd59789d",
+      "category": "nabolag",
+      "placeName": "Storgata",
+      "lat": 59.917963,
+      "lng": 10.758848,
+      "locationSource": "exif",
+      "clientModified": "2025-06-09T10:34:50+00:00",
+      "thumb": "/thumbs/immichfc7f3d3e-d217-43e6-b097-3f93dd59789d.webp"
+    },
+    {
+      "id": "immich:1c9710ed-2b91-45e0-9a7a-4c578d2ff30a",
+      "dropboxPath": "immich://1c9710ed-2b91-45e0-9a7a-4c578d2ff30a",
+      "category": "kollektiv",
+      "placeName": "Frogner kirke",
+      "lat": 59.917736,
+      "lng": 10.707204,
+      "locationSource": "exif",
+      "clientModified": "2025-06-08T10:42:15+00:00",
+      "thumb": "/thumbs/immich1c9710ed-2b91-45e0-9a7a-4c578d2ff30a.webp"
+    },
+    {
+      "id": "immich:fb33d3e8-e5f7-4e0a-880a-c66cd346f73b",
+      "dropboxPath": "immich://fb33d3e8-e5f7-4e0a-880a-c66cd346f73b",
+      "category": "kollektiv",
+      "placeName": "Frogner kirke",
+      "lat": 59.917736,
+      "lng": 10.707204,
+      "locationSource": "exif",
+      "clientModified": "2025-06-08T10:42:08+00:00",
+      "thumb": "/thumbs/immichfb33d3e8-e5f7-4e0a-880a-c66cd346f73b.webp"
     },
     {
       "id": "immich:367fca6d-8834-4141-b0ac-5ccada6def2e",
@@ -35198,8 +36320,8 @@
     {
       "id": "immich:67568485-6c0e-43b8-be98-5a4649c8fce5",
       "dropboxPath": "immich://67568485-6c0e-43b8-be98-5a4649c8fce5",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
       "lat": 59.929117,
       "lng": 10.748558,
       "locationSource": "exif",
@@ -35209,8 +36331,8 @@
     {
       "id": "immich:d2c22588-4e0a-4b48-bf78-5588f4416a0b",
       "dropboxPath": "immich://d2c22588-4e0a-4b48-bf78-5588f4416a0b",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
       "lat": 59.929117,
       "lng": 10.748558,
       "locationSource": "exif",
@@ -35218,21 +36340,10 @@
       "thumb": "/thumbs/immichd2c22588-4e0a-4b48-bf78-5588f4416a0b.webp"
     },
     {
-      "id": "immich:57a831d4-237b-4abc-9976-57230b4344a2",
-      "dropboxPath": "immich://57a831d4-237b-4abc-9976-57230b4344a2",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
-      "lat": 59.929117,
-      "lng": 10.748558,
-      "locationSource": "exif",
-      "clientModified": "2025-06-03T12:19:17+00:00",
-      "thumb": "/thumbs/immich57a831d4-237b-4abc-9976-57230b4344a2.webp"
-    },
-    {
       "id": "immich:e0f5a9ea-310d-43b3-af25-9ff3843c4434",
       "dropboxPath": "immich://e0f5a9ea-310d-43b3-af25-9ff3843c4434",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
       "lat": 59.929117,
       "lng": 10.748558,
       "locationSource": "exif",
@@ -35242,8 +36353,8 @@
     {
       "id": "immich:c0295bba-b9a0-423e-9336-b637d37312bd",
       "dropboxPath": "immich://c0295bba-b9a0-423e-9336-b637d37312bd",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
       "lat": 59.929117,
       "lng": 10.748558,
       "locationSource": "exif",
@@ -35253,8 +36364,8 @@
     {
       "id": "immich:959d1cf4-69b4-4f1e-b231-3560af806300",
       "dropboxPath": "immich://959d1cf4-69b4-4f1e-b231-3560af806300",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
       "lat": 59.929117,
       "lng": 10.748558,
       "locationSource": "exif",
@@ -35262,21 +36373,10 @@
       "thumb": "/thumbs/immich959d1cf4-69b4-4f1e-b231-3560af806300.webp"
     },
     {
-      "id": "immich:f042a29e-eab0-488b-bfd9-f63db5eac933",
-      "dropboxPath": "immich://f042a29e-eab0-488b-bfd9-f63db5eac933",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
-      "lat": 59.929117,
-      "lng": 10.748558,
-      "locationSource": "exif",
-      "clientModified": "2025-06-03T12:09:21.13+00:00",
-      "thumb": "/thumbs/immichf042a29e-eab0-488b-bfd9-f63db5eac933.webp"
-    },
-    {
       "id": "immich:35133ba3-f58f-4b25-b6b4-1c05778346a4",
       "dropboxPath": "immich://35133ba3-f58f-4b25-b6b4-1c05778346a4",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
       "lat": 59.929117,
       "lng": 10.748558,
       "locationSource": "exif",
@@ -35284,10 +36384,21 @@
       "thumb": "/thumbs/immich35133ba3-f58f-4b25-b6b4-1c05778346a4.webp"
     },
     {
+      "id": "immich:f042a29e-eab0-488b-bfd9-f63db5eac933",
+      "dropboxPath": "immich://f042a29e-eab0-488b-bfd9-f63db5eac933",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
+      "lat": 59.929117,
+      "lng": 10.748558,
+      "locationSource": "exif",
+      "clientModified": "2025-06-03T12:09:21.13+00:00",
+      "thumb": "/thumbs/immichf042a29e-eab0-488b-bfd9-f63db5eac933.webp"
+    },
+    {
       "id": "immich:6f707485-5225-439c-b62e-d07d6c142cb1",
       "dropboxPath": "immich://6f707485-5225-439c-b62e-d07d6c142cb1",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
       "lat": 59.929117,
       "lng": 10.748558,
       "locationSource": "exif",
@@ -35297,8 +36408,8 @@
     {
       "id": "immich:9aa5eb41-4bba-404f-a58d-48bb07cb2d13",
       "dropboxPath": "immich://9aa5eb41-4bba-404f-a58d-48bb07cb2d13",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
       "lat": 59.929117,
       "lng": 10.748558,
       "locationSource": "exif",
@@ -35306,21 +36417,10 @@
       "thumb": "/thumbs/immich9aa5eb41-4bba-404f-a58d-48bb07cb2d13.webp"
     },
     {
-      "id": "immich:f1d067f9-c0cc-4035-995b-1cfab207eb0b",
-      "dropboxPath": "immich://f1d067f9-c0cc-4035-995b-1cfab207eb0b",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
-      "lat": 59.929117,
-      "lng": 10.748558,
-      "locationSource": "exif",
-      "clientModified": "2025-06-03T12:18:50.54+00:00",
-      "thumb": "/thumbs/immichf1d067f9-c0cc-4035-995b-1cfab207eb0b.webp"
-    },
-    {
       "id": "immich:7602e07e-1ea7-4ba1-b4ea-b4101231c1bc",
       "dropboxPath": "immich://7602e07e-1ea7-4ba1-b4ea-b4101231c1bc",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
       "lat": 59.929117,
       "lng": 10.748558,
       "locationSource": "exif",
@@ -35330,8 +36430,8 @@
     {
       "id": "immich:18951736-8f04-40ce-840a-a28af34925c6",
       "dropboxPath": "immich://18951736-8f04-40ce-840a-a28af34925c6",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
       "lat": 59.929117,
       "lng": 10.748558,
       "locationSource": "exif",
@@ -35339,32 +36439,10 @@
       "thumb": "/thumbs/immich18951736-8f04-40ce-840a-a28af34925c6.webp"
     },
     {
-      "id": "immich:71f4415f-0b5b-43de-82e7-c60d7da14fc6",
-      "dropboxPath": "immich://71f4415f-0b5b-43de-82e7-c60d7da14fc6",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
-      "lat": 59.929117,
-      "lng": 10.748558,
-      "locationSource": "exif",
-      "clientModified": "2025-06-03T10:59:27+00:00",
-      "thumb": "/thumbs/immich71f4415f-0b5b-43de-82e7-c60d7da14fc6.webp"
-    },
-    {
-      "id": "immich:5035a715-fa61-4f8a-8cd4-d3650bf66052",
-      "dropboxPath": "immich://5035a715-fa61-4f8a-8cd4-d3650bf66052",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
-      "lat": 59.929117,
-      "lng": 10.748558,
-      "locationSource": "exif",
-      "clientModified": "2025-06-03T10:59:27+00:00",
-      "thumb": "/thumbs/immich5035a715-fa61-4f8a-8cd4-d3650bf66052.webp"
-    },
-    {
       "id": "immich:493209aa-7dbf-4318-acc9-a35d2180e75b",
       "dropboxPath": "immich://493209aa-7dbf-4318-acc9-a35d2180e75b",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
       "lat": 59.929117,
       "lng": 10.748558,
       "locationSource": "exif",
@@ -35372,26 +36450,59 @@
       "thumb": "/thumbs/immich493209aa-7dbf-4318-acc9-a35d2180e75b.webp"
     },
     {
+      "id": "immich:5035a715-fa61-4f8a-8cd4-d3650bf66052",
+      "dropboxPath": "immich://5035a715-fa61-4f8a-8cd4-d3650bf66052",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
+      "lat": 59.929117,
+      "lng": 10.748558,
+      "locationSource": "exif",
+      "clientModified": "2025-06-03T10:59:27+00:00",
+      "thumb": "/thumbs/immich5035a715-fa61-4f8a-8cd4-d3650bf66052.webp"
+    },
+    {
+      "id": "immich:71f4415f-0b5b-43de-82e7-c60d7da14fc6",
+      "dropboxPath": "immich://71f4415f-0b5b-43de-82e7-c60d7da14fc6",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
+      "lat": 59.929117,
+      "lng": 10.748558,
+      "locationSource": "exif",
+      "clientModified": "2025-06-03T10:59:27+00:00",
+      "thumb": "/thumbs/immich71f4415f-0b5b-43de-82e7-c60d7da14fc6.webp"
+    },
+    {
+      "id": "immich:57a831d4-237b-4abc-9976-57230b4344a2",
+      "dropboxPath": "immich://57a831d4-237b-4abc-9976-57230b4344a2",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
+      "lat": 59.929117,
+      "lng": 10.748558,
+      "locationSource": "exif",
+      "clientModified": "2025-06-03T12:19:17+00:00",
+      "thumb": "/thumbs/immich57a831d4-237b-4abc-9976-57230b4344a2.webp"
+    },
+    {
+      "id": "immich:f1d067f9-c0cc-4035-995b-1cfab207eb0b",
+      "dropboxPath": "immich://f1d067f9-c0cc-4035-995b-1cfab207eb0b",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
+      "lat": 59.929117,
+      "lng": 10.748558,
+      "locationSource": "exif",
+      "clientModified": "2025-06-03T12:18:50.54+00:00",
+      "thumb": "/thumbs/immichf1d067f9-c0cc-4035-995b-1cfab207eb0b.webp"
+    },
+    {
       "id": "immich:6fdb397e-b731-4598-9d71-1c29767ba992",
       "dropboxPath": "immich://6fdb397e-b731-4598-9d71-1c29767ba992",
-      "category": "annet",
-      "placeName": "Uelands gate 32B",
+      "category": "kultur",
+      "placeName": "Bjørn som klør seg",
       "lat": 59.929117,
       "lng": 10.748558,
       "locationSource": "exif",
       "clientModified": "2025-06-03T12:16:18.12+00:00",
       "thumb": "/thumbs/immich6fdb397e-b731-4598-9d71-1c29767ba992.webp"
-    },
-    {
-      "id": "immich:583eef74-6fd1-450d-bbc2-92b0f065a35a",
-      "dropboxPath": "immich://583eef74-6fd1-450d-bbc2-92b0f065a35a",
-      "category": "park",
-      "placeName": "Vøyenvollen",
-      "lat": 59.934519,
-      "lng": 10.754662,
-      "locationSource": "exif",
-      "clientModified": "2025-06-02T15:01:48+00:00",
-      "thumb": "/thumbs/immich583eef74-6fd1-450d-bbc2-92b0f065a35a.webp"
     },
     {
       "id": "immich:c5b32620-58be-4861-8b72-a86bbc5b0cc9",
@@ -35403,6 +36514,17 @@
       "locationSource": "exif",
       "clientModified": "2025-06-02T15:54:37.11+00:00",
       "thumb": "/thumbs/immichc5b32620-58be-4861-8b72-a86bbc5b0cc9.webp"
+    },
+    {
+      "id": "immich:583eef74-6fd1-450d-bbc2-92b0f065a35a",
+      "dropboxPath": "immich://583eef74-6fd1-450d-bbc2-92b0f065a35a",
+      "category": "park",
+      "placeName": "Vøyenvollen",
+      "lat": 59.934519,
+      "lng": 10.754662,
+      "locationSource": "exif",
+      "clientModified": "2025-06-02T15:01:48+00:00",
+      "thumb": "/thumbs/immich583eef74-6fd1-450d-bbc2-92b0f065a35a.webp"
     },
     {
       "id": "immich:11c1a25e-25f6-4ca7-8662-43c9d3e10ff5",
@@ -35438,6 +36560,61 @@
       "thumb": "/thumbs/immich0527b500-8f3b-464d-bcbf-a3823e787563.webp"
     },
     {
+      "id": "immich:716997b1-5db6-4a91-a053-aa42e9bf0e21",
+      "dropboxPath": "immich://716997b1-5db6-4a91-a053-aa42e9bf0e21",
+      "category": "annet",
+      "placeName": "00095-13.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:14:43+00:00",
+      "thumb": "/thumbs/immich716997b1-5db6-4a91-a053-aa42e9bf0e21.webp"
+    },
+    {
+      "id": "immich:1337cb77-2602-4131-a17e-1fd1bc02e59d",
+      "dropboxPath": "immich://1337cb77-2602-4131-a17e-1fd1bc02e59d",
+      "category": "annet",
+      "placeName": "00095-12.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:14:40+00:00",
+      "thumb": "/thumbs/immich1337cb77-2602-4131-a17e-1fd1bc02e59d.webp"
+    },
+    {
+      "id": "immich:04654366-5a8d-4aa1-823b-5cc11233d513",
+      "dropboxPath": "immich://04654366-5a8d-4aa1-823b-5cc11233d513",
+      "category": "annet",
+      "placeName": "00095-11.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:14:38+00:00",
+      "thumb": "/thumbs/immich04654366-5a8d-4aa1-823b-5cc11233d513.webp"
+    },
+    {
+      "id": "immich:ac5fd40d-7f94-43f0-a1b9-9a6b2aa025cd",
+      "dropboxPath": "immich://ac5fd40d-7f94-43f0-a1b9-9a6b2aa025cd",
+      "category": "annet",
+      "placeName": "00095-10.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:13:35+00:00",
+      "thumb": "/thumbs/immichac5fd40d-7f94-43f0-a1b9-9a6b2aa025cd.webp"
+    },
+    {
+      "id": "immich:10219a9b-553f-4636-8b3b-13e02a700743",
+      "dropboxPath": "immich://10219a9b-553f-4636-8b3b-13e02a700743",
+      "category": "annet",
+      "placeName": "00095-9.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:13:25+00:00",
+      "thumb": "/thumbs/immich10219a9b-553f-4636-8b3b-13e02a700743.webp"
+    },
+    {
       "id": "immich:81b22e75-6c50-4b8b-a56c-3e040158ff75",
       "dropboxPath": "immich://81b22e75-6c50-4b8b-a56c-3e040158ff75",
       "category": "kafe",
@@ -35460,6 +36637,39 @@
       "thumb": "/thumbs/immich09b5a463-7cab-452f-b93b-e576c7f82619.webp"
     },
     {
+      "id": "immich:cca46266-f844-4852-b5c2-4ed011dd281d",
+      "dropboxPath": "immich://cca46266-f844-4852-b5c2-4ed011dd281d",
+      "category": "annet",
+      "placeName": "00095-8.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:12:49+00:00",
+      "thumb": "/thumbs/immichcca46266-f844-4852-b5c2-4ed011dd281d.webp"
+    },
+    {
+      "id": "immich:43b06b62-f18d-4482-a6e3-263615b0045d",
+      "dropboxPath": "immich://43b06b62-f18d-4482-a6e3-263615b0045d",
+      "category": "annet",
+      "placeName": "00095-7.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:12:32+00:00",
+      "thumb": "/thumbs/immich43b06b62-f18d-4482-a6e3-263615b0045d.webp"
+    },
+    {
+      "id": "immich:cfa52b77-0120-4143-a7fc-61c2330d0509",
+      "dropboxPath": "immich://cfa52b77-0120-4143-a7fc-61c2330d0509",
+      "category": "annet",
+      "placeName": "00095-6.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:12:29+00:00",
+      "thumb": "/thumbs/immichcfa52b77-0120-4143-a7fc-61c2330d0509.webp"
+    },
+    {
       "id": "immich:e74ee4ca-6d05-4794-8d1c-81f26772e4f7",
       "dropboxPath": "immich://e74ee4ca-6d05-4794-8d1c-81f26772e4f7",
       "category": "kafe",
@@ -35469,6 +36679,61 @@
       "locationSource": "exif",
       "clientModified": "2025-05-28T19:33:00+00:00",
       "thumb": "/thumbs/immiche74ee4ca-6d05-4794-8d1c-81f26772e4f7.webp"
+    },
+    {
+      "id": "immich:acb3cd20-fd9f-4642-a6f6-f10e98593aac",
+      "dropboxPath": "immich://acb3cd20-fd9f-4642-a6f6-f10e98593aac",
+      "category": "annet",
+      "placeName": "00095-5.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:11:58+00:00",
+      "thumb": "/thumbs/immichacb3cd20-fd9f-4642-a6f6-f10e98593aac.webp"
+    },
+    {
+      "id": "immich:73f4c7c1-c99f-417c-9dab-9e6a7145e1dd",
+      "dropboxPath": "immich://73f4c7c1-c99f-417c-9dab-9e6a7145e1dd",
+      "category": "annet",
+      "placeName": "00095-4.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:10:53+00:00",
+      "thumb": "/thumbs/immich73f4c7c1-c99f-417c-9dab-9e6a7145e1dd.webp"
+    },
+    {
+      "id": "immich:71624f87-cacb-43d9-8b69-48332fe89bda",
+      "dropboxPath": "immich://71624f87-cacb-43d9-8b69-48332fe89bda",
+      "category": "annet",
+      "placeName": "00095-3.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:10:19+00:00",
+      "thumb": "/thumbs/immich71624f87-cacb-43d9-8b69-48332fe89bda.webp"
+    },
+    {
+      "id": "immich:761949d2-3548-40e5-8e2a-459f296cb14d",
+      "dropboxPath": "immich://761949d2-3548-40e5-8e2a-459f296cb14d",
+      "category": "annet",
+      "placeName": "00095-2.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:10:18+00:00",
+      "thumb": "/thumbs/immich761949d2-3548-40e5-8e2a-459f296cb14d.webp"
+    },
+    {
+      "id": "immich:3c41c0ab-f7cc-4f39-a030-9ae7246aff00",
+      "dropboxPath": "immich://3c41c0ab-f7cc-4f39-a030-9ae7246aff00",
+      "category": "annet",
+      "placeName": "00095.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-26T10:10:13+00:00",
+      "thumb": "/thumbs/immich3c41c0ab-f7cc-4f39-a030-9ae7246aff00.webp"
     },
     {
       "id": "immich:5e825dfb-7ce9-4b29-950e-ff6de1ec8e12",
@@ -35484,8 +36749,8 @@
     {
       "id": "immich:e7a72ec9-2ec0-40f9-8afa-cfb59a6b993d",
       "dropboxPath": "immich://e7a72ec9-2ec0-40f9-8afa-cfb59a6b993d",
-      "category": "restaurant",
-      "placeName": "Mamma Pizza",
+      "category": "kultur",
+      "placeName": "Gunnar Schjelderup",
       "lat": 59.949842,
       "lng": 10.764908,
       "locationSource": "exif",
@@ -35515,6 +36780,17 @@
       "thumb": "/thumbs/immich09ee8a07-0431-40af-98bf-73b11eb6e0c8.webp"
     },
     {
+      "id": "immich:ac8859d3-2325-46c9-831f-9a655814b7c1",
+      "dropboxPath": "immich://ac8859d3-2325-46c9-831f-9a655814b7c1",
+      "category": "annet",
+      "placeName": "00095-18.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2025-05-06T09:54:16+00:00",
+      "thumb": "/thumbs/immichac8859d3-2325-46c9-831f-9a655814b7c1.webp"
+    },
+    {
       "id": "immich:b81e3c17-5809-4b75-a9b9-c862f75e3e6a",
       "dropboxPath": "immich://b81e3c17-5809-4b75-a9b9-c862f75e3e6a",
       "category": "annet",
@@ -35528,8 +36804,8 @@
     {
       "id": "immich:0919275f-82ce-4108-bb9e-433969c1bc9e",
       "dropboxPath": "immich://0919275f-82ce-4108-bb9e-433969c1bc9e",
-      "category": "annet",
-      "placeName": "Rema 1000 Korsvoll",
+      "category": "kollektiv",
+      "placeName": "Korsvoll",
       "lat": 59.962899,
       "lng": 10.765653,
       "locationSource": "exif",
@@ -35647,6 +36923,17 @@
       "thumb": "/thumbs/immich835b995e-5d94-4c79-9787-8e2e03118d14.webp"
     },
     {
+      "id": "immich:3a921e84-f063-425f-a0fa-dad53049fdad",
+      "dropboxPath": "immich://3a921e84-f063-425f-a0fa-dad53049fdad",
+      "category": "annet",
+      "placeName": "Håndbakt",
+      "lat": 59.911314,
+      "lng": 10.777997,
+      "locationSource": "exif",
+      "clientModified": "2025-04-21T08:51:32+00:00",
+      "thumb": "/thumbs/immich3a921e84-f063-425f-a0fa-dad53049fdad.webp"
+    },
+    {
       "id": "immich:8c9633f6-8a81-4890-a172-7584e9cb7581",
       "dropboxPath": "immich://8c9633f6-8a81-4890-a172-7584e9cb7581",
       "category": "annet",
@@ -35678,17 +36965,6 @@
       "locationSource": "exif",
       "clientModified": "2025-04-21T08:51:32+00:00",
       "thumb": "/thumbs/immich9a663c5b-c73b-42d8-a648-dbf0622b4ccc.webp"
-    },
-    {
-      "id": "immich:3a921e84-f063-425f-a0fa-dad53049fdad",
-      "dropboxPath": "immich://3a921e84-f063-425f-a0fa-dad53049fdad",
-      "category": "kafe",
-      "placeName": "Håndbakt",
-      "lat": 59.911314,
-      "lng": 10.777997,
-      "locationSource": "exif",
-      "clientModified": "2025-04-21T08:51:32+00:00",
-      "thumb": "/thumbs/immich3a921e84-f063-425f-a0fa-dad53049fdad.webp"
     },
     {
       "id": "immich:587ce7ff-af25-46ae-a667-2b0e4a6877a8",
@@ -35724,10 +37000,21 @@
       "thumb": "/thumbs/immichdc5e5c9a-d418-4e66-b284-cfc0a8388585.webp"
     },
     {
+      "id": "immich:207168c4-f852-48c4-b918-c6da26b3e8c4",
+      "dropboxPath": "immich://207168c4-f852-48c4-b918-c6da26b3e8c4",
+      "category": "annet",
+      "placeName": "Imax",
+      "lat": 59.947466,
+      "lng": 10.77192,
+      "locationSource": "exif",
+      "clientModified": "2024-08-10T13:44:36.951+00:00",
+      "thumb": "/thumbs/immich207168c4-f852-48c4-b918-c6da26b3e8c4.webp"
+    },
+    {
       "id": "immich:eecfad94-132b-4e2d-8d5b-4bbdffd3af0f",
       "dropboxPath": "immich://eecfad94-132b-4e2d-8d5b-4bbdffd3af0f",
-      "category": "annet",
-      "placeName": "003016-24.jpg",
+      "category": "kultur",
+      "placeName": "Niels Christian Ditleff   (1881-1956)",
       "lat": 59.921798,
       "lng": 10.743951,
       "locationSource": "exif",
@@ -35757,17 +37044,6 @@
       "thumb": "/thumbs/immiche9770bdc-96a3-4e70-8eee-6ef5252e48c9.webp"
     },
     {
-      "id": "immich:207168c4-f852-48c4-b918-c6da26b3e8c4",
-      "dropboxPath": "immich://207168c4-f852-48c4-b918-c6da26b3e8c4",
-      "category": "restaurant",
-      "placeName": "Johnny Rockets",
-      "lat": 59.947466,
-      "lng": 10.77192,
-      "locationSource": "exif",
-      "clientModified": "2024-08-10T13:44:36.951+00:00",
-      "thumb": "/thumbs/immich207168c4-f852-48c4-b918-c6da26b3e8c4.webp"
-    },
-    {
       "id": "immich:588a91b7-e958-46e0-ab58-8d869d9e5dff",
       "dropboxPath": "immich://588a91b7-e958-46e0-ab58-8d869d9e5dff",
       "category": "park",
@@ -35792,7 +37068,7 @@
     {
       "id": "immich:b2ecd409-0881-4273-af24-bbbc28924217",
       "dropboxPath": "immich://b2ecd409-0881-4273-af24-bbbc28924217",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Øvre Foss kunstgressbane",
       "lat": 59.92977,
       "lng": 10.756842,
@@ -35801,10 +37077,21 @@
       "thumb": "/thumbs/immichb2ecd409-0881-4273-af24-bbbc28924217.webp"
     },
     {
+      "id": "immich:ac20ca87-83c8-46a6-bf54-e49e96338c1c",
+      "dropboxPath": "immich://ac20ca87-83c8-46a6-bf54-e49e96338c1c",
+      "category": "annet",
+      "placeName": "Bislett blomster",
+      "lat": 59.926812,
+      "lng": 10.731298,
+      "locationSource": "exif",
+      "clientModified": "2024-06-04T13:37:01+00:00",
+      "thumb": "/thumbs/immichac20ca87-83c8-46a6-bf54-e49e96338c1c.webp"
+    },
+    {
       "id": "immich:7dfbaf2f-6825-4403-bcc4-7b9db0ef24fa",
       "dropboxPath": "immich://7dfbaf2f-6825-4403-bcc4-7b9db0ef24fa",
-      "category": "annet",
-      "placeName": "Hans Nielsen Hauges gate 39B",
+      "category": "kollektiv",
+      "placeName": "Sinsen",
       "lat": 59.937319,
       "lng": 10.7817,
       "locationSource": "exif",
@@ -35834,17 +37121,6 @@
       "thumb": "/thumbs/immiche3aab859-c894-4266-9760-ea58a7b7fb44.webp"
     },
     {
-      "id": "immich:ac20ca87-83c8-46a6-bf54-e49e96338c1c",
-      "dropboxPath": "immich://ac20ca87-83c8-46a6-bf54-e49e96338c1c",
-      "category": "restaurant",
-      "placeName": "St. Lars",
-      "lat": 59.926812,
-      "lng": 10.731298,
-      "locationSource": "exif",
-      "clientModified": "2024-06-04T13:37:01+00:00",
-      "thumb": "/thumbs/immichac20ca87-83c8-46a6-bf54-e49e96338c1c.webp"
-    },
-    {
       "id": "immich:1dc89607-512b-494b-88b8-a7884d7ce3df",
       "dropboxPath": "immich://1dc89607-512b-494b-88b8-a7884d7ce3df",
       "category": "kafe",
@@ -35858,8 +37134,8 @@
     {
       "id": "immich:4ed0d15e-33f6-4f46-a56d-2ba03ac90f0e",
       "dropboxPath": "immich://4ed0d15e-33f6-4f46-a56d-2ba03ac90f0e",
-      "category": "annet",
-      "placeName": "Stolmakergata 9G",
+      "category": "nabolag",
+      "placeName": "Nordre gate",
       "lat": 59.921368,
       "lng": 10.755256,
       "locationSource": "exif",
@@ -35869,8 +37145,8 @@
     {
       "id": "immich:05f7979e-65f3-47bb-a96f-fd07a33c09e1",
       "dropboxPath": "immich://05f7979e-65f3-47bb-a96f-fd07a33c09e1",
-      "category": "annet",
-      "placeName": "Pilestredet 32",
+      "category": "kollektiv",
+      "placeName": "Holbergs plass (C)",
       "lat": 59.92009,
       "lng": 10.73575,
       "locationSource": "exif",
@@ -35911,39 +37187,6 @@
       "thumb": "/thumbs/immich5c3108d0-89eb-4ee7-91ab-dc1c01b1c169.webp"
     },
     {
-      "id": "immich:de2c4c4e-1a99-4ae4-ab20-62633a8a8f5d",
-      "dropboxPath": "immich://de2c4c4e-1a99-4ae4-ab20-62633a8a8f5d",
-      "category": "kafe",
-      "placeName": "Kampen Kaffe & Bar",
-      "lat": 59.911945,
-      "lng": 10.781383,
-      "locationSource": "exif",
-      "clientModified": "2024-05-03T11:39:01.16+00:00",
-      "thumb": "/thumbs/immichde2c4c4e-1a99-4ae4-ab20-62633a8a8f5d.webp"
-    },
-    {
-      "id": "immich:60a52735-dddc-406d-96f4-0ec384cb6e81",
-      "dropboxPath": "immich://60a52735-dddc-406d-96f4-0ec384cb6e81",
-      "category": "restaurant",
-      "placeName": "Oslo Mekaniske Verksted",
-      "lat": 59.91113,
-      "lng": 10.762335,
-      "locationSource": "exif",
-      "clientModified": "2024-05-01T07:45:05.49+00:00",
-      "thumb": "/thumbs/immich60a52735-dddc-406d-96f4-0ec384cb6e81.webp"
-    },
-    {
-      "id": "immich:a31026a7-ebfb-4d52-83bb-ad5a8719b8de",
-      "dropboxPath": "immich://a31026a7-ebfb-4d52-83bb-ad5a8719b8de",
-      "category": "restaurant",
-      "placeName": "Mad Goat Tap House",
-      "lat": 59.911226,
-      "lng": 10.762724,
-      "locationSource": "exif",
-      "clientModified": "2024-05-01T07:44:10.83+00:00",
-      "thumb": "/thumbs/immicha31026a7-ebfb-4d52-83bb-ad5a8719b8de.webp"
-    },
-    {
       "id": "immich:924365df-9807-4b3c-a8de-b8db4932d586",
       "dropboxPath": "immich://924365df-9807-4b3c-a8de-b8db4932d586",
       "category": "annet",
@@ -35955,21 +37198,21 @@
       "thumb": "/thumbs/immich924365df-9807-4b3c-a8de-b8db4932d586.webp"
     },
     {
-      "id": "immich:a23c24cb-bd4f-43f9-b063-370e4f4e1a9e",
-      "dropboxPath": "immich://a23c24cb-bd4f-43f9-b063-370e4f4e1a9e",
-      "category": "annet",
-      "placeName": "Studiobazar",
-      "lat": 59.924223,
-      "lng": 10.740182,
+      "id": "immich:de2c4c4e-1a99-4ae4-ab20-62633a8a8f5d",
+      "dropboxPath": "immich://de2c4c4e-1a99-4ae4-ab20-62633a8a8f5d",
+      "category": "kafe",
+      "placeName": "Kampen Kaffe & Bar",
+      "lat": 59.911945,
+      "lng": 10.781383,
       "locationSource": "exif",
-      "clientModified": "2024-04-13T15:50:08.76+00:00",
-      "thumb": "/thumbs/immicha23c24cb-bd4f-43f9-b063-370e4f4e1a9e.webp"
+      "clientModified": "2024-05-03T11:39:01.16+00:00",
+      "thumb": "/thumbs/immichde2c4c4e-1a99-4ae4-ab20-62633a8a8f5d.webp"
     },
     {
       "id": "immich:0de31830-778a-408a-ac37-df50d0e7f633",
       "dropboxPath": "immich://0de31830-778a-408a-ac37-df50d0e7f633",
-      "category": "kafe",
-      "placeName": "Pascal",
+      "category": "annet",
+      "placeName": "Gutta på haugen",
       "lat": 59.924148,
       "lng": 10.739677,
       "locationSource": "exif",
@@ -35979,13 +37222,46 @@
     {
       "id": "immich:4b5deff0-0bee-46ce-bf6c-2a5f647c69b5",
       "dropboxPath": "immich://4b5deff0-0bee-46ce-bf6c-2a5f647c69b5",
-      "category": "restaurant",
-      "placeName": "Bukken",
+      "category": "annet",
+      "placeName": "Bukken vinbar",
       "lat": 59.92289,
       "lng": 10.739162,
       "locationSource": "exif",
       "clientModified": "2024-04-13T15:46:31+00:00",
       "thumb": "/thumbs/immich4b5deff0-0bee-46ce-bf6c-2a5f647c69b5.webp"
+    },
+    {
+      "id": "immich:23326c4f-cb42-42b7-ab99-e38f3621a4d0",
+      "dropboxPath": "immich://23326c4f-cb42-42b7-ab99-e38f3621a4d0",
+      "category": "annet",
+      "placeName": "Oslo streetfood",
+      "lat": 59.915845,
+      "lng": 10.750902,
+      "locationSource": "exif",
+      "clientModified": "2024-03-11T14:56:33.461+00:00",
+      "thumb": "/thumbs/immich23326c4f-cb42-42b7-ab99-e38f3621a4d0.webp"
+    },
+    {
+      "id": "immich:dd000a7d-54a2-4aeb-b356-b390130e489d",
+      "dropboxPath": "immich://dd000a7d-54a2-4aeb-b356-b390130e489d",
+      "category": "annet",
+      "placeName": "Oslo streetfood",
+      "lat": 59.915845,
+      "lng": 10.750902,
+      "locationSource": "exif",
+      "clientModified": "2024-03-11T14:55:44.52+00:00",
+      "thumb": "/thumbs/immichdd000a7d-54a2-4aeb-b356-b390130e489d.webp"
+    },
+    {
+      "id": "immich:60a52735-dddc-406d-96f4-0ec384cb6e81",
+      "dropboxPath": "immich://60a52735-dddc-406d-96f4-0ec384cb6e81",
+      "category": "kultur",
+      "placeName": "Dramatikkens hus",
+      "lat": 59.91113,
+      "lng": 10.762335,
+      "locationSource": "exif",
+      "clientModified": "2024-05-01T07:45:05.49+00:00",
+      "thumb": "/thumbs/immich60a52735-dddc-406d-96f4-0ec384cb6e81.webp"
     },
     {
       "id": "immich:7dddf8a8-2a77-4006-90d5-5f753fcf0ca2",
@@ -35999,26 +37275,48 @@
       "thumb": "/thumbs/immich7dddf8a8-2a77-4006-90d5-5f753fcf0ca2.webp"
     },
     {
-      "id": "immich:23326c4f-cb42-42b7-ab99-e38f3621a4d0",
-      "dropboxPath": "immich://23326c4f-cb42-42b7-ab99-e38f3621a4d0",
-      "category": "restaurant",
-      "placeName": "Oslo Bar & Bowling",
-      "lat": 59.915845,
-      "lng": 10.750902,
-      "locationSource": "exif",
-      "clientModified": "2024-03-11T14:56:33.461+00:00",
-      "thumb": "/thumbs/immich23326c4f-cb42-42b7-ab99-e38f3621a4d0.webp"
+      "id": "immich:39187840-45c2-4bc3-8831-4ed67974a189",
+      "dropboxPath": "immich://39187840-45c2-4bc3-8831-4ed67974a189",
+      "category": "annet",
+      "placeName": "00095-17.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2023-05-24T09:02:51.07+00:00",
+      "thumb": "/thumbs/immich39187840-45c2-4bc3-8831-4ed67974a189.webp"
     },
     {
-      "id": "immich:dd000a7d-54a2-4aeb-b356-b390130e489d",
-      "dropboxPath": "immich://dd000a7d-54a2-4aeb-b356-b390130e489d",
+      "id": "immich:a31026a7-ebfb-4d52-83bb-ad5a8719b8de",
+      "dropboxPath": "immich://a31026a7-ebfb-4d52-83bb-ad5a8719b8de",
       "category": "restaurant",
-      "placeName": "Oslo Bar & Bowling",
-      "lat": 59.915845,
-      "lng": 10.750902,
+      "placeName": "Mad Goat Tap House",
+      "lat": 59.911226,
+      "lng": 10.762724,
       "locationSource": "exif",
-      "clientModified": "2024-03-11T14:55:44.52+00:00",
-      "thumb": "/thumbs/immichdd000a7d-54a2-4aeb-b356-b390130e489d.webp"
+      "clientModified": "2024-05-01T07:44:10.83+00:00",
+      "thumb": "/thumbs/immicha31026a7-ebfb-4d52-83bb-ad5a8719b8de.webp"
+    },
+    {
+      "id": "immich:a23c24cb-bd4f-43f9-b063-370e4f4e1a9e",
+      "dropboxPath": "immich://a23c24cb-bd4f-43f9-b063-370e4f4e1a9e",
+      "category": "butikk",
+      "placeName": "Studiobazar",
+      "lat": 59.924223,
+      "lng": 10.740182,
+      "locationSource": "exif",
+      "clientModified": "2024-04-13T15:50:08.76+00:00",
+      "thumb": "/thumbs/immicha23c24cb-bd4f-43f9-b063-370e4f4e1a9e.webp"
+    },
+    {
+      "id": "immich:a0312b04-c1f8-4789-a7ac-5a6f0fbd3385",
+      "dropboxPath": "immich://a0312b04-c1f8-4789-a7ac-5a6f0fbd3385",
+      "category": "annet",
+      "placeName": "00095-16.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2023-05-24T08:59:54.43+00:00",
+      "thumb": "/thumbs/immicha0312b04-c1f8-4789-a7ac-5a6f0fbd3385.webp"
     },
     {
       "id": "immich:d731de0c-163b-4d61-b52d-8f5d4c31fb05",
@@ -36032,15 +37330,15 @@
       "thumb": "/thumbs/immichd731de0c-163b-4d61-b52d-8f5d4c31fb05.webp"
     },
     {
-      "id": "immich:407726d1-e87d-48ae-91d4-11b88c622194",
-      "dropboxPath": "immich://407726d1-e87d-48ae-91d4-11b88c622194",
+      "id": "immich:16c6c7ea-d730-4f06-8a5d-ba7aa5be6706",
+      "dropboxPath": "immich://16c6c7ea-d730-4f06-8a5d-ba7aa5be6706",
       "category": "annet",
-      "placeName": "Thereses gate 31G",
-      "lat": 59.928544,
-      "lng": 10.73049,
-      "locationSource": "exif",
-      "clientModified": "2023-05-24T09:02:51.07+00:00",
-      "thumb": "/thumbs/immich407726d1-e87d-48ae-91d4-11b88c622194.webp"
+      "placeName": "00095-15.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2023-05-24T08:58:56+00:00",
+      "thumb": "/thumbs/immich16c6c7ea-d730-4f06-8a5d-ba7aa5be6706.webp"
     },
     {
       "id": "immich:19f82ffa-7ed7-4057-a249-aa59e9f6d5b8",
@@ -36052,6 +37350,28 @@
       "locationSource": "exif",
       "clientModified": "2023-05-24T09:02:51.07+00:00",
       "thumb": "/thumbs/immich19f82ffa-7ed7-4057-a249-aa59e9f6d5b8.webp"
+    },
+    {
+      "id": "immich:407726d1-e87d-48ae-91d4-11b88c622194",
+      "dropboxPath": "immich://407726d1-e87d-48ae-91d4-11b88c622194",
+      "category": "annet",
+      "placeName": "Thereses gate 31G",
+      "lat": 59.928544,
+      "lng": 10.73049,
+      "locationSource": "exif",
+      "clientModified": "2023-05-24T09:02:51.07+00:00",
+      "thumb": "/thumbs/immich407726d1-e87d-48ae-91d4-11b88c622194.webp"
+    },
+    {
+      "id": "immich:f5bf8e18-55a6-4381-b341-e2cac4715dff",
+      "dropboxPath": "immich://f5bf8e18-55a6-4381-b341-e2cac4715dff",
+      "category": "annet",
+      "placeName": "00095-14.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2023-05-24T08:52:30.17+00:00",
+      "thumb": "/thumbs/immichf5bf8e18-55a6-4381-b341-e2cac4715dff.webp"
     },
     {
       "id": "immich:9fb6f536-79ea-4aae-ace8-bf4058363eaf",
@@ -36078,8 +37398,8 @@
     {
       "id": "immich:b607dca4-4b20-4055-a492-039427ce438c",
       "dropboxPath": "immich://b607dca4-4b20-4055-a492-039427ce438c",
-      "category": "annet",
-      "placeName": "Pilestredet 74",
+      "category": "kultur",
+      "placeName": "Fagerborg kirke",
       "lat": 59.927244,
       "lng": 10.729651,
       "locationSource": "exif",
@@ -36111,7 +37431,7 @@
     {
       "id": "immich:a1bf6da5-84ae-48db-a244-e2e86368517a",
       "dropboxPath": "immich://a1bf6da5-84ae-48db-a244-e2e86368517a",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Bislett stadion",
       "lat": 59.924847,
       "lng": 10.73346,
@@ -36166,8 +37486,8 @@
     {
       "id": "immich:966df60f-157a-4802-a24c-f44196fccfa8",
       "dropboxPath": "immich://966df60f-157a-4802-a24c-f44196fccfa8",
-      "category": "annet",
-      "placeName": "Engveien 14",
+      "category": "nabolag",
+      "placeName": "Engveien",
       "lat": 59.944481,
       "lng": 10.780773,
       "locationSource": "exif",
@@ -36199,8 +37519,8 @@
     {
       "id": "immich:3eae11b2-a0a3-4a11-8310-fd6b2db59e51",
       "dropboxPath": "immich://3eae11b2-a0a3-4a11-8310-fd6b2db59e51",
-      "category": "annet",
-      "placeName": "Jordalgata 12A",
+      "category": "natur",
+      "placeName": "Hovinbekken",
       "lat": 59.909094,
       "lng": 10.782768,
       "locationSource": "exif",
@@ -36210,8 +37530,8 @@
     {
       "id": "immich:c1ec075d-b635-480b-8f2a-3fc3dfbc27d8",
       "dropboxPath": "immich://c1ec075d-b635-480b-8f2a-3fc3dfbc27d8",
-      "category": "annet",
-      "placeName": "Jordalgata 8",
+      "category": "natur",
+      "placeName": "Hovinbekken",
       "lat": 59.908567,
       "lng": 10.781212,
       "locationSource": "exif",
@@ -36254,8 +37574,8 @@
     {
       "id": "immich:1ca3579b-6060-413b-b3c7-ceeb57ce6c51",
       "dropboxPath": "immich://1ca3579b-6060-413b-b3c7-ceeb57ce6c51",
-      "category": "annet",
-      "placeName": "Nylandsveien 12",
+      "category": "natur",
+      "placeName": "Operastranda",
       "lat": 59.906518,
       "lng": 10.752917,
       "locationSource": "exif",
@@ -36276,8 +37596,8 @@
     {
       "id": "immich:9c1f2177-03fb-4d06-a96a-dbe17e6fcb92",
       "dropboxPath": "immich://9c1f2177-03fb-4d06-a96a-dbe17e6fcb92",
-      "category": "annet",
-      "placeName": "Sørengkaia 177",
+      "category": "kultur",
+      "placeName": "Havnepromenaden infopunkt 12: Sørenga",
       "lat": 59.901639,
       "lng": 10.750856,
       "locationSource": "exif",
@@ -36287,8 +37607,8 @@
     {
       "id": "immich:850a1b37-b429-4084-a594-042ad403fc19",
       "dropboxPath": "immich://850a1b37-b429-4084-a594-042ad403fc19",
-      "category": "annet",
-      "placeName": "Sørengkaia 177",
+      "category": "kultur",
+      "placeName": "Havnepromenaden infopunkt 12: Sørenga",
       "lat": 59.901639,
       "lng": 10.750856,
       "locationSource": "exif",
@@ -36298,8 +37618,8 @@
     {
       "id": "immich:b5322470-f70d-436f-98ae-cc00fab0b8f2",
       "dropboxPath": "immich://b5322470-f70d-436f-98ae-cc00fab0b8f2",
-      "category": "annet",
-      "placeName": "Sørengkaia 177",
+      "category": "kultur",
+      "placeName": "Havnepromenaden infopunkt 12: Sørenga",
       "lat": 59.901639,
       "lng": 10.750856,
       "locationSource": "exif",
@@ -36320,7 +37640,7 @@
     {
       "id": "immich:c3cef4df-410e-4947-b2fc-2d2a00f45310",
       "dropboxPath": "immich://c3cef4df-410e-4947-b2fc-2d2a00f45310",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Kiwi Barcode",
       "lat": 59.9071,
       "lng": 10.761042,
@@ -36342,8 +37662,8 @@
     {
       "id": "immich:325b73c6-4c55-48a1-9b7c-c1971317aa9e",
       "dropboxPath": "immich://325b73c6-4c55-48a1-9b7c-c1971317aa9e",
-      "category": "annet",
-      "placeName": "Dronning Eufemias gate 75",
+      "category": "nabolag",
+      "placeName": "Bispegata",
       "lat": 59.906622,
       "lng": 10.762348,
       "locationSource": "exif",
@@ -36353,8 +37673,8 @@
     {
       "id": "immich:b3478bf1-962c-436a-a34b-5e54d21e4199",
       "dropboxPath": "immich://b3478bf1-962c-436a-a34b-5e54d21e4199",
-      "category": "annet",
-      "placeName": "Wergelandsveien 17",
+      "category": "kultur",
+      "placeName": "Putemannen",
       "lat": 59.919028,
       "lng": 10.72964,
       "locationSource": "exif",
@@ -36386,7 +37706,7 @@
     {
       "id": "immich:0e9d28e5-9933-48d0-8cc4-7525ef44cd6c",
       "dropboxPath": "immich://0e9d28e5-9933-48d0-8cc4-7525ef44cd6c",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Klatreverket Torshov",
       "lat": 59.934936,
       "lng": 10.759401,
@@ -36397,13 +37717,24 @@
     {
       "id": "immich:3f7bd312-4203-404a-855e-b8865ac3a065",
       "dropboxPath": "immich://3f7bd312-4203-404a-855e-b8865ac3a065",
-      "category": "annet",
-      "placeName": "Madserud allé 68",
+      "category": "kultur",
+      "placeName": "Nr. 15: Tre gutter på kne",
       "lat": 59.927647,
       "lng": 10.69858,
       "locationSource": "exif",
       "clientModified": "2020-05-04T15:01:38.12+00:00",
       "thumb": "/thumbs/immich3f7bd312-4203-404a-855e-b8865ac3a065.webp"
+    },
+    {
+      "id": "immich:d057c295-9ebd-4808-8f49-8737bd142ab9",
+      "dropboxPath": "immich://d057c295-9ebd-4808-8f49-8737bd142ab9",
+      "category": "aktivitet",
+      "placeName": "Mathallen oslo",
+      "lat": 59.923155,
+      "lng": 10.752507,
+      "locationSource": "exif",
+      "clientModified": "2020-02-04T17:45:17.61+00:00",
+      "thumb": "/thumbs/immichd057c295-9ebd-4808-8f49-8737bd142ab9.webp"
     },
     {
       "id": "immich:0b984adb-d6cc-441b-bb0c-e04733aa4514",
@@ -36419,8 +37750,8 @@
     {
       "id": "immich:976ce056-a469-40e8-a0d2-41a118e71641",
       "dropboxPath": "immich://976ce056-a469-40e8-a0d2-41a118e71641",
-      "category": "annet",
-      "placeName": "Arendalsgata 7",
+      "category": "kollektiv",
+      "placeName": "Arendalsgata",
       "lat": 59.937139,
       "lng": 10.757743,
       "locationSource": "exif",
@@ -36430,24 +37761,13 @@
     {
       "id": "immich:7479e2a8-7ef4-4703-9584-3178b912d6c7",
       "dropboxPath": "immich://7479e2a8-7ef4-4703-9584-3178b912d6c7",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Coop Mega Alexander Kiellands plass",
       "lat": 59.928314,
       "lng": 10.75013,
       "locationSource": "exif",
       "clientModified": "2020-04-21T21:43:40.491+00:00",
       "thumb": "/thumbs/immich7479e2a8-7ef4-4703-9584-3178b912d6c7.webp"
-    },
-    {
-      "id": "immich:d057c295-9ebd-4808-8f49-8737bd142ab9",
-      "dropboxPath": "immich://d057c295-9ebd-4808-8f49-8737bd142ab9",
-      "category": "annet",
-      "placeName": "Athletica Vulkan",
-      "lat": 59.923155,
-      "lng": 10.752507,
-      "locationSource": "exif",
-      "clientModified": "2020-02-04T17:45:17.61+00:00",
-      "thumb": "/thumbs/immichd057c295-9ebd-4808-8f49-8737bd142ab9.webp"
     }
   ]
 }
