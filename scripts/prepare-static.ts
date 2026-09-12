@@ -24,6 +24,71 @@ async function main() {
     await fs.readFile(path.join(process.cwd(), "data", "index.json"), "utf-8")
   );
 
+  // Bygårdskoblingen utledes her, ikke i sync-scriptet: matrikkeldataene
+  // oppdateres uavhengig av Dropbox, og et bygg skal ikke kreve ny sync.
+  let bygarder: { adresseTilBygard: Record<string, string> } = { adresseTilBygard: {} };
+  try {
+    bygarder = JSON.parse(
+      await fs.readFile(path.join(process.cwd(), "data", "bygarder.json"), "utf-8")
+    );
+  } catch {
+    /* uten fila faller bakgårdene tilbake på avstandsfilteret */
+  }
+
+  let kallenavn: Record<string, string> = {};
+  try {
+    kallenavn = JSON.parse(
+      await fs.readFile(path.join(process.cwd(), "data", "bakgard-navn.json"), "utf-8")
+    );
+  } catch {
+    kallenavn = {};
+  }
+
+  // Matrikkelen skriver «Torshovgata 10A», mens mappenavn gjerne sier
+  // «Torshovgata 10». Et register over adresser uten bokstav lar oss slå
+  // opp begge former.
+  const utenBokstav = new Map<string, string>();
+  for (const [adresse, id] of Object.entries(bygarder.adresseTilBygard)) {
+    const grunnform = adresse.replace(/\s*\p{Lu}$/u, "").trim();
+    if (grunnform !== adresse && !utenBokstav.has(grunnform)) {
+      utenBokstav.set(grunnform, id);
+    }
+  }
+
+  /**
+   * Finner eiendommen et bakgårdsbilde hører til. Mappenavnet må inneholde
+   * en adresse med husnummer («Bakgård - Torshovgata 10»), eller et kallenavn
+   * som står i data/bakgard-navn.json.
+   */
+  // Unicode-kategorier, ikke A-Z: gatenavn som «Grüners gate» har tegn
+  // utenfor det norske alfabetet.
+  const ADRESSE = /(\p{Lu}[\p{L}.']*(?:\s+\p{Ll}[\p{L}.']*)*\s+\d+\s*\p{L}?)/gu;
+
+  function slåOpp(adresse: string): string | null {
+    const ren = adresse.replace(/\s+/g, " ").trim();
+    return bygarder.adresseTilBygard[ren] ?? utenBokstav.get(ren) ?? null;
+  }
+
+  function bygardFor(placeName: string): string | null {
+    for (const [navn, adresse] of Object.entries(kallenavn)) {
+      if (placeName.toLowerCase().includes(navn.toLowerCase())) {
+        const treff = slåOpp(adresse);
+        if (treff) return treff;
+      }
+    }
+
+    // Mappenavn er sammensatte («Bakgård - Grüners gate 1»), så vi leter i
+    // hver del for seg. Ellers sluker adressemønsteret kategoriordet med.
+    for (const del of placeName.split(/\s*[–—,-]\s*/)) {
+      ADRESSE.lastIndex = 0;
+      for (const m of del.matchAll(ADRESSE)) {
+        const treff = slåOpp(m[1]);
+        if (treff) return treff;
+      }
+    }
+    return null;
+  }
+
   // Overstyringer fra `npm run steder` (og dine egne rettelser der).
   let steder: Record<string, { kategori: string; navn?: string }> = {};
   try {
@@ -54,11 +119,13 @@ async function main() {
   const publishable = index.photos
     .map((p) => {
       const overstyring = steder[p.placeName];
+      const category = overstyring?.kategori ?? p.category;
       return {
         ...p,
         thumb: thumbFor(p.id),
-        category: overstyring?.kategori ?? p.category,
+        category,
         placeName: overstyring?.navn ?? p.placeName,
+        bygardId: category === "bakgard" ? bygardFor(p.placeName) : p.bygardId ?? null,
       };
     })
     .filter((p) => p.lat !== null && p.lng !== null && p.thumb);
