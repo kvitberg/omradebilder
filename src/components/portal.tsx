@@ -753,7 +753,14 @@ function Spread({
   return (
     <section className="flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14 lg:h-screen">
       <header className="flex shrink-0 items-start justify-between text-[10px] uppercase tracking-[0.28em] text-ink-soft">
-        <span className="truncate pr-6">{address}</span>
+        <button
+          type="button"
+          onClick={() => goTo(0)}
+          title="Til forsiden"
+          className="font-semibold tracking-[0.28em] text-ink transition-opacity hover:opacity-60"
+        >
+          Områdebilder
+        </button>
         <span className="shrink-0 text-ink">{spread.category.label}</span>
       </header>
 
@@ -866,8 +873,7 @@ function Spread({
                 {spread.category.label}
               </h2>
               <p className="text-[13px] leading-relaxed text-ink-soft sm:col-span-8">
-                {spread.category.description} Bildene her er tatt innen {formatRadius(radius)} fra{" "}
-                {address}.
+                {spread.category.description}
               </p>
             </div>
           )}
@@ -901,14 +907,7 @@ function Spread({
 
       <footer className="flex shrink-0 items-center justify-between border-t border-rule pt-5 text-[10px] uppercase tracking-[0.2em] text-ink-soft">
         <span>Side {pageLabel(page + 1)}</span>
-        <button
-          type="button"
-          onClick={() => goTo(0)}
-          title="Til forsiden"
-          className="hidden uppercase tracking-[0.2em] transition-colors hover:text-ink sm:block"
-        >
-          Områdebilder
-        </button>
+        <span className="hidden truncate px-4 sm:block">{address}</span>
         <Nav page={page} totalPages={totalPages} goTo={goTo} />
       </footer>
     </section>
