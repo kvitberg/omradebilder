@@ -1288,7 +1288,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAPWOw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Skøyen/90fasade.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Skøyen",
       "lat": 59.9164028,
       "lng": 10.6894833,
@@ -1336,7 +1336,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAATZzg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Frogner Kirke/fasade01_kveld-2.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Frogner Kirke",
       "lat": 59.9175385,
       "lng": 10.7067213,
@@ -1348,7 +1348,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAATZzw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Frogner Kirke/fasade05_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Frogner Kirke",
       "lat": 59.9175385,
       "lng": 10.7067213,
@@ -1396,7 +1396,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAW5EA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Frogner/fasade04.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Frogner",
       "lat": 59.9222241,
       "lng": 10.7066491,
@@ -1408,7 +1408,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAZiIQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Via Village/fasade04_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Via Village",
       "lat": 59.9121631,
       "lng": 10.7266046,
@@ -1432,7 +1432,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAZiIw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Via Village/fasade05_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Via Village",
       "lat": 59.9121631,
       "lng": 10.7266046,
@@ -1444,7 +1444,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAZiJQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Via Village/fasade07_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Via Village",
       "lat": 59.9121631,
       "lng": 10.7266046,
@@ -1456,7 +1456,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAZiJA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Via Village/fasade06_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Via Village",
       "lat": 59.9121631,
       "lng": 10.7266046,
@@ -1468,7 +1468,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAdMgw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Via Village/fasade01_ver02-2.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Via Village",
       "lat": 59.9121631,
       "lng": 10.7266046,
@@ -1480,7 +1480,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAdMhA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Via Village/fasade03_ver02.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Via Village",
       "lat": 59.9121631,
       "lng": 10.7266046,
@@ -1540,7 +1540,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAfoDw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Frogner Kino/1H0A7539.jpg",
-      "category": "annet",
+      "category": "kultur",
       "placeName": "Frogner Kino",
       "lat": 59.918655,
       "lng": 10.709961,
@@ -1552,7 +1552,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAfoEA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Frogner Kino/1H0A7538.jpg",
-      "category": "annet",
+      "category": "kultur",
       "placeName": "Frogner Kino",
       "lat": 59.918655,
       "lng": 10.709961,
@@ -2500,7 +2500,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQj0g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Grefsenkollen/fasade01.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Grefsenkollen",
       "lat": 59.9589887,
       "lng": 10.8036615,
@@ -2512,7 +2512,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQj0w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Grefsenkollen/fasade02.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Grefsenkollen",
       "lat": 59.9589887,
       "lng": 10.8036615,
@@ -3184,7 +3184,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCnQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/fasade07.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Nordre Aker",
       "lat": 59.953631,
       "lng": 10.7564055,
@@ -3400,7 +3400,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQd3A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Grefsen Stasjon/1H0A3403-HDR-2.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Grefsen Stasjon",
       "lat": 59.9418161,
       "lng": 10.7804364,
@@ -3412,7 +3412,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQd3Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Grefsen Stasjon/1H0A3403-HDR.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Grefsen Stasjon",
       "lat": 59.9418161,
       "lng": 10.7804364,
@@ -3424,7 +3424,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCbA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Grefsen Stasjon/91uteomrade (1).jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Grefsen Stasjon",
       "lat": 59.9418161,
       "lng": 10.7804364,
@@ -3436,7 +3436,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAXFlA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/fasade03-2.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Nordre Aker",
       "lat": 59.953631,
       "lng": 10.7564055,
@@ -3448,7 +3448,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCnA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/fasade06.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Nordre Aker",
       "lat": 59.953631,
       "lng": 10.7564055,
@@ -3472,7 +3472,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCmw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/fasade03.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Nordre Aker",
       "lat": 59.953631,
       "lng": 10.7564055,
@@ -3484,7 +3484,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQPhg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Ulven/fasade02_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Ulven",
       "lat": 59.9263786,
       "lng": 10.809234,
@@ -3496,7 +3496,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQPhw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Ulven/fasade01_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Ulven",
       "lat": 59.9263786,
       "lng": 10.809234,
@@ -3508,7 +3508,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQPiA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Ulven/fasade03_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Ulven",
       "lat": 59.9263786,
       "lng": 10.809234,
@@ -3520,7 +3520,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQPiQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Ulven/fasade04_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Ulven",
       "lat": 59.9263786,
       "lng": 10.809234,
@@ -3532,7 +3532,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQcyw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade01-Edit.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -3544,7 +3544,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQczQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade03-Edit.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -3556,7 +3556,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQczg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade05-Edit.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -3568,7 +3568,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQczw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade04-Edit.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -3592,7 +3592,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARkBQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade01 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -3604,7 +3604,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARkBg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade02.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -3616,7 +3616,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARkBw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade03 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -3628,7 +3628,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARkCA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade02 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -3640,7 +3640,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARkCQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade04.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -3652,7 +3652,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARkCg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade05..jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -4120,7 +4120,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAOgEg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sofienbergsparken/uteomrade06.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sofienbergsparken",
       "lat": null,
       "lng": null,
@@ -4132,7 +4132,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAOgEw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sofienbergsparken/uteomrade07.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sofienbergsparken",
       "lat": null,
       "lng": null,
@@ -4144,7 +4144,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAOgFA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sofienbergsparken/uteomrade05.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sofienbergsparken",
       "lat": null,
       "lng": null,
@@ -4876,7 +4876,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQPHg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Bislett/fasade01_.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Bislett",
       "lat": 59.9255533,
       "lng": 10.7318943,
@@ -7552,7 +7552,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0VA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/1H0A8520.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -7564,7 +7564,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0VQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/1H0A8517.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -7576,7 +7576,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0Vg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/1H0A8513.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -7588,7 +7588,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0Vw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/1H0A8506.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -7600,7 +7600,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0WA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/1H0A8507.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -7612,7 +7612,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0WQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/1H0A8524.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -7624,7 +7624,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0Wg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/1H0A8531.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -7636,7 +7636,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0Ww",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/1H0A8519.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -7648,7 +7648,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0XA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/1H0A8505.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -7660,7 +7660,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0XQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/1H0A8510.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -7672,7 +7672,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0Xg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/1H0A8504.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -7684,7 +7684,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0Xw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/1H0A8527.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -7696,7 +7696,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAdLOw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/fasade10.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Gamle Oslo",
       "lat": 59.8992367,
       "lng": 10.7347673,
@@ -7708,7 +7708,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAdLPA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/fasade09.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Gamle Oslo",
       "lat": 59.8992367,
       "lng": 10.7347673,
@@ -7912,7 +7912,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAP5qQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Åsen/fasade03.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Åsen",
       "lat": 59.9397307,
       "lng": 10.7786641,
@@ -7936,7 +7936,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQj6g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Grefsen Stasjon/utsikt02_kveld.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Grefsen Stasjon",
       "lat": 59.9414131,
       "lng": 10.7779364,
@@ -8392,7 +8392,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAgMug",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Til Håkon/fasade01_kveld_ver02.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Til Håkon",
       "lat": null,
       "lng": null,
@@ -8404,7 +8404,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAgMuw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Til Håkon/fasade01_.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Til Håkon",
       "lat": null,
       "lng": null,
@@ -8416,7 +8416,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAgQYQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Torshov og sandakerveien/fasade01__.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Torshov og sandakerveien",
       "lat": null,
       "lng": null,
@@ -8428,7 +8428,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAgQYg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Torshov og sandakerveien/fasade01__kveld_ver02.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Torshov og sandakerveien",
       "lat": null,
       "lng": null,
@@ -8692,7 +8692,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAfocA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Øyungen/1H0A7636-HDR.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Øyungen",
       "lat": 62.7561387,
       "lng": 11.0412592,
@@ -8704,7 +8704,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAfocQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Øyungen/1H0A7623-HDR.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Øyungen",
       "lat": 62.7561387,
       "lng": 11.0412592,
@@ -9652,7 +9652,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAATROQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Slottsparken/1H0A4062-HDR.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Slottsparken",
       "lat": 59.9176072,
       "lng": 10.727915,
@@ -9664,7 +9664,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAATROg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Slottsparken/1H0A4068-HDR.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Slottsparken",
       "lat": 59.9176072,
       "lng": 10.727915,
@@ -9676,7 +9676,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAATROw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Slottsparken/1H0A4071-HDR.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Slottsparken",
       "lat": 59.9176072,
       "lng": 10.727915,
@@ -9688,7 +9688,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAATRPA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Slottsparken/1H0A4077-HDR.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Slottsparken",
       "lat": 59.9176072,
       "lng": 10.727915,
@@ -9748,7 +9748,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbpw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Aker Brygge/fasade01_kveld.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Aker Brygge",
       "lat": 59.9099278,
       "lng": 10.7250417,
@@ -9760,7 +9760,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbqw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Aker Brygge/fasade02.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Aker Brygge",
       "lat": 59.9099278,
       "lng": 10.7250417,
@@ -10804,7 +10804,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbvQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Tjuvholmen/90fasade_kveld_ver03.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tjuvholmen",
       "lat": 59.9077051,
       "lng": 10.7215725,
@@ -10816,7 +10816,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbvg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Tjuvholmen/91fasade_kveld_ver03.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tjuvholmen",
       "lat": 59.9077051,
       "lng": 10.7215725,
@@ -10924,7 +10924,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbxw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Tjuvholmen/fasade01_kveld_ver03.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tjuvholmen",
       "lat": 59.9077051,
       "lng": 10.7215725,
@@ -10936,7 +10936,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbyA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Tjuvholmen/fasade01_kveld.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tjuvholmen",
       "lat": 59.9077051,
       "lng": 10.7215725,
@@ -10948,7 +10948,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbyQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Tjuvholmen/fasade02 _kveld.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tjuvholmen",
       "lat": 59.9077051,
       "lng": 10.7215725,
@@ -10960,7 +10960,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbyg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Tjuvholmen/fasade02_kveld_ver03.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tjuvholmen",
       "lat": 59.9077051,
       "lng": 10.7215725,
@@ -10972,7 +10972,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbyw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Tjuvholmen/fasade02_kveld.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tjuvholmen",
       "lat": 59.9077051,
       "lng": 10.7215725,
@@ -10984,7 +10984,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbzA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Tjuvholmen/fasade01.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tjuvholmen",
       "lat": 59.9077051,
       "lng": 10.7215725,
@@ -10996,7 +10996,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbzQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Tjuvholmen/fasade022_kveld.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tjuvholmen",
       "lat": 59.9077051,
       "lng": 10.7215725,
@@ -11008,7 +11008,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbzg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Tjuvholmen/fasade0111_kveld.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tjuvholmen",
       "lat": 59.9077051,
       "lng": 10.7215725,
@@ -11020,7 +11020,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARb0A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Tjuvholmen/fasade01123_kveld.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tjuvholmen",
       "lat": 59.9077051,
       "lng": 10.7215725,
@@ -11428,7 +11428,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARfQg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Sørenga/fasade01_kveld-Edit.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sørenga",
       "lat": 59.9034318,
       "lng": 10.758606,
@@ -11440,7 +11440,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARfQw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Sørenga/fasade02_kveld-Edit.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sørenga",
       "lat": 59.9034318,
       "lng": 10.758606,
@@ -11452,7 +11452,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARfRA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Sørenga/fasade03_kveld-Edit.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sørenga",
       "lat": 59.9034318,
       "lng": 10.758606,
@@ -11464,7 +11464,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARfRQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Sørenga/fasade04_kveld-Edit.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sørenga",
       "lat": 59.9034318,
       "lng": 10.758606,
@@ -11512,7 +11512,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAXFOg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/fasade02_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sentrum",
       "lat": 59.9099697,
       "lng": 10.743309,
@@ -11524,7 +11524,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAXFOw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/fasade01_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sentrum",
       "lat": 59.9099697,
       "lng": 10.743309,
@@ -11536,7 +11536,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAXFPA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/fasade03_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sentrum",
       "lat": 59.9099697,
       "lng": 10.743309,
@@ -11548,7 +11548,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAXFPQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/fasade08_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sentrum",
       "lat": 59.9099697,
       "lng": 10.743309,
@@ -11560,7 +11560,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAXFPg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/fasade04_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sentrum",
       "lat": 59.9099697,
       "lng": 10.743309,
@@ -11656,7 +11656,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAOF1A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Majorstuen T-bane/1H0A0111-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Majorstuen T-bane",
       "lat": 59.9295587,
       "lng": 10.714689,
@@ -11668,7 +11668,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAOF1Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Majorstuen T-bane/1H0A0130-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Majorstuen T-bane",
       "lat": 59.9295587,
       "lng": 10.714689,
@@ -11776,7 +11776,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQcww",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/DJI_0142-Edit-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -11788,7 +11788,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQMxw",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade03.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11800,7 +11800,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQMyA",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade04.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11812,7 +11812,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQMyQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade05.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11824,7 +11824,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQMyg",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade06.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11836,7 +11836,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQMyw",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade07.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11848,7 +11848,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQMzA",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade08.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11860,7 +11860,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQMzQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade9.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11872,7 +11872,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQMzg",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade10.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11884,7 +11884,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQMzw",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade11.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11896,7 +11896,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQM0A",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade12.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11908,7 +11908,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQM0Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade13.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11920,7 +11920,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQM0g",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade14.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11956,7 +11956,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQeDA",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade03 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11968,7 +11968,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQeDQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade04 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11980,7 +11980,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQeDg",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade05 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -11992,7 +11992,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQeDw",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade06 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -12004,7 +12004,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQeEA",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade07 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -12016,7 +12016,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQeEQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade08 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -12028,7 +12028,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQeEg",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade9 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -12040,7 +12040,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQeEw",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade10 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -12052,7 +12052,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQeFA",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade11 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -12064,7 +12064,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQeFQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade12 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -12076,7 +12076,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQeFg",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade13 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -12088,7 +12088,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQeFw",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Oppegård/fasade14 (1).jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Oppegård",
       "lat": 59.7670938,
       "lng": 10.8113187,
@@ -12124,7 +12124,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQckQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Fornebu/92fasade.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Fornebu",
       "lat": null,
       "lng": null,
@@ -12136,7 +12136,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQckg",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Fornebu/91fasade.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Fornebu",
       "lat": null,
       "lng": null,
@@ -13360,7 +13360,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAdcfQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Vestfold og Telemark/Tønsberg/fasade01_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tønsberg",
       "lat": null,
       "lng": null,
@@ -13372,7 +13372,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAdcfg",
       "dropboxPath": "/Felles/Områdebilder JPG/Vestfold og Telemark/Tønsberg/fasade03_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tønsberg",
       "lat": null,
       "lng": null,
@@ -13384,7 +13384,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAdcfw",
       "dropboxPath": "/Felles/Områdebilder JPG/Vestfold og Telemark/Tønsberg/fasade04_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tønsberg",
       "lat": null,
       "lng": null,
@@ -13396,7 +13396,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAdcgA",
       "dropboxPath": "/Felles/Områdebilder JPG/Vestfold og Telemark/Tønsberg/fasade05_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tønsberg",
       "lat": null,
       "lng": null,
@@ -13408,7 +13408,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAdcgQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Vestfold og Telemark/Tønsberg/fasade06_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tønsberg",
       "lat": null,
       "lng": null,
@@ -13432,7 +13432,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAdcfA",
       "dropboxPath": "/Felles/Områdebilder JPG/Vestfold og Telemark/Tønsberg/fasade02_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Tønsberg",
       "lat": null,
       "lng": null,
@@ -13768,7 +13768,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA7HZg",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Asker/Asker stasjon/165-2.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Asker stasjon",
       "lat": null,
       "lng": null,
@@ -13780,7 +13780,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA7HZw",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Asker/Asker stasjon/165-3.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Asker stasjon",
       "lat": null,
       "lng": null,
@@ -13816,7 +13816,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA95jA",
       "dropboxPath": "/Felles/Områdebilder JPG/Viken/Båstadmyra barnehage/208.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Båstadmyra barnehage",
       "lat": null,
       "lng": null,
@@ -13996,7 +13996,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQcxA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/DJI_0143-Edit-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -14008,7 +14008,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQcxQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/IMG_1962-Edit-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -14020,7 +14020,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQcxg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/IMG_1959-Edit-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -14032,7 +14032,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQcxw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/IMG_1968-Edit-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -14044,7 +14044,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQcyA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/IMG_1974-Edit-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -14056,7 +14056,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQlrQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/CU3A2766-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -14068,7 +14068,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQlrg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/CU3A2762-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -14080,7 +14080,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQlrw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/CU3A2761-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -14092,7 +14092,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQlsA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/CU3A2766-Edit (1).jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -14104,7 +14104,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQlsQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/CU3A2762-Edit (1).jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -14116,7 +14116,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQlsg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/CU3A2761-Edit (1).jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -14128,7 +14128,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQlsw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/CU3A2772-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -14140,7 +14140,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbqA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Aker Brygge/fasade02 _kveld.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Aker Brygge",
       "lat": 59.9099278,
       "lng": 10.7250417,
@@ -14152,7 +14152,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbnA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Aker Brygge/91fasade_kveld_ver03.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Aker Brygge",
       "lat": 59.9099278,
       "lng": 10.7250417,
@@ -14176,7 +14176,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbqg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Aker Brygge/fasade02_kveld.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Aker Brygge",
       "lat": 59.9099278,
       "lng": 10.7250417,
@@ -14188,7 +14188,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbnw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Aker Brygge/90fasade_kveld_ver03.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Aker Brygge",
       "lat": 59.9099278,
       "lng": 10.7250417,
@@ -14236,7 +14236,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbpg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Aker Brygge/fasade01_kveld_ver03.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Aker Brygge",
       "lat": 59.9099278,
       "lng": 10.7250417,
@@ -14248,7 +14248,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARbqQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Aker Brygge/fasade02_kveld_ver03.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Aker Brygge",
       "lat": 59.9099278,
       "lng": 10.7250417,
@@ -14896,7 +14896,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkADQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Svartdalsparken/009-2.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Svartdalsparken",
       "lat": null,
       "lng": null,
@@ -14908,7 +14908,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkADg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Svartdalsparken/009.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Svartdalsparken",
       "lat": null,
       "lng": null,
@@ -14932,7 +14932,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkMmQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade01 (1)FSlogo_løren.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -14944,7 +14944,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkMmg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade01-EditFSlogo_løren.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -14956,7 +14956,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkMmw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade02 (1)FSlogo_løren.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -14968,7 +14968,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkMnQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade02FSlogo_løren.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -14980,7 +14980,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkMng",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade03 (1)FSlogo_løren.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -14992,7 +14992,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkMnw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade03-EditFSlogo_løren.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -15004,7 +15004,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkMoA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade04-EditFSlogo_løren.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -15016,7 +15016,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkMoQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade05-EditFSlogo_løren.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -15028,7 +15028,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkMog",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade04FSlogo_løren.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -15040,7 +15040,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkMow",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren/fasade05.FSlogo_løren.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren",
       "lat": 59.9353785,
       "lng": 10.804402,
@@ -15796,7 +15796,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAtptg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Middelalderparken/1H0A8390-HDR-2.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Middelalderparken",
       "lat": null,
       "lng": null,
@@ -15808,7 +15808,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAtptw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Middelalderparken/1H0A8390-HDR.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Middelalderparken",
       "lat": null,
       "lng": null,
@@ -15820,7 +15820,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAtpuA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Middelalderparken/1H0A8393-2.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Middelalderparken",
       "lat": null,
       "lng": null,
@@ -15832,7 +15832,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAtpuQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Middelalderparken/1H0A8393.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Middelalderparken",
       "lat": null,
       "lng": null,
@@ -15844,7 +15844,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAuxrg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/1L7A5522.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -15856,7 +15856,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAuxrw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/1L7A5525.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -15868,7 +15868,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAuxsg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/1L7A5523.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -15880,7 +15880,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAuxsQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/1L7A5524.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -15892,7 +15892,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAuxsA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/1L7A5533.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -15904,7 +15904,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAuxtA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/1L7A5538.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -15916,7 +15916,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAuxtQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/1L7A5540.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -15928,7 +15928,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAuxsw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/1L7A5541.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -15940,7 +15940,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAuxtg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/1L7A5543.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -15952,7 +15952,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAuxtw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Frognerparken/1L7A5544.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frognerparken",
       "lat": 59.9287423,
       "lng": 10.7063759,
@@ -16048,7 +16048,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAu14g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Bislett Stadion/22-9.jpg",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Bislett Stadion",
       "lat": 59.9249299,
       "lng": 10.7333626,
@@ -16300,7 +16300,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAvq5w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Teaterplassen/22-8.jpg",
-      "category": "park",
+      "category": "kultur",
       "placeName": "Teaterplassen",
       "lat": 59.9112302,
       "lng": 10.7627671,
@@ -16312,7 +16312,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAvq6A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Teaterplassen/22-9.jpg",
-      "category": "park",
+      "category": "kultur",
       "placeName": "Teaterplassen",
       "lat": 59.9112302,
       "lng": 10.7627671,
@@ -16468,7 +16468,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAwl-w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sofienbergsparken/24-28.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sofienbergsparken",
       "lat": null,
       "lng": null,
@@ -16480,7 +16480,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAwl_A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sofienbergsparken/24-29.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sofienbergsparken",
       "lat": null,
       "lng": null,
@@ -16492,7 +16492,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAwl_Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sofienbergsparken/24-30.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sofienbergsparken",
       "lat": null,
       "lng": null,
@@ -16516,7 +16516,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAwmAA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/24-31.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -16528,7 +16528,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAwmAQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Tøyenparken/24-34.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken",
       "lat": 59.916586,
       "lng": 10.77603,
@@ -16540,7 +16540,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAwmAw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/24-36.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -16552,7 +16552,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAwmBA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/24-31.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -16564,7 +16564,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAwmBQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/24-32.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -16576,7 +16576,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAwmBg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/24-33.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -16588,7 +16588,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAwmBw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/24-34.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -16600,7 +16600,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAwmCA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/24-35.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -16852,7 +16852,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAxmEQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Årvoll/Årvoll senter/26-54.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Årvoll senter",
       "lat": 59.945092,
       "lng": 10.808943,
@@ -17212,7 +17212,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAxnnA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Frysjaparken/25-12.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frysjaparken",
       "lat": 59.9653782,
       "lng": 10.7715293,
@@ -17224,7 +17224,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAxnnQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Frysjaparken/25-5.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frysjaparken",
       "lat": 59.9653782,
       "lng": 10.7715293,
@@ -17236,7 +17236,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAxnng",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Frysjaparken/25-6.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frysjaparken",
       "lat": 59.9653782,
       "lng": 10.7715293,
@@ -17248,7 +17248,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAxnnw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Frysjaparken/25-10.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frysjaparken",
       "lat": 59.9653782,
       "lng": 10.7715293,
@@ -17260,7 +17260,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAxnoA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Frysjaparken/25-11.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frysjaparken",
       "lat": 59.9653782,
       "lng": 10.7715293,
@@ -17272,7 +17272,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAxnoQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Frysjaparken/25-7.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frysjaparken",
       "lat": 59.9653782,
       "lng": 10.7715293,
@@ -17284,7 +17284,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAxnog",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Frysjaparken/25-8.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frysjaparken",
       "lat": 59.9653782,
       "lng": 10.7715293,
@@ -17296,7 +17296,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAxnow",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Frysjaparken/25-9.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Frysjaparken",
       "lat": 59.9653782,
       "lng": 10.7715293,
@@ -17344,7 +17344,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAxsDg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordstrand/Ekebergrestauranten/26-29.jpg",
-      "category": "restaurant",
+      "category": "annet",
       "placeName": "Ekebergrestauranten",
       "lat": 59.899348,
       "lng": 10.7617048,
@@ -17356,7 +17356,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAxsDw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordstrand/Ekebergrestauranten/26-30.jpg",
-      "category": "restaurant",
+      "category": "annet",
       "placeName": "Ekebergrestauranten",
       "lat": 59.899348,
       "lng": 10.7617048,
@@ -17512,7 +17512,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAyH3w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Victoria Terrasse/CU3A1460-Edit.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "Victoria Terrasse",
       "lat": 59.9144282,
       "lng": 10.7292917,
@@ -17524,7 +17524,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAyH4A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Victoria Terrasse/CU3A1467-Edit.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "Victoria Terrasse",
       "lat": 59.9144282,
       "lng": 10.7292917,
@@ -17536,7 +17536,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAyH4Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Victoria Terrasse/CU3A1470-Edit.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "Victoria Terrasse",
       "lat": 59.9144282,
       "lng": 10.7292917,
@@ -18988,7 +18988,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAyz_g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Vøyenfallene Mølleparken Foss/41.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Vøyenfallene Mølleparken Foss",
       "lat": null,
       "lng": null,
@@ -19048,7 +19048,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAza5w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Disen skole/52-31.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Disen skole",
       "lat": 59.94825,
       "lng": 10.7946777,
@@ -19060,7 +19060,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAza6A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Disen skole/52-32.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Disen skole",
       "lat": 59.94825,
       "lng": 10.7946777,
@@ -19072,7 +19072,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAza6Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Disen skole/52-33.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Disen skole",
       "lat": 59.94825,
       "lng": 10.7946777,
@@ -19084,7 +19084,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAza6g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Torshovparken/52.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Torshovparken",
       "lat": 59.9354405,
       "lng": 10.7709791,
@@ -19096,7 +19096,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAza6w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Torshovparken/52-2.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Torshovparken",
       "lat": 59.9354405,
       "lng": 10.7709791,
@@ -19108,7 +19108,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAza7A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Torshovparken/52-3.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Torshovparken",
       "lat": 59.9354405,
       "lng": 10.7709791,
@@ -19120,7 +19120,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAza7Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Torshovparken/52-4.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Torshovparken",
       "lat": 59.9354405,
       "lng": 10.7709791,
@@ -19132,7 +19132,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAza7g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Torshovparken/52-5.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Torshovparken",
       "lat": 59.9354405,
       "lng": 10.7709791,
@@ -19144,7 +19144,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAza7w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Torshovparken/52-6.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Torshovparken",
       "lat": 59.9354405,
       "lng": 10.7709791,
@@ -19444,7 +19444,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA0Dsw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Disen skole/Ny2-20.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Disen skole",
       "lat": 59.94825,
       "lng": 10.7946777,
@@ -19576,7 +19576,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCmQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Sagadammen/fasade01.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sagadammen",
       "lat": 59.9683969,
       "lng": 10.7773435,
@@ -19588,7 +19588,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCmg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Sagadammen/fasade02.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sagadammen",
       "lat": 59.9683969,
       "lng": 10.7773435,
@@ -19600,7 +19600,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQd3g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Sagadammen/fasade04.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sagadammen",
       "lat": 59.9683969,
       "lng": 10.7773435,
@@ -19624,7 +19624,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCqQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Teknisk museum/IMG_2845-HDR-Edit.jpg",
-      "category": "annet",
+      "category": "kultur",
       "placeName": "Teknisk museum",
       "lat": 59.966914,
       "lng": 10.783414,
@@ -19636,7 +19636,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCqg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Teknisk museum/IMG_2848-HDR-Edit.jpg",
-      "category": "annet",
+      "category": "kultur",
       "placeName": "Teknisk museum",
       "lat": 59.966914,
       "lng": 10.783414,
@@ -19648,7 +19648,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCkw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Grefsen stadion/DJI_0451-Edit.jpg",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Grefsen stadion",
       "lat": 59.9590889,
       "lng": 10.7804132,
@@ -19660,7 +19660,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARClA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Grefsen stadion/DJI_0453-Edit.jpg",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Grefsen stadion",
       "lat": 59.9590889,
       "lng": 10.7804132,
@@ -19672,7 +19672,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARClQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Grefsen stadion/DJI_0454-Edit.jpg",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Grefsen stadion",
       "lat": 59.9590889,
       "lng": 10.7804132,
@@ -19684,7 +19684,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARClg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Grefsen stadion/DJI_0456-Edit.jpg",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Grefsen stadion",
       "lat": 59.9590889,
       "lng": 10.7804132,
@@ -19696,7 +19696,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA04pw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Minneparken/66-8.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Minneparken",
       "lat": 59.9060604,
       "lng": 10.7687883,
@@ -19708,7 +19708,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA04qg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Arups gate - Lekeplass/66-9.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Arups gate - Lekeplass",
       "lat": 59.9072066,
       "lng": 10.7700187,
@@ -20236,7 +20236,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA3mzg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Kristparken/37-4.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Kristparken",
       "lat": null,
       "lng": null,
@@ -20248,7 +20248,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA3yPA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Voldsløkka skole/88-2.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Voldsløkka skole",
       "lat": null,
       "lng": null,
@@ -20260,7 +20260,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA3yPQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Voldsløkka skole/88-3.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Voldsløkka skole",
       "lat": null,
       "lng": null,
@@ -20272,7 +20272,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA3yPg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Voldsløkka skole/88-4.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Voldsløkka skole",
       "lat": null,
       "lng": null,
@@ -20284,7 +20284,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA3yPw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Voldsløkka skole/88-5.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Voldsløkka skole",
       "lat": null,
       "lng": null,
@@ -20296,7 +20296,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA3yQA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Voldsløkka skole/88.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Voldsløkka skole",
       "lat": null,
       "lng": null,
@@ -20344,7 +20344,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA4NjA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Mathallen/fasade03_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Mathallen",
       "lat": 59.9221184,
       "lng": 10.7520299,
@@ -20356,7 +20356,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA4NjQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Mathallen/fasade04_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Mathallen",
       "lat": 59.9221184,
       "lng": 10.7520299,
@@ -20368,7 +20368,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA4Njg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Mathallen/fasade05_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Mathallen",
       "lat": 59.9221184,
       "lng": 10.7520299,
@@ -20380,7 +20380,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA4Njw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Mathallen/fasade07_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Mathallen",
       "lat": 59.9221184,
       "lng": 10.7520299,
@@ -20392,7 +20392,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA4NkQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Trikkestallen/CU3A0375-Edit-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Trikkestallen",
       "lat": 59.9326257,
       "lng": 10.7679713,
@@ -20500,7 +20500,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA4Nog",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Grefsen Stasjon/uteomrade01.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Grefsen Stasjon",
       "lat": 59.9418161,
       "lng": 10.7804364,
@@ -20560,7 +20560,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAdcew",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Colosseum/fasade03.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Colosseum",
       "lat": 59.929596,
       "lng": 10.7103968,
@@ -20572,7 +20572,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAdceg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Colosseum/fasade04.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Colosseum",
       "lat": 59.929596,
       "lng": 10.7103968,
@@ -21448,7 +21448,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAgQZQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Torshov/Sandaker/Lilleborg/fasade01__.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Lilleborg",
       "lat": 59.9381117,
       "lng": 10.7639525,
@@ -21460,7 +21460,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAgQZg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Torshov/Sandaker/Lilleborg/fasade01__kveld_ver02.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Lilleborg",
       "lat": 59.9381117,
       "lng": 10.7639525,
@@ -22504,7 +22504,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5MrQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Bunnpris - Kampen/19-30.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Bunnpris - Kampen",
       "lat": 59.90209,
       "lng": 10.771436,
@@ -22528,7 +22528,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5MsQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Mølleparken/41-21.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Mølleparken",
       "lat": 59.9287597,
       "lng": 10.7564464,
@@ -22564,7 +22564,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5MmA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Vestre Aker/Røa senter_1.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Vestre Aker",
       "lat": 59.9583001,
       "lng": 10.6703187,
@@ -22576,7 +22576,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5Mlw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Vestre Aker/Røa Senter_2.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Vestre Aker",
       "lat": 59.9583001,
       "lng": 10.6703187,
@@ -22588,7 +22588,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5Mlg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Vestre Aker/Røa Senter_3.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Vestre Aker",
       "lat": 59.9583001,
       "lng": 10.6703187,
@@ -22684,7 +22684,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAjm0g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Ullern/Skøyen stasjon/CU3A2742-Edit copy.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Skøyen stasjon",
       "lat": null,
       "lng": null,
@@ -22696,7 +22696,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAjm0w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Ullern/Skøyen stasjon/CU3A2742-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Skøyen stasjon",
       "lat": null,
       "lng": null,
@@ -22708,7 +22708,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAjm1A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Ullern/Skøyen stasjon/CU3A2748-Edit copy.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Skøyen stasjon",
       "lat": null,
       "lng": null,
@@ -22720,7 +22720,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAjm1Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Ullern/Skøyen stasjon/CU3A2748-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Skøyen stasjon",
       "lat": null,
       "lng": null,
@@ -22732,7 +22732,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5_mw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Joker Torftes gate.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Grünerløkka",
       "lat": null,
       "lng": null,
@@ -22816,7 +22816,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5_nQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Ringen Kino.jpg",
-      "category": "annet",
+      "category": "kultur",
       "placeName": "Grünerløkka",
       "lat": null,
       "lng": null,
@@ -22828,7 +22828,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5_nA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Ringen senter.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Grünerløkka",
       "lat": null,
       "lng": null,
@@ -22840,7 +22840,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5_qg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Ullern/Ullern Idrettspark/129-55.jpg",
-      "category": "park",
+      "category": "aktivitet",
       "placeName": "Ullern Idrettspark",
       "lat": null,
       "lng": null,
@@ -22852,7 +22852,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5_qw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Ullern/Ullern Idrettspark/129-54.jpg",
-      "category": "park",
+      "category": "aktivitet",
       "placeName": "Ullern Idrettspark",
       "lat": null,
       "lng": null,
@@ -22864,7 +22864,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5_rA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Ullern/Ullern Idrettspark/129-53.jpg",
-      "category": "park",
+      "category": "aktivitet",
       "placeName": "Ullern Idrettspark",
       "lat": null,
       "lng": null,
@@ -22876,7 +22876,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5_rQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Ullern/Ullern Idrettspark/129-52.jpg",
-      "category": "park",
+      "category": "aktivitet",
       "placeName": "Ullern Idrettspark",
       "lat": null,
       "lng": null,
@@ -22888,7 +22888,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA6Bcg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Mølleparken/balkong06_kveld_ver02.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Mølleparken",
       "lat": 59.9287597,
       "lng": 10.7564464,
@@ -22900,7 +22900,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA6Bcw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Mølleparken/balkong07_kveld_ver02.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Mølleparken",
       "lat": 59.9287597,
       "lng": 10.7564464,
@@ -22912,7 +22912,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA6BdA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Mølleparken/fasade02_kveld_ver02.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Mølleparken",
       "lat": 59.9287597,
       "lng": 10.7564464,
@@ -22924,7 +22924,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA6BdQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Mølleparken/fasade03_kveld_ver02.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Mølleparken",
       "lat": 59.9287597,
       "lng": 10.7564464,
@@ -22936,7 +22936,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA6Bdg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Mølleparken/41-21 (1).jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Mølleparken",
       "lat": 59.9287597,
       "lng": 10.7564464,
@@ -23260,7 +23260,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA6fJQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Lille Frogner alle trikkeplass/143-37.jpg",
-      "category": "park",
+      "category": "kollektiv",
       "placeName": "Lille Frogner alle trikkeplass",
       "lat": null,
       "lng": null,
@@ -23272,7 +23272,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA62og",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Botsparken/52-29.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Botsparken",
       "lat": null,
       "lng": null,
@@ -23284,7 +23284,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA62ow",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Botsparken/1H0A5006-HDR-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Botsparken",
       "lat": null,
       "lng": null,
@@ -23296,7 +23296,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA62pA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Botsparken/52-30.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Botsparken",
       "lat": null,
       "lng": null,
@@ -23452,7 +23452,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA8VMQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sinsenparken/185-2.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sinsenparken",
       "lat": null,
       "lng": null,
@@ -23464,7 +23464,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA8VMg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sinsenparken/185-3.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sinsenparken",
       "lat": null,
       "lng": null,
@@ -23476,7 +23476,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA8VMw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sinsenparken/185.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sinsenparken",
       "lat": null,
       "lng": null,
@@ -23488,7 +23488,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA8gZg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Vestre Aker/Røabadet/Røa Senter_3.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Røabadet",
       "lat": null,
       "lng": null,
@@ -23728,7 +23728,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA8ghQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Vestre Aker/Oslo Vinterpark Tryvann Wyller/IMG_2447_ferdig.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Oslo Vinterpark Tryvann Wyller",
       "lat": null,
       "lng": null,
@@ -24340,7 +24340,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAyK0w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Sinsen t-bane/33-13.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Sinsen t-bane",
       "lat": null,
       "lng": null,
@@ -24664,7 +24664,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9vwA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/206-10.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -24676,7 +24676,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9vwQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/206-11.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -24688,7 +24688,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9vwg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/206-12.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -24700,7 +24700,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9vww",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/206-9.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -24868,7 +24868,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9v2A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Carl Berner Tbane/206-13.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Carl Berner Tbane",
       "lat": null,
       "lng": null,
@@ -24880,7 +24880,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9v2Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/206-6.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -24892,7 +24892,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9v2g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/206-7.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -24904,7 +24904,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9v2w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/206-8.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -25024,7 +25024,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9v6g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Colosseum 9 senter/206-11.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Colosseum 9 senter",
       "lat": null,
       "lng": null,
@@ -25060,7 +25060,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9v7w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Colosseum Senter/206-2.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Colosseum Senter",
       "lat": 59.9308244,
       "lng": 10.7106201,
@@ -25072,7 +25072,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9v8A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Colosseum Senter/206-3.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Colosseum Senter",
       "lat": 59.9308244,
       "lng": 10.7106201,
@@ -25084,7 +25084,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9v8Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Majorstuen/Colosseum Senter/206-4.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Colosseum Senter",
       "lat": 59.9308244,
       "lng": 10.7106201,
@@ -25120,7 +25120,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9v9g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Sinsenparken/185-2.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sinsenparken",
       "lat": 59.9332359,
       "lng": 10.7858513,
@@ -25132,7 +25132,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9v9w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Sinsenparken/185.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sinsenparken",
       "lat": 59.9332359,
       "lng": 10.7858513,
@@ -25144,7 +25144,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9v-A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Sinsenparken/185-3.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sinsenparken",
       "lat": 59.9332359,
       "lng": 10.7858513,
@@ -25204,7 +25204,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9xqg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Vestre Aker/Slemdal skole/207.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Slemdal skole",
       "lat": 59.9515517,
       "lng": 10.6926458,
@@ -25216,7 +25216,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9xqw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Vestre Aker/Meny Eckbobanen/207-5.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Meny Eckbobanen",
       "lat": null,
       "lng": null,
@@ -25228,7 +25228,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA9xrA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Vestre Aker/Meny Eckbobanen/207-6.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Meny Eckbobanen",
       "lat": null,
       "lng": null,
@@ -25768,7 +25768,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA96sA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalen Skole/212-3.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalen Skole",
       "lat": 60.004507,
       "lng": 10.764003,
@@ -25780,7 +25780,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA96sQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalen Skole/212-2.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalen Skole",
       "lat": 60.004507,
       "lng": 10.764003,
@@ -25792,7 +25792,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA96sg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalen Skole/212-4.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalen Skole",
       "lat": 60.004507,
       "lng": 10.764003,
@@ -25804,7 +25804,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA96sw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalen Skole/212-5.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalen Skole",
       "lat": 60.004507,
       "lng": 10.764003,
@@ -25816,7 +25816,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA96tA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalen Skole/212-6.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalen Skole",
       "lat": 60.004507,
       "lng": 10.764003,
@@ -25828,7 +25828,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA96tQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalen Skole/212-7.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalen Skole",
       "lat": 60.004507,
       "lng": 10.764003,
@@ -25840,7 +25840,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA96tg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalen Skole/212-8.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalen Skole",
       "lat": 60.004507,
       "lng": 10.764003,
@@ -25852,7 +25852,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA96tw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalen Skole/212-9.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalen Skole",
       "lat": 60.004507,
       "lng": 10.764003,
@@ -25864,7 +25864,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA96uA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalen Skole/212.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalen Skole",
       "lat": 60.004507,
       "lng": 10.764003,
@@ -26008,7 +26008,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5J-w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Lilleborg Ivan Bjørndalsgate/fasade03.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Lilleborg Ivan Bjørndalsgate",
       "lat": null,
       "lng": null,
@@ -26044,7 +26044,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-C2A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Det Andre Teateret/214-17.jpg",
-      "category": "annet",
+      "category": "kultur",
       "placeName": "Det Andre Teateret",
       "lat": null,
       "lng": null,
@@ -26068,7 +26068,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-C3A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Joker Tidemannsbyen/214-15.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Joker Tidemannsbyen",
       "lat": null,
       "lng": null,
@@ -26104,7 +26104,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-C4g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Dagligvare Galgeberg/214-18.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Dagligvare Galgeberg",
       "lat": 59.9075448,
       "lng": 10.7797548,
@@ -26116,7 +26116,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-C4w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Dagligvare Galgeberg/214-19.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Dagligvare Galgeberg",
       "lat": 59.9075448,
       "lng": 10.7797548,
@@ -26128,7 +26128,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-C5Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/ZZ pizza take away/214-21.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "ZZ pizza take away",
       "lat": null,
       "lng": null,
@@ -26140,7 +26140,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-C5g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/ZZ pizza take away/214-20.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "ZZ pizza take away",
       "lat": null,
       "lng": null,
@@ -26200,7 +26200,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-C7Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Enerhaugen Buldrevegg/214-22.jpg",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Enerhaugen Buldrevegg",
       "lat": null,
       "lng": null,
@@ -26356,7 +26356,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-DMw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Margaretakirken/CU3A1003-HDR-Edit-Edit.jpg",
-      "category": "takterrasse",
+      "category": "natur",
       "placeName": "Margaretakirken",
       "lat": 59.9958484,
       "lng": 10.7651335,
@@ -26368,7 +26368,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-DNA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Margaretakirken/DJI_0552-Edit.jpg",
-      "category": "takterrasse",
+      "category": "natur",
       "placeName": "Margaretakirken",
       "lat": 59.9958484,
       "lng": 10.7651335,
@@ -26380,7 +26380,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-DNg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalsvannet Maridalen/DJI_0421.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalsvannet Maridalen",
       "lat": 59.9828978,
       "lng": 10.7800092,
@@ -26392,7 +26392,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-DNw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalsvannet Maridalen/DJI_0422.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalsvannet Maridalen",
       "lat": 59.9828978,
       "lng": 10.7800092,
@@ -26404,7 +26404,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-DOA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalsvannet Maridalen/DJI_0423.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalsvannet Maridalen",
       "lat": 59.9828978,
       "lng": 10.7800092,
@@ -26416,7 +26416,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-DOQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalsvannet Maridalen/DJI_0520-Edit.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalsvannet Maridalen",
       "lat": 59.9828978,
       "lng": 10.7800092,
@@ -26428,7 +26428,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-DOg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalsvannet Maridalen/DJI_0524-Edit.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalsvannet Maridalen",
       "lat": 59.9828978,
       "lng": 10.7800092,
@@ -26440,7 +26440,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-DOw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Maridalsvannet Maridalen/DJI_0525-Edit.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Maridalsvannet Maridalen",
       "lat": 59.9828978,
       "lng": 10.7800092,
@@ -26512,7 +26512,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-DRQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sagveien/fasade02.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sagveien",
       "lat": 59.9302073,
       "lng": 10.7553602,
@@ -26524,7 +26524,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-DRg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sagveien/fasade03.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sagveien",
       "lat": 59.9302073,
       "lng": 10.7553602,
@@ -26536,7 +26536,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-DRw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sagveien/fasade04.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Sagveien",
       "lat": 59.9302073,
       "lng": 10.7553602,
@@ -26620,7 +26620,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAfoYQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/CU3A9183-Edit (1).jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -26632,7 +26632,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQdyA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/CU3A9183-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -26644,7 +26644,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAfoYA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/CU3A9186-Edit (1).jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -26656,7 +26656,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQdyQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/CU3A9186-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -26668,7 +26668,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAfoXQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/CU3A9188-Edit (1).jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -26680,7 +26680,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQdyg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/CU3A9188-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -26692,7 +26692,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAfoXg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/CU3A9189-Edit (1).jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -26704,7 +26704,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQdzQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/CU3A9189-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -26716,7 +26716,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAfoXw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/CU3A9190-Edit (1).jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -26728,7 +26728,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQdzA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/CU3A9190-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -26740,7 +26740,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAfoXA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/CU3A9191-Edit (1).jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -26752,7 +26752,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQdyw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/CU3A9191-Edit.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -26776,7 +26776,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-fsg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Sofienbergsparken/00010-41.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Sofienbergsparken",
       "lat": null,
       "lng": null,
@@ -27052,7 +27052,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y6A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen (1)/Nydalen tbane/CU3A8814-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Nydalen tbane",
       "lat": null,
       "lng": null,
@@ -27064,7 +27064,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y6g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen T-bane/CU3A8816-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Nydalen T-bane",
       "lat": null,
       "lng": null,
@@ -27076,7 +27076,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y6w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen T-bane/CU3A8823-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Nydalen T-bane",
       "lat": null,
       "lng": null,
@@ -27088,7 +27088,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y7A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen T-bane/CU3A8824-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Nydalen T-bane",
       "lat": null,
       "lng": null,
@@ -27100,7 +27100,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y7Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen T-bane/CU3A8827-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Nydalen T-bane",
       "lat": null,
       "lng": null,
@@ -27112,7 +27112,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y7g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen T-bane/CU3A8830-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Nydalen T-bane",
       "lat": null,
       "lng": null,
@@ -27124,7 +27124,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y7w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen T-bane/CU3A8837-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Nydalen T-bane",
       "lat": null,
       "lng": null,
@@ -27136,7 +27136,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y8A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen T-bane/CU3A8838-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Nydalen T-bane",
       "lat": null,
       "lng": null,
@@ -27148,7 +27148,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y8Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen T-bane/CU3A8841-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Nydalen T-bane",
       "lat": null,
       "lng": null,
@@ -27160,7 +27160,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y8g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen T-bane/CU3A8848-HDR-Edit-Edit-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Nydalen T-bane",
       "lat": null,
       "lng": null,
@@ -27172,7 +27172,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y8w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen T-bane/uteomrade01.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Nydalen T-bane",
       "lat": null,
       "lng": null,
@@ -27232,7 +27232,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y-g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen badeplass/00015-33.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Nydalen badeplass",
       "lat": null,
       "lng": null,
@@ -27244,7 +27244,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y-w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen badeplass/00015-34.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Nydalen badeplass",
       "lat": null,
       "lng": null,
@@ -27256,7 +27256,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y_A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen badeplass/00015-32.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Nydalen badeplass",
       "lat": null,
       "lng": null,
@@ -27268,7 +27268,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-y_Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen badeplass/00015-35.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Nydalen badeplass",
       "lat": null,
       "lng": null,
@@ -27292,7 +27292,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zAA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen badeplass/1H0A3681.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Nydalen badeplass",
       "lat": null,
       "lng": null,
@@ -27304,7 +27304,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zAQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen badeplass/1H0A3684.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Nydalen badeplass",
       "lat": null,
       "lng": null,
@@ -27316,7 +27316,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zAg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen badeplass/1H0A3687.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Nydalen badeplass",
       "lat": null,
       "lng": null,
@@ -27328,7 +27328,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zAw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen badeplass/1H0A3697-Edit.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Nydalen badeplass",
       "lat": null,
       "lng": null,
@@ -27340,7 +27340,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zBA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen badeplass/CU3A9891-HDR-Edit.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Nydalen badeplass",
       "lat": null,
       "lng": null,
@@ -27352,7 +27352,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zBQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen badeplass/CU3A9893-HDR-Edit.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Nydalen badeplass",
       "lat": null,
       "lng": null,
@@ -27364,7 +27364,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zBw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Sandermoen/00015-9.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Sandermoen",
       "lat": 60.2232535,
       "lng": 11.8219353,
@@ -27376,7 +27376,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zCA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Sandermoen/00015-8.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Sandermoen",
       "lat": 60.2232535,
       "lng": 11.8219353,
@@ -27388,7 +27388,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zCQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Sandermoen/00015-12.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Sandermoen",
       "lat": 60.2232535,
       "lng": 11.8219353,
@@ -27400,7 +27400,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zCw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Hei-til-toget-kiosken/00015-10.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Hei-til-toget-kiosken",
       "lat": null,
       "lng": null,
@@ -27412,7 +27412,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zDA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Hei-til-toget-kiosken/00015-11.jpg",
-      "category": "annet",
+      "category": "natur",
       "placeName": "Hei-til-toget-kiosken",
       "lat": null,
       "lng": null,
@@ -27424,7 +27424,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zDQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Margaretakirken/00015-18.jpg",
-      "category": "takterrasse",
+      "category": "natur",
       "placeName": "Margaretakirken",
       "lat": 59.9958484,
       "lng": 10.7651335,
@@ -27436,7 +27436,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zDg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Margaretakirken/00015-17.jpg",
-      "category": "takterrasse",
+      "category": "natur",
       "placeName": "Margaretakirken",
       "lat": 59.9958484,
       "lng": 10.7651335,
@@ -27448,7 +27448,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA-zDw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Marka/Margaretakirken/00015-2.jpg",
-      "category": "takterrasse",
+      "category": "natur",
       "placeName": "Margaretakirken",
       "lat": 59.9958484,
       "lng": 10.7651335,
@@ -27688,7 +27688,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAXFlQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Pitstop Frysjaparken/fasade04-2.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Pitstop Frysjaparken",
       "lat": null,
       "lng": null,
@@ -27700,7 +27700,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQd3w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Pitstop Frysjaparken/fasade05.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Pitstop Frysjaparken",
       "lat": null,
       "lng": null,
@@ -27976,7 +27976,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA_0pQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Stensparken/00052-3.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Stensparken",
       "lat": 59.9288206,
       "lng": 10.7308255,
@@ -27988,7 +27988,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA_0pg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Stensparken/00052-4.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Stensparken",
       "lat": 59.9288206,
       "lng": 10.7308255,
@@ -28000,7 +28000,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA_0pw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Stensparken/00052-5.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Stensparken",
       "lat": 59.9288206,
       "lng": 10.7308255,
@@ -28228,7 +28228,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA_9eg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Bervens Løkke/ Trafotaket/00055-5.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "Trafotaket",
       "lat": null,
       "lng": null,
@@ -28396,7 +28396,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABAZPQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Kristparken/00064-15.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Kristparken",
       "lat": null,
       "lng": null,
@@ -28408,7 +28408,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABAZPg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Kristparken/00064-16.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Kristparken",
       "lat": null,
       "lng": null,
@@ -28420,7 +28420,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABAZPw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Kristparken/00064-17.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Kristparken",
       "lat": null,
       "lng": null,
@@ -28612,7 +28612,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBHiA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Disen skole/00112-20.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Disen skole",
       "lat": 59.94825,
       "lng": 10.7946777,
@@ -29020,7 +29020,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBHnQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Frysja Sagadammen/fasade01.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Frysja Sagadammen",
       "lat": null,
       "lng": null,
@@ -29032,7 +29032,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBHng",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Frysja Sagadammen/fasade02.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Frysja Sagadammen",
       "lat": null,
       "lng": null,
@@ -29044,7 +29044,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBHnw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Frysja Sagadammen/fasade04.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Frysja Sagadammen",
       "lat": null,
       "lng": null,
@@ -29212,7 +29212,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBHrg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Stensparken/00095-15.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Stensparken",
       "lat": 59.9288206,
       "lng": 10.7308255,
@@ -29224,7 +29224,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBHrw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Stensparken/00095-16.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Stensparken",
       "lat": 59.9288206,
       "lng": 10.7308255,
@@ -29236,7 +29236,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBHsA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Stensparken/00095-17.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Stensparken",
       "lat": 59.9288206,
       "lng": 10.7308255,
@@ -29512,7 +29512,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBHzQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Arnes vei lekeplass/00113-10.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Arnes vei lekeplass",
       "lat": null,
       "lng": null,
@@ -29524,7 +29524,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBHzg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/00113-11.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -29536,7 +29536,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBHzw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/00113-12.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -29584,7 +29584,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABA2Tw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Nydalen badeplass/8Z8A8814-HDR-Rediger.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Nydalen badeplass",
       "lat": null,
       "lng": null,
@@ -29608,7 +29608,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCng",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Kjelsås skole/hoydefoto03_extra.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Kjelsås skole",
       "lat": 59.9663328,
       "lng": 10.7854903,
@@ -29620,7 +29620,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCpw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Kjelsås stasjon/IMG_2836-HDR-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Kjelsås stasjon",
       "lat": 59.9660621,
       "lng": 10.7830301,
@@ -29632,7 +29632,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCqA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Kjelsås stasjon/IMG_2842-HDR-Edit.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Kjelsås stasjon",
       "lat": 59.9660621,
       "lng": 10.7830301,
@@ -29668,7 +29668,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAARCcg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Grefsen skole/DJI_0028-Edit.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Grefsen skole",
       "lat": 59.9546418,
       "lng": 10.7740032,
@@ -29680,7 +29680,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBOUw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordstrand/Ekebergrestauranten/00116.jpg",
-      "category": "restaurant",
+      "category": "annet",
       "placeName": "Ekebergrestauranten",
       "lat": 59.899348,
       "lng": 10.7617048,
@@ -29692,7 +29692,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBOVA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordstrand/Ekebergrestauranten/00116-2.jpg",
-      "category": "restaurant",
+      "category": "annet",
       "placeName": "Ekebergrestauranten",
       "lat": 59.899348,
       "lng": 10.7617048,
@@ -29836,7 +29836,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBd0A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Kjelsås skole/00112-21.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Kjelsås skole",
       "lat": 59.9663328,
       "lng": 10.7854903,
@@ -29848,7 +29848,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBd0Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Kjelsås skole/00112-22.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Kjelsås skole",
       "lat": 59.9663328,
       "lng": 10.7854903,
@@ -29860,7 +29860,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBd0w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Disen trikkeholdeplass/00112-28.jpg",
-      "category": "park",
+      "category": "kollektiv",
       "placeName": "Disen trikkeholdeplass",
       "lat": null,
       "lng": null,
@@ -29872,7 +29872,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBd1A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Disen trikkeholdeplass/00112-12.jpg",
-      "category": "park",
+      "category": "kollektiv",
       "placeName": "Disen trikkeholdeplass",
       "lat": null,
       "lng": null,
@@ -29884,7 +29884,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBd1Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Disen trikkeholdeplass/00112-27.jpg",
-      "category": "park",
+      "category": "kollektiv",
       "placeName": "Disen trikkeholdeplass",
       "lat": null,
       "lng": null,
@@ -29896,7 +29896,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABBd1w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Coop Prix/00112-26.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Coop Prix",
       "lat": 59.963161,
       "lng": 10.783756,
@@ -30364,7 +30364,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNpg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/00146.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -30376,7 +30376,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNpw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/00146-2.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -30388,7 +30388,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNqA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/00146-5.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -30400,7 +30400,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNqQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/00146-3.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -30412,7 +30412,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNqg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Damplassen/00146-4.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -30424,7 +30424,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNrA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Lofthus Samvirkerlag - Damplassen/00146.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Lofthus Samvirkerlag - Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -30436,7 +30436,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNrQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordre Aker/Lofthus Samvirkerlag - Damplassen/00146-2.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Lofthus Samvirkerlag - Damplassen",
       "lat": 59.9435151,
       "lng": 10.7337731,
@@ -30448,7 +30448,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNrw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Schouterrassen/00135-32.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "Schouterrassen",
       "lat": 59.9306921,
       "lng": 10.7808256,
@@ -30460,7 +30460,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNsA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Schouterrassen/00135-33.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "Schouterrassen",
       "lat": 59.9306921,
       "lng": 10.7808256,
@@ -30472,7 +30472,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNsQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Schouterrassen/00135-34.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "Schouterrassen",
       "lat": 59.9306921,
       "lng": 10.7808256,
@@ -30484,7 +30484,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNsg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Schouterrassen/00135-35.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "Schouterrassen",
       "lat": 59.9306921,
       "lng": 10.7808256,
@@ -30496,7 +30496,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNsw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Schouterrassen/00135-36.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "Schouterrassen",
       "lat": 59.9306921,
       "lng": 10.7808256,
@@ -30508,7 +30508,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNtA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Schouterrassen/00135-37.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "Schouterrassen",
       "lat": 59.9306921,
       "lng": 10.7808256,
@@ -30520,7 +30520,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNtQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Schouterrassen/00135-30.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "Schouterrassen",
       "lat": 59.9306921,
       "lng": 10.7808256,
@@ -30532,7 +30532,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABCNtw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Nærbutikken Schouterrassen/00135-31.jpg",
-      "category": "takterrasse",
+      "category": "annet",
       "placeName": "Nærbutikken Schouterrassen",
       "lat": 59.931705,
       "lng": 10.782726,
@@ -30556,7 +30556,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAU0OA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/St. Hanshaugen/Åpent Bakeri Bislett/fasade01 -Edit.jpeg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Åpent Bakeri Bislett",
       "lat": null,
       "lng": null,
@@ -30592,7 +30592,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABFFog",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Årvoll/Årvoll skole/00165-4.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Årvoll skole",
       "lat": 59.9443075,
       "lng": 10.8137623,
@@ -30604,7 +30604,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABFFow",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Årvoll/Årvoll skole/00165-3.jpg",
-      "category": "annet",
+      "category": "skole",
       "placeName": "Årvoll skole",
       "lat": 59.9443075,
       "lng": 10.8137623,
@@ -30832,7 +30832,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAQczA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren torg/fasade02-Edit.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren torg",
       "lat": null,
       "lng": null,
@@ -30844,7 +30844,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAAkMnA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren torg/fasade02-EditFSlogo_løren.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Løren torg",
       "lat": null,
       "lng": null,
@@ -31012,7 +31012,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABFURQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Hasleparken/00171-13.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Hasleparken",
       "lat": null,
       "lng": null,
@@ -31024,7 +31024,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABFURg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Hasleparken/00171-14.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Hasleparken",
       "lat": null,
       "lng": null,
@@ -31036,7 +31036,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABFURw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Hasleparken/00171-15.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Hasleparken",
       "lat": null,
       "lng": null,
@@ -31552,7 +31552,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABHYNA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Ankerparken/00235-6.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Ankerparken",
       "lat": null,
       "lng": null,
@@ -31564,7 +31564,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABHYNQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Ankerparken/00235-7.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Ankerparken",
       "lat": null,
       "lng": null,
@@ -31576,7 +31576,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABHYNg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Ankerparken/00235-8.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Ankerparken",
       "lat": null,
       "lng": null,
@@ -31588,7 +31588,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABHc-g",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Sørenga badeplass/00236-3.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Sørenga badeplass",
       "lat": null,
       "lng": null,
@@ -31600,7 +31600,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABHc-w",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Sørenga badeplass/00236-2.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Sørenga badeplass",
       "lat": null,
       "lng": null,
@@ -31612,7 +31612,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABHc_A",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Gamle Oslo/Sørenga badeplass/00236.jpg",
-      "category": "park",
+      "category": "natur",
       "placeName": "Sørenga badeplass",
       "lat": null,
       "lng": null,
@@ -31684,7 +31684,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABH0qw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordstrand/Symra Kino/00255-4.jpg",
-      "category": "annet",
+      "category": "kultur",
       "placeName": "Symra Kino",
       "lat": null,
       "lng": null,
@@ -31696,7 +31696,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABH0rA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordstrand/Symra Kino/00255-7.jpg",
-      "category": "annet",
+      "category": "kultur",
       "placeName": "Symra Kino",
       "lat": null,
       "lng": null,
@@ -31708,7 +31708,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABH0rQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordstrand/Lambertseter Senter/00255-4.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Lambertseter Senter",
       "lat": null,
       "lng": null,
@@ -31720,7 +31720,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABH0rw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordstrand/Lambertseter Senter/00255-7.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Lambertseter Senter",
       "lat": null,
       "lng": null,
@@ -31732,7 +31732,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABH0sA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordstrand/Lambertseter Senter/00255-8.jpg",
-      "category": "annet",
+      "category": "butikk",
       "placeName": "Lambertseter Senter",
       "lat": null,
       "lng": null,
@@ -31756,7 +31756,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABH0sw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Nordstrand/Lambertseter stadion kunstgress flerbrukshall/00255-3.jpg",
-      "category": "annet",
+      "category": "aktivitet",
       "placeName": "Lambertseter stadion kunstgress flerbrukshall",
       "lat": null,
       "lng": null,
@@ -31768,7 +31768,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABH1PA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sagene/Torshov Kirkepark/00255-3.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Torshov Kirkepark",
       "lat": null,
       "lng": null,
@@ -31792,7 +31792,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABH2YA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Alna/Teisen/Eldre/fasade01.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Eldre",
       "lat": null,
       "lng": null,
@@ -31804,7 +31804,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABH2YQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Alna/Teisen/Eldre/fasade02.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Eldre",
       "lat": null,
       "lng": null,
@@ -31816,7 +31816,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABH2Yg",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Alna/Teisen/Eldre/fasade03.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Eldre",
       "lat": null,
       "lng": null,
@@ -32704,7 +32704,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAA5J-Q",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Sentrum/Hanami - Tjuvholmen/fasade02_kveld_ver02.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Hanami - Tjuvholmen",
       "lat": 59.908226,
       "lng": 10.721138,
@@ -33028,7 +33028,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABItZA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Vestre Aker/Hovseter Tbane/1H0A0699.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Hovseter Tbane",
       "lat": null,
       "lng": null,
@@ -33256,7 +33256,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABJHRw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Grünerløkka/Tøyenparken og Botanisk hage/003027-7.jpg",
-      "category": "park",
+      "category": "annet",
       "placeName": "Tøyenparken og Botanisk hage",
       "lat": null,
       "lng": null,
@@ -33940,7 +33940,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABKZnw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren t-bane/003048-30.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Løren t-bane",
       "lat": null,
       "lng": null,
@@ -33988,7 +33988,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAABKZpA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Bjerke/Løren t-bane/Loren Uteomrade.jpg",
-      "category": "annet",
+      "category": "kollektiv",
       "placeName": "Løren t-bane",
       "lat": null,
       "lng": null,
@@ -34000,7 +34000,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAATZzQ",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Bolgen og Moi/fasade02_kveld-2.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Bolgen og Moi",
       "lat": 60.2880247,
       "lng": 5.2302481,
@@ -34012,7 +34012,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAATZzA",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Bolgen og Moi/fasade03_kveld-2.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Bolgen og Moi",
       "lat": 60.2880247,
       "lng": 5.2302481,
@@ -34024,7 +34024,7 @@
     {
       "id": "id:TSjIbtJ56bAAAAAAAATZyw",
       "dropboxPath": "/Felles/Områdebilder JPG/Oslo/Frogner/Bolgen og Moi/fasade04_kveld.jpg",
-      "category": "fasade",
+      "category": "annet",
       "placeName": "Bolgen og Moi",
       "lat": 60.2880247,
       "lng": 5.2302481,

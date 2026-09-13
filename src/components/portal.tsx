@@ -11,6 +11,7 @@ import {
   type SearchPhoto as Photo,
   type Suggestion,
 } from "@/lib/search-client";
+import { FELLESAREAL_KATEGORIER } from "@/lib/categories";
 import AreaMap, { KATEGORI_FARGER, type MapDot } from "@/components/area-map";
 
 /** Ett magasinoppslag: én kategori, maks tre bilder. */
@@ -30,7 +31,7 @@ const PHOTOS_PER_SPREAD = 3;
  * settes først i filteret og får en egen markering, siden det er dem som
  * skiller denne adressen fra naboen.
  */
-const FELLESAREAL = new Set(["bakgard", "takterrasse", "fasade"]);
+const FELLESAREAL = FELLESAREAL_KATEGORIER;
 
 const RADIUS_OPTIONS = [
   { value: 300, label: "300 m" },

@@ -200,7 +200,7 @@ async function main() {
       kandidater.map((k) => lookupKallenavn(k, kallenavn)).find(Boolean) ?? null;
     const erBakgard = erBakgardsnavn(mappenavn) || kallenavnAdresse !== null;
 
-    const { categoryId: detektert } = detectCategory([...segments, filenameNoExt]);
+    const { categoryId: detektert } = detectCategory([...segments, filenameNoExt], { sisteErFilnavn: true });
     const categoryId = erBakgard ? "bakgard" : detektert;
 
     let lat = file.lat;

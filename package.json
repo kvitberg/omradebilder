@@ -15,7 +15,8 @@
     "prepare-static": "tsx scripts/prepare-static.ts",
     "sync-immich": "tsx scripts/sync-immich.ts",
     "deploy": "bash scripts/deploy.sh",
-    "steder": "tsx scripts/classify-places.ts"
+    "steder": "tsx scripts/classify-places.ts",
+    "reklassifiser": "tsx scripts/reclassify.ts"
   },
   "dependencies": {
     "dropbox": "^10.46.0",

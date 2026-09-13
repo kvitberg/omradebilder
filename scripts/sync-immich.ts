@@ -197,7 +197,7 @@ async function main() {
           .map((t) => t.value || t.name || "")
           .filter(Boolean);
         const fraTag = categoryFromTags(tagger) ?? detectCategory(tagger).categoryId;
-        const fraTekst = detectCategory([description ?? "", asset.originalFileName]);
+        const fraTekst = detectCategory([description ?? "", asset.originalFileName], { sisteErFilnavn: true });
         const categoryId =
           fraTag !== "annet"
             ? fraTag

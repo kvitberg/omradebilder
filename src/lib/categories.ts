@@ -8,6 +8,14 @@ export type Category = {
 
 // Rediger denne listen slik at den matcher din egen mappestruktur i Dropbox.
 // Rekkefølgen her avgjør rekkefølgen på sidene i portalen.
+/**
+ * Kategoriene som lover at bildet hører til én bestemt bygning.
+ *
+ * Disse vises bare til adressene de er knyttet til, aldri til nabolaget
+ * rundt. Derfor stilles det strengere krav til dem enn til de øvrige.
+ */
+export const FELLESAREAL_KATEGORIER = new Set(["bakgard", "takterrasse", "fasade"]);
+
 export const CATEGORIES: Category[] = [
   {
     id: "kafe",
@@ -35,14 +43,17 @@ export const CATEGORIES: Category[] = [
     label: "Fasade",
     description:
       "Bygningene selv. Materialbruk, høyder og gatebilde — det som blir stående lenge etter at butikkene har byttet navn.",
-    keywords: ["fasade", "facade", "bygg", "bygning"],
+    keywords: ["fasade", "facade"],
   },
   {
     id: "takterrasse",
     label: "Takterrasse",
     description:
       "Felles takflater og terrasser. Tilgangen følger bygningen, ikke nødvendigvis den enkelte adressen.",
-    keywords: ["takterrasse", "tak", "terrasse", "rooftop"],
+    // «tak» og «terrasse» alene er for løst: «Margaretakirken» inneholder
+    // «tak», og «Victoria terrasse» og «Schouterrassen» er gatenavn.
+    // Sammensetningene er derimot entydige.
+    keywords: ["takterrasse", "takhage", "terrassehus", "rooftop"],
   },
   {
     id: "bakgard",
@@ -91,7 +102,9 @@ export const CATEGORIES: Category[] = [
     label: "Idrett og aktivitet",
     description:
       "Banene, hallene og badene i nærheten — der nabolaget holder seg i bevegelse.",
-    keywords: ["stadion", "hall", "bad", "idrett", "bane", "løkka", "gym", "buldrevegg"],
+    // «hall», «bad» og «bane» treffer for mye på egen hånd (Marshall,
+    // Badehusgata, urbane), så de må stå i sammensatte former.
+    keywords: ["stadion", "idrettshall", "svømmehall", "idrett", "løkka", "buldrevegg", "treningssenter"],
   },
   {
     id: "nabolag",
@@ -185,14 +198,43 @@ export function getCategory(id: string): Category {
  * Ser gjennom mappe-segmentene (fra rot til fil) og finner første segment
  * som matcher et kategori-nøkkelord.
  */
-export function detectCategory(pathSegments: string[]): {
+/**
+ * Nøkkelordet må starte et ord.
+ *
+ * Med ren delstreng ble «Margaretakirken» en takterrasse, fordi navnet
+ * inneholder bokstavene «tak». Ordgrensen tillater fortsatt norske
+ * sammensetninger og bøyninger i enden — «takterrassen» treffer
+ * «takterrasse» — men ikke midt inne i et annet ord.
+ */
+function treffer(tekst: string, nøkkelord: string): boolean {
+  const i = tekst.indexOf(nøkkelord);
+  if (i === -1) return false;
+  if (i === 0) return true;
+  // Foran må det stå noe som ikke er en bokstav eller et tall.
+  return !/[\p{L}\p{N}]/u.test(tekst[i - 1]);
+}
+
+export function detectCategory(
+  pathSegments: string[],
+  /**
+   * Er siste segment et filnavn? Da får det ikke avgjøre et fellesareal.
+   *
+   * En mappe som heter «Fasade - Brekkeveien 19» er en påstand om hvilken
+   * bygning bildene hører til. Et filnavn som «fasade01_kveld.jpg» er bare
+   * en notis i en bildeserie — den lå i mappa «Hanami - Tjuvholmen» og gjorde
+   * en restaurant til en fasade uten adresse.
+   */
+  opts: { sisteErFilnavn?: boolean } = {}
+): {
   categoryId: string;
   matchedSegmentIndex: number | null;
 } {
   for (let i = 0; i < pathSegments.length; i++) {
+    const erFilnavn = !!opts.sisteErFilnavn && i === pathSegments.length - 1;
     const normalized = pathSegments[i].toLowerCase();
     for (const category of CATEGORIES) {
-      if (category.keywords.some((kw) => normalized.includes(kw))) {
+      if (erFilnavn && FELLESAREAL_KATEGORIER.has(category.id)) continue;
+      if (category.keywords.some((kw) => treffer(normalized, kw))) {
         return { categoryId: category.id, matchedSegmentIndex: i };
       }
     }

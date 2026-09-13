@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import type { SearchIndex } from "../src/lib/index-store";
+import { FELLESAREAL_KATEGORIER as FELLESAREAL } from "../src/lib/categories";
 
 /**
  * Lager datafilene den statiske siden laster i nettleseren.
@@ -17,12 +18,6 @@ const OUT_DIR = path.join(process.cwd(), "public", "data");
 
 type BygardData = { adresseTilBygard: Record<string, string> };
 
-/**
- * Kategorier som hører til en bestemt bygning, ikke til gangavstanden.
- * Et gårdsrom og en takterrasse deles av kvartalet, og en fasade er selve
- * bygget — ingen av dem hører hjemme i naboens salgsoppgave.
- */
-const FELLESAREAL = new Set(["bakgard", "takterrasse", "fasade"]);
 
 /**
  * Teig-grupperingen limer av og til sammen store områder der eiendommer
@@ -108,7 +103,7 @@ async function main() {
   }
 
   /** Nærmeste adresse innen 80 m — lenger unna er vi ikke i samme kvartal. */
-  function bygardFraPunkt(lat: number, lng: number): string | null {
+  function adresseFraPunkt(lat: number, lng: number): string | null {
     const R = 6371000;
     const rad = (d: number) => (d * Math.PI) / 180;
     let beste: { adresse: string; d: number } | null = null;
@@ -125,8 +120,12 @@ async function main() {
       if (!beste || d < beste.d) beste = { adresse, d };
     }
 
-    if (!beste || beste.d > 80) return null;
-    return rimeligKvartal(bygarder.adresseTilBygard[beste.adresse] ?? null);
+    return !beste || beste.d > 80 ? null : beste.adresse;
+  }
+
+  function bygardFraPunkt(lat: number, lng: number): string | null {
+    const adresse = adresseFraPunkt(lat, lng);
+    return adresse ? rimeligKvartal(bygarder.adresseTilBygard[adresse] ?? null) : null;
   }
 
   /** Forkaster kvartaler som strekker seg for langt til å være ett gårdsrom. */
@@ -238,18 +237,41 @@ async function main() {
   const publishable = index.photos
     .map((p) => {
       const overstyring = steder[p.placeName];
-      const category = overstyring?.kategori ?? p.category;
+      const ønsket = overstyring?.kategori ?? p.category;
+      const erFelles = FELLESAREAL.has(ønsket);
+
+      const adresser = erFelles ? adresserFor(p.placeName) : null;
+      const bygardId = erFelles
+        ? bygardFor(p.placeName) ??
+          (p.lat !== null && p.lng !== null ? bygardFraPunkt(p.lat, p.lng) : null)
+        : (p.bygardId ?? null);
+
+      // Et fellesareal lover at bildet hører til nettopp denne adressen.
+      // Klarer vi ikke å innfri løftet, skal bildet heller ikke bære
+      // merkelappen — da ville et gårdsrom blitt vist til hele nabolaget.
+      const kanKnyttes = !!bygardId || !!adresser?.length;
+      const category = erFelles && !kanKnyttes ? "annet" : ønsket;
+
+      // Et fellesareal bør stå med adressen sin. Dropbox-mappene har Scott
+      // navngitt selv og skal stå som de er, men Immich-navnene er slått opp
+      // fra kartet — og da endte et gårdsrom opp med å hete «Dronningens
+      // kebab» etter nærmeste butikk. Navn som allerede bærer et husnummer
+      // er gode nok som de er.
+      const navn = overstyring?.navn ?? p.placeName;
+      const fraKart = p.id.startsWith("immich:") && !/\d/.test(navn);
+      const stedsnavn =
+        (erFelles && fraKart && kanKnyttes
+          ? adresser?.[0] ??
+            (p.lat !== null && p.lng !== null ? adresseFraPunkt(p.lat, p.lng) : null)
+          : null) ?? navn;
+
       return {
         ...p,
         thumb: thumbFor(p.id),
         category,
-        placeName: overstyring?.navn ?? p.placeName,
-        adresser: FELLESAREAL.has(category) ? adresserFor(p.placeName) : null,
-        bygardId:
-          FELLESAREAL.has(category)
-            ? bygardFor(p.placeName) ??
-              (p.lat !== null && p.lng !== null ? bygardFraPunkt(p.lat, p.lng) : null)
-            : p.bygardId ?? null,
+        placeName: stedsnavn,
+        adresser,
+        bygardId,
       };
     })
     .filter((p) => p.lat !== null && p.lng !== null && p.thumb);
