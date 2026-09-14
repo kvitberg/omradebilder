@@ -753,13 +753,8 @@ function Spread({
 
   return (
     <section className="flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14 lg:h-screen">
-      <header className="flex shrink-0 items-start justify-between text-[10px] uppercase tracking-[0.28em] text-ink-soft">
-        <button
-          type="button"
-          onClick={() => goTo(0)}
-          title="Til forsiden"
-          className="font-semibold tracking-[0.28em] text-ink transition-opacity hover:opacity-60"
-        >
+      <header className="flex shrink-0 items-baseline justify-between text-[10px] uppercase tracking-[0.28em] text-ink-soft">
+        <button type="button" onClick={() => goTo(0)} title="Til forsiden" className="home-link">
           Områdebilder
         </button>
         <span className="shrink-0 text-ink">{spread.category.label}</span>

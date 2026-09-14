@@ -97,3 +97,35 @@ body {
   background: var(--paper);
   border: 1px solid var(--rule);
 }
+
+/*
+ * Hjem-lenken øverst på hvert oppslag. Litt større enn resten av topplinjen,
+ * med en hårfin strek under som mørkner ved hover — samme strek som rammene
+ * rundt kartet og bildene, så den leses som en del av oppslaget og ikke som
+ * en knapp.
+ */
+.home-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.home-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rule);
+  transition: background 0.2s;
+}
+.home-link:hover::after,
+.home-link:focus-visible::after {
+  background: var(--ink);
+}
