@@ -16,6 +16,25 @@ import { FELLESAREAL_KATEGORIER as FELLESAREAL } from "../src/lib/categories";
 
 const OUT_DIR = path.join(process.cwd(), "public", "data");
 
+/**
+ * Dropbox lager «Folkvang Boligselskap (1)» når en mappe kopieres inn på
+ * nytt. Da ligger de samme bildene to ganger, og oppslaget viser hvert bilde
+ * dobbelt. En fil med samme navn i en mappe som bare skiller seg med «(n)»
+ * regnes som samme bilde, og bare det første beholdes.
+ */
+function ikkeKopi() {
+  const sett = new Set<string>();
+  return (p: { dropboxPath: string }) => {
+    if (p.dropboxPath.startsWith("immich://")) return true;
+    const nøkkel = p.dropboxPath
+      .toLowerCase()
+      .replace(/\s*\(\d+\)(?=\/[^/]+$)/, "");
+    if (sett.has(nøkkel)) return false;
+    sett.add(nøkkel);
+    return true;
+  };
+}
+
 type BygardData = { adresseTilBygard: Record<string, string> };
 
 
@@ -170,14 +189,17 @@ async function main() {
    */
   /**
    * Adressene bak et gårdsnavn i stedsnavnet, f.eks. «Torshov Kvartal IX
-   * Tysklandsgården». Navnet må starte et ord, så «Solgården» ikke treffer
-   * midt inne i et lengre navn.
+   * Tysklandsgården». Navnet må stå som hele ord: «Solgården» skal ikke
+   * treffe midt inne i et lengre navn, og «Kvartal VI» ikke «Kvartal VII».
    */
   function kallenavnFor(placeName: string): string[] | null {
     const tekst = placeName.toLowerCase();
+    const ordtegn = /[\p{L}\p{N}]/u;
     for (const [navn, verdi] of Object.entries(kallenavn)) {
       const i = tekst.indexOf(navn.toLowerCase());
-      if (i === -1 || (i > 0 && /[\p{L}\p{N}]/u.test(tekst[i - 1]))) continue;
+      if (i === -1) continue;
+      const etter = tekst[i + navn.length];
+      if ((i > 0 && ordtegn.test(tekst[i - 1])) || (etter && ordtegn.test(etter))) continue;
       return Array.isArray(verdi) ? verdi : [verdi];
     }
     return null;
@@ -259,9 +281,11 @@ async function main() {
       const erFelles = FELLESAREAL.has(ønsket);
 
       // Mapper uten GPS («Torshov Kvartal IX Tysklandsgården») får midten
-      // av gårdens adresser som posisjon, så de kan søkes opp.
+      // av gårdens adresser som posisjon, så de kan søkes opp. Det samme
+      // gjelder posisjoner som bare er gjettet ut fra mappenavnet: da havnet
+      // «Folkvang Boligselskap» i Folkvangveien.
       let { lat, lng } = p;
-      if ((lat === null || lng === null) && gård) {
+      if (gård && p.locationSource !== "exif") {
         const pkt = gård.map((a) => adressepunkter[a]).filter(Boolean);
         if (pkt.length) {
           lat = pkt.reduce((s, [la]) => s + la, 0) / pkt.length;
@@ -305,7 +329,8 @@ async function main() {
         bygardId,
       };
     })
-    .filter((p) => p.lat !== null && p.lng !== null && p.thumb);
+    .filter((p) => p.lat !== null && p.lng !== null && p.thumb)
+    .filter(ikkeKopi());
 
   const slim = publishable.map((p) => ({
     id: p.id,
