@@ -94,38 +94,89 @@ export default function AreaMap({
       }).addTo(map);
 
       // Én prikk per sted, ikke per bilde — bildeserier ligger oppå hverandre.
-      // Popup-en teller hvor mange bilder stedet har.
-      const perSted = new Map<string, { dot: MapDot; antall: number }>();
+      // Popup-en lar en bla gjennom serien.
+      const perSted = new Map<string, MapDot[]>();
       for (const dot of dots) {
         const key = `${dot.lat.toFixed(4)},${dot.lng.toFixed(4)}`;
-        const funn = perSted.get(key);
-        if (funn) funn.antall++;
-        else perSted.set(key, { dot, antall: 1 });
+        const serie = perSted.get(key);
+        if (serie) serie.push(dot);
+        else perSted.set(key, [dot]);
       }
 
-      const escape = (t: string) =>
-        t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
-
-      for (const { dot, antall } of perSted.values()) {
-        const markør = L.circleMarker([dot.lat, dot.lng], {
+      for (const serie of perSted.values()) {
+        const [første] = serie;
+        const markør = L.circleMarker([første.lat, første.lng], {
           radius: 4,
           color: "#f2f0ec",
           weight: 1,
-          fillColor: KATEGORI_FARGER[dot.category] ?? KATEGORI_FARGER.annet,
+          fillColor: KATEGORI_FARGER[første.category] ?? KATEGORI_FARGER.annet,
           fillOpacity: 0.9,
         }).addTo(map);
 
-        const bilde = dot.thumb
-          ? `<img src="${escape(dot.thumb)}" alt="" loading="lazy"
-               style="width:100%;height:96px;object-fit:cover;display:block;margin-bottom:6px" />`
-          : "";
-        markør.bindPopup(
-          `<div style="width:170px;font-family:inherit">${bilde}` +
-            `<div style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#12110f">${escape(dot.placeName)}</div>` +
-            `<div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6b6862;margin-top:2px">` +
-            `${dot.distanceMeters} m${antall > 1 ? ` · ${antall} bilder` : ""}</div></div>`,
-          { closeButton: false, offset: [0, -2] }
-        );
+        markør.bindPopup(lagPopup(serie), { closeButton: false, offset: [0, -2] });
+      }
+
+      /**
+       * Innholdet bygges som DOM, ikke som HTML-streng, fordi pilene trenger
+       * klikk-lyttere. Klikkene må heller ikke nå kartet — da ville Leaflet
+       * lukket popup-en.
+       */
+      function lagPopup(serie: MapDot[]): HTMLElement {
+        const rot = L.DomUtil.create("div");
+        rot.style.cssText = "width:170px;font-family:inherit";
+        L.DomEvent.disableClickPropagation(rot);
+
+        const bilde = L.DomUtil.create("img", "", rot);
+        bilde.alt = "";
+        bilde.style.cssText =
+          "width:100%;height:96px;object-fit:cover;display:block;margin-bottom:6px";
+
+        const navn = L.DomUtil.create("div", "", rot);
+        navn.style.cssText =
+          "font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#12110f";
+
+        const meta = L.DomUtil.create("div", "", rot);
+        meta.style.cssText =
+          "display:flex;align-items:baseline;justify-content:space-between;gap:8px;" +
+          "font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6b6862;margin-top:2px";
+        const avstand = L.DomUtil.create("span", "", meta);
+
+        let i = 0;
+        const vis = () => {
+          const d = serie[i];
+          bilde.hidden = !d.thumb;
+          if (d.thumb) bilde.src = d.thumb;
+          navn.textContent = d.placeName;
+          avstand.textContent = `${d.distanceMeters} m`;
+          if (teller) teller.textContent = `${i + 1} / ${serie.length}`;
+        };
+
+        // Bla-knappene finnes bare når det er noe å bla i.
+        let teller: HTMLElement | null = null;
+        if (serie.length > 1) {
+          const nav = L.DomUtil.create("span", "", meta);
+          nav.style.cssText = "display:inline-flex;align-items:baseline;gap:6px;white-space:nowrap";
+          const knapp = (tekst: string, label: string, steg: number) => {
+            const b = L.DomUtil.create("button", "", nav);
+            b.type = "button";
+            b.textContent = tekst;
+            b.setAttribute("aria-label", label);
+            b.style.cssText =
+              "background:none;border:0;padding:0 2px;margin:0;cursor:pointer;" +
+              "font:inherit;font-size:12px;line-height:1;color:#12110f";
+            b.addEventListener("click", () => {
+              i = (i + steg + serie.length) % serie.length;
+              vis();
+            });
+            return b;
+          };
+          knapp("\u2190", "Forrige bilde", -1);
+          teller = L.DomUtil.create("span", "", nav);
+          knapp("\u2192", "Neste bilde", 1);
+        }
+
+        vis();
+        return rot;
       }
 
       // Adressen selv, øverst.
