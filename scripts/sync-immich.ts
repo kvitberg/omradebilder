@@ -41,6 +41,18 @@ type ImmichAsset = {
   };
 };
 
+/**
+ * Kamera og eksport-presets fyller beskrivelsesfeltet med plassholdere.
+ * 32 bilder kom inn med beskrivelsen «default» og ble stående som et sted
+ * med det navnet; da er det bedre å slå opp stedet fra koordinatet.
+ */
+const PLASSHOLDERE = /^(default|untitled|no description|olympus digital camera|sony dsc|image|photo|\s*)$/i;
+
+function ekteBeskrivelse(tekst: string | null | undefined): string | null {
+  const t = tekst?.trim();
+  return t && !PLASSHOLDERE.test(t) ? t : null;
+}
+
 async function api<T>(pathname: string): Promise<T> {
   const sep = pathname.includes("?") ? "&" : "?";
   const res = await fetch(`${IMMICH_URL}/api${pathname}${sep}key=${SHARE_KEY}`);
@@ -178,7 +190,7 @@ async function main() {
         const hasGps = typeof lat === "number" && typeof lng === "number" && lat !== 0;
         if (hasGps) withGps++;
 
-        const description = asset.exifInfo?.description?.trim() || null;
+        const description = ekteBeskrivelse(asset.exifInfo?.description);
 
         // Stedsnavn i prioritert rekkefølge: fotografens egen beskrivelse,
         // stedet som faktisk ligger på koordinatet (kafeen, parken), og til
