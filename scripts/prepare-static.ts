@@ -168,10 +168,25 @@ async function main() {
    * Dette er den presise koblingen: bildet hører til den adressen, uansett
    * hvor stort eller spredt kvartalet rundt måtte være.
    */
-  function adresserFor(placeName: string): string[] | null {
+  /**
+   * Adressene bak et gårdsnavn i stedsnavnet, f.eks. «Torshov Kvartal IX
+   * Tysklandsgården». Navnet må starte et ord, så «Solgården» ikke treffer
+   * midt inne i et lengre navn.
+   */
+  function kallenavnFor(placeName: string): string[] | null {
+    const tekst = placeName.toLowerCase();
     for (const [navn, verdi] of Object.entries(kallenavn)) {
-      if (!placeName.toLowerCase().includes(navn.toLowerCase())) continue;
-      const liste = (Array.isArray(verdi) ? verdi : [verdi]).filter(
+      const i = tekst.indexOf(navn.toLowerCase());
+      if (i === -1 || (i > 0 && /[\p{L}\p{N}]/u.test(tekst[i - 1]))) continue;
+      return Array.isArray(verdi) ? verdi : [verdi];
+    }
+    return null;
+  }
+
+  function adresserFor(placeName: string): string[] | null {
+    const fraNavn = kallenavnFor(placeName);
+    if (fraNavn) {
+      const liste = fraNavn.filter(
         (a) => a && (bygarder.adresseTilBygard[a] || utenBokstav.has(a))
       );
       if (liste.length) return liste;
@@ -187,12 +202,9 @@ async function main() {
   }
 
   function bygardFor(placeName: string): string | null {
-    for (const [navn, verdi] of Object.entries(kallenavn)) {
-      if (!placeName.toLowerCase().includes(navn.toLowerCase())) continue;
-      for (const a of Array.isArray(verdi) ? verdi : [verdi]) {
-        const treff = rimeligKvartal(slåOpp(a));
-        if (treff) return treff;
-      }
+    for (const a of kallenavnFor(placeName) ?? []) {
+      const treff = rimeligKvartal(slåOpp(a));
+      if (treff) return treff;
     }
 
     // Mappenavn er sammensatte («Bakgård - Grüners gate 1»), så vi leter i
@@ -237,13 +249,30 @@ async function main() {
   const publishable = index.photos
     .map((p) => {
       const overstyring = steder[p.placeName];
-      const ønsket = overstyring?.kategori ?? p.category;
+      // Et gårdsnavn fra navnelisten er et bevisst valg, og veier tyngre
+      // enn stedsoppslaget i steder.json — der er Søylegården bare et
+      // «nabolag», fordi OSM merker punktet som et sted. Da ble gården
+      // vist i hvert søk i gangavstand.
+      const gård = kallenavnFor(p.placeName);
+      const fraOppslag = overstyring?.kategori ?? p.category;
+      const ønsket = gård && !FELLESAREAL.has(fraOppslag) ? "bakgard" : fraOppslag;
       const erFelles = FELLESAREAL.has(ønsket);
+
+      // Mapper uten GPS («Torshov Kvartal IX Tysklandsgården») får midten
+      // av gårdens adresser som posisjon, så de kan søkes opp.
+      let { lat, lng } = p;
+      if ((lat === null || lng === null) && gård) {
+        const pkt = gård.map((a) => adressepunkter[a]).filter(Boolean);
+        if (pkt.length) {
+          lat = pkt.reduce((s, [la]) => s + la, 0) / pkt.length;
+          lng = pkt.reduce((s, [, ln]) => s + ln, 0) / pkt.length;
+        }
+      }
 
       const adresser = erFelles ? adresserFor(p.placeName) : null;
       const bygardId = erFelles
         ? bygardFor(p.placeName) ??
-          (p.lat !== null && p.lng !== null ? bygardFraPunkt(p.lat, p.lng) : null)
+          (lat !== null && lng !== null ? bygardFraPunkt(lat, lng) : null)
         : (p.bygardId ?? null);
 
       // Et fellesareal lover at bildet hører til nettopp denne adressen.
@@ -262,11 +291,13 @@ async function main() {
       const stedsnavn =
         (erFelles && fraKart && kanKnyttes
           ? adresser?.[0] ??
-            (p.lat !== null && p.lng !== null ? adresseFraPunkt(p.lat, p.lng) : null)
+            (lat !== null && lng !== null ? adresseFraPunkt(lat, lng) : null)
           : null) ?? navn;
 
       return {
         ...p,
+        lat,
+        lng,
         thumb: thumbFor(p.id),
         category,
         placeName: stedsnavn,
