@@ -23,6 +23,9 @@ export type SearchPhoto = {
   /** Til kartet på første oppslag. */
   lat: number;
   lng: number;
+  /** Originalfil i full størrelse, når en delingslenke finnes. */
+  original: string | null;
+  filnavn: string | null;
 };
 
 export type Group = { category: Category; photos: SearchPhoto[] };
@@ -127,6 +130,8 @@ export async function search(
         thumb: p.thumb ? withBasePath(p.thumb) : null,
         lat: p.lat,
         lng: p.lng,
+        original: p.original ?? null,
+        filnavn: p.filnavn ?? null,
       })),
   })).filter((g) => g.photos.length > 0);
 

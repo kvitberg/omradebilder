@@ -129,3 +129,65 @@ body {
 .home-link:focus-visible::after {
   background: var(--ink);
 }
+
+/* Nedlastingslenken under hvert bilde: samme hårfine strek som hjem-lenken. */
+.download-link {
+  position: relative;
+  padding-bottom: 2px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.download-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rule);
+  transition: background 0.2s;
+}
+.download-link:hover::after,
+.download-link:focus-visible::after {
+  background: var(--ink);
+}
+
+/* Kodefeltet som erstatter «Last ned» til koden er skrevet. */
+.download-code {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
+}
+.download-code input {
+  width: 4.5em;
+  padding: 0 0 2px;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  background: none;
+  font: inherit;
+  letter-spacing: inherit;
+  color: var(--ink);
+  outline: none;
+}
+.download-code input:focus {
+  border-bottom-color: var(--ink);
+}
+.download-code input[aria-invalid="true"] {
+  border-bottom-color: #b04a39;
+}
+.download-code input::placeholder {
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+.download-code button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--ink);
+  cursor: pointer;
+}
+.download-code-feil {
+  color: #b04a39;
+}

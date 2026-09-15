@@ -233,6 +233,8 @@ async function main() {
           locationSource: hasGps ? "exif" : "none",
           clientModified: asset.exifInfo?.dateTimeOriginal ?? asset.fileCreatedAt,
           thumb: `/thumbs/${thumbFileName(entryId)}`,
+          original: `${IMMICH_URL}/api/assets/${asset.id}/original?key=${SHARE_KEY}`,
+          filnavn: asset.originalFileName,
         });
       } catch (err) {
         failed++;

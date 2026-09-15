@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import Portal from "@/components/portal";
+import Gate from "@/components/gate";
 
 /**
  * Tallene i footeren leses fra den publiserte indeksen ved bygging. Siden
@@ -22,5 +23,9 @@ async function readPublished(): Promise<{ count: number; updatedAt: string | nul
 
 export default async function Home() {
   const { count, updatedAt } = await readPublished();
-  return <Portal photoCount={count} updatedAt={updatedAt} />;
+  return (
+    <Gate>
+      <Portal photoCount={count} updatedAt={updatedAt} />
+    </Gate>
+  );
 }

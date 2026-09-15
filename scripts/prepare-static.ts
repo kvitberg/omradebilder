@@ -341,6 +341,7 @@ async function main() {
     thumb: p.thumb,
     ...(p.bygardId ? { bygardId: p.bygardId } : {}),
     ...(p.adresser?.length ? { adresser: p.adresser } : {}),
+    ...(p.original ? { original: p.original, filnavn: p.filnavn ?? null } : {}),
   }));
 
   await fs.writeFile(

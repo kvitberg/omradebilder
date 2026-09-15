@@ -26,6 +26,14 @@ export type PhotoEntry = {
    * meningsfullt. Et terrassehus dekker gjerne flere oppganger.
    */
   adresser?: string[] | null;
+  /**
+   * Lenke til originalfilen i full størrelse, for nedlastingsknappen.
+   * Dropbox: en delingslenke med dl=1. Immich: originalen via delingsnøkkelen.
+   * Settes av `npm run delingslenker`.
+   */
+  original?: string | null;
+  /** Filnavnet nedlastingen får, f.eks. «1H0A1798.jpg». */
+  filnavn?: string | null;
 };
 
 export type SearchIndex = {

@@ -16,7 +16,8 @@
     "sync-immich": "tsx scripts/sync-immich.ts",
     "deploy": "bash scripts/deploy.sh",
     "steder": "tsx scripts/classify-places.ts",
-    "reklassifiser": "tsx scripts/reclassify.ts"
+    "reklassifiser": "tsx scripts/reclassify.ts",
+    "delingslenker": "tsx scripts/share-links.ts"
   },
   "dependencies": {
     "dropbox": "^10.46.0",

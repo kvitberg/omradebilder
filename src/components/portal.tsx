@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { FormEvent } from "react";
+import type { FormEvent, MouseEvent } from "react";
 import {
   search,
   suggest,
@@ -12,6 +12,7 @@ import {
   type Suggestion,
 } from "@/lib/search-client";
 import { FELLESAREAL_KATEGORIER } from "@/lib/categories";
+import { KODE_SJEKKSUM, erLåstOpp, låsOpp, sjekksum } from "@/lib/kode";
 import AreaMap, { KATEGORI_FARGER, type MapDot } from "@/components/area-map";
 
 /** Ett magasinoppslag: én kategori, maks tre bilder. */
@@ -924,9 +925,108 @@ function Frame({ photo, className }: { photo: Photo; className?: string }) {
       </div>
       <figcaption className="mt-2 flex shrink-0 items-baseline justify-between gap-3 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
         <span className="truncate">{photo.placeName}</span>
-        <span className="shrink-0">{photo.distanceMeters} m</span>
+        <span className="flex shrink-0 items-baseline gap-3">
+          <span>{photo.distanceMeters} m</span>
+          {photo.original && <DownloadLink url={photo.original} filnavn={photo.filnavn} />}
+        </span>
       </figcaption>
     </figure>
+  );
+}
+
+/**
+ * Laster ned originalen i full størrelse.
+ *
+ * Dropbox-lenkene har dl=1 og svarer med «attachment», så en vanlig lenke
+ * laster ned rett fra fortauet. Immich sender fila «inline» og ville bare
+ * åpnet den i en fane; derfor hentes den som blob og gis originalfilnavnet.
+ * Dropbox sender ingen CORS-header, så den omveien virker bare for Immich.
+ */
+function DownloadLink({ url, filnavn }: { url: string; filnavn: string | null }) {
+  const [henter, setHenter] = useState(false);
+  const [spør, setSpør] = useState(false);
+  const [kode, setKode] = useState("");
+  const [feil, setFeil] = useState(false);
+  const viaBlob = url.includes("/api/assets/");
+
+  const hentBlob = async () => {
+    setHenter(true);
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const blob = await res.blob();
+      const href = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = href;
+      a.download = filnavn ?? "bilde.jpg";
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(href), 10_000);
+    } catch {
+      window.open(url, "_blank", "noopener");
+    } finally {
+      setHenter(false);
+    }
+  };
+
+  const lastNed = (e: MouseEvent) => {
+    if (henter) {
+      e.preventDefault();
+      return;
+    }
+    if (!erLåstOpp()) {
+      e.preventDefault();
+      setSpør(true);
+      return;
+    }
+    // Dropbox-lenken laster ned av seg selv; bare Immich trenger omveien.
+    if (viaBlob) {
+      e.preventDefault();
+      void hentBlob();
+    }
+  };
+
+  const sendKode = async (e: FormEvent) => {
+    e.preventDefault();
+    if ((await sjekksum(kode.trim())) !== KODE_SJEKKSUM) {
+      setFeil(true);
+      return;
+    }
+    låsOpp();
+    setSpør(false);
+    setFeil(false);
+    if (viaBlob) void hentBlob();
+    else window.location.assign(url);
+  };
+
+  if (spør) {
+    return (
+      <form onSubmit={sendKode} className="download-code" title="Skriv koden for å laste ned">
+        <input
+          type="password"
+          inputMode="numeric"
+          autoComplete="off"
+          autoFocus
+          value={kode}
+          onChange={(e) => {
+            setKode(e.target.value);
+            setFeil(false);
+          }}
+          placeholder="Kode"
+          aria-label="Kode for nedlasting"
+          aria-invalid={feil || undefined}
+        />
+        <button type="submit" aria-label="Lås opp">
+          &rarr;
+        </button>
+        {feil && <span className="download-code-feil">Feil kode</span>}
+      </form>
+    );
+  }
+
+  return (
+    <a href={url} onClick={lastNed} download={filnavn ?? undefined} className="download-link">
+      {henter ? "Henter\u2026" : "Last ned"}
+    </a>
   );
 }
 
