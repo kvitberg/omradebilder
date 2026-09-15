@@ -73,6 +73,15 @@ body {
  * figur i papirpaletten. Filteret ligger kun på flislaget — sirkelen og
  * prikkene beholder fargene sine.
  */
+/*
+ * Leaflet setter z-index 400+ på lagene sine. Uten egen stablingskontekst
+ * stikker de gjennom alt som ligger over kartet — serievisningen ble
+ * liggende under kartflisene.
+ */
+.area-map {
+  position: relative;
+  isolation: isolate;
+}
 .area-map .leaflet-tile-pane {
   filter: grayscale(1) brightness(1.07) contrast(0.88);
 }
@@ -196,7 +205,7 @@ body {
 .serie-veil {
   position: fixed;
   inset: 0;
-  z-index: 40;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: center;
