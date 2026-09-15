@@ -17,7 +17,9 @@
     "deploy": "bash scripts/deploy.sh",
     "steder": "tsx scripts/classify-places.ts",
     "reklassifiser": "tsx scripts/reclassify.ts",
-    "delingslenker": "tsx scripts/share-links.ts"
+    "delingslenker": "tsx scripts/share-links.ts",
+    "parker": "tsx scripts/parker.ts",
+    "hent-parker": "python3 scripts/hent-parker.py"
   },
   "dependencies": {
     "dropbox": "^10.46.0",

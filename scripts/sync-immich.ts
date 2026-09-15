@@ -6,6 +6,7 @@ import path from "node:path";
 import sharp from "sharp";
 import { categoryFromTags, detectCategory } from "../src/lib/categories";
 import { lookupPoi, type Poi } from "../src/lib/poi";
+import { parkVedPunkt } from "../src/lib/parker";
 import type { PhotoEntry, SearchIndex } from "../src/lib/index-store";
 
 /**
@@ -197,6 +198,10 @@ async function main() {
         // slutt nærmeste adresse som nøytral reserve.
         const poi = !description && hasGps ? await cachedPoi(lat!, lng!) : null;
         let placeName = description ?? poi?.name ?? null;
+        // Står fotografen midt i en park, er det parken som er stedet —
+        // ikke nærmeste adresse, som ville bundet bildet til en eiendom.
+        const park = !placeName && hasGps ? parkVedPunkt(lat!, lng!) : null;
+        if (park) placeName = park.name;
         if (!placeName && hasGps) {
           placeName = await nearestAddress(lat!, lng!);
         }
@@ -215,7 +220,7 @@ async function main() {
             ? fraTag
             : fraTekst.categoryId !== "annet"
               ? fraTekst.categoryId
-              : poi?.categoryId ?? "annet";
+              : poi?.categoryId ?? park?.categoryId ?? "annet";
 
         const entryId = `immich:${asset.id}`;
         const outPath = path.join(OUT_DIR, thumbFileName(entryId));
