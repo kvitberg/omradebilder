@@ -15,10 +15,17 @@ import { FELLESAREAL_KATEGORIER } from "@/lib/categories";
 import { KODE_SJEKKSUM, erLåstOpp, låsOpp, sjekksum } from "@/lib/kode";
 import AreaMap, { KATEGORI_FARGER, type MapDot } from "@/components/area-map";
 
-/** Ett magasinoppslag: én kategori, maks tre bilder. */
+/**
+ * Ett sted i presentasjonen: ett bilde vises, resten av serien ligger bak.
+ * Lilleborg har 101 bilder; som 34 oppslag på rad slutter man å se dem,
+ * som ett sted med «· 101 bilder» i bildeteksten blir de en ressurs.
+ */
+type Sted = { navn: string; bilde: Photo; serie: Photo[] };
+
+/** Ett magasinoppslag: én kategori, maks tre steder. */
 type SpreadData = {
   category: Category;
-  photos: Photo[];
+  steder: Sted[];
   part: number;
   partCount: number;
   /** Første oppslag i resultatet: én bildeplass er byttet ut med områdeteksten. */
@@ -42,10 +49,22 @@ const RADIUS_OPTIONS = [
   { value: 2000, label: "2 km" },
 ];
 
+/** Grupperer på stedsnavn; det første bildet — det nærmeste — får vise stedet. */
+function grupperSteder(photos: Photo[]): Sted[] {
+  const steder = new Map<string, Sted>();
+  for (const bilde of photos) {
+    const key = bilde.placeName.trim().toLowerCase();
+    const sted = steder.get(key);
+    if (sted) sted.serie.push(bilde);
+    else steder.set(key, { navn: bilde.placeName, bilde, serie: [bilde] });
+  }
+  return [...steder.values()];
+}
+
 function buildSpreads(groups: Group[]): SpreadData[] {
   const spreads: SpreadData[] = [];
   for (const group of groups) {
-    const queue = [...group.photos];
+    const queue = grupperSteder(group.photos);
     const mine: SpreadData[] = [];
     while (queue.length) {
       const isFirstOverall = spreads.length + mine.length === 0;
@@ -54,7 +73,7 @@ function buildSpreads(groups: Group[]): SpreadData[] {
       const take = isFirstOverall ? 1 : PHOTOS_PER_SPREAD;
       mine.push({
         category: group.category,
-        photos: queue.splice(0, take),
+        steder: queue.splice(0, take),
         part: 0,
         partCount: 0,
         intro: isFirstOverall,
@@ -203,7 +222,8 @@ function composeAreaText(groups: Group[], address: string, radiusMeters: number)
   const deler: string[] = [];
   for (const g of groups) {
     if (g.category.id === "annet") continue;
-    const n = g.photos.length;
+    // Steder, ikke bilder — ellers ble 101 bilder av Lilleborg «101 kollektivpunkter».
+    const n = grupperSteder(g.photos).length;
     const [entall, flertall] = KATEGORI_BOYNING[g.category.id] ?? [
       `én ${g.category.label.toLowerCase()}`,
       g.category.label.toLowerCase(),
@@ -253,6 +273,7 @@ export default function Portal({
     center: { lat: number; lng: number };
   } | null>(null);
   const [page, setPage] = useState(0); // 0 = forside
+  const [åpentSted, setÅpentSted] = useState<Sted | null>(null);
 
   // Koordinater fra et valgt adresseforslag, så vi slipper å geokode på nytt.
   const chosenCoords = useRef<Suggestion | null>(null);
@@ -304,12 +325,14 @@ export default function Portal({
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.target instanceof HTMLInputElement) return;
+      // Med en serie åpen blar pilene i serien, ikke mellom oppslag.
+      if (åpentSted) return;
       if (e.key === "ArrowRight") goTo(page + 1);
       if (e.key === "ArrowLeft") goTo(page - 1);
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [page, goTo]);
+  }, [page, goTo, åpentSted]);
 
   const runSearch = useCallback(
     async (query: string, radiusMeters: number, coords: Suggestion | null) => {
@@ -406,6 +429,7 @@ export default function Portal({
           laster={loading}
           areaText={areaText}
           goTo={goTo}
+          onÅpne={setÅpentSted}
         />
       ) : (
         <Cover
@@ -429,6 +453,8 @@ export default function Portal({
           onResume={() => goTo(1)}
         />
       )}
+
+      {åpentSted && <SeriesView sted={åpentSted} onClose={() => setÅpentSted(null)} />}
     </div>
   );
 }
@@ -729,6 +755,7 @@ function Spread({
   laster,
   areaText,
   goTo,
+  onÅpne,
 }: {
   spread: SpreadData;
   page: number;
@@ -745,11 +772,12 @@ function Spread({
   laster: boolean;
   areaText: string;
   goTo: (n: number) => void;
+  onÅpne: (sted: Sted) => void;
 }) {
-  const [hero, ...rest] = spread.photos;
+  const [hero, ...rest] = spread.steder;
   // På første oppslag står kartet i hovedplassen; alle fotoene går til høyre.
   const heroIsMap = spread.intro && center !== null;
-  const rightPhotos = heroIsMap ? spread.photos : rest;
+  const rightSteder = heroIsMap ? spread.steder : rest;
   const soloHero = !heroIsMap && rest.length === 0;
 
   return (
@@ -825,7 +853,7 @@ function Spread({
               </figcaption>
             </figure>
           ) : (
-            <Frame photo={hero} className="min-h-[220px] flex-1" />
+            <Frame sted={hero} onÅpne={onÅpne} className="min-h-[220px] flex-1" />
           )}
 
           {heroIsMap ? (
@@ -881,12 +909,12 @@ function Spread({
           <span className="vertical-rl hidden shrink-0 rotate-180 self-start text-[10px] uppercase tracking-[0.3em] text-ink-soft lg:block">
             {spread.partCount > 1
               ? `Del ${spread.part} av ${spread.partCount}`
-              : `${spread.photos.length} bilder`}
+              : `${spread.steder.length} ${spread.steder.length === 1 ? "sted" : "steder"}`}
           </span>
 
           <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-5">
-            {rightPhotos.map((photo) => (
-              <Frame key={photo.id} photo={photo} className="min-h-[150px] flex-1" />
+            {rightSteder.map((sted) => (
+              <Frame key={sted.bilde.id} sted={sted} onÅpne={onÅpne} className="min-h-[150px] flex-1" />
             ))}
             {/* På første oppslag står områdeteksten der det tredje bildet
                 ellers ville stått — en kort tekst om det søket faktisk fant. */}
@@ -911,10 +939,25 @@ function Spread({
   );
 }
 
-function Frame({ photo, className }: { photo: Photo; className?: string }) {
+function Frame({
+  sted,
+  onÅpne,
+  className,
+}: {
+  sted: Sted;
+  onÅpne: (sted: Sted) => void;
+  className?: string;
+}) {
+  const photo = sted.bilde;
+  const antall = sted.serie.length;
   return (
     <figure className={`flex min-h-0 flex-col ${className ?? ""}`}>
-      <div className="min-h-0 flex-1 overflow-hidden bg-paper-deep">
+      <button
+        type="button"
+        onClick={() => onÅpne(sted)}
+        title={antall > 1 ? `Se alle ${antall} bildene` : "Se bildet ubeskåret"}
+        className="block min-h-0 flex-1 cursor-zoom-in overflow-hidden bg-paper-deep"
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={thumbnailUrl(photo)}
@@ -922,15 +965,89 @@ function Frame({ photo, className }: { photo: Photo; className?: string }) {
           loading="lazy"
           className="h-full w-full object-cover"
         />
-      </div>
+      </button>
       <figcaption className="mt-2 flex shrink-0 items-baseline justify-between gap-3 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
-        <span className="truncate">{photo.placeName}</span>
+        <span className="truncate">
+          {sted.navn}
+          {antall > 1 && <span className="text-ink"> · {antall} bilder</span>}
+        </span>
         <span className="flex shrink-0 items-baseline gap-3">
           <span>{photo.distanceMeters} m</span>
           {photo.original && <DownloadLink url={photo.original} filnavn={photo.filnavn} />}
         </span>
       </figcaption>
     </figure>
+  );
+}
+
+/**
+ * Serien, åpnet oppå oppslaget: bildet ubeskåret med papir rundt, piler og
+ * teller som i kartpopupen, og nedlasting av akkurat det bildet som vises.
+ * Esc og klikk utenfor lukker.
+ */
+function SeriesView({ sted, onClose }: { sted: Sted; onClose: () => void }) {
+  const [i, setI] = useState(() => Math.max(0, sted.serie.indexOf(sted.bilde)));
+  const n = sted.serie.length;
+  const photo = sted.serie[i];
+  const forrige = () => setI((x) => (x - 1 + n) % n);
+  const neste = () => setI((x) => (x + 1) % n);
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+      if (n > 1 && e.key === "ArrowLeft") setI((x) => (x - 1 + n) % n);
+      if (n > 1 && e.key === "ArrowRight") setI((x) => (x + 1) % n);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [n, onClose]);
+
+  return (
+    <div className="serie-veil" onClick={onClose} role="dialog" aria-modal aria-label={sted.navn}>
+      <div className="serie-card" onClick={(e) => e.stopPropagation()}>
+        <header className="flex shrink-0 items-baseline justify-between gap-4 text-[10px] uppercase tracking-[0.28em] text-ink-soft">
+          <span className="min-w-0 truncate text-ink">{photo.placeName}</span>
+          <span className="flex shrink-0 items-baseline gap-5">
+            <span>{photo.distanceMeters} m</span>
+            <button type="button" onClick={onClose} className="download-link" aria-label="Lukk">
+              Lukk
+            </button>
+          </span>
+        </header>
+
+        <div className="flex min-h-0 flex-1 items-center justify-center py-5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            key={photo.id}
+            src={thumbnailUrl(photo)}
+            alt={photo.placeName}
+            className="max-h-full max-w-full object-contain"
+          />
+        </div>
+
+        <footer className="flex shrink-0 items-baseline justify-between gap-4 border-t border-rule pt-4 text-[10px] uppercase tracking-[0.2em] text-ink-soft">
+          {n > 1 ? (
+            <span className="flex items-baseline gap-4">
+              <button type="button" onClick={forrige} aria-label="Forrige bilde" className="text-base leading-none text-ink transition-transform hover:-translate-x-1">
+                ←
+              </button>
+              <span className="text-ink">
+                {i + 1} / {n}
+              </span>
+              <button type="button" onClick={neste} aria-label="Neste bilde" className="text-base leading-none text-ink transition-transform hover:translate-x-1">
+                →
+              </button>
+            </span>
+          ) : (
+            <span>1 bilde</span>
+          )}
+          <span className="flex items-baseline gap-5">
+            {photo.original && <DownloadLink url={photo.original} filnavn={photo.filnavn} />}
+            <span className="hidden sm:inline">Esc lukker</span>
+          </span>
+        </footer>
+      </div>
+    </div>
   );
 }
 

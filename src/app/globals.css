@@ -191,3 +191,25 @@ body {
 .download-code-feil {
   color: #b04a39;
 }
+
+/* Serien oppå oppslaget: mørkt slør, og et papirkort med hårfin ramme. */
+.serie-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 4vw;
+  background: rgb(18 17 15 / 0.38);
+}
+.serie-card {
+  display: flex;
+  flex-direction: column;
+  width: min(92vw, 1400px);
+  height: 88vh;
+  padding: 20px 24px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 12px 40px rgb(18 17 15 / 0.25);
+}
