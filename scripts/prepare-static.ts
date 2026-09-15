@@ -326,6 +326,14 @@ async function main() {
         }
         if (adresser) adresser = heleBygningen(adresser);
       }
+      // Et bilde som bare har en adresse som navn — ingen beskrivelse, ikke
+      // noe sted på kartet — er tatt på eiendommen: blokka, lekeplassen,
+      // inngangen. Det hører til adressen, ikke til alle i gangavstand.
+      // Grefsenkollveien 16A dukket ellers opp hos alle naboene.
+      const stedsnavn0 = p.placeName.trim();
+      if (!erFelles && adressepunkter[stedsnavn0]) {
+        adresser = heleBygningen([stedsnavn0]);
+      }
       const bygardId = erBygning
         ? null
         : erFelles
