@@ -16,6 +16,13 @@ export type Category = {
  */
 export const FELLESAREAL_KATEGORIER = new Set(["bakgard", "takterrasse", "fasade"]);
 
+/**
+ * Fellesarealene som hører til én bygning, ikke til kvartalet. Et gårdsrom
+ * deles av alle rundt det, men en takterrasse og en fasade er ett hus —
+ * de vises bare for oppgangene med samme husnummer.
+ */
+export const BYGNING_KATEGORIER = new Set(["takterrasse", "fasade"]);
+
 export const CATEGORIES: Category[] = [
   {
     id: "kafe",

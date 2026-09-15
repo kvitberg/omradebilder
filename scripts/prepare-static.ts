@@ -1,7 +1,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import type { SearchIndex } from "../src/lib/index-store";
-import { FELLESAREAL_KATEGORIER as FELLESAREAL } from "../src/lib/categories";
+import {
+  BYGNING_KATEGORIER as BYGNING,
+  FELLESAREAL_KATEGORIER as FELLESAREAL,
+} from "../src/lib/categories";
 
 /**
  * Lager datafilene den statiske siden laster i nettleseren.
@@ -121,8 +124,25 @@ async function main() {
     return bygarder.adresseTilBygard[ren] ?? utenBokstav.get(ren) ?? null;
   }
 
-  /** Nærmeste adresse innen 80 m — lenger unna er vi ikke i samme kvartal. */
-  function adresseFraPunkt(lat: number, lng: number): string | null {
+  /** Alle oppgangene med samme husnummer: «Magnus' gate 1» → 1A, 1B, 1C. */
+  const oppganger = new Map<string, string[]>();
+  for (const adresse of Object.keys(bygarder.adresseTilBygard)) {
+    const grunnform = adresse.replace(/\s*\p{Lu}$/u, "").trim();
+    const liste = oppganger.get(grunnform) ?? [];
+    liste.push(adresse);
+    oppganger.set(grunnform, liste);
+  }
+  function heleBygningen(adresser: string[]): string[] {
+    const alle = new Set<string>();
+    for (const a of adresser) {
+      alle.add(a);
+      for (const o of oppganger.get(a.replace(/\s*\p{Lu}$/u, "").trim()) ?? []) alle.add(o);
+    }
+    return [...alle].sort();
+  }
+
+  /** Nærmeste adresse innen `maks` meter — lenger unna er vi ikke i samme kvartal. */
+  function adresseFraPunkt(lat: number, lng: number, maks = 80): string | null {
     const R = 6371000;
     const rad = (d: number) => (d * Math.PI) / 180;
     let beste: { adresse: string; d: number } | null = null;
@@ -139,7 +159,7 @@ async function main() {
       if (!beste || d < beste.d) beste = { adresse, d };
     }
 
-    return !beste || beste.d > 80 ? null : beste.adresse;
+    return !beste || beste.d > maks ? null : beste.adresse;
   }
 
   function bygardFraPunkt(lat: number, lng: number): string | null {
@@ -293,11 +313,25 @@ async function main() {
         }
       }
 
-      const adresser = erFelles ? adresserFor(p.placeName) : null;
-      const bygardId = erFelles
-        ? bygardFor(p.placeName) ??
-          (lat !== null && lng !== null ? bygardFraPunkt(lat, lng) : null)
-        : (p.bygardId ?? null);
+      // En takterrasse eller fasade hører til bygningen, ikke kvartalet.
+      // Den knyttes til adressen i navnet, ellers til nærmeste adresse, og
+      // utvides til alle oppgangene med samme husnummer. Kvartalet brukes
+      // ikke — det var slik Magnus' gate 13 fikk takterrassen til nr. 1A.
+      const erBygning = BYGNING.has(ønsket);
+      let adresser = erFelles ? adresserFor(p.placeName) : null;
+      if (erBygning) {
+        if (!adresser && lat !== null && lng !== null) {
+          const nærmeste = adresseFraPunkt(lat, lng, 40);
+          if (nærmeste) adresser = [nærmeste];
+        }
+        if (adresser) adresser = heleBygningen(adresser);
+      }
+      const bygardId = erBygning
+        ? null
+        : erFelles
+          ? bygardFor(p.placeName) ??
+            (lat !== null && lng !== null ? bygardFraPunkt(lat, lng) : null)
+          : (p.bygardId ?? null);
 
       // Et fellesareal lover at bildet hører til nettopp denne adressen.
       // Klarer vi ikke å innfri løftet, skal bildet heller ikke bære
