@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T06:30:43.284Z",
+  "generatedAt": "2026-09-16T17:57:10.987Z",
   "photos": [
     {
       "id": "id:TSjIbtJ56bAAAAAAAAc6Mg",
@@ -37897,19 +37897,6 @@
       "filnavn": "003157-58.jpg"
     },
     {
-      "id": "immich:dce845b4-b755-4dbc-bf33-e50019ef6cd3",
-      "dropboxPath": "immich://dce845b4-b755-4dbc-bf33-e50019ef6cd3",
-      "category": "kafe",
-      "placeName": "Kaffe & Brød",
-      "lat": 59.941627,
-      "lng": 10.795608,
-      "locationSource": "exif",
-      "clientModified": "2026-09-13T13:16:00.396+00:00",
-      "thumb": "/thumbs/immichdce845b4-b755-4dbc-bf33-e50019ef6cd3.webp",
-      "original": "https://immich.vikran.net/api/assets/dce845b4-b755-4dbc-bf33-e50019ef6cd3/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003157-57.jpg"
-    },
-    {
       "id": "immich:99d6fc0e-6b9b-45c5-b431-519f44cf11b9",
       "dropboxPath": "immich://99d6fc0e-6b9b-45c5-b431-519f44cf11b9",
       "category": "park",
@@ -37934,6 +37921,19 @@
       "thumb": "/thumbs/immich0ce339f9-f1b1-4ff7-8200-6fdf58826c65.webp",
       "original": "https://immich.vikran.net/api/assets/0ce339f9-f1b1-4ff7-8200-6fdf58826c65/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003157-56.jpg"
+    },
+    {
+      "id": "immich:dce845b4-b755-4dbc-bf33-e50019ef6cd3",
+      "dropboxPath": "immich://dce845b4-b755-4dbc-bf33-e50019ef6cd3",
+      "category": "kafe",
+      "placeName": "Kaffe & Brød",
+      "lat": 59.941627,
+      "lng": 10.795608,
+      "locationSource": "exif",
+      "clientModified": "2026-09-13T13:16:00.396+00:00",
+      "thumb": "/thumbs/immichdce845b4-b755-4dbc-bf33-e50019ef6cd3.webp",
+      "original": "https://immich.vikran.net/api/assets/dce845b4-b755-4dbc-bf33-e50019ef6cd3/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003157-57.jpg"
     },
     {
       "id": "immich:077eccc7-670a-4f89-adac-374a1b2adac0",
@@ -38285,6 +38285,19 @@
       "thumb": "/thumbs/immichdb133fb0-63d8-4b9f-9f3f-c519a0ee6e5b.webp",
       "original": "https://immich.vikran.net/api/assets/db133fb0-63d8-4b9f-9f3f-c519a0ee6e5b/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003157-28.jpg"
+    },
+    {
+      "id": "immich:0400717c-b54b-48bf-b7d3-e2eec0fd03db",
+      "dropboxPath": "immich://0400717c-b54b-48bf-b7d3-e2eec0fd03db",
+      "category": "aktivitet",
+      "placeName": "Akebakkeskogen 14",
+      "lat": 59.951865,
+      "lng": 10.79768,
+      "locationSource": "exif",
+      "clientModified": "2026-09-10T12:33:13.65+00:00",
+      "thumb": "/thumbs/immich0400717c-b54b-48bf-b7d3-e2eec0fd03db.webp",
+      "original": "https://immich.vikran.net/api/assets/0400717c-b54b-48bf-b7d3-e2eec0fd03db/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003166.jpg"
     },
     {
       "id": "immich:c03a605b-47f2-4033-a7fa-f8b4da645ddb",
@@ -39184,19 +39197,6 @@
       "filnavn": "003133-27.jpg"
     },
     {
-      "id": "immich:07b3d291-cfd9-4ffb-a400-53a6c099ba72",
-      "dropboxPath": "immich://07b3d291-cfd9-4ffb-a400-53a6c099ba72",
-      "category": "annet",
-      "placeName": "003133-26.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2026-08-21T10:43:25.89+00:00",
-      "thumb": "/thumbs/immich07b3d291-cfd9-4ffb-a400-53a6c099ba72.webp",
-      "original": "https://immich.vikran.net/api/assets/07b3d291-cfd9-4ffb-a400-53a6c099ba72/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003133-26.jpg"
-    },
-    {
       "id": "immich:4136dc86-68b2-42fd-9730-7dec8dc1c82e",
       "dropboxPath": "immich://4136dc86-68b2-42fd-9730-7dec8dc1c82e",
       "category": "bakgard",
@@ -39208,6 +39208,19 @@
       "thumb": "/thumbs/immich4136dc86-68b2-42fd-9730-7dec8dc1c82e.webp",
       "original": "https://immich.vikran.net/api/assets/4136dc86-68b2-42fd-9730-7dec8dc1c82e/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003133-27.jpg"
+    },
+    {
+      "id": "immich:07b3d291-cfd9-4ffb-a400-53a6c099ba72",
+      "dropboxPath": "immich://07b3d291-cfd9-4ffb-a400-53a6c099ba72",
+      "category": "annet",
+      "placeName": "003133-26.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2026-08-21T10:43:25.89+00:00",
+      "thumb": "/thumbs/immich07b3d291-cfd9-4ffb-a400-53a6c099ba72.webp",
+      "original": "https://immich.vikran.net/api/assets/07b3d291-cfd9-4ffb-a400-53a6c099ba72/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003133-26.jpg"
     },
     {
       "id": "immich:e8819cd0-1065-412d-be91-8f0ea688dd1e",
@@ -39236,19 +39249,6 @@
       "filnavn": "003133-25.jpg"
     },
     {
-      "id": "immich:c5b55201-6faa-4622-b3e6-2c76ee012244",
-      "dropboxPath": "immich://c5b55201-6faa-4622-b3e6-2c76ee012244",
-      "category": "restaurant",
-      "placeName": "Kårhuset",
-      "lat": 59.944817,
-      "lng": 10.771279,
-      "locationSource": "exif",
-      "clientModified": "2026-08-21T09:57:25.855+00:00",
-      "thumb": "/thumbs/immichc5b55201-6faa-4622-b3e6-2c76ee012244.webp",
-      "original": "https://immich.vikran.net/api/assets/c5b55201-6faa-4622-b3e6-2c76ee012244/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003131-5.jpg"
-    },
-    {
       "id": "immich:5fea2c35-7359-4224-b7d0-c196d699348e",
       "dropboxPath": "immich://5fea2c35-7359-4224-b7d0-c196d699348e",
       "category": "restaurant",
@@ -39260,6 +39260,19 @@
       "thumb": "/thumbs/immich5fea2c35-7359-4224-b7d0-c196d699348e.webp",
       "original": "https://immich.vikran.net/api/assets/5fea2c35-7359-4224-b7d0-c196d699348e/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003131-4.jpg"
+    },
+    {
+      "id": "immich:c5b55201-6faa-4622-b3e6-2c76ee012244",
+      "dropboxPath": "immich://c5b55201-6faa-4622-b3e6-2c76ee012244",
+      "category": "restaurant",
+      "placeName": "Kårhuset",
+      "lat": 59.944817,
+      "lng": 10.771279,
+      "locationSource": "exif",
+      "clientModified": "2026-08-21T09:57:25.855+00:00",
+      "thumb": "/thumbs/immichc5b55201-6faa-4622-b3e6-2c76ee012244.webp",
+      "original": "https://immich.vikran.net/api/assets/c5b55201-6faa-4622-b3e6-2c76ee012244/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003131-5.jpg"
     },
     {
       "id": "immich:28c2ff9d-d115-4310-ac7f-dfd5232731ca",
@@ -39678,6 +39691,19 @@
       "filnavn": "003123-13.jpg"
     },
     {
+      "id": "immich:fbcd8832-7802-4cec-8042-7b4f4ec64118",
+      "dropboxPath": "immich://fbcd8832-7802-4cec-8042-7b4f4ec64118",
+      "category": "bakgard",
+      "placeName": "Grefsenkollveien 14A",
+      "lat": 59.953129,
+      "lng": 10.796529,
+      "locationSource": "exif",
+      "clientModified": "2026-08-10T12:13:14.11+00:00",
+      "thumb": "/thumbs/immichfbcd8832-7802-4cec-8042-7b4f4ec64118.webp",
+      "original": "https://immich.vikran.net/api/assets/fbcd8832-7802-4cec-8042-7b4f4ec64118/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003123-12.jpg"
+    },
+    {
       "id": "immich:fb3447a9-70a0-4a43-8571-0ae539b19de9",
       "dropboxPath": "immich://fb3447a9-70a0-4a43-8571-0ae539b19de9",
       "category": "annet",
@@ -39691,19 +39717,6 @@
       "filnavn": "003111-5.jpg"
     },
     {
-      "id": "immich:4fc1c352-a60d-4072-b2d7-7207f2676118",
-      "dropboxPath": "immich://4fc1c352-a60d-4072-b2d7-7207f2676118",
-      "category": "annet",
-      "placeName": "Kurveien 42",
-      "lat": 59.9615,
-      "lng": 10.7918,
-      "locationSource": "exif",
-      "clientModified": "2026-08-04T13:36:54.55+00:00",
-      "thumb": "/thumbs/immich4fc1c352-a60d-4072-b2d7-7207f2676118.webp",
-      "original": "https://immich.vikran.net/api/assets/4fc1c352-a60d-4072-b2d7-7207f2676118/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003111-33.jpg"
-    },
-    {
       "id": "immich:128331ca-e786-4d41-9488-a08605375a83",
       "dropboxPath": "immich://128331ca-e786-4d41-9488-a08605375a83",
       "category": "annet",
@@ -39715,6 +39728,19 @@
       "thumb": "/thumbs/immich128331ca-e786-4d41-9488-a08605375a83.webp",
       "original": "https://immich.vikran.net/api/assets/128331ca-e786-4d41-9488-a08605375a83/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003111-32.jpg"
+    },
+    {
+      "id": "immich:4fc1c352-a60d-4072-b2d7-7207f2676118",
+      "dropboxPath": "immich://4fc1c352-a60d-4072-b2d7-7207f2676118",
+      "category": "annet",
+      "placeName": "Kurveien 42",
+      "lat": 59.9615,
+      "lng": 10.7918,
+      "locationSource": "exif",
+      "clientModified": "2026-08-04T13:36:54.55+00:00",
+      "thumb": "/thumbs/immich4fc1c352-a60d-4072-b2d7-7207f2676118.webp",
+      "original": "https://immich.vikran.net/api/assets/4fc1c352-a60d-4072-b2d7-7207f2676118/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003111-33.jpg"
     },
     {
       "id": "immich:bf584724-df29-431f-afe5-405b03421cc8",
@@ -39793,19 +39819,6 @@
       "thumb": "/thumbs/immich979e3e08-5f2a-412a-82d3-75843a96bfb5.webp",
       "original": "https://immich.vikran.net/api/assets/979e3e08-5f2a-412a-82d3-75843a96bfb5/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003108-24.jpg"
-    },
-    {
-      "id": "immich:fbcd8832-7802-4cec-8042-7b4f4ec64118",
-      "dropboxPath": "immich://fbcd8832-7802-4cec-8042-7b4f4ec64118",
-      "category": "bakgard",
-      "placeName": "Grefsenkollveien 14A",
-      "lat": 59.953129,
-      "lng": 10.796529,
-      "locationSource": "exif",
-      "clientModified": "2026-08-10T12:13:14.11+00:00",
-      "thumb": "/thumbs/immichfbcd8832-7802-4cec-8042-7b4f4ec64118.webp",
-      "original": "https://immich.vikran.net/api/assets/fbcd8832-7802-4cec-8042-7b4f4ec64118/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003123-12.jpg"
     },
     {
       "id": "immich:2e404b18-8ce9-43f4-8d56-a9be07f790e3",
@@ -39951,6 +39964,19 @@
       "filnavn": "003105-37.jpg"
     },
     {
+      "id": "immich:b0d8d84b-ffd5-4f55-a24f-226c48f270a6",
+      "dropboxPath": "immich://b0d8d84b-ffd5-4f55-a24f-226c48f270a6",
+      "category": "park",
+      "placeName": "Sandakerveien 48A",
+      "lat": 59.936048,
+      "lng": 10.763681,
+      "locationSource": "exif",
+      "clientModified": "2026-07-29T10:41:17.19+00:00",
+      "thumb": "/thumbs/immichb0d8d84b-ffd5-4f55-a24f-226c48f270a6.webp",
+      "original": "https://immich.vikran.net/api/assets/b0d8d84b-ffd5-4f55-a24f-226c48f270a6/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003108-28.jpg"
+    },
+    {
       "id": "immich:fdbd12e7-d067-4ad5-b8aa-05737645f69d",
       "dropboxPath": "immich://fdbd12e7-d067-4ad5-b8aa-05737645f69d",
       "category": "annet",
@@ -39988,19 +40014,6 @@
       "thumb": "/thumbs/immich7dcb0728-d8c2-4911-a0f0-be24916a3b23.webp",
       "original": "https://immich.vikran.net/api/assets/7dcb0728-d8c2-4911-a0f0-be24916a3b23/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003105-34.jpg"
-    },
-    {
-      "id": "immich:b0d8d84b-ffd5-4f55-a24f-226c48f270a6",
-      "dropboxPath": "immich://b0d8d84b-ffd5-4f55-a24f-226c48f270a6",
-      "category": "park",
-      "placeName": "Sandakerveien 48A",
-      "lat": 59.936048,
-      "lng": 10.763681,
-      "locationSource": "exif",
-      "clientModified": "2026-07-29T10:41:17.19+00:00",
-      "thumb": "/thumbs/immichb0d8d84b-ffd5-4f55-a24f-226c48f270a6.webp",
-      "original": "https://immich.vikran.net/api/assets/b0d8d84b-ffd5-4f55-a24f-226c48f270a6/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003108-28.jpg"
     },
     {
       "id": "immich:ab808ae1-7d72-421a-afc5-744f94d6deb5",
@@ -40666,19 +40679,6 @@
       "filnavn": "003101-26.jpg"
     },
     {
-      "id": "immich:c2e0fbd2-9aa8-4d01-b1c0-773cc0bd1525",
-      "dropboxPath": "immich://c2e0fbd2-9aa8-4d01-b1c0-773cc0bd1525",
-      "category": "bakgard",
-      "placeName": "Maridalsveien 90",
-      "lat": 59.9327,
-      "lng": 10.7559,
-      "locationSource": "exif",
-      "clientModified": "2026-07-08T20:26:43+00:00",
-      "thumb": "/thumbs/immichc2e0fbd2-9aa8-4d01-b1c0-773cc0bd1525.webp",
-      "original": "https://immich.vikran.net/api/assets/c2e0fbd2-9aa8-4d01-b1c0-773cc0bd1525/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003102-3.jpg"
-    },
-    {
       "id": "immich:961678f5-4997-4847-bd94-c50f0b7d72d1",
       "dropboxPath": "immich://961678f5-4997-4847-bd94-c50f0b7d72d1",
       "category": "bakgard",
@@ -40692,17 +40692,17 @@
       "filnavn": "003101-25.jpg"
     },
     {
-      "id": "immich:c5401c6d-20ff-4b99-9504-1677029173fa",
-      "dropboxPath": "immich://c5401c6d-20ff-4b99-9504-1677029173fa",
+      "id": "immich:c2e0fbd2-9aa8-4d01-b1c0-773cc0bd1525",
+      "dropboxPath": "immich://c2e0fbd2-9aa8-4d01-b1c0-773cc0bd1525",
       "category": "bakgard",
       "placeName": "Maridalsveien 90",
       "lat": 59.9327,
       "lng": 10.7559,
       "locationSource": "exif",
-      "clientModified": "2026-07-09T10:40:47.18+00:00",
-      "thumb": "/thumbs/immichc5401c6d-20ff-4b99-9504-1677029173fa.webp",
-      "original": "https://immich.vikran.net/api/assets/c5401c6d-20ff-4b99-9504-1677029173fa/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003101-23.jpg"
+      "clientModified": "2026-07-08T20:26:43+00:00",
+      "thumb": "/thumbs/immichc2e0fbd2-9aa8-4d01-b1c0-773cc0bd1525.webp",
+      "original": "https://immich.vikran.net/api/assets/c2e0fbd2-9aa8-4d01-b1c0-773cc0bd1525/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003102-3.jpg"
     },
     {
       "id": "immich:a09c0434-eaa6-4760-bbae-75f242e920be",
@@ -40716,6 +40716,19 @@
       "thumb": "/thumbs/immicha09c0434-eaa6-4760-bbae-75f242e920be.webp",
       "original": "https://immich.vikran.net/api/assets/a09c0434-eaa6-4760-bbae-75f242e920be/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003102-6.jpg"
+    },
+    {
+      "id": "immich:c5401c6d-20ff-4b99-9504-1677029173fa",
+      "dropboxPath": "immich://c5401c6d-20ff-4b99-9504-1677029173fa",
+      "category": "bakgard",
+      "placeName": "Maridalsveien 90",
+      "lat": 59.9327,
+      "lng": 10.7559,
+      "locationSource": "exif",
+      "clientModified": "2026-07-09T10:40:47.18+00:00",
+      "thumb": "/thumbs/immichc5401c6d-20ff-4b99-9504-1677029173fa.webp",
+      "original": "https://immich.vikran.net/api/assets/c5401c6d-20ff-4b99-9504-1677029173fa/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003101-23.jpg"
     },
     {
       "id": "immich:6867a561-b11b-4499-b230-63a4275a3c22",
@@ -40799,7 +40812,7 @@
       "id": "immich:6f0a6c2d-97b0-487c-9791-65b376aae8ac",
       "dropboxPath": "immich://6f0a6c2d-97b0-487c-9791-65b376aae8ac",
       "category": "bakgard",
-      "placeName": "Li-Li",
+      "placeName": "Trondheimsveien 170B",
       "lat": 59.9311,
       "lng": 10.778,
       "locationSource": "exif",
@@ -42070,17 +42083,17 @@
       "filnavn": "003163-6.jpg"
     },
     {
-      "id": "immich:023273b9-92a7-408e-9924-4cb5b6650d5c",
-      "dropboxPath": "immich://023273b9-92a7-408e-9924-4cb5b6650d5c",
-      "category": "restaurant",
-      "placeName": "Territoriet",
-      "lat": 59.918959,
-      "lng": 10.757478,
+      "id": "immich:c0fd67f7-ed3a-47d0-a157-7c0f36e6746a",
+      "dropboxPath": "immich://c0fd67f7-ed3a-47d0-a157-7c0f36e6746a",
+      "category": "kafe",
+      "placeName": "The Little Pickle",
+      "lat": 59.919126,
+      "lng": 10.764021,
       "locationSource": "exif",
-      "clientModified": "2026-06-10T11:44:02.361+00:00",
-      "thumb": "/thumbs/immich023273b9-92a7-408e-9924-4cb5b6650d5c.webp",
-      "original": "https://immich.vikran.net/api/assets/023273b9-92a7-408e-9924-4cb5b6650d5c/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003163-9.jpg"
+      "clientModified": "2026-06-10T10:49:05.037+00:00",
+      "thumb": "/thumbs/immichc0fd67f7-ed3a-47d0-a157-7c0f36e6746a.webp",
+      "original": "https://immich.vikran.net/api/assets/c0fd67f7-ed3a-47d0-a157-7c0f36e6746a/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003151-3.jpg"
     },
     {
       "id": "immich:cbebbc40-6da5-4471-9c5a-32b1e32205c5",
@@ -42094,45 +42107,6 @@
       "thumb": "/thumbs/immichcbebbc40-6da5-4471-9c5a-32b1e32205c5.webp",
       "original": "https://immich.vikran.net/api/assets/cbebbc40-6da5-4471-9c5a-32b1e32205c5/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003163-5.jpg"
-    },
-    {
-      "id": "immich:7897dd80-5c83-4361-9d7f-cd9716746f62",
-      "dropboxPath": "immich://7897dd80-5c83-4361-9d7f-cd9716746f62",
-      "category": "restaurant",
-      "placeName": "Vinbaren Dr. Kneipp",
-      "lat": 59.919691,
-      "lng": 10.757367,
-      "locationSource": "exif",
-      "clientModified": "2026-06-10T11:43:56.816+00:00",
-      "thumb": "/thumbs/immich7897dd80-5c83-4361-9d7f-cd9716746f62.webp",
-      "original": "https://immich.vikran.net/api/assets/7897dd80-5c83-4361-9d7f-cd9716746f62/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003163-8.jpg"
-    },
-    {
-      "id": "immich:e7da966c-2a12-4eac-8232-b5f56168e95b",
-      "dropboxPath": "immich://e7da966c-2a12-4eac-8232-b5f56168e95b",
-      "category": "restaurant",
-      "placeName": "Jimmy’s",
-      "lat": 59.919207,
-      "lng": 10.757518,
-      "locationSource": "exif",
-      "clientModified": "2026-06-10T11:34:33.854+00:00",
-      "thumb": "/thumbs/immiche7da966c-2a12-4eac-8232-b5f56168e95b.webp",
-      "original": "https://immich.vikran.net/api/assets/e7da966c-2a12-4eac-8232-b5f56168e95b/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003163-7.jpg"
-    },
-    {
-      "id": "immich:c0fd67f7-ed3a-47d0-a157-7c0f36e6746a",
-      "dropboxPath": "immich://c0fd67f7-ed3a-47d0-a157-7c0f36e6746a",
-      "category": "kafe",
-      "placeName": "The Little Pickle",
-      "lat": 59.919126,
-      "lng": 10.764021,
-      "locationSource": "exif",
-      "clientModified": "2026-06-10T10:49:05.037+00:00",
-      "thumb": "/thumbs/immichc0fd67f7-ed3a-47d0-a157-7c0f36e6746a.webp",
-      "original": "https://immich.vikran.net/api/assets/c0fd67f7-ed3a-47d0-a157-7c0f36e6746a/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003151-3.jpg"
     },
     {
       "id": "immich:fdd63b35-8daf-4fec-817d-b1b8c8ce8d38",
@@ -42174,32 +42148,6 @@
       "filnavn": "003092-2.jpg"
     },
     {
-      "id": "immich:7a2d8af4-1139-4a8c-8f41-128cdb79c8e9",
-      "dropboxPath": "immich://7a2d8af4-1139-4a8c-8f41-128cdb79c8e9",
-      "category": "bakgard",
-      "placeName": "Dælenenggata 11C",
-      "lat": 59.9263,
-      "lng": 10.7742,
-      "locationSource": "exif",
-      "clientModified": "2026-06-08T11:19:32.986+00:00",
-      "thumb": "/thumbs/immich7a2d8af4-1139-4a8c-8f41-128cdb79c8e9.webp",
-      "original": "https://immich.vikran.net/api/assets/7a2d8af4-1139-4a8c-8f41-128cdb79c8e9/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003093-10.jpg"
-    },
-    {
-      "id": "immich:c8512d62-4f7e-4d6d-ad85-b3a423ce6a70",
-      "dropboxPath": "immich://c8512d62-4f7e-4d6d-ad85-b3a423ce6a70",
-      "category": "bakgard",
-      "placeName": "Dælenenggata 11C",
-      "lat": 59.926289,
-      "lng": 10.774193,
-      "locationSource": "exif",
-      "clientModified": "2026-06-08T11:19:14.886+00:00",
-      "thumb": "/thumbs/immichc8512d62-4f7e-4d6d-ad85-b3a423ce6a70.webp",
-      "original": "https://immich.vikran.net/api/assets/c8512d62-4f7e-4d6d-ad85-b3a423ce6a70/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003093-9.jpg"
-    },
-    {
       "id": "immich:af803563-14b9-4155-9b05-a1e47fb600f7",
       "dropboxPath": "immich://af803563-14b9-4155-9b05-a1e47fb600f7",
       "category": "park",
@@ -42237,6 +42185,32 @@
       "thumb": "/thumbs/immich53d9d000-9a03-4091-80b0-8242511fce0f.webp",
       "original": "https://immich.vikran.net/api/assets/53d9d000-9a03-4091-80b0-8242511fce0f/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003163-4.jpg"
+    },
+    {
+      "id": "immich:7a2d8af4-1139-4a8c-8f41-128cdb79c8e9",
+      "dropboxPath": "immich://7a2d8af4-1139-4a8c-8f41-128cdb79c8e9",
+      "category": "bakgard",
+      "placeName": "Dælenenggata 11C",
+      "lat": 59.9263,
+      "lng": 10.7742,
+      "locationSource": "exif",
+      "clientModified": "2026-06-08T11:19:32.986+00:00",
+      "thumb": "/thumbs/immich7a2d8af4-1139-4a8c-8f41-128cdb79c8e9.webp",
+      "original": "https://immich.vikran.net/api/assets/7a2d8af4-1139-4a8c-8f41-128cdb79c8e9/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003093-10.jpg"
+    },
+    {
+      "id": "immich:c8512d62-4f7e-4d6d-ad85-b3a423ce6a70",
+      "dropboxPath": "immich://c8512d62-4f7e-4d6d-ad85-b3a423ce6a70",
+      "category": "bakgard",
+      "placeName": "Dælenenggata 11C",
+      "lat": 59.926289,
+      "lng": 10.774193,
+      "locationSource": "exif",
+      "clientModified": "2026-06-08T11:19:14.886+00:00",
+      "thumb": "/thumbs/immichc8512d62-4f7e-4d6d-ad85-b3a423ce6a70.webp",
+      "original": "https://immich.vikran.net/api/assets/c8512d62-4f7e-4d6d-ad85-b3a423ce6a70/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003093-9.jpg"
     },
     {
       "id": "immich:3b1f2166-3ed1-46cf-bfc7-7e2197c9a34b",
@@ -42289,6 +42263,45 @@
       "thumb": "/thumbs/immich9fa3c060-8874-4a8c-859d-cea39ad96f6b.webp",
       "original": "https://immich.vikran.net/api/assets/9fa3c060-8874-4a8c-859d-cea39ad96f6b/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003163.jpg"
+    },
+    {
+      "id": "immich:6d9d6e99-a6b5-4eab-9513-5add4364c350",
+      "dropboxPath": "immich://6d9d6e99-a6b5-4eab-9513-5add4364c350",
+      "category": "aktivitet",
+      "placeName": "Sats Ila",
+      "lat": 59.928404,
+      "lng": 10.75353,
+      "locationSource": "exif",
+      "clientModified": "2026-06-03T13:29:46.18+00:00",
+      "thumb": "/thumbs/immich6d9d6e99-a6b5-4eab-9513-5add4364c350.webp",
+      "original": "https://immich.vikran.net/api/assets/6d9d6e99-a6b5-4eab-9513-5add4364c350/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003090-35.jpg"
+    },
+    {
+      "id": "immich:ea85c824-ec47-4ea6-8753-d76358c4307a",
+      "dropboxPath": "immich://ea85c824-ec47-4ea6-8753-d76358c4307a",
+      "category": "park",
+      "placeName": "Vålerenga park",
+      "lat": 59.907223,
+      "lng": 10.785682,
+      "locationSource": "exif",
+      "clientModified": "2026-06-02T09:39:42.054+00:00",
+      "thumb": "/thumbs/immichea85c824-ec47-4ea6-8753-d76358c4307a.webp",
+      "original": "https://immich.vikran.net/api/assets/ea85c824-ec47-4ea6-8753-d76358c4307a/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003151-2.jpg"
+    },
+    {
+      "id": "immich:ac8dd224-a31f-44fb-bb8e-5a114758c70c",
+      "dropboxPath": "immich://ac8dd224-a31f-44fb-bb8e-5a114758c70c",
+      "category": "park",
+      "placeName": "Vålerenga park",
+      "lat": 59.9072,
+      "lng": 10.7857,
+      "locationSource": "exif",
+      "clientModified": "2026-06-02T09:39:32.898+00:00",
+      "thumb": "/thumbs/immichac8dd224-a31f-44fb-bb8e-5a114758c70c.webp",
+      "original": "https://immich.vikran.net/api/assets/ac8dd224-a31f-44fb-bb8e-5a114758c70c/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003151.jpg"
     },
     {
       "id": "immich:2463c0ae-c67d-4a44-9c74-983a14045e7d",
@@ -42512,45 +42525,6 @@
       "filnavn": "003087-32.jpg"
     },
     {
-      "id": "immich:6d9d6e99-a6b5-4eab-9513-5add4364c350",
-      "dropboxPath": "immich://6d9d6e99-a6b5-4eab-9513-5add4364c350",
-      "category": "aktivitet",
-      "placeName": "Sats Ila",
-      "lat": 59.928404,
-      "lng": 10.75353,
-      "locationSource": "exif",
-      "clientModified": "2026-06-03T13:29:46.18+00:00",
-      "thumb": "/thumbs/immich6d9d6e99-a6b5-4eab-9513-5add4364c350.webp",
-      "original": "https://immich.vikran.net/api/assets/6d9d6e99-a6b5-4eab-9513-5add4364c350/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003090-35.jpg"
-    },
-    {
-      "id": "immich:ea85c824-ec47-4ea6-8753-d76358c4307a",
-      "dropboxPath": "immich://ea85c824-ec47-4ea6-8753-d76358c4307a",
-      "category": "park",
-      "placeName": "Vålerenga park",
-      "lat": 59.907223,
-      "lng": 10.785682,
-      "locationSource": "exif",
-      "clientModified": "2026-06-02T09:39:42.054+00:00",
-      "thumb": "/thumbs/immichea85c824-ec47-4ea6-8753-d76358c4307a.webp",
-      "original": "https://immich.vikran.net/api/assets/ea85c824-ec47-4ea6-8753-d76358c4307a/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003151-2.jpg"
-    },
-    {
-      "id": "immich:ac8dd224-a31f-44fb-bb8e-5a114758c70c",
-      "dropboxPath": "immich://ac8dd224-a31f-44fb-bb8e-5a114758c70c",
-      "category": "park",
-      "placeName": "Vålerenga park",
-      "lat": 59.9072,
-      "lng": 10.7857,
-      "locationSource": "exif",
-      "clientModified": "2026-06-02T09:39:32.898+00:00",
-      "thumb": "/thumbs/immichac8dd224-a31f-44fb-bb8e-5a114758c70c.webp",
-      "original": "https://immich.vikran.net/api/assets/ac8dd224-a31f-44fb-bb8e-5a114758c70c/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003151.jpg"
-    },
-    {
       "id": "immich:b0bbc95b-e9f8-4613-8e55-a7d0a0d28224",
       "dropboxPath": "immich://b0bbc95b-e9f8-4613-8e55-a7d0a0d28224",
       "category": "fasade",
@@ -42616,32 +42590,6 @@
       "filnavn": "003082-34.jpg"
     },
     {
-      "id": "immich:adcf9ee4-b818-420b-8cb9-cc0561333d3d",
-      "dropboxPath": "immich://adcf9ee4-b818-420b-8cb9-cc0561333d3d",
-      "category": "bakgard",
-      "placeName": "Joker Trondheimsveien",
-      "lat": 59.9203,
-      "lng": 10.7671,
-      "locationSource": "exif",
-      "clientModified": "2026-05-26T16:47:23.34+00:00",
-      "thumb": "/thumbs/immichadcf9ee4-b818-420b-8cb9-cc0561333d3d.webp",
-      "original": "https://immich.vikran.net/api/assets/adcf9ee4-b818-420b-8cb9-cc0561333d3d/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003082-30.jpg"
-    },
-    {
-      "id": "immich:9aa59e89-3cf5-4f1f-bbf1-7e1e3a5b684e",
-      "dropboxPath": "immich://9aa59e89-3cf5-4f1f-bbf1-7e1e3a5b684e",
-      "category": "bakgard",
-      "placeName": "Joker Trondheimsveien",
-      "lat": 59.9203,
-      "lng": 10.7671,
-      "locationSource": "exif",
-      "clientModified": "2026-05-26T16:47:07.18+00:00",
-      "thumb": "/thumbs/immich9aa59e89-3cf5-4f1f-bbf1-7e1e3a5b684e.webp",
-      "original": "https://immich.vikran.net/api/assets/9aa59e89-3cf5-4f1f-bbf1-7e1e3a5b684e/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003082-29.jpg"
-    },
-    {
       "id": "immich:5efb594e-8e99-4b3d-b4ec-8c460d109efd",
       "dropboxPath": "immich://5efb594e-8e99-4b3d-b4ec-8c460d109efd",
       "category": "fasade",
@@ -42681,6 +42629,32 @@
       "filnavn": "003082-31.jpg"
     },
     {
+      "id": "immich:adcf9ee4-b818-420b-8cb9-cc0561333d3d",
+      "dropboxPath": "immich://adcf9ee4-b818-420b-8cb9-cc0561333d3d",
+      "category": "bakgard",
+      "placeName": "Joker Trondheimsveien",
+      "lat": 59.9203,
+      "lng": 10.7671,
+      "locationSource": "exif",
+      "clientModified": "2026-05-26T16:47:23.34+00:00",
+      "thumb": "/thumbs/immichadcf9ee4-b818-420b-8cb9-cc0561333d3d.webp",
+      "original": "https://immich.vikran.net/api/assets/adcf9ee4-b818-420b-8cb9-cc0561333d3d/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003082-30.jpg"
+    },
+    {
+      "id": "immich:9aa59e89-3cf5-4f1f-bbf1-7e1e3a5b684e",
+      "dropboxPath": "immich://9aa59e89-3cf5-4f1f-bbf1-7e1e3a5b684e",
+      "category": "bakgard",
+      "placeName": "Joker Trondheimsveien",
+      "lat": 59.9203,
+      "lng": 10.7671,
+      "locationSource": "exif",
+      "clientModified": "2026-05-26T16:47:07.18+00:00",
+      "thumb": "/thumbs/immich9aa59e89-3cf5-4f1f-bbf1-7e1e3a5b684e.webp",
+      "original": "https://immich.vikran.net/api/assets/9aa59e89-3cf5-4f1f-bbf1-7e1e3a5b684e/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003082-29.jpg"
+    },
+    {
       "id": "immich:46da544a-2cdb-47ed-99c6-73270c629f5f",
       "dropboxPath": "immich://46da544a-2cdb-47ed-99c6-73270c629f5f",
       "category": "bakgard",
@@ -42692,19 +42666,6 @@
       "thumb": "/thumbs/immich46da544a-2cdb-47ed-99c6-73270c629f5f.webp",
       "original": "https://immich.vikran.net/api/assets/46da544a-2cdb-47ed-99c6-73270c629f5f/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003082-5.jpg"
-    },
-    {
-      "id": "immich:e736adb1-b78d-47c9-b473-b77ee4e86d9c",
-      "dropboxPath": "immich://e736adb1-b78d-47c9-b473-b77ee4e86d9c",
-      "category": "fasade",
-      "placeName": "Christian Schous vei 3F",
-      "lat": 59.945831,
-      "lng": 10.800654,
-      "locationSource": "exif",
-      "clientModified": "2026-05-26T14:40:09.46+00:00",
-      "thumb": "/thumbs/immiche736adb1-b78d-47c9-b473-b77ee4e86d9c.webp",
-      "original": "https://immich.vikran.net/api/assets/e736adb1-b78d-47c9-b473-b77ee4e86d9c/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003082.jpg"
     },
     {
       "id": "immich:d2641355-5117-4762-b4e0-469ca74076ca",
@@ -42733,19 +42694,6 @@
       "filnavn": "003082-3.jpg"
     },
     {
-      "id": "immich:21895b0e-c5a5-4f69-8f75-7b9f2696b590",
-      "dropboxPath": "immich://21895b0e-c5a5-4f69-8f75-7b9f2696b590",
-      "category": "annet",
-      "placeName": "003085-9.jpg",
-      "lat": null,
-      "lng": null,
-      "locationSource": "none",
-      "clientModified": "2026-05-26T10:06:36.098+00:00",
-      "thumb": "/thumbs/immich21895b0e-c5a5-4f69-8f75-7b9f2696b590.webp",
-      "original": "https://immich.vikran.net/api/assets/21895b0e-c5a5-4f69-8f75-7b9f2696b590/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
-      "filnavn": "003085-9.jpg"
-    },
-    {
       "id": "immich:2d2b8222-2de8-43aa-a81c-07024aa73991",
       "dropboxPath": "immich://2d2b8222-2de8-43aa-a81c-07024aa73991",
       "category": "fasade",
@@ -42759,10 +42707,62 @@
       "filnavn": "003082-2.jpg"
     },
     {
+      "id": "immich:e736adb1-b78d-47c9-b473-b77ee4e86d9c",
+      "dropboxPath": "immich://e736adb1-b78d-47c9-b473-b77ee4e86d9c",
+      "category": "fasade",
+      "placeName": "Christian Schous vei 3F",
+      "lat": 59.945831,
+      "lng": 10.800654,
+      "locationSource": "exif",
+      "clientModified": "2026-05-26T14:40:09.46+00:00",
+      "thumb": "/thumbs/immiche736adb1-b78d-47c9-b473-b77ee4e86d9c.webp",
+      "original": "https://immich.vikran.net/api/assets/e736adb1-b78d-47c9-b473-b77ee4e86d9c/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003082.jpg"
+    },
+    {
+      "id": "immich:023273b9-92a7-408e-9924-4cb5b6650d5c",
+      "dropboxPath": "immich://023273b9-92a7-408e-9924-4cb5b6650d5c",
+      "category": "annet",
+      "placeName": "003163-9.jpg",
+      "lat": 59.918959,
+      "lng": 10.757478,
+      "locationSource": "exif",
+      "clientModified": "2026-06-10T11:44:02.361+00:00",
+      "thumb": "/thumbs/immich023273b9-92a7-408e-9924-4cb5b6650d5c.webp",
+      "original": "https://immich.vikran.net/api/assets/023273b9-92a7-408e-9924-4cb5b6650d5c/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003163-9.jpg"
+    },
+    {
+      "id": "immich:7897dd80-5c83-4361-9d7f-cd9716746f62",
+      "dropboxPath": "immich://7897dd80-5c83-4361-9d7f-cd9716746f62",
+      "category": "annet",
+      "placeName": "003163-8.jpg",
+      "lat": 59.919691,
+      "lng": 10.757367,
+      "locationSource": "exif",
+      "clientModified": "2026-06-10T11:43:56.816+00:00",
+      "thumb": "/thumbs/immich7897dd80-5c83-4361-9d7f-cd9716746f62.webp",
+      "original": "https://immich.vikran.net/api/assets/7897dd80-5c83-4361-9d7f-cd9716746f62/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003163-8.jpg"
+    },
+    {
+      "id": "immich:e7da966c-2a12-4eac-8232-b5f56168e95b",
+      "dropboxPath": "immich://e7da966c-2a12-4eac-8232-b5f56168e95b",
+      "category": "annet",
+      "placeName": "003163-7.jpg",
+      "lat": 59.919207,
+      "lng": 10.757518,
+      "locationSource": "exif",
+      "clientModified": "2026-06-10T11:34:33.854+00:00",
+      "thumb": "/thumbs/immiche7da966c-2a12-4eac-8232-b5f56168e95b.webp",
+      "original": "https://immich.vikran.net/api/assets/e7da966c-2a12-4eac-8232-b5f56168e95b/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003163-7.jpg"
+    },
+    {
       "id": "immich:03f54cb0-a0f3-4e00-83dc-d6b0430b53a4",
       "dropboxPath": "immich://03f54cb0-a0f3-4e00-83dc-d6b0430b53a4",
       "category": "kollektiv",
-      "placeName": "Regnbueveien 20D",
+      "placeName": "003085-11.jpg",
       "lat": 59.916585,
       "lng": 10.819684,
       "locationSource": "exif",
@@ -42770,6 +42770,19 @@
       "thumb": "/thumbs/immich03f54cb0-a0f3-4e00-83dc-d6b0430b53a4.webp",
       "original": "https://immich.vikran.net/api/assets/03f54cb0-a0f3-4e00-83dc-d6b0430b53a4/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
       "filnavn": "003085-11.jpg"
+    },
+    {
+      "id": "immich:21895b0e-c5a5-4f69-8f75-7b9f2696b590",
+      "dropboxPath": "immich://21895b0e-c5a5-4f69-8f75-7b9f2696b590",
+      "category": "annet",
+      "placeName": "003085-9.jpg",
+      "lat": null,
+      "lng": null,
+      "locationSource": "none",
+      "clientModified": "2026-05-26T10:06:36.098+00:00",
+      "thumb": "/thumbs/immich21895b0e-c5a5-4f69-8f75-7b9f2696b590.webp",
+      "original": "https://immich.vikran.net/api/assets/21895b0e-c5a5-4f69-8f75-7b9f2696b590/original?key=CJ5rJyNaI2YWDqXJUY-rhmPes2qI70PKNhp11aHOLlb2c3CojMsJkhkXNxfQ_ROYGNM",
+      "filnavn": "003085-9.jpg"
     },
     {
       "id": "immich:42f95853-6bf4-4fa4-a2d1-0c52b1b5e766",
