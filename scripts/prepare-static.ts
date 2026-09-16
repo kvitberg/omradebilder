@@ -164,6 +164,34 @@ async function main() {
     return [...alle].sort();
   }
 
+  /**
+   * Borettslag som spenner flere husnumre (data/borettslag.json). Er én av
+   * bildets adresser med i et lag, hører bildet til hele laget:
+   * Akebakkeskogen 64B sin bakgård er borettslagets, ikke oppgangens.
+   */
+  const borettslag: Array<{ navn: string; adresser: Set<string> }> = [];
+  try {
+    const raw = JSON.parse(
+      await fs.readFile(path.join(process.cwd(), "data", "borettslag.json"), "utf-8")
+    ) as Record<string, { gater?: string[]; adresser?: string[] }>;
+    for (const [navn, def] of Object.entries(raw)) {
+      if (navn === "_") continue;
+      const sett = new Set<string>(def.adresser ?? []);
+      for (const gate of def.gater ?? []) {
+        for (const a of Object.keys(adressepunkter)) {
+          if (a.startsWith(`${gate} `)) sett.add(a);
+        }
+      }
+      if (sett.size) borettslag.push({ navn, adresser: sett });
+    }
+  } catch {
+    // Ingen liste — da er bygningen grensen.
+  }
+  function heleBorettslaget(adresser: string[]): string[] {
+    const laget = borettslag.find((b) => adresser.some((a) => b.adresser.has(a)));
+    return laget ? [...new Set([...adresser, ...laget.adresser])].sort() : adresser;
+  }
+
   /** Nærmeste adresse innen `maks` meter — lenger unna er vi ikke i samme kvartal. */
   function adresseFraPunkt(lat: number, lng: number, maks = 80): string | null {
     const R = 6371000;
@@ -256,11 +284,24 @@ async function main() {
       );
       if (liste.length) return liste;
     }
-    for (const del of placeName.split(/\s*[–—,-]\s*/)) {
-      ADRESSE.lastIndex = 0;
-      for (const m of del.matchAll(ADRESSE)) {
-        const kandidat = m[1].replace(/\s+/g, " ").trim();
-        if (bygarder.adresseTilBygard[kandidat] || utenBokstav.has(kandidat)) return [kandidat];
+    const treff = adresseINavn(placeName);
+    return treff ? [treff] : null;
+  }
+
+  /**
+   * Adressen som står i navnet. Hver del mellom bindestreker prøves fra
+   * hvert ord og ut: «Bakgård - Christian Schous vei 3F» gir «Christian
+   * Schous vei 3F». Regex-en klarte ikke gatenavn med flere store
+   * bokstaver, så Christian Schous vei og Hans Nielsen Hauges gate falt ut.
+   */
+  function adresseINavn(placeName: string): string | null {
+    for (const del of placeName.split(/\s*[–—,]\s*|\s+-\s*|\s*-\s+/)) {
+      const ord = del.replace(/\s+/g, " ").trim().split(" ");
+      for (let i = 0; i < ord.length - 1; i++) {
+        const kandidat = ord.slice(i).join(" ");
+        if (bygarder.adresseTilBygard[kandidat] || utenBokstav.has(kandidat) || adressepunkter[kandidat]) {
+          return kandidat;
+        }
       }
     }
     return null;
@@ -358,12 +399,24 @@ async function main() {
       if (!erFelles && adressepunkter[stedsnavn0]) {
         adresser = heleBygningen([stedsnavn0]);
       }
+      if (adresser) adresser = heleBorettslaget(adresser);
       const bygardId = erBygning
         ? null
         : erFelles
           ? bygardFor(p.placeName) ??
             (lat !== null && lng !== null ? bygardFraPunkt(lat, lng) : null)
           : (p.bygardId ?? null);
+
+      // En bakgård uten brukbart kvartal — i Grefsen er kvartalet en klump
+      // på to tusen adresser — knyttes til bygningen i stedet, slik
+      // takterrassene gjør. Ellers ble den «annet» og vist til hele nabolaget.
+      if (erFelles && !erBygning && !bygardId) {
+        if (!adresser && lat !== null && lng !== null) {
+          const nærmeste = adresseFraPunkt(lat, lng, 40);
+          if (nærmeste) adresser = [nærmeste];
+        }
+        if (adresser) adresser = heleBygningen(adresser);
+      }
 
       // Et fellesareal lover at bildet hører til nettopp denne adressen.
       // Klarer vi ikke å innfri løftet, skal bildet heller ikke bære
