@@ -1,4 +1,48 @@
 {
-  "_": "Borettslag og sameier som spenner over flere husnumre. Et bilde som er bundet til én av adressene, vises for alle. «gater» tar hele gata; «adresser» tar enkeltadresser.",
-  "Akebakkeskogen borettslag": { "gater": ["Akebakkeskogen"] }
+  "_": "Borettslag og sameier som spenner over flere husnumre. Et bilde som er bundet til én av adressene, vises for alle. «gater» tar hele gata; «adresser» tar enkeltadresser, og en adresse uten bokstav tar med alle oppgangene (42 → 42A, 42B …). Myrer: 36 adresser fra bolig.ai, 26 blokker.",
+  "Akebakkeskogen borettslag": {
+    "gater": [
+      "Akebakkeskogen"
+    ]
+  },
+  "Myrer borettslag": {
+    "adresser": [
+      "Fallanveien 29",
+      "Fallanveien 35",
+      "Kurveien 26",
+      "Kurveien 29",
+      "Kurveien 30",
+      "Kurveien 31",
+      "Kurveien 32",
+      "Kurveien 33",
+      "Kurveien 35",
+      "Kurveien 36",
+      "Kurveien 37",
+      "Kurveien 38",
+      "Kurveien 40",
+      "Kurveien 42",
+      "Kurveien 44",
+      "Kurveien 45",
+      "Kurveien 48",
+      "Kurveien 50",
+      "Kurveien 52",
+      "Kurveien 54",
+      "Kurveien 56",
+      "Kurveien 60",
+      "Myrerskogveien 15",
+      "Myrerskogveien 26",
+      "Myrerskogveien 28",
+      "Myrerveien 15",
+      "Myrerveien 17",
+      "Myrerveien 21",
+      "Myrerveien 25",
+      "Nordstjerneveien 6",
+      "Nordstjerneveien 8",
+      "Nordstjerneveien 9",
+      "Nordstjerneveien 10",
+      "Nordstjerneveien 12",
+      "Nordstjerneveien 17",
+      "Nordstjerneveien 19"
+    ]
+  }
 }

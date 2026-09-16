@@ -176,7 +176,12 @@ async function main() {
     ) as Record<string, { gater?: string[]; adresser?: string[] }>;
     for (const [navn, def] of Object.entries(raw)) {
       if (navn === "_") continue;
-      const sett = new Set<string>(def.adresser ?? []);
+      const sett = new Set<string>();
+      // «Kurveien 42» i lista dekker 42, 42A, 42B … i matrikkelen.
+      for (const a of def.adresser ?? []) {
+        sett.add(a);
+        for (const o of oppganger.get(a) ?? []) sett.add(o);
+      }
       for (const gate of def.gater ?? []) {
         for (const a of Object.keys(adressepunkter)) {
           if (a.startsWith(`${gate} `)) sett.add(a);
