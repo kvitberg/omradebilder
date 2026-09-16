@@ -1064,7 +1064,11 @@ function DownloadLink({ url, filnavn }: { url: string; filnavn: string | null })
   const [spør, setSpør] = useState(false);
   const [kode, setKode] = useState("");
   const [feil, setFeil] = useState(false);
+  // Gamle Immich-lenker (med nøkkel) må hentes som blob. Lenker via
+  // mellomtjeneren får koden som sjekksum i adressen og laster ned selv.
   const viaBlob = url.includes("/api/assets/");
+  const viaProxy = /\/original\/[0-9a-f-]{36}$/.test(url);
+  const href = viaProxy ? `${url}?t=${KODE_SJEKKSUM}` : url;
 
   const hentBlob = async () => {
     setHenter(true);
@@ -1112,7 +1116,7 @@ function DownloadLink({ url, filnavn }: { url: string; filnavn: string | null })
     setSpør(false);
     setFeil(false);
     if (viaBlob) void hentBlob();
-    else window.location.assign(url);
+    else window.location.assign(href);
   };
 
   if (spør) {
@@ -1141,7 +1145,7 @@ function DownloadLink({ url, filnavn }: { url: string; filnavn: string | null })
   }
 
   return (
-    <a href={url} onClick={lastNed} download={filnavn ?? undefined} className="download-link">
+    <a href={href} onClick={lastNed} download={filnavn ?? undefined} className="download-link">
       {henter ? "Henter\u2026" : "Last ned"}
     </a>
   );

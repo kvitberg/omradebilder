@@ -1,0 +1,9 @@
+name = "omradebilder-originaler"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+
+# Hemmelighetene settes med `npx wrangler secret put`, aldri her:
+#   IMMICH_SHARE_KEY  — delingsnøkkelen til albumet
+#   KODE_SJEKKSUM     — SHA-256 av koden til siden (samme som i src/lib/kode.ts)
+[vars]
+IMMICH_URL = "https://immich.vikran.net"

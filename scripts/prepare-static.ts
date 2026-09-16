@@ -1,3 +1,6 @@
+import { config } from "dotenv";
+config({ path: ".env.local" });
+
 import fs from "node:fs/promises";
 import path from "node:path";
 import type { SearchIndex } from "../src/lib/index-store";
@@ -18,6 +21,18 @@ import {
  */
 
 const OUT_DIR = path.join(process.cwd(), "public", "data");
+
+/**
+ * Immich-originalene hentes via mellomtjeneren i worker/ når ORIGINAL_PROXY
+ * er satt, så delingsnøkkelen aldri havner i den publiserte datafila.
+ * Uten proxy publiseres lenken som den er — med nøkkel — slik det var.
+ */
+const ORIGINAL_PROXY = (process.env.ORIGINAL_PROXY ?? "").replace(/\/$/, "");
+function utenNøkkel(url: string): string {
+  const m = url.match(/\/api\/assets\/([0-9a-f-]{36})\/original/);
+  if (!m || !ORIGINAL_PROXY) return url;
+  return `${ORIGINAL_PROXY}/original/${m[1]}`;
+}
 
 /**
  * Dropbox lager «Folkvang Boligselskap (1)» når en mappe kopieres inn på
@@ -466,7 +481,7 @@ async function main() {
     thumb: p.thumb,
     ...(p.bygardId ? { bygardId: p.bygardId } : {}),
     ...(p.adresser?.length ? { adresser: p.adresser } : {}),
-    ...(p.original ? { original: p.original, filnavn: p.filnavn ?? null } : {}),
+    ...(p.original ? { original: utenNøkkel(p.original), filnavn: p.filnavn ?? null } : {}),
   }));
 
   await fs.writeFile(
