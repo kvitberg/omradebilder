@@ -7,7 +7,7 @@
  * kode huskes i nettleseren, så den skrives bare én gang.
  */
 
-export const KODE_SJEKKSUM = "5db1fee4b5703808c48078a76768b155b421b210c0761cd6a5d223f4d99f1eaa";
+export const KODE_SJEKKSUM = "9fca429aefd9c3a81991f74f24361957f69b99dcfc09ee0e346c7675a3ccc081";
 const KODE_NØKKEL = "omradebilder-kode";
 
 export async function sjekksum(tekst: string): Promise<string> {

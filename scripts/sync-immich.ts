@@ -171,6 +171,7 @@ async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true });
 
   const photos: PhotoEntry[] = [];
+  const feilede = new Set<string>();
   let withGps = 0;
   let named = 0;
   let fromPoi = 0;
@@ -243,6 +244,7 @@ async function main() {
         });
       } catch (err) {
         failed++;
+        feilede.add(`immich:${assetId}`);
         console.warn(`  ✗ ${assetId}: ${(err as Error).message}`);
       }
 
@@ -261,7 +263,16 @@ async function main() {
     index = { generatedAt: null, photos: [] };
   }
   const others = index.photos.filter((p) => !p.id.startsWith("immich:"));
-  index.photos = [...others, ...photos];
+
+  // Bilder som feilet i denne runden beholdes fra forrige. En treg kveld
+  // hos Immich ga 81 nettverksfeil, og de bildene forsvant fra portalen
+  // til neste sync — Akebakkeskogen sto igjen med ett bilde.
+  const hentet = new Set(photos.map((p) => p.id));
+  const beholdt = index.photos.filter(
+    (p) => p.id.startsWith("immich:") && !hentet.has(p.id) && feilede.has(p.id)
+  );
+  if (beholdt.length) console.log(`  ${beholdt.length} bilder feilet og beholdes fra forrige sync.`);
+  index.photos = [...others, ...photos, ...beholdt];
   index.generatedAt = new Date().toISOString();
   await fs.writeFile(INDEX_PATH, JSON.stringify(index, null, 2));
 
