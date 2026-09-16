@@ -25,6 +25,29 @@ const OUT_DIR = path.join(process.cwd(), "public", "data");
  * dobbelt. En fil med samme navn i en mappe som bare skiller seg med «(n)»
  * regnes som samme bilde, og bare det første beholdes.
  */
+/**
+ * Mapper Scott har bedt om å holde utenfor — Grefsenkollen fra Dropbox er
+ * erstattet av nyere bilder fra Immich. Lista ligger i data/utelat.json,
+ * så et valg ikke forsvinner ved neste sync.
+ */
+async function utelatteMapper(): Promise<Set<string>> {
+  try {
+    const raw = await fs.readFile(path.join(process.cwd(), "data", "utelat.json"), "utf-8");
+    const { mapper } = JSON.parse(raw) as { mapper?: string[] };
+    return new Set((mapper ?? []).map((m) => m.trim().toLowerCase()));
+  } catch {
+    return new Set();
+  }
+}
+
+function ikkeUtelatt(utelatte: Set<string>) {
+  return (p: { dropboxPath: string }) => {
+    if (p.dropboxPath.startsWith("immich://")) return true;
+    const mappe = path.posix.basename(path.posix.dirname(p.dropboxPath)).trim().toLowerCase();
+    return !utelatte.has(mappe);
+  };
+}
+
 function ikkeKopi() {
   const sett = new Set<string>();
   return (p: { dropboxPath: string }) => {
@@ -288,6 +311,7 @@ async function main() {
 
   // Bilder uten posisjon kan aldri treffes av et søk, og bilder uten miniatyr
   // ville bare blitt et hull i oppslaget. Begge utelates.
+  const utelatte = await utelatteMapper();
   const publishable = index.photos
     .map((p) => {
       const overstyring = steder[p.placeName];
@@ -372,7 +396,8 @@ async function main() {
       };
     })
     .filter((p) => p.lat !== null && p.lng !== null && p.thumb)
-    .filter(ikkeKopi());
+    .filter(ikkeKopi())
+    .filter(ikkeUtelatt(utelatte));
 
   const slim = publishable.map((p) => ({
     id: p.id,
@@ -414,9 +439,11 @@ async function main() {
   const size = async (f: string) =>
     ((await fs.stat(path.join(OUT_DIR, f))).size / 1024 / 1024).toFixed(2);
 
-  const uten = index.photos.length - publishable.length;
+  const bortvalgt = index.photos.filter((p) => !ikkeUtelatt(utelatte)(p)).length;
+  const uten = index.photos.length - publishable.length - bortvalgt;
   console.log(`Publiserer ${publishable.length} av ${index.photos.length} bilder.`);
   console.log(`  ${uten} utelatt (mangler posisjon eller miniatyr)`);
+  if (bortvalgt) console.log(`  ${bortvalgt} holdt utenfor via data/utelat.json`);
   console.log(`  index.json: ${await size("index.json")} MB`);
   console.log(
     `  adresse-til-bygard.json: ${await size("adresse-til-bygard.json")} MB (${addresses} adresser, ${relevante.size} kvartaler)`

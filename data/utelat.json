@@ -1,0 +1,6 @@
+{
+  "_": "Dropbox-mapper som ikke skal publiseres, selv om de ligger i arkivet. Navnet er mappenavnet (siste ledd i stien), uten hensyn til store og små bokstaver. Bildene blir liggende i indeksen, så de kommer tilbake om linjen fjernes.",
+  "mapper": [
+    "Grefsenkollen"
+  ]
+}
