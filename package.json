@@ -19,7 +19,8 @@
     "reklassifiser": "tsx scripts/reclassify.ts",
     "delingslenker": "tsx scripts/share-links.ts",
     "parker": "tsx scripts/parker.ts",
-    "hent-parker": "python3 scripts/hent-parker.py"
+    "hent-parker": "python3 scripts/hent-parker.py",
+    "test:koblinger": "node scripts/test-koblinger.cjs"
   },
   "dependencies": {
     "dropbox": "^10.46.0",
