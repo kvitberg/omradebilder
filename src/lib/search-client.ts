@@ -61,11 +61,49 @@ function loadBygardMap(): Promise<Record<string, string> | null> {
 }
 
 /** Adressene i bygårdsdataene står uten postnummer ("Toftes gate 10A"). */
+/**
+ * Gateadressen alene, uten postnummer, sted og land.
+ *
+ * Adressen kan komme fra vårt eget forslag («Hans Nielsen Hauges gate 18,
+ * 0481 OSLO»), men også limt inn fra et kart («Hans Nielsen Hauges gate 18
+ * 0481 Oslo, Norway»). Uten dette ble kvartalet ikke funnet, og bilder som
+ * hører til en bygård forsvant helt fra treffet.
+ */
 function normalizeAddress(address: string): string {
-  return address.split(",")[0].trim().replace(/\s+/g, " ");
+  return address
+    .split(/[,\n]/)[0]
+    .trim()
+    .replace(/\s+/g, " ")
+    .replace(/\s+\d{4}\s+\p{L}[\p{L}\s.'-]*$/u, "")
+    .trim();
 }
 
-export async function geocode(query: string): Promise<{ lat: number; lng: number } | null> {
+/** Slår opp kvartalet uten å bry seg om store og små bokstaver. */
+function finnBygard(kart: Record<string, string> | null, adresse: string): string | null {
+  if (!kart) return null;
+  if (kart[adresse]) return kart[adresse];
+  const nøkkel = adresse.toLowerCase();
+  for (const [a, id] of Object.entries(kart)) {
+    if (a.toLowerCase() === nøkkel) return id;
+  }
+  return null;
+}
+
+/**
+ * Skrivemåter å prøve, fra det brukeren skrev til det enkleste.
+ *
+ * Kartverket finner «Hans Nielsen Hauges gate 18 0481 Oslo», men ikke
+ * samme adresse med «, Norway» bakpå — og en adresse limt inn fra et kart
+ * har gjerne det. Da sa portalen «Fant ikke adressen».
+ */
+function søkevarianter(query: string): string[] {
+  const ren = query.trim().replace(/\s+/g, " ");
+  const utenLand = ren.replace(/,\s*(norway|norge|nor)\s*$/i, "").trim();
+  const bareGate = normalizeAddress(ren);
+  return [...new Set([ren, utenLand, bareGate].filter(Boolean))];
+}
+
+async function geokodeEn(query: string): Promise<{ lat: number; lng: number } | null> {
   const url = new URL("https://ws.geonorge.no/adresser/v1/sok");
   url.searchParams.set("sok", query);
   url.searchParams.set("treffPerSide", "1");
@@ -84,6 +122,14 @@ export async function geocode(query: string): Promise<{ lat: number; lng: number
   return null;
 }
 
+export async function geocode(query: string): Promise<{ lat: number; lng: number } | null> {
+  for (const variant of søkevarianter(query)) {
+    const treff = await geokodeEn(variant);
+    if (treff) return treff;
+  }
+  return null;
+}
+
 export async function search(
   address: string,
   radiusMeters = DEFAULT_RADIUS_METERS,
@@ -97,7 +143,7 @@ export async function search(
   const index = await loadIndex();
   const bygardMap = await loadBygardMap();
   const søktAdresse = normalizeAddress(address);
-  const bygardId = bygardMap?.[søktAdresse] ?? null;
+  const bygardId = finnBygard(bygardMap, søktAdresse);
 
   const withDistance = index.photos
     .filter((p): p is PhotoEntry & { lat: number; lng: number } => p.lat !== null && p.lng !== null)
@@ -112,7 +158,8 @@ export async function search(
     // begge, falt oppslaget gjennom, og avstand er det beste vi har.
     .filter((p) => {
       if (p.adresser?.length) {
-        return p.adresser.includes(søktAdresse) || (!!p.bygardId && p.bygardId === bygardId);
+        const treffer = p.adresser.some((a) => a.toLowerCase() === søktAdresse.toLowerCase());
+        return treffer || (!!p.bygardId && p.bygardId === bygardId);
       }
       if (p.bygardId) return bygardId !== null && p.bygardId === bygardId;
       return p.distanceMeters <= radiusMeters;
@@ -182,10 +229,19 @@ async function fetchGeonorge(query: string, kommunenummer?: string): Promise<Sug
 export async function suggest(query: string): Promise<Suggestion[]> {
   if (query.trim().length < 3) return [];
 
+  // Samme rydding som ved søk, ellers gir en innlimt adresse ingen forslag.
+  const [beste] = søkevarianter(query);
   const [oslo, nasjonalt] = await Promise.all([
-    fetchGeonorge(query, OSLO_KOMMUNENUMMER).catch(() => []),
-    fetchGeonorge(query).catch(() => []),
+    fetchGeonorge(beste, OSLO_KOMMUNENUMMER).catch(() => []),
+    fetchGeonorge(beste).catch(() => []),
   ]);
+  if (!oslo.length && !nasjonalt.length) {
+    const enklere = søkevarianter(query).slice(1);
+    for (const variant of enklere) {
+      const treff = await fetchGeonorge(variant, OSLO_KOMMUNENUMMER).catch(() => []);
+      if (treff.length) return treff.slice(0, MAX_SUGGESTIONS);
+    }
+  }
 
   const seen = new Set<string>();
   const result: Suggestion[] = [];
