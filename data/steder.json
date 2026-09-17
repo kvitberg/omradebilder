@@ -271,9 +271,9 @@
     "kilde": "osm"
   },
   "Lillo Gård": {
-    "kategori": "kollektiv",
+    "kategori": "nabolag",
     "navn": "Lillo gård",
-    "kilde": "osm"
+    "kilde": "manuell"
   },
   "Lorry": {
     "kategori": "restaurant",
@@ -482,8 +482,9 @@
     "kilde": "osm"
   },
   "Storo": {
-    "kategori": "nabolag",
-    "kilde": "osm"
+    "kategori": "butikk",
+    "navn": "Storo Storsenter",
+    "kilde": "manuell"
   },
   "Syng": {
     "kategori": "restaurant",
