@@ -23,17 +23,19 @@
 }
 
 /*
- * Papiret er ikke en flat flate, men et mykt lysfall: fire brede soner
- * som glir over i hverandre, som dagslys over et ark. Tonene er de vi
- * har fra før — papirskyggen og rammefargen — og laget står fast når man
- * blar, så lyset ikke hopper fra oppslag til oppslag.
+ * Papiret er ikke en flat flate, men et mykt lysfall: brede soner som
+ * glir over i hverandre, som dagslys over et ark. Tonene er de vi har
+ * fra før — papirskyggen, rammefargen og et anstrøk av den dempede
+ * blekkfargen for dybde. Laget står fast når man blar, så lyset ikke
+ * hopper fra oppslag til oppslag.
  */
 body {
   background:
-    radial-gradient(75% 60% at 12% 8%, rgb(201 197 189 / 0.55) 0%, rgb(242 240 236 / 0) 62%),
-    radial-gradient(85% 70% at 92% 14%, rgb(232 229 223 / 0.85) 0%, rgb(242 240 236 / 0) 60%),
-    radial-gradient(70% 65% at 82% 92%, rgb(201 197 189 / 0.45) 0%, rgb(242 240 236 / 0) 58%),
-    radial-gradient(80% 60% at 6% 88%, rgb(232 229 223 / 0.7) 0%, rgb(242 240 236 / 0) 58%),
+    radial-gradient(60% 55% at 8% 6%, rgb(201 197 189 / 0.95) 0%, rgb(242 240 236 / 0) 70%),
+    radial-gradient(70% 60% at 96% 10%, rgb(201 197 189 / 0.8) 0%, rgb(242 240 236 / 0) 68%),
+    radial-gradient(55% 45% at 88% 96%, rgb(107 104 98 / 0.16) 0%, rgb(242 240 236 / 0) 70%),
+    radial-gradient(65% 55% at 4% 94%, rgb(201 197 189 / 0.7) 0%, rgb(242 240 236 / 0) 68%),
+    radial-gradient(90% 70% at 50% 45%, rgb(232 229 223 / 0.55) 0%, rgb(242 240 236 / 0) 75%),
     var(--paper);
   background-attachment: fixed;
   color: var(--ink);
