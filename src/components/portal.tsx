@@ -5,6 +5,7 @@ import type { FormEvent, MouseEvent } from "react";
 import {
   search,
   suggest,
+  adresseVedPunkt,
   SearchError,
   type Group,
   type Category,
@@ -358,6 +359,8 @@ export default function Portal({
               placeName: ph.placeName,
               distanceMeters: ph.distanceMeters,
               thumb: ph.thumb,
+              original: ph.original,
+              filnavn: ph.filnavn,
             }))
           )
         );
@@ -399,6 +402,27 @@ export default function Portal({
     runSearch(searched.address, meter, { label: searched.address, ...senter });
   }
 
+  /**
+   * Markøren er sluppet et nytt sted på kartet. Nærmeste offisielle
+   * adresse blir det nye søket, så oppslagene og teksten følger med —
+   * ikke bare sirkelen.
+   */
+  const flyttSøk = useCallback(
+    async (lat: number, lng: number) => {
+      setLoading(true);
+      const treff = await adresseVedPunkt(lat, lng);
+      setLoading(false);
+      if (!treff) {
+        setError("Fant ingen adresse der markøren ble sluppet");
+        return;
+      }
+      setAddress(treff.label);
+      chosenCoords.current = treff;
+      runSearch(treff.label, radius, treff);
+    },
+    [radius, runSearch]
+  );
+
   function handlePickSuggestion(s: Suggestion) {
     chosenCoords.current = s;
     setAddress(s.label);
@@ -430,6 +454,7 @@ export default function Portal({
           areaText={areaText}
           goTo={goTo}
           onÅpne={setÅpentSted}
+          onFlyttSøk={flyttSøk}
         />
       ) : (
         <Cover
@@ -756,6 +781,7 @@ function Spread({
   areaText,
   goTo,
   onÅpne,
+  onFlyttSøk,
 }: {
   spread: SpreadData;
   page: number;
@@ -773,6 +799,7 @@ function Spread({
   areaText: string;
   goTo: (n: number) => void;
   onÅpne: (sted: Sted) => void;
+  onFlyttSøk: (lat: number, lng: number) => void;
 }) {
   const [hero, ...rest] = spread.steder;
   // På første oppslag står kartet i hovedplassen; alle fotoene går til høyre.
@@ -795,7 +822,12 @@ function Spread({
           {heroIsMap && center ? (
             <figure className="flex min-h-0 flex-1 flex-col">
               <div className="min-h-[220px] flex-1 overflow-hidden border border-rule">
-                <AreaMap center={center} radiusMeters={radius} dots={mapDots} />
+                <AreaMap
+                  center={center}
+                  radiusMeters={radius}
+                  dots={mapDots}
+                  onFlytt={onFlyttSøk}
+                />
               </div>
               <figcaption className="mt-2 shrink-0 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
                 <div className="flex items-baseline justify-between gap-3">
@@ -853,7 +885,7 @@ function Spread({
               </figcaption>
             </figure>
           ) : (
-            <Frame sted={hero} onÅpne={onÅpne} className="min-h-[220px] flex-1" />
+            <Frame sted={hero} onÅpne={onÅpne} className="min-h-[220px] lg:flex-1" />
           )}
 
           {heroIsMap ? (
@@ -914,12 +946,17 @@ function Spread({
 
           <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-5">
             {rightSteder.map((sted) => (
-              <Frame key={sted.bilde.id} sted={sted} onÅpne={onÅpne} className="min-h-[150px] flex-1" />
+              <Frame
+                key={sted.bilde.id}
+                sted={sted}
+                onÅpne={onÅpne}
+                className="min-h-[150px] lg:flex-1"
+              />
             ))}
             {/* På første oppslag står områdeteksten der det tredje bildet
                 ellers ville stått — en kort tekst om det søket faktisk fant. */}
             {spread.intro && areaText && (
-              <div className="flex min-h-0 flex-1 flex-col justify-end">
+              <div className="flex min-h-0 flex-col justify-end lg:flex-1">
                 <p className="mb-3 border-t border-rule pt-4 text-[10px] uppercase tracking-[0.3em] text-ink-soft">
                   Området
                 </p>
@@ -956,7 +993,7 @@ function Frame({
         type="button"
         onClick={() => onÅpne(sted)}
         title={antall > 1 ? `Se alle ${antall} bildene` : "Se bildet ubeskåret"}
-        className="block min-h-0 flex-1 cursor-zoom-in overflow-hidden bg-paper-deep"
+        className="block aspect-[4/3] min-h-0 w-full cursor-zoom-in overflow-hidden bg-paper-deep lg:aspect-auto lg:flex-1"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

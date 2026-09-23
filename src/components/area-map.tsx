@@ -20,6 +20,9 @@ export type MapDot = {
   placeName: string;
   distanceMeters: number;
   thumb: string | null;
+  /** Originalfilen, til nedlastingslenken i popup-en. */
+  original: string | null;
+  filnavn: string | null;
 };
 
 export const KATEGORI_FARGER: Record<string, string> = {
@@ -44,13 +47,22 @@ export default function AreaMap({
   center,
   radiusMeters,
   dots,
+  onFlytt,
 }: {
   center: { lat: number; lng: number };
   radiusMeters: number;
   dots: MapDot[];
+  /** Kalles når markøren slippes et nytt sted; søket gjøres på nytt der. */
+  onFlytt?: (lat: number, lng: number) => void;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap | null>(null);
+  // Kartet bygges én gang; uten denne ville markøren kalt en utdatert
+  // funksjon etter neste rendring.
+  const flyttRef = useRef(onFlytt);
+  useEffect(() => {
+    flyttRef.current = onFlytt;
+  }, [onFlytt]);
 
   useEffect(() => {
     let cancelled = false;
@@ -141,6 +153,36 @@ export default function AreaMap({
           "font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6b6862;margin-top:2px";
         const avstand = L.DomUtil.create("span", "", meta);
 
+        // Nedlasting av bildet som vises, som under bildene i oppslaget.
+        const last = L.DomUtil.create("a", "download-link", rot);
+        last.textContent = "Last ned";
+        last.style.cssText =
+          "display:inline-block;margin-top:8px;font-size:10px;letter-spacing:.1em;" +
+          "text-transform:uppercase;cursor:pointer";
+        last.addEventListener("click", async (e) => {
+          const d = serie[i];
+          if (!d.original) return;
+          // Immich sender fila «inline»; da må den hentes som blob for å
+          // lastes ned med riktig navn. Dropbox-lenkene laster ned selv.
+          if (!d.original.includes("/api/assets/")) return;
+          e.preventDefault();
+          last.textContent = "Henter…";
+          try {
+            const res = await fetch(d.original);
+            const blob = await res.blob();
+            const href = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = href;
+            a.download = d.filnavn ?? "bilde.jpg";
+            a.click();
+            setTimeout(() => URL.revokeObjectURL(href), 10_000);
+          } catch {
+            window.open(d.original, "_blank", "noopener");
+          } finally {
+            last.textContent = "Last ned";
+          }
+        });
+
         let i = 0;
         const vis = () => {
           const d = serie[i];
@@ -148,6 +190,11 @@ export default function AreaMap({
           if (d.thumb) bilde.src = d.thumb;
           navn.textContent = d.placeName;
           avstand.textContent = `${d.distanceMeters} m`;
+          last.hidden = !d.original;
+          if (d.original) {
+            last.setAttribute("href", d.original);
+            if (d.filnavn) last.setAttribute("download", d.filnavn);
+          }
           if (teller) teller.textContent = `${i + 1} / ${serie.length}`;
         };
 
@@ -179,14 +226,28 @@ export default function AreaMap({
         return rot;
       }
 
-      // Adressen selv, øverst.
-      L.circleMarker([center.lat, center.lng], {
-        radius: 6,
-        color: "#f2f0ec",
-        weight: 2,
-        fillColor: "#12110f",
-        fillOpacity: 1,
+      // Adressen selv, øverst. Den kan dras: slipper man den et nytt sted,
+      // søkes det opp på nytt der, og sirkelen flytter seg med.
+      const kanDras = !!flyttRef.current;
+      const adresse = L.marker([center.lat, center.lng], {
+        draggable: kanDras,
+        keyboard: false,
+        title: kanDras ? "Dra for å flytte søket" : undefined,
+        icon: L.divIcon({
+          className: "adressemarkor",
+          iconSize: [16, 16],
+          iconAnchor: [8, 8],
+          html: `<span class="adressemarkor-prikk${kanDras ? " kan-dras" : ""}"></span>`,
+        }),
       }).addTo(map);
+
+      if (kanDras) {
+        adresse.on("drag", () => circle.setLatLng(adresse.getLatLng()));
+        adresse.on("dragend", () => {
+          const p = adresse.getLatLng();
+          flyttRef.current?.(p.lat, p.lng);
+        });
+      }
 
       map.fitBounds(circle.getBounds(), { padding: [16, 16] });
 

@@ -15,6 +15,9 @@ const eslintConfig = defineConfig([
     // Varig gh-pages-klone fra scripts/deploy.sh — inneholder minifiserte
     // byggfiler som ellers drukner lint-resultatet i tusenvis av funn.
     ".deploy-gh-pages/**",
+    // Testene og hjelpeskriptene kjøres av node direkte, ikke av bygget,
+    // og bruker require() med vilje.
+    "scripts/*.cjs",
   ]),
 ]);
 

@@ -28,7 +28,7 @@ export const CATEGORIES: Category[] = [
     id: "kafe",
     label: "Kafé",
     description:
-      "Steder å sette seg ned med en kopp. Fotografert på stedet, i det lyset dagen faktisk hadde.",
+      "Steder å sette seg ned med en kopp.",
     keywords: ["cafe", "café", "kafe", "kafé", "kaffebar", "coffee"],
   },
   {

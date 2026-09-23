@@ -23,20 +23,17 @@
 }
 
 /*
- * Papiret er ikke helt jevnt: et mykt lysfall øverst til høyre, som når
- * dagslys treffer et ark på skrå. Tonene er de samme som ellers på siden
- * — papirskyggen og rammefargen — og laget ligger fast, så det ikke
- * flytter seg når man blar.
+ * Papiret er ikke en flat flate, men et mykt lysfall: fire brede soner
+ * som glir over i hverandre, som dagslys over et ark. Tonene er de vi
+ * har fra før — papirskyggen og rammefargen — og laget står fast når man
+ * blar, så lyset ikke hopper fra oppslag til oppslag.
  */
 body {
   background:
-    radial-gradient(
-      120% 85% at 100% 0%,
-      rgb(201 197 189 / 0.85) 0%,
-      rgb(232 229 223 / 0.6) 34%,
-      rgb(242 240 236 / 0) 68%
-    ),
-    radial-gradient(70% 55% at 0% 100%, rgb(232 229 223 / 0.5) 0%, rgb(242 240 236 / 0) 60%),
+    radial-gradient(75% 60% at 12% 8%, rgb(201 197 189 / 0.55) 0%, rgb(242 240 236 / 0) 62%),
+    radial-gradient(85% 70% at 92% 14%, rgb(232 229 223 / 0.85) 0%, rgb(242 240 236 / 0) 60%),
+    radial-gradient(70% 65% at 82% 92%, rgb(201 197 189 / 0.45) 0%, rgb(242 240 236 / 0) 58%),
+    radial-gradient(80% 60% at 6% 88%, rgb(232 229 223 / 0.7) 0%, rgb(242 240 236 / 0) 58%),
     var(--paper);
   background-attachment: fixed;
   color: var(--ink);
@@ -236,4 +233,24 @@ body {
   background: var(--paper);
   border: 1px solid var(--rule);
   box-shadow: 0 12px 40px rgb(18 17 15 / 0.25);
+}
+
+/* Adressemarkøren på kartet: samme svarte prikk som før, men dragbar. */
+.adressemarkor-prikk {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 1px 4px rgb(18 17 15 / 0.35);
+}
+.adressemarkor-prikk.kan-dras {
+  cursor: grab;
+}
+.adressemarkor-prikk.kan-dras:active {
+  cursor: grabbing;
+}
+.area-map .leaflet-marker-draggable {
+  cursor: grab;
 }

@@ -226,6 +226,35 @@ async function fetchGeonorge(query: string, kommunenummer?: string): Promise<Sug
  * falle helt ut av det nasjonale svaret. Derfor gjøres et eget Oslo-kall
  * parallelt, og Oslo-treffene legges øverst.
  */
+/**
+ * Nærmeste offisielle adresse til et punkt, for markøren man drar på
+ * kartet. Kartverkets punktsøk utvider sirkelen til den finner noe —
+ * midt i Marka kan nærmeste adresse ligge langt unna.
+ */
+export async function adresseVedPunkt(lat: number, lng: number): Promise<Suggestion | null> {
+  for (const radius of [60, 200, 600, 2000]) {
+    const url = new URL("https://ws.geonorge.no/adresser/v1/punktsok");
+    url.searchParams.set("lat", String(lat));
+    url.searchParams.set("lon", String(lng));
+    url.searchParams.set("radius", String(radius));
+    url.searchParams.set("treffPerSide", "1");
+    try {
+      const res = await fetch(url.toString());
+      if (!res.ok) continue;
+      const data = await res.json();
+      const a = data?.adresser?.[0];
+      const p = a?.representasjonspunkt;
+      if (a?.adressetekst && typeof p?.lat === "number" && typeof p?.lon === "number") {
+        const sted = [a.postnummer, a.poststed].filter(Boolean).join(" ");
+        return { label: sted ? `${a.adressetekst}, ${sted}` : a.adressetekst, lat: p.lat, lng: p.lon };
+      }
+    } catch {
+      /* prøv en større sirkel */
+    }
+  }
+  return null;
+}
+
 export async function suggest(query: string): Promise<Suggestion[]> {
   if (query.trim().length < 3) return [];
 
