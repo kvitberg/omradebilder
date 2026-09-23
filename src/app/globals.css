@@ -22,8 +22,23 @@
   --font-sans: var(--font-archivo);
 }
 
+/*
+ * Papiret er ikke helt jevnt: et mykt lysfall øverst til høyre, som når
+ * dagslys treffer et ark på skrå. Tonene er de samme som ellers på siden
+ * — papirskyggen og rammefargen — og laget ligger fast, så det ikke
+ * flytter seg når man blar.
+ */
 body {
-  background: var(--paper);
+  background:
+    radial-gradient(
+      120% 85% at 100% 0%,
+      rgb(201 197 189 / 0.85) 0%,
+      rgb(232 229 223 / 0.6) 34%,
+      rgb(242 240 236 / 0) 68%
+    ),
+    radial-gradient(70% 55% at 0% 100%, rgb(232 229 223 / 0.5) 0%, rgb(242 240 236 / 0) 60%),
+    var(--paper);
+  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--font-archivo), Helvetica, Arial, sans-serif;
 }

@@ -408,7 +408,7 @@ export default function Portal({
   const spread = page > 0 && spreads ? spreads[page - 1] : null;
 
   return (
-    <div className="relative min-h-screen w-full bg-paper lg:h-screen lg:overflow-hidden">
+    <div className="relative min-h-screen w-full lg:h-screen lg:overflow-hidden">
       {/* Hårfin ramme, som kanten på et trykt oppslag. */}
       <div className="pointer-events-none fixed inset-4 z-20 border border-rule sm:inset-6" />
 
