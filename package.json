@@ -20,7 +20,9 @@
     "delingslenker": "tsx scripts/share-links.ts",
     "parker": "tsx scripts/parker.ts",
     "hent-parker": "python3 scripts/hent-parker.py",
-    "test:koblinger": "node scripts/test-koblinger.cjs"
+    "test:koblinger": "node scripts/test-koblinger.cjs",
+    "hent-bygg": "python3 scripts/hent-bygg.py",
+    "bygg": "python3 scripts/bygg-adresser.py"
   },
   "dependencies": {
     "dropbox": "^10.46.0",

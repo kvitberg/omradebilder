@@ -6,6 +6,7 @@ import {
   search,
   suggest,
   adresseVedPunkt,
+  loadBygg,
   SearchError,
   type Group,
   type Category,
@@ -14,7 +15,7 @@ import {
 } from "@/lib/search-client";
 import { FELLESAREAL_KATEGORIER } from "@/lib/categories";
 import { KODE_SJEKKSUM, erLåstOpp, låsOpp, sjekksum } from "@/lib/kode";
-import AreaMap, { KATEGORI_FARGER, type MapDot } from "@/components/area-map";
+import AreaMap, { KATEGORI_FARGER, type Kvartal, type MapDot } from "@/components/area-map";
 
 /**
  * Ett sted i presentasjonen: ett bilde vises, resten av serien ligger bak.
@@ -275,6 +276,7 @@ export default function Portal({
   } | null>(null);
   const [page, setPage] = useState(0); // 0 = forside
   const [åpentSted, setÅpentSted] = useState<Sted | null>(null);
+  const [bygg, setBygg] = useState<Kvartal[]>([]);
 
   // Koordinater fra et valgt adresseforslag, så vi slipper å geokode på nytt.
   const chosenCoords = useRef<Suggestion | null>(null);
@@ -374,6 +376,18 @@ export default function Portal({
             )
             .map((g) => ({ id: g.category.id, label: g.category.label }))
         );
+        // Byggene i kvartalene bildene er bundet til, til kartlaget.
+        // Kvartalet man søkte på, og kvartalene bildene er bundet til.
+        const kvartaler = new Set(
+          [
+            data.bygardId,
+            ...data.groups.flatMap((g) => g.photos.map((p) => p.bygardId)),
+          ].filter(Boolean) as string[]
+        );
+        const alle = await loadBygg();
+        setBygg(
+          alle ? ([...kvartaler].map((id) => alle[id]).filter(Boolean) as Kvartal[]) : []
+        );
         setWarning(data.warning ?? null);
         setSearched({ address: trimmed, radius: radiusMeters, center: data.center });
         setPage(built.length > 0 ? 1 : 0);
@@ -445,6 +459,7 @@ export default function Portal({
           radius={searched?.radius ?? radius}
           center={searched?.center ?? null}
           mapDots={synligeDots}
+          bygg={bygg}
           mapLegend={mapLegend}
           skjulte={skjulte}
           onVekslKategori={vekslKategori}
@@ -772,6 +787,7 @@ function Spread({
   radius,
   center,
   mapDots,
+  bygg,
   mapLegend,
   skjulte,
   onVekslKategori,
@@ -790,6 +806,7 @@ function Spread({
   radius: number;
   center: { lat: number; lng: number } | null;
   mapDots: MapDot[];
+  bygg: Kvartal[];
   mapLegend: Array<{ id: string; label: string }>;
   skjulte: Set<string>;
   onVekslKategori: (id: string) => void;
@@ -826,6 +843,7 @@ function Spread({
                   center={center}
                   radiusMeters={radius}
                   dots={mapDots}
+                  bygg={bygg}
                   onFlytt={onFlyttSøk}
                 />
               </div>

@@ -26,11 +26,15 @@ export type SearchPhoto = {
   /** Originalfil i full størrelse, når en delingslenke finnes. */
   original: string | null;
   filnavn: string | null;
+  /** Kvartalet bildet er bundet til, til byggelaget på kartet. */
+  bygardId: string | null;
 };
 
 export type Group = { category: Category; photos: SearchPhoto[] };
 
 export type SearchResult = {
+  /** Kvartalet adressen ligger i, til byggelaget på kartet. */
+  bygardId?: string | null;
   center: { lat: number; lng: number };
   groups: Group[];
   warning?: string;
@@ -179,10 +183,11 @@ export async function search(
         lng: p.lng,
         original: p.original ?? null,
         filnavn: p.filnavn ?? null,
+        bygardId: p.bygardId ?? null,
       })),
   })).filter((g) => g.photos.length > 0);
 
-  return { center, groups };
+  return { center, groups, bygardId };
 }
 
 export type Suggestion = { label: string; lat: number; lng: number };
@@ -231,6 +236,26 @@ async function fetchGeonorge(query: string, kommunenummer?: string): Promise<Sug
  * kartet. Kartverkets punktsøk utvider sirkelen til den finner noe —
  * midt i Marka kan nærmeste adresse ligge langt unna.
  */
+export type Bygg = { r: [number, number][]; a: string[] };
+export type Kvartal = { omriss: [number, number][]; bygg: Bygg[] };
+
+let byggCache: Record<string, Kvartal> | null | undefined;
+
+/**
+ * Omrisset av byggene i kvartalene som har bilder, fra OpenStreetMap.
+ * Kartet tegner dem som et lag over adressen man har søkt opp.
+ */
+export async function loadBygg(): Promise<Record<string, Kvartal> | null> {
+  if (byggCache !== undefined) return byggCache;
+  try {
+    const res = await fetch(dataUrl("/data/bygg.json"));
+    byggCache = res.ok ? ((await res.json()) as Record<string, Kvartal>) : null;
+  } catch {
+    byggCache = null;
+  }
+  return byggCache;
+}
+
 export async function adresseVedPunkt(lat: number, lng: number): Promise<Suggestion | null> {
   for (const radius of [60, 200, 600, 2000]) {
     const url = new URL("https://ws.geonorge.no/adresser/v1/punktsok");

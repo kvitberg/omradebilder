@@ -509,6 +509,21 @@ async function main() {
     await fs.writeFile(path.join(OUT_DIR, "adresse-til-bygard.json"), "{}");
   }
 
+  // Byggene i kvartalene, til laget på kartet. Fila lages av
+  // `npm run hent-bygg` og `npm run bygg`, og bare kvartaler som fortsatt
+  // brukes tas med.
+  try {
+    const raw = await fs.readFile(path.join(OUT_DIR, "bygg.json"), "utf-8");
+    const alle = JSON.parse(raw) as Record<string, unknown[]>;
+    const trimmet = Object.fromEntries(
+      Object.entries(alle).filter(([id]) => relevante.has(id))
+    );
+    await fs.writeFile(path.join(OUT_DIR, "bygg.json"), JSON.stringify(trimmet));
+    console.log(`  bygg.json: ${Object.keys(trimmet).length} kvartaler`);
+  } catch {
+    // Ingen byggfil ennå — kartet klarer seg uten laget.
+  }
+
   const size = async (f: string) =>
     ((await fs.stat(path.join(OUT_DIR, f))).size / 1024 / 1024).toFixed(2);
 

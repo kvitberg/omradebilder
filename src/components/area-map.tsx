@@ -13,6 +13,12 @@ import "leaflet/dist/leaflet.css";
  * av, slik at det oppfører seg som et trykt kartutsnitt i en salgsoppgave.
  */
 
+/** Ett bygg: omriss og adressene det dekker. */
+export type Bygning = { r: [number, number][]; a: string[] };
+
+/** Et kvartal: ytterkanten, og byggene inni. */
+export type Kvartal = { omriss: [number, number][]; bygg: Bygning[] };
+
 export type MapDot = {
   lat: number;
   lng: number;
@@ -47,11 +53,14 @@ export default function AreaMap({
   center,
   radiusMeters,
   dots,
+  bygg,
   onFlytt,
 }: {
   center: { lat: number; lng: number };
   radiusMeters: number;
   dots: MapDot[];
+  /** Kvartalene søket traff. Byggene lyser opp når musa er over. */
+  bygg?: Kvartal[];
   /** Kalles når markøren slippes et nytt sted; søket gjøres på nytt der. */
   onFlytt?: (lat: number, lng: number) => void;
 }) {
@@ -95,6 +104,36 @@ export default function AreaMap({
         attribution: "© OpenStreetMap-bidragsyterne",
         maxZoom: 19,
       }).addTo(map);
+
+      // Kvartalene bildene hører til. Et enkelt bygg er bare noen piksler
+      // på dette utsnittet, så kvartalets ytterkant tegnes under som en
+      // rolig flate — den er det man ser. Byggene ligger oppå og lyser opp
+      // med adressen når musa er over.
+      const HVIL = { color: "#6b6862", weight: 1, opacity: 0.6, fillColor: "#6b6862", fillOpacity: 0.28 };
+      const LYS = { color: AKSENT, weight: 2, opacity: 1, fillColor: AKSENT, fillOpacity: 0.55 };
+
+      for (const kvartal of bygg ?? []) {
+        if (kvartal.omriss.length >= 3) {
+          L.polygon(kvartal.omriss, {
+            color: "#6b6862",
+            weight: 1,
+            opacity: 0.4,
+            dashArray: "4 4",
+            fillColor: "#6b6862",
+            fillOpacity: 0.08,
+            interactive: false,
+          }).addTo(map);
+        }
+        for (const b of kvartal.bygg) {
+          if (b.r.length < 3) continue;
+          const flate = L.polygon(b.r, { ...HVIL, interactive: true }).addTo(map);
+          if (b.a.length) {
+            flate.bindTooltip(b.a.join(" · "), { direction: "top", opacity: 0.95 });
+          }
+          flate.on("mouseover", () => flate.setStyle(LYS).bringToFront());
+          flate.on("mouseout", () => flate.setStyle(HVIL));
+        }
+      }
 
       const circle = L.circle([center.lat, center.lng], {
         radius: radiusMeters,
@@ -266,7 +305,7 @@ export default function AreaMap({
       mapRef.current?.remove();
       mapRef.current = null;
     };
-  }, [center.lat, center.lng, radiusMeters, dots]);
+  }, [center.lat, center.lng, radiusMeters, dots, bygg]);
 
   return <div ref={containerRef} className="area-map h-full w-full bg-paper-deep" aria-hidden />;
 }
