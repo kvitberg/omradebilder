@@ -968,7 +968,7 @@ function Spread({
       </div>
 
       <footer className="flex shrink-0 items-center justify-between border-t border-rule pt-5 text-[10px] uppercase tracking-[0.2em] text-ink-soft">
-        <span>Side {pageLabel(page + 1)}</span>
+        <span className="text-[13px] tracking-[0.18em] text-ink">Side {pageLabel(page + 1)}</span>
         <span className="hidden truncate px-4 sm:block">{address}</span>
         <Nav page={page} totalPages={totalPages} goTo={goTo} />
       </footer>
@@ -1199,15 +1199,20 @@ function Nav({
   totalPages: number;
   goTo: (n: number) => void;
 }) {
+  // Bladingen er det man bruker mest i en visning; den skal være lett å
+  // treffe og lett å se. Tallene står i blekkfargen, ikke den dempede,
+  // og knappene er 44 px — det minste som er behagelig å trykke på.
+  const knapp =
+    "flex h-11 w-11 items-center justify-center border border-rule bg-paper text-lg leading-none text-ink transition-colors hover:border-ink hover:bg-paper-deep disabled:opacity-25 disabled:hover:border-rule disabled:hover:bg-paper";
   return (
-    <nav className="flex items-center gap-3">
-      <span>
+    <nav className="flex items-center gap-4">
+      <span className="text-[13px] tracking-[0.18em] text-ink tabular-nums">
         {pageLabel(page + 1)} / {pageLabel(totalPages)}
       </span>
       <button
         onClick={() => goTo(page - 1)}
         aria-label={page === 1 ? "Tilbake til søk" : "Forrige side"}
-        className="flex h-8 w-8 items-center justify-center border border-rule text-sm text-ink transition-colors hover:border-ink"
+        className={knapp}
       >
         ←
       </button>
@@ -1215,7 +1220,7 @@ function Nav({
         onClick={() => goTo(page + 1)}
         disabled={page === totalPages - 1}
         aria-label="Neste side"
-        className="flex h-8 w-8 items-center justify-center border border-rule text-sm text-ink transition-colors hover:border-ink disabled:opacity-30 disabled:hover:border-rule"
+        className={knapp}
       >
         →
       </button>
