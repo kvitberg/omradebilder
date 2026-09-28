@@ -11,7 +11,9 @@
   "Astrup Fearnley": {
     "kategori": "kultur",
     "navn": "Astrup Fearnley Museet",
-    "kilde": "osm"
+    "lat": 59.906925,
+    "lng": 10.721938,
+    "kilde": "manuell"
   },
   "Babbo Collective": {
     "kategori": "kafe",
@@ -182,7 +184,10 @@
   },
   "Grønnland": {
     "kategori": "nabolag",
-    "kilde": "osm"
+    "navn": "Grønland",
+    "lat": 59.91252,
+    "lng": 10.76209,
+    "kilde": "manuell"
   },
   "Gråbein": {
     "kategori": "restaurant",
@@ -462,8 +467,11 @@
     "kilde": "osm"
   },
   "Sommero": {
-    "kategori": "nabolag",
-    "kilde": "osm"
+    "kategori": "restaurant",
+    "navn": "Sommerro",
+    "lat": 59.91534,
+    "lng": 10.71965,
+    "kilde": "manuell"
   },
   "Sporveismuseet": {
     "kategori": "kultur",
@@ -642,5 +650,12 @@
   "Åsen": {
     "kategori": "nabolag",
     "kilde": "osm"
+  },
+  "Bolgen og Moi": {
+    "kategori": "restaurant",
+    "navn": "Bølgen & Moi",
+    "lat": 59.90902,
+    "lng": 10.72285,
+    "kilde": "manuell"
   }
 }

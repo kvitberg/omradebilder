@@ -1,6 +1,22 @@
 import type { LatLng } from "@/lib/geo";
 
 /**
+ * Arkivet dekker Oslo og nabokommunene. Et treff utenfor dette er en
+ * navnekollisjon, ikke et sted vi har bilder fra: mappa «Isdammen» ble
+ * geokodet til Svalbard, og «Bispevika» til Finnmark.
+ */
+export const OSLO_OMRADE = { minLat: 59.7, maxLat: 60.15, minLng: 10.3, maxLng: 11.1 };
+
+export function iOsloOmradet(lat: number, lng: number): boolean {
+  return (
+    lat >= OSLO_OMRADE.minLat &&
+    lat <= OSLO_OMRADE.maxLat &&
+    lng >= OSLO_OMRADE.minLng &&
+    lng <= OSLO_OMRADE.maxLng
+  );
+}
+
+/**
  * Geokoder en fritekst-adresse/stedsbeskrivelse til koordinater.
  * Bruker Google Geocoding API hvis GOOGLE_GEOCODING_API_KEY er satt,
  * ellers gratis OpenStreetMap Nominatim (rate-begrenset til ~1 kall/sek).

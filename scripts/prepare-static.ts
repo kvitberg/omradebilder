@@ -8,6 +8,7 @@ import {
   BYGNING_KATEGORIER as BYGNING,
   FELLESAREAL_KATEGORIER as FELLESAREAL,
 } from "../src/lib/categories";
+import { iOsloOmradet } from "../src/lib/geocode";
 
 /**
  * Lager datafilene den statiske siden laster i nettleseren.
@@ -380,7 +381,7 @@ async function main() {
   }
 
   // Overstyringer fra `npm run steder` (og dine egne rettelser der).
-  let steder: Record<string, { kategori: string; navn?: string }> = {};
+  let steder: Record<string, { kategori: string; navn?: string; lat?: number; lng?: number }> = {};
   try {
     steder = JSON.parse(
       await fs.readFile(path.join(process.cwd(), "data", "steder.json"), "utf-8")
@@ -424,7 +425,12 @@ async function main() {
       // gjelder posisjoner som bare er gjettet ut fra mappenavnet: da havnet
       // «Folkvang Boligselskap» i Folkvangveien.
       let { lat, lng } = p;
-      if (gård && p.locationSource !== "exif") {
+      // Rettet posisjon fra steder.json. Dropbox-mappene geokodes på navn,
+      // og «Astrup Fearnley» havnet i Bjørvika, to kilometer fra museet.
+      if (typeof overstyring?.lat === "number" && typeof overstyring?.lng === "number") {
+        lat = overstyring.lat;
+        lng = overstyring.lng;
+      } else if (gård && p.locationSource !== "exif") {
         const pkt = gård.map((a) => adressepunkter[a]).filter(Boolean);
         if (pkt.length) {
           lat = pkt.reduce((s, [la]) => s + la, 0) / pkt.length;
@@ -512,7 +518,9 @@ async function main() {
         bygardId,
       };
     })
-    .filter((p) => p.lat !== null && p.lng !== null && p.thumb)
+    // Bilder geokodet langt utenfor Oslo er navnekollisjoner, ikke steder vi
+    // har bilder fra. De holdes utenfor i stedet for å ligge på Svalbard.
+    .filter((p) => p.lat !== null && p.lng !== null && p.thumb && iOsloOmradet(p.lat, p.lng))
     .filter(ikkeKopi())
     .filter(ikkeUtelatt(utelatte));
 

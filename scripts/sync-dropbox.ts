@@ -6,7 +6,7 @@ import fs from "node:fs/promises";
 import type { Dropbox } from "dropbox";
 import { getDropboxClient } from "../src/lib/dropbox";
 import { detectCategory } from "../src/lib/categories";
-import { geocodeAddress } from "../src/lib/geocode";
+import { geocodeAddress, iOsloOmradet } from "../src/lib/geocode";
 import type { PhotoEntry, SearchIndex } from "../src/lib/index-store";
 import { bygardIdForAddress } from "../src/lib/bygarder";
 import { loadBakgardNavn, lookupKallenavn } from "../src/lib/bakgard-navn";
@@ -229,6 +229,9 @@ async function main() {
             const query = [kandidat, ...kontekst, DEFAULT_REGION].filter(Boolean).join(", ");
             if (!query) continue;
             hit = await geocodeAddress(query);
+            // Et treff langt utenfor Oslo er en navnekollisjon — «Isdammen»
+            // finnes også på Svalbard. Da leter vi videre.
+            if (hit && !iOsloOmradet(hit.lat, hit.lng)) hit = null;
             if (hit) break outer;
             // Nominatim tillater ca. ett kall i sekundet.
             if (!process.env.GOOGLE_GEOCODING_API_KEY) await sleep(1100);
