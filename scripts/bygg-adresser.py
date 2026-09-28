@@ -67,6 +67,42 @@ def flate(ringer):
     return ut
 
 
+def gardsrom(teiger):
+    """
+    Hvilke adresser deler et gårdsrom.
+
+    Kvartalet er limt sammen av teiger som deler hjørner, og spenner av og
+    til over en gate — da ble et gårdsrom vist til naboer tvers over veien.
+    En eiendom og de eiendommene den grenser til er den rette kretsen: de
+    ligger rundt det samme gårdsrommet.
+    """
+    ut = {}
+    for bid, liste in teiger.items():
+        former = []
+        for t in liste:
+            if len(t["r"]) < 4:
+                continue
+            p = Polygon([(x, y) for y, x in t["r"]])
+            if not p.is_valid:
+                p = p.buffer(0)
+            if not p.is_empty:
+                former.append((p, t))
+        oppføringer = []
+        for p, t in former:
+            adresser = set(t["a"])
+            for q, u in former:
+                if q is p:
+                    continue
+                # En halv meter slingring: nabogrenser er ikke alltid helt like.
+                if p.distance(q) <= 0.5 / 111320:
+                    adresser.update(u["a"])
+            if adresser:
+                oppføringer.append({"r": t["r"], "a": sorted(adresser)})
+        if oppføringer:
+            ut[bid] = oppføringer
+    return ut
+
+
 def farger(flater):
     """
     Nabokvartaler skal ha ulik farge, slik at de lar seg skille.
@@ -148,11 +184,14 @@ def main():
             oppføringer.append({"r": ring, "a": sorted(treff)})
         # Matrikkelens grenser er fasit; innhyllingen av byggene er reserve
         # for kvartaler vi ikke har teiger til.
-        grenser = teiger.get(bid)
+        grenser = [t["r"] for t in teiger.get(bid, [])]
         if not grenser:
             punkter = [p for b in oppføringer for p in b["r"]]
             grenser = [omriss(punkter)] if len(punkter) >= 3 else []
         ut[bid] = {"flate": flate(grenser), "bygg": oppføringer}
+
+    with open("data/gardsrom.json", "w", encoding="utf-8") as f:
+        json.dump(gardsrom(teiger), f, ensure_ascii=False, separators=(",", ":"))
 
     for bid, farge in farger({b: v["flate"] for b, v in ut.items()}).items():
         ut[bid]["farge"] = farge

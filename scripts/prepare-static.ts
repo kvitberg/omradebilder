@@ -180,6 +180,40 @@ async function main() {
   }
 
   /**
+   * Eiendommene med adressene som deler gårdsrommet (data/gardsrom.json).
+   * Ligger bildet inni en av dem, er det den kretsen som gjelder — ikke
+   * hele kvartalet, som av og til er limt sammen tvers over en gate.
+   */
+  let gardsrom: Record<string, Array<{ r: [number, number][]; a: string[] }>> = {};
+  try {
+    gardsrom = JSON.parse(await fs.readFile(path.join(process.cwd(), "data", "gardsrom.json"), "utf-8"));
+  } catch {
+    gardsrom = {};
+  }
+  const alleTeiger = Object.values(gardsrom).flat();
+
+  /** Stråletesten: ligger punktet inni ringen? */
+  function inni(lat: number, lng: number, ring: [number, number][]): boolean {
+    let inne = false;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [ai, bi] = ring[i];
+      const [aj, bj] = ring[j];
+      if (bi > lng !== bj > lng && lat < ((aj - ai) * (lng - bi)) / (bj - bi) + ai) inne = !inne;
+    }
+    return inne;
+  }
+
+  function gardsromFor(lat: number, lng: number): string[] | null {
+    for (const t of alleTeiger) {
+      if (t.r.length >= 4 && inni(lat, lng, t.r)) {
+        const kjente = t.a.filter((a) => bygarder.adresseTilBygard[a] || utenBokstav.has(a));
+        if (kjente.length) return kjente;
+      }
+    }
+    return null;
+  }
+
+  /**
    * Borettslag som spenner flere husnumre (data/borettslag.json). Er én av
    * bildets adresser med i et lag, hører bildet til hele laget:
    * Akebakkeskogen 64B sin bakgård er borettslagets, ikke oppgangens.
@@ -411,6 +445,16 @@ async function main() {
         }
         if (adresser) adresser = heleBygningen(adresser);
       }
+      // Et gårdsrom hører til eiendommene rundt seg. Ligger bildet inni en
+      // teig, er det den kretsen som gjelder, ikke hele kvartalet: kvartalet
+      // rundt Magnus' gate er limt sammen tvers over gata, og bakgården lakk
+      // til naboene på andre siden. Adressen i navnet tas med i kretsen.
+      const krets =
+        erFelles && !erBygning && lat !== null && lng !== null ? gardsromFor(lat, lng) : null;
+      if (krets) {
+        adresser = [...new Set([...krets, ...(adresser ?? [])])].sort();
+      }
+
       // Et bilde som bare har en adresse som navn — ingen beskrivelse, ikke
       // noe sted på kartet — er tatt på eiendommen: blokka, lekeplassen,
       // inngangen. Det hører til adressen, ikke til alle i gangavstand.
@@ -420,7 +464,7 @@ async function main() {
         adresser = heleBygningen([stedsnavn0]);
       }
       if (adresser) adresser = heleBorettslaget(adresser);
-      const bygardId = erBygning
+      const bygardId = erBygning || krets
         ? null
         : erFelles
           ? bygardFor(p.placeName) ??

@@ -156,9 +156,10 @@ async function main() {
   const gmlPath = await findFile(teigDir, ".gml");
   const csvPath = await findFile(adresseDir, ".csv");
 
-  // Matrikkelnummer → kvartal, for de kvartalene vi vil ha grensene til.
+  // Matrikkelnummer → kvartal og adresser, for kvartalene vi vil ha.
   console.log("Leser adresser …");
   const kvartalPerMatrikkel = new Map<string, string>();
+  const adresserPerMatrikkel = new Map<string, string[]>();
   {
     const rl = readline.createInterface({
       input: fs.createReadStream(csvPath, { encoding: "utf-8" }),
@@ -183,12 +184,18 @@ async function main() {
       if (!kvartal || !ønskede.has(kvartal)) continue;
       const key = fnr && fnr !== "0" ? `${gnr}/${bnr}/${fnr}` : `${gnr}/${bnr}`;
       kvartalPerMatrikkel.set(key, kvartal);
+      const liste = adresserPerMatrikkel.get(key);
+      if (liste) liste.push(tekst);
+      else adresserPerMatrikkel.set(key, [tekst]);
     }
   }
   console.log(`${kvartalPerMatrikkel.size} matrikkelenheter hører til disse kvartalene.`);
 
   console.log("Leser teiger …");
-  const ut: Record<string, [number, number][][]> = {};
+  // Per teig: grensen og adressene på eiendommen. Et gårdsrom hører til
+  // eiendommen det ligger i, ikke til hele kvartalet — kvartalet er limt
+  // sammen av teiger som deler hjørner, og spenner av og til over en gate.
+  const ut: Record<string, Array<{ r: [number, number][]; a: string[] }>> = {};
   let lest = 0;
   let brukt = 0;
   for await (const el of teigElements(gmlPath)) {
@@ -196,6 +203,7 @@ async function main() {
     const matrikler = [...el.matchAll(MATRIKKEL_RE)].map((m) => m[1].trim());
     const kvartal = matrikler.map((m) => kvartalPerMatrikkel.get(m)).find(Boolean);
     if (!kvartal) continue;
+    const adresser = [...new Set(matrikler.flatMap((m) => adresserPerMatrikkel.get(m) ?? []))];
 
     for (const posMatch of el.matchAll(POSLIST_RE)) {
       const nums = posMatch[1].trim().split(/\s+/).map(Number);
@@ -203,7 +211,7 @@ async function main() {
       for (let i = 0; i + 1 < nums.length; i += 2) {
         ring.push(utm32TilWgs84(nums[i], nums[i + 1]));
       }
-      if (ring.length >= 4) (ut[kvartal] ??= []).push(ring);
+      if (ring.length >= 4) (ut[kvartal] ??= []).push({ r: ring, a: adresser.sort() });
     }
     brukt++;
   }
