@@ -1,8 +1,11 @@
 """
-Knytter hvert bygg til adressene det dekker, og skriver public/data/bygg.json.
+Setter sammen kartlaget over kvartalene: public/data/bygg.json.
 
-hent-bygg.py henter omrissene; her kobles de mot adressepunktene, slik at
-kartet kan vise adressen når man holder musa over et bygg. Ingen nettbruk.
+Eiendomsgrensene kommer fra matrikkelen (data/teiger.json, hentet av
+npm run teiger) — det er de som er kvartalet. Byggene inni kommer fra
+OpenStreetMap (data/bygg.json, hentet av npm run hent-bygg) og kobles mot
+adressepunktene her, slik at kartet kan vise adressen når man holder musa
+over et bygg. Ingen nettbruk.
 
 Bruk:  python3 scripts/bygg-adresser.py
 """
@@ -51,13 +54,21 @@ def omriss(punkter):
 
 
 def main():
-    bygg = json.load(open("data/bygg.json", encoding="utf-8"))
+    try:
+        bygg = json.load(open("data/bygg.json", encoding="utf-8"))
+    except FileNotFoundError:
+        bygg = {}
+    try:
+        teiger = json.load(open("data/teiger.json", encoding="utf-8"))
+    except FileNotFoundError:
+        teiger = {}
     punkter = json.load(open("data/adressepunkter.json", encoding="utf-8"))
     bygarder = json.load(open("data/bygarder.json", encoding="utf-8"))
     blokk = {g["id"]: g["adresser"] for g in bygarder["bygarder"]}
 
     ut = {}
-    for bid, ringer in bygg.items():
+    for bid in sorted(set(bygg) | set(teiger)):
+        ringer = bygg.get(bid, [])
         adresser = [a for a in blokk.get(bid, []) if a in punkter]
         oppføringer = []
         for ring in ringer:
@@ -70,15 +81,25 @@ def main():
                     if min(avstand(punkter[a], p) for p in ring) <= NÆRMESTE_M
                 ]
             oppføringer.append({"r": ring, "a": sorted(treff)})
-        alle_punkter = [p for b in oppføringer for p in b["r"]]
-        ut[bid] = {"omriss": omriss(alle_punkter), "bygg": oppføringer}
+        # Matrikkelens grenser er fasit; innhyllingen av byggene er reserve
+        # for kvartaler vi ikke har teiger til.
+        grenser = teiger.get(bid)
+        if not grenser:
+            punkter = [p for b in oppføringer for p in b["r"]]
+            grenser = [omriss(punkter)] if len(punkter) >= 3 else []
+        ut[bid] = {"teiger": grenser, "bygg": oppføringer}
 
     with open("public/data/bygg.json", "w", encoding="utf-8") as f:
         json.dump(ut, f, ensure_ascii=False, separators=(",", ":"))
 
     navnløse = sum(1 for v in ut.values() for b in v["bygg"] if not b["a"])
     antall = sum(len(v["bygg"]) for v in ut.values())
-    print(f"{len(ut)} kvartaler, {antall} bygg ({navnløse} uten adresse)")
+    grenser = sum(len(v["teiger"]) for v in ut.values())
+    fra_matrikkel = sum(1 for bid in ut if bid in teiger)
+    print(
+        f"{len(ut)} kvartaler: {grenser} eiendomsgrenser "
+        f"({fra_matrikkel} fra matrikkelen), {antall} bygg ({navnløse} uten adresse)"
+    )
 
 
 if __name__ == "__main__":

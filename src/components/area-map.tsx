@@ -16,8 +16,8 @@ import "leaflet/dist/leaflet.css";
 /** Ett bygg: omriss og adressene det dekker. */
 export type Bygning = { r: [number, number][]; a: string[] };
 
-/** Et kvartal: ytterkanten, og byggene inni. */
-export type Kvartal = { omriss: [number, number][]; bygg: Bygning[] };
+/** Et kvartal: eiendomsgrensene fra matrikkelen, og byggene inni. */
+export type Kvartal = { teiger: [number, number][][]; bygg: Bygning[] };
 
 export type MapDot = {
   lat: number;
@@ -105,22 +105,22 @@ export default function AreaMap({
         maxZoom: 19,
       }).addTo(map);
 
-      // Kvartalene bildene hører til. Et enkelt bygg er bare noen piksler
-      // på dette utsnittet, så kvartalets ytterkant tegnes under som en
-      // rolig flate — den er det man ser. Byggene ligger oppå og lyser opp
-      // med adressen når musa er over.
+      // Kvartalene bildene hører til. Eiendomsgrensene fra matrikkelen
+      // tegnes under som en rolig flate — et enkelt bygg er bare noen
+      // piksler på dette utsnittet. Byggene ligger oppå og lyser opp med
+      // adressen når musa er over.
       const HVIL = { color: "#6b6862", weight: 1, opacity: 0.6, fillColor: "#6b6862", fillOpacity: 0.28 };
       const LYS = { color: AKSENT, weight: 2, opacity: 1, fillColor: AKSENT, fillOpacity: 0.55 };
 
       for (const kvartal of bygg ?? []) {
-        if (kvartal.omriss.length >= 3) {
-          L.polygon(kvartal.omriss, {
+        for (const grense of kvartal.teiger) {
+          if (grense.length < 3) continue;
+          L.polygon(grense, {
             color: "#6b6862",
             weight: 1,
-            opacity: 0.4,
-            dashArray: "4 4",
+            opacity: 0.45,
             fillColor: "#6b6862",
-            fillOpacity: 0.08,
+            fillOpacity: 0.12,
             interactive: false,
           }).addTo(map);
         }

@@ -22,7 +22,8 @@
     "hent-parker": "python3 scripts/hent-parker.py",
     "test:koblinger": "node scripts/test-koblinger.cjs",
     "hent-bygg": "python3 scripts/hent-bygg.py",
-    "bygg": "python3 scripts/bygg-adresser.py"
+    "bygg": "python3 scripts/bygg-adresser.py",
+    "teiger": "tsx scripts/hent-teiger.ts"
   },
   "dependencies": {
     "dropbox": "^10.46.0",
