@@ -16,8 +16,8 @@ import "leaflet/dist/leaflet.css";
 /** Ett bygg: omriss og adressene det dekker. */
 export type Bygning = { r: [number, number][]; a: string[] };
 
-/** Et kvartal: eiendomsgrensene fra matrikkelen, og byggene inni. */
-export type Kvartal = { teiger: [number, number][][]; bygg: Bygning[] };
+/** Et kvartal: den sammenslåtte eiendomsflaten, byggene inni, og fargen. */
+export type Kvartal = { flate: [number, number][][]; bygg: Bygning[]; farge?: number };
 
 export type MapDot = {
   lat: number;
@@ -48,6 +48,26 @@ export const KATEGORI_FARGER: Record<string, string> = {
 };
 
 const AKSENT = "#b3892f";
+
+/**
+ * Farger til kvartalsflatene. Nabokvartaler får ulik farge, ellers flyter
+ * de sammen. Tonene er de samme som kategoriprikkene bruker, så kartet
+ * holder seg i sitt eget fargespråk.
+ */
+const KVARTAL_FARGER = [
+  "#8a4f7d",
+  "#2f5d8c",
+  "#b04a39",
+  "#4a7c4e",
+  "#b3892f",
+  "#2f6b5a",
+  "#c2703d",
+  "#7a6a3a",
+  "#6b6862",
+  "#8a6ea0",
+  "#4a6c7c",
+  "#9a5b6e",
+];
 
 export default function AreaMap({
   center,
@@ -109,29 +129,26 @@ export default function AreaMap({
       // tegnes under som en rolig flate — et enkelt bygg er bare noen
       // piksler på dette utsnittet. Byggene ligger oppå og lyser opp med
       // adressen når musa er over.
-      const HVIL = { color: "#6b6862", weight: 1, opacity: 0.6, fillColor: "#6b6862", fillOpacity: 0.28 };
-      const LYS = { color: AKSENT, weight: 2, opacity: 1, fillColor: AKSENT, fillOpacity: 0.55 };
-
       for (const kvartal of bygg ?? []) {
-        for (const grense of kvartal.teiger) {
-          if (grense.length < 3) continue;
-          L.polygon(grense, {
-            color: "#6b6862",
-            weight: 1,
-            opacity: 0.45,
-            fillColor: "#6b6862",
-            fillOpacity: 0.12,
-            interactive: false,
-          }).addTo(map);
-        }
-        for (const b of kvartal.bygg) {
-          if (b.r.length < 3) continue;
-          const flate = L.polygon(b.r, { ...HVIL, interactive: true }).addTo(map);
-          if (b.a.length) {
-            flate.bindTooltip(b.a.join(" · "), { direction: "top", opacity: 0.95 });
+        const farge = KVARTAL_FARGER[(kvartal.farge ?? 0) % KVARTAL_FARGER.length];
+        const hvil = { color: farge, weight: 1.5, opacity: 0.75, fillColor: farge, fillOpacity: 0.2 };
+        const lys = { color: farge, weight: 2, opacity: 1, fillColor: farge, fillOpacity: 0.42 };
+
+        for (const del of kvartal.flate) {
+          if (del.length < 3) continue;
+          const felt = L.polygon(del, { ...hvil, interactive: true }).addTo(map);
+          const adresser = [...new Set(kvartal.bygg.flatMap((b) => b.a))];
+          if (adresser.length) {
+            // Gater framfor en liste på tretti husnumre.
+            const gater = [...new Set(adresser.map((a) => a.replace(/\s+\d+\s*\p{L}?$/u, "")))];
+            felt.bindTooltip(`${gater.join(" · ")} — ${adresser.length} adresser`, {
+              direction: "top",
+              opacity: 0.95,
+              sticky: true,
+            });
           }
-          flate.on("mouseover", () => flate.setStyle(LYS).bringToFront());
-          flate.on("mouseout", () => flate.setStyle(HVIL));
+          felt.on("mouseover", () => felt.setStyle(lys));
+          felt.on("mouseout", () => felt.setStyle(hvil));
         }
       }
 

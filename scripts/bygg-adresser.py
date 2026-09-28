@@ -13,6 +13,9 @@ Bruk:  python3 scripts/bygg-adresser.py
 import json
 import math
 
+from shapely.geometry import Polygon
+from shapely.ops import unary_union
+
 NÆRMESTE_M = 12
 
 
@@ -30,6 +33,68 @@ def inni(lat, lon, ring):
         if (bi > lon) != (bj > lon) and lat < (aj - ai) * (lon - bi) / (bj - bi) + ai:
             inne = not inne
     return inne
+
+
+def flate(ringer):
+    """
+    Teigene i et kvartal slås sammen til én flate.
+
+    Et borettslag er gjerne flere teiger som ligger inntil hverandre; tegnet
+    hver for seg blir det et lappeteppe med streker tvers gjennom gården.
+    Sammenslått blir det ett svakt overlag, slik Scott ba om.
+    """
+    former = []
+    for r in ringer:
+        if len(r) < 4:
+            continue
+        p = Polygon([(x, y) for y, x in r])  # shapely vil ha (x, y)
+        if not p.is_valid:
+            p = p.buffer(0)
+        if not p.is_empty:
+            former.append(p)
+    if not former:
+        return []
+
+    slått = unary_union(former)
+    # En halv meter i grader: fjerner målestøy uten å flytte grensen synlig.
+    slått = slått.simplify(0.000006, preserve_topology=True)
+    deler = getattr(slått, "geoms", [slått])
+    ut = []
+    for d in deler:
+        if d.geom_type != "Polygon" or d.is_empty:
+            continue
+        ut.append([[round(y, 6), round(x, 6)] for x, y in d.exterior.coords])
+    return ut
+
+
+def farger(flater):
+    """
+    Nabokvartaler skal ha ulik farge, slik at de lar seg skille.
+
+    Grådig fargelegging: kvartaler som ligger nærmere enn 80 meter regnes
+    som naboer, og hvert kvartal får den laveste fargen ingen nabo har.
+    """
+    from shapely.geometry import MultiPolygon
+
+    former = {
+        bid: MultiPolygon([Polygon([(x, y) for y, x in r]) for r in ringer if len(r) >= 4])
+        for bid, ringer in flater.items()
+        if ringer
+    }
+    grense = 80 / 111320  # ca. 80 meter i grader
+    naboer = {bid: set() for bid in former}
+    ider = sorted(former)
+    for i, a in enumerate(ider):
+        for b in ider[i + 1 :]:
+            if former[a].distance(former[b]) <= grense:
+                naboer[a].add(b)
+                naboer[b].add(a)
+
+    valgt = {}
+    for bid in ider:
+        brukt = {valgt[n] for n in naboer[bid] if n in valgt}
+        valgt[bid] = next(i for i in range(12) if i not in brukt)
+    return valgt
 
 
 def omriss(punkter):
@@ -87,18 +152,22 @@ def main():
         if not grenser:
             punkter = [p for b in oppføringer for p in b["r"]]
             grenser = [omriss(punkter)] if len(punkter) >= 3 else []
-        ut[bid] = {"teiger": grenser, "bygg": oppføringer}
+        ut[bid] = {"flate": flate(grenser), "bygg": oppføringer}
+
+    for bid, farge in farger({b: v["flate"] for b, v in ut.items()}).items():
+        ut[bid]["farge"] = farge
 
     with open("public/data/bygg.json", "w", encoding="utf-8") as f:
         json.dump(ut, f, ensure_ascii=False, separators=(",", ":"))
 
     navnløse = sum(1 for v in ut.values() for b in v["bygg"] if not b["a"])
     antall = sum(len(v["bygg"]) for v in ut.values())
-    grenser = sum(len(v["teiger"]) for v in ut.values())
+    deler = sum(len(v["flate"]) for v in ut.values())
     fra_matrikkel = sum(1 for bid in ut if bid in teiger)
+    brukte = len({v.get("farge") for v in ut.values()})
     print(
-        f"{len(ut)} kvartaler: {grenser} eiendomsgrenser "
-        f"({fra_matrikkel} fra matrikkelen), {antall} bygg ({navnløse} uten adresse)"
+        f"{len(ut)} kvartaler: {deler} flater ({fra_matrikkel} fra matrikkelen), "
+        f"{antall} bygg ({navnløse} uten adresse), {brukte} farger"
     )
 
 

@@ -377,17 +377,18 @@ export default function Portal({
             .map((g) => ({ id: g.category.id, label: g.category.label }))
         );
         // Byggene i kvartalene bildene er bundet til, til kartlaget.
-        // Kvartalet man søkte på, og kvartalene bildene er bundet til.
-        const kvartaler = new Set(
-          [
-            data.bygardId,
-            ...data.groups.flatMap((g) => g.photos.map((p) => p.bygardId)),
-          ].filter(Boolean) as string[]
-        );
+        // Alle kvartalene vi har bilder fra i utsnittet, ikke bare det man
+        // søkte på: kartet viser hvilke gårder arkivet faktisk dekker her.
         const alle = await loadBygg();
-        setBygg(
-          alle ? ([...kvartaler].map((id) => alle[id]).filter(Boolean) as Kvartal[]) : []
-        );
+        const nær = (k: Kvartal) =>
+          k.flate.some((del) =>
+            del.some(([lat, lng]) => {
+              const dx = (lng - data.center.lng) * 111320 * Math.cos((lat * Math.PI) / 180);
+              const dy = (lat - data.center.lat) * 111320;
+              return Math.hypot(dx, dy) <= radiusMeters + 150;
+            })
+          );
+        setBygg(alle ? Object.values(alle).filter(nær) : []);
         setWarning(data.warning ?? null);
         setSearched({ address: trimmed, radius: radiusMeters, center: data.center });
         setPage(built.length > 0 ? 1 : 0);
