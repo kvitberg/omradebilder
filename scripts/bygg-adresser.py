@@ -176,6 +176,13 @@ def main():
         # Kartet tegner kvartalet som én flate og viser gatene i boblen.
         # Grensene for hver enkelt eiendom ville vært fire megabyte å laste
         # ned, og de vises aldri.
+        # Hver eiendom for seg: det er den man holder musa over, og den
+        # bærer matrikkelnummeret. 748 teiger til sammen, så det er billig.
+        eiendommer = [
+            {"r": forenkle(t["r"]), "a": t["a"], "m": sorted(set(t.get("m") or []))}
+            for t in liste
+            if len(t["r"]) >= 4
+        ]
         adresser = sorted({a for t in liste for a in t["a"]})
         # «209/346» er en matrikkeladresse uten gatenavn, ikke en gate.
         gater = sorted(
@@ -189,6 +196,7 @@ def main():
             "flate": flate([t["r"] for t in liste]),
             "gater": gater,
             "antall": len(adresser),
+            "teiger": eiendommer,
         }
 
     with open("data/gardsrom.json", "w", encoding="utf-8") as f:
@@ -201,12 +209,13 @@ def main():
         json.dump(ut, f, ensure_ascii=False, separators=(",", ":"))
 
     antall = sum(v["antall"] for v in ut.values())
+    teiger_ut = sum(len(v["teiger"]) for v in ut.values())
     deler = sum(len(v["flate"]) for v in ut.values())
     fra_matrikkel = sum(1 for bid in ut if bid in teiger)
     brukte = len({v.get("farge") for v in ut.values()})
     print(
         f"{len(ut)} kvartaler: {deler} flater ({fra_matrikkel} fra matrikkelen), "
-        f"{antall} adresser, {brukte} farger"
+        f"{antall} adresser, {teiger_ut} eiendommer, {brukte} farger"
     )
 
 

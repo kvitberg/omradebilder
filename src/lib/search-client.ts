@@ -237,10 +237,12 @@ async function fetchGeonorge(query: string, kommunenummer?: string): Promise<Sug
  * midt i Marka kan nærmeste adresse ligge langt unna.
  */
 export type Bygg = { r: [number, number][]; a: string[] };
+export type Eiendom = { r: [number, number][]; a: string[]; m: string[] };
 export type Kvartal = {
   flate: [number, number][][];
   gater: string[];
   antall: number;
+  teiger: Eiendom[];
   farge?: number;
 };
 

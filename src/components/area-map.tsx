@@ -16,11 +16,15 @@ import "leaflet/dist/leaflet.css";
 /** Ett bygg: omriss og adressene det dekker. */
 export type Bygning = { r: [number, number][]; a: string[] };
 
-/** Et kvartal: den sammenslåtte eiendomsflaten, gatene i den, og fargen. */
+/** Én eiendom: grensen, adressene på den, og matrikkelnummeret. */
+export type Eiendom = { r: [number, number][]; a: string[]; m: string[] };
+
+/** Et kvartal: den sammenslåtte flaten, eiendommene inni, og fargen. */
 export type Kvartal = {
   flate: [number, number][][];
   gater: string[];
   antall: number;
+  teiger: Eiendom[];
   farge?: number;
 };
 
@@ -106,16 +110,19 @@ export default function AreaMap({
       const L = (await import("leaflet")).default;
       if (cancelled || !containerRef.current || mapRef.current) return;
 
+      // Kartet var låst som en trykt figur. Meglerne vil se nærmere på
+      // gårdsrommet, så det oppfører seg nå som et vanlig kart.
       const map = L.map(containerRef.current, {
-        zoomControl: false,
-        dragging: false,
-        scrollWheelZoom: false,
-        doubleClickZoom: false,
-        touchZoom: false,
-        boxZoom: false,
+        zoomControl: true,
+        scrollWheelZoom: true,
+        dragging: true,
+        doubleClickZoom: true,
+        touchZoom: true,
+        boxZoom: true,
         keyboard: false,
         attributionControl: true,
       });
+      map.zoomControl.setPosition("bottomright");
       mapRef.current = map;
       map.attributionControl.setPrefix(false);
 
@@ -134,25 +141,35 @@ export default function AreaMap({
       // tegnes under som en rolig flate — et enkelt bygg er bare noen
       // piksler på dette utsnittet. Byggene ligger oppå og lyser opp med
       // adressen når musa er over.
+      // Hver eiendom for seg. Den sammenslåtte kvartalsflaten tok med
+      // naboer som bare berører hverandre i et hjørne, og rant over gata.
+      // Fargen følger matrikkelnummeret, så naboeiendommer skilles.
       for (const kvartal of bygg ?? []) {
-        const farge = KVARTAL_FARGER[(kvartal.farge ?? 0) % KVARTAL_FARGER.length];
-        const hvil = { color: farge, weight: 1.5, opacity: 0.75, fillColor: farge, fillOpacity: 0.2 };
-        const lys = { color: farge, weight: 2, opacity: 1, fillColor: farge, fillOpacity: 0.42 };
+        for (const e of kvartal.teiger) {
+          if (e.r.length < 3) continue;
+          const nøkkel = e.m[0] ?? e.a[0] ?? "";
+          let sum = 0;
+          for (let i = 0; i < nøkkel.length; i++) sum = (sum * 31 + nøkkel.charCodeAt(i)) % 9973;
+          const farge = KVARTAL_FARGER[sum % KVARTAL_FARGER.length];
+          const hvil = {
+            color: farge,
+            weight: 1,
+            opacity: 0.7,
+            fillColor: farge,
+            fillOpacity: 0.18,
+          };
+          const lys = { color: farge, weight: 2, opacity: 1, fillColor: farge, fillOpacity: 0.42 };
 
-        for (const del of kvartal.flate) {
-          if (del.length < 3) continue;
-          const felt = L.polygon(del, { ...hvil, interactive: true }).addTo(map);
-          if (kvartal.gater.length) {
-            // Gatenavn framfor en liste på tretti husnumre.
-            const gater = kvartal.gater.slice(0, 5).join(" · ");
-            const mer = kvartal.gater.length > 5 ? " m.fl." : "";
-            felt.bindTooltip(`${gater}${mer} — ${kvartal.antall} adresser`, {
-              direction: "top",
-              opacity: 0.95,
-              sticky: true,
-            });
-          }
-          felt.on("mouseover", () => felt.setStyle(lys));
+          const felt = L.polygon(e.r, { ...hvil, interactive: true }).addTo(map);
+          const adresser = e.a.length ? e.a.slice(0, 4).join(" · ") : "Uten adresse";
+          const mer = e.a.length > 4 ? ` m.fl. (${e.a.length})` : "";
+          const matrikkel = e.m.length ? `gnr/bnr ${e.m.join(", ")}` : "";
+          felt.bindTooltip(`<b>${adresser}${mer}</b>${matrikkel ? `<br>${matrikkel}` : ""}`, {
+            direction: "top",
+            opacity: 0.97,
+            sticky: true,
+          });
+          felt.on("mouseover", () => felt.setStyle(lys).bringToFront());
           felt.on("mouseout", () => felt.setStyle(hvil));
         }
       }

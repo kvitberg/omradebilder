@@ -147,8 +147,22 @@ async function main() {
   const kart = JSON.parse(
     await fsp.readFile("public/data/adresse-til-bygard.json", "utf-8")
   ) as Record<string, string>;
-  const ønskede = new Set(Object.values(kart));
   const bygardFor = bygarder.adresseTilBygard;
+
+  // Kvartalene kartlaget tegner, pluss kvartalene bildene er bundet til.
+  // De siste tas med uten størrelsesgrense: gårdsromkretsen er liten selv
+  // når kvartalet rundt er limt sammen av halve bydelen.
+  const ønskede = new Set(Object.values(kart));
+  const bilder = JSON.parse(await fsp.readFile("public/data/index.json", "utf-8")) as {
+    photos: Array<{ adresser?: string[] | null; bygardId?: string | null }>;
+  };
+  for (const p of bilder.photos) {
+    if (p.bygardId) ønskede.add(p.bygardId);
+    for (const a of p.adresser ?? []) {
+      const id = bygardFor[a];
+      if (id) ønskede.add(id);
+    }
+  }
   console.log(`${ønskede.size} kvartaler har bilder.`);
 
   const teigDir = await ensureDownloaded(TEIG_URL, `teig_${KOMMUNE}.zip`);
@@ -195,7 +209,7 @@ async function main() {
   // Per teig: grensen og adressene på eiendommen. Et gårdsrom hører til
   // eiendommen det ligger i, ikke til hele kvartalet — kvartalet er limt
   // sammen av teiger som deler hjørner, og spenner av og til over en gate.
-  const ut: Record<string, Array<{ r: [number, number][]; a: string[] }>> = {};
+  const ut: Record<string, Array<{ r: [number, number][]; a: string[]; m: string[] }>> = {};
   let lest = 0;
   let brukt = 0;
   for await (const el of teigElements(gmlPath)) {
@@ -211,7 +225,9 @@ async function main() {
       for (let i = 0; i + 1 < nums.length; i += 2) {
         ring.push(utm32TilWgs84(nums[i], nums[i + 1]));
       }
-      if (ring.length >= 4) (ut[kvartal] ??= []).push({ r: ring, a: adresser.sort() });
+      if (ring.length >= 4) {
+        (ut[kvartal] ??= []).push({ r: ring, a: adresser.sort(), m: matrikler });
+      }
     }
     brukt++;
   }
