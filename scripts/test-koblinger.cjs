@@ -43,10 +43,16 @@ const tester = [
   // Eiendomsbilder med adresse som navn
   ["Grefsenkollveien 16B deler blokkbildet med 16A", () => viser("Grefsenkollveien 16B", "Grefsenkollveien 16A") > 0],
   ["Grefsenkollveien 12C har ikke 16A", () => viser("Grefsenkollveien 12C", "Grefsenkollveien 16A") === 0],
-  ["Ludvig Karstens vei 12 har ikke nr. 10", () => viser("Ludvig Karstens vei 12", "Ludvig Karstens vei 10") === 0],
+  // Bildene her er tagget «bakgård» i Immich, og matrikkelen sier at nr. 10
+  // og 12 deler gårdsrom. Naboene lenger unna i samme kvartal gjør ikke det:
+  // kvartalet oslo-00018 har 529 adresser, kretsen 14.
+  ["Ludvig Karstens vei 12 deler gårdsrom med nr. 10", () => viser("Ludvig Karstens vei 12", "Ludvig Karstens vei 10") > 0],
+  ["Dragonstien 101 er utenfor det gårdsrommet", () => viser("Dragonstien 101", "Ludvig Karstens vei 10") === 0],
   // Borettslag
-  ["Christian Schous vei 3A har 3F sine bilder", () => viser("Christian Schous vei 3A", "Christian Schous vei 3F") > 0],
-  ["Christian Schous vei 5 har dem ikke", () => viser("Christian Schous vei 5", "Christian Schous vei 3F") === 0],
+  // Navnet på disse bildene følger beskrivelsen i Immich og kan endre seg;
+  // testen spør derfor om koblingen, ikke om navnet.
+  ["Christian Schous vei 3A har naboens fellesarealer", () => felles("Christian Schous vei 3A") >= 5],
+  ["Christian Schous vei 5 har dem ikke", () => felles("Christian Schous vei 5") === 0],
   ["Akebakkeskogen 33 har borettslagets bilder", () => bundetTil("Akebakkeskogen 33").length >= 3],
   ["Nordstjerneveien 6 har Myrer-bildene", () => viser("Nordstjerneveien 6", "Kurveien 42") > 0],
   ["Myrerskogveien 12 er ikke i Myrer borettslag", () => viser("Myrerskogveien 12", "Kurveien 42") === 0],

@@ -500,9 +500,12 @@ async function main() {
       // kebab» etter nærmeste butikk. Navn som allerede bærer et husnummer
       // er gode nok som de er.
       const navn = overstyring?.navn ?? p.placeName;
-      const fraKart = p.id.startsWith("immich:") && !/\d/.test(navn);
+      // «003082-4.jpg» er ikke et sted. Uten beskrivelse i Immich faller
+      // navnet tilbake på filnavnet, og da er adressen bedre.
+      const erFilnavn = /\.(jpe?g|png|heic|webp|tiff?)$/i.test(navn.trim());
+      const fraKart = p.id.startsWith("immich:") && (erFilnavn || !/\d/.test(navn));
       const stedsnavn =
-        (erFelles && fraKart && kanKnyttes
+        ((erFelles || erFilnavn) && fraKart && kanKnyttes
           ? adresser?.[0] ??
             (lat !== null && lng !== null ? adresseFraPunkt(lat, lng) : null)
           : null) ?? navn;
@@ -542,9 +545,22 @@ async function main() {
   );
 
   // Bare kvartaler som har minst ett bakgårdsbilde er verdt å ta med.
-  const relevante = new Set(
-    publishable.filter((p) => FELLESAREAL.has(p.category) && p.bygardId).map((p) => p.bygardId!)
-  );
+  // Et fellesareal er som regel bundet til adresser nå, ikke til et kvartal.
+  // Kartlaget skal likevel dekke kvartalet adressene ligger i — men bare
+  // kvartaler av rimelig størrelse. Teig-grupperingen limer av og til
+  // sammen halve bydeler, og da ville flaten dekket hele kartet.
+  const relevante = new Set<string>();
+  for (const p of publishable) {
+    if (!FELLESAREAL.has(p.category)) continue;
+    const kandidater = [
+      p.bygardId,
+      ...(p.adresser ?? []).map((a) => bygarder.adresseTilBygard[a] ?? utenBokstav.get(a)),
+    ];
+    for (const id of kandidater) {
+      const ok = rimeligKvartal(id ?? null);
+      if (ok) relevante.add(ok);
+    }
+  }
 
   let addresses = 0;
   try {

@@ -12,6 +12,7 @@ Bruk:  python3 scripts/bygg-adresser.py
 
 import json
 import math
+import re
 
 from shapely.geometry import Polygon
 from shapely.ops import unary_union
@@ -33,6 +34,17 @@ def inni(lat, lon, ring):
         if (bi > lon) != (bj > lon) and lat < (aj - ai) * (lon - bi) / (bj - bi) + ai:
             inne = not inne
     return inne
+
+
+def forenkle(ring):
+    """Grensene tegnes i småskala; centimeterpresisjon er sløsing med plass."""
+    p = Polygon([(x, y) for y, x in ring])
+    if not p.is_valid:
+        p = p.buffer(0)
+    if p.is_empty or p.geom_type != "Polygon":
+        return [[round(y, 6), round(x, 6)] for y, x in ring]
+    enkel = p.simplify(0.000006, preserve_topology=True)
+    return [[round(y, 6), round(x, 6)] for x, y in enkel.exterior.coords]
 
 
 def flate(ringer):
@@ -156,39 +168,28 @@ def omriss(punkter):
 
 def main():
     try:
-        bygg = json.load(open("data/bygg.json", encoding="utf-8"))
-    except FileNotFoundError:
-        bygg = {}
-    try:
         teiger = json.load(open("data/teiger.json", encoding="utf-8"))
     except FileNotFoundError:
         teiger = {}
-    punkter = json.load(open("data/adressepunkter.json", encoding="utf-8"))
-    bygarder = json.load(open("data/bygarder.json", encoding="utf-8"))
-    blokk = {g["id"]: g["adresser"] for g in bygarder["bygarder"]}
-
     ut = {}
-    for bid in sorted(set(bygg) | set(teiger)):
-        ringer = bygg.get(bid, [])
-        adresser = [a for a in blokk.get(bid, []) if a in punkter]
-        oppføringer = []
-        for ring in ringer:
-            treff = [a for a in adresser if inni(punkter[a][0], punkter[a][1], ring)]
-            if not treff:
-                # Punktet kan ligge rett utenfor veggen; ta de nærmeste.
-                treff = [
-                    a
-                    for a in adresser
-                    if min(avstand(punkter[a], p) for p in ring) <= NÆRMESTE_M
-                ]
-            oppføringer.append({"r": ring, "a": sorted(treff)})
-        # Matrikkelens grenser er fasit; innhyllingen av byggene er reserve
-        # for kvartaler vi ikke har teiger til.
-        grenser = [t["r"] for t in teiger.get(bid, [])]
-        if not grenser:
-            punkter = [p for b in oppføringer for p in b["r"]]
-            grenser = [omriss(punkter)] if len(punkter) >= 3 else []
-        ut[bid] = {"flate": flate(grenser), "bygg": oppføringer}
+    for bid, liste in teiger.items():
+        # Kartet tegner kvartalet som én flate og viser gatene i boblen.
+        # Grensene for hver enkelt eiendom ville vært fire megabyte å laste
+        # ned, og de vises aldri.
+        adresser = sorted({a for t in liste for a in t["a"]})
+        # «209/346» er en matrikkeladresse uten gatenavn, ikke en gate.
+        gater = sorted(
+            {
+                re.sub(r"\s+\d+\s*\w?$", "", a)
+                for a in adresser
+                if not re.match(r"^\d+/\d+", a)
+            }
+        )
+        ut[bid] = {
+            "flate": flate([t["r"] for t in liste]),
+            "gater": gater,
+            "antall": len(adresser),
+        }
 
     with open("data/gardsrom.json", "w", encoding="utf-8") as f:
         json.dump(gardsrom(teiger), f, ensure_ascii=False, separators=(",", ":"))
@@ -199,14 +200,13 @@ def main():
     with open("public/data/bygg.json", "w", encoding="utf-8") as f:
         json.dump(ut, f, ensure_ascii=False, separators=(",", ":"))
 
-    navnløse = sum(1 for v in ut.values() for b in v["bygg"] if not b["a"])
-    antall = sum(len(v["bygg"]) for v in ut.values())
+    antall = sum(v["antall"] for v in ut.values())
     deler = sum(len(v["flate"]) for v in ut.values())
     fra_matrikkel = sum(1 for bid in ut if bid in teiger)
     brukte = len({v.get("farge") for v in ut.values()})
     print(
         f"{len(ut)} kvartaler: {deler} flater ({fra_matrikkel} fra matrikkelen), "
-        f"{antall} bygg ({navnløse} uten adresse), {brukte} farger"
+        f"{antall} adresser, {brukte} farger"
     )
 
 

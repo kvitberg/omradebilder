@@ -16,8 +16,13 @@ import "leaflet/dist/leaflet.css";
 /** Ett bygg: omriss og adressene det dekker. */
 export type Bygning = { r: [number, number][]; a: string[] };
 
-/** Et kvartal: den sammenslåtte eiendomsflaten, byggene inni, og fargen. */
-export type Kvartal = { flate: [number, number][][]; bygg: Bygning[]; farge?: number };
+/** Et kvartal: den sammenslåtte eiendomsflaten, gatene i den, og fargen. */
+export type Kvartal = {
+  flate: [number, number][][];
+  gater: string[];
+  antall: number;
+  farge?: number;
+};
 
 export type MapDot = {
   lat: number;
@@ -137,11 +142,11 @@ export default function AreaMap({
         for (const del of kvartal.flate) {
           if (del.length < 3) continue;
           const felt = L.polygon(del, { ...hvil, interactive: true }).addTo(map);
-          const adresser = [...new Set(kvartal.bygg.flatMap((b) => b.a))];
-          if (adresser.length) {
-            // Gater framfor en liste på tretti husnumre.
-            const gater = [...new Set(adresser.map((a) => a.replace(/\s+\d+\s*\p{L}?$/u, "")))];
-            felt.bindTooltip(`${gater.join(" · ")} — ${adresser.length} adresser`, {
+          if (kvartal.gater.length) {
+            // Gatenavn framfor en liste på tretti husnumre.
+            const gater = kvartal.gater.slice(0, 5).join(" · ");
+            const mer = kvartal.gater.length > 5 ? " m.fl." : "";
+            felt.bindTooltip(`${gater}${mer} — ${kvartal.antall} adresser`, {
               direction: "top",
               opacity: 0.95,
               sticky: true,
