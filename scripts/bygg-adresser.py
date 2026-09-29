@@ -36,6 +36,50 @@ def inni(lat, lon, ring):
     return inne
 
 
+def kjente_navn(punkter):
+    """
+    Navn vi kjenner fra før: borettslag som spenner flere husnumre
+    (data/borettslag.json) og kallenavn på bygårder (data/bakgard-navn.json).
+    Begge er adresselister.
+    """
+    ut = {}
+    for fil in ("data/borettslag.json", "data/bakgard-navn.json"):
+        try:
+            rå = json.load(open(fil, encoding="utf-8"))
+        except FileNotFoundError:
+            continue
+        for navn, verdi in rå.items():
+            if navn == "_":
+                continue
+            if isinstance(verdi, dict):
+                adr = set(verdi.get("adresser") or [])
+                for gate in verdi.get("gater") or []:
+                    adr |= {a for a in punkter if a.startswith(gate + " ")}
+            elif isinstance(verdi, list):
+                adr = set(verdi)
+            else:
+                adr = {verdi}
+            if adr:
+                ut[navn] = adr
+    return ut
+
+
+def navngi(adresser, navneliste):
+    """
+    Navnet på laget, når vi kjenner det: Myrer borettslag, Grefsen
+    Terrassehus. Kilden er data/borettslag.json og data/bakgard-navn.json,
+    som Scott og jeg har fylt ut underveis.
+    """
+    sett = set(adresser)
+    beste, treff = None, 0
+    for navn, liste in navneliste.items():
+        felles = len(sett & liste)
+        if felles > treff:
+            beste, treff = navn, felles
+    # Halvparten av adressene må høre til laget før vi setter navnet.
+    return beste if treff and treff >= min(2, len(sett)) else None
+
+
 def forenkle(ring):
     """
     Grensene tegnes i småskala, så centimeterpresisjon er bare vekt.
@@ -175,18 +219,38 @@ def main():
         teiger = json.load(open("data/teiger.json", encoding="utf-8"))
     except FileNotFoundError:
         teiger = {}
+    punkter = json.load(open("data/adressepunkter.json", encoding="utf-8"))
+    navneliste = kjente_navn(punkter)
     ut = {}
     for bid, liste in teiger.items():
         # Kartet tegner kvartalet som én flate og viser gatene i boblen.
         # Grensene for hver enkelt eiendom ville vært fire megabyte å laste
         # ned, og de vises aldri.
-        # Hver eiendom for seg: det er den man holder musa over, og den
-        # bærer matrikkelnummeret. 748 teiger til sammen, så det er billig.
-        eiendommer = [
-            {"r": forenkle(t["r"]), "a": t["a"], "m": sorted(set(t.get("m") or []))}
-            for t in liste
-            if len(t["r"]) >= 4
-        ]
+        # Teiger med samme matrikkelnummer er én eiendom — et borettslag
+        # eier gjerne grunnen som flere teiger, og tegnet hver for seg blir
+        # laget et lappeteppe. På Grefsen og Kjelsås er det regelen, ikke
+        # unntaket.
+        grupper = {}
+        for t in liste:
+            if len(t["r"]) < 4:
+                continue
+            nøkkel = ",".join(sorted(set(t.get("m") or []))) or f"teig{len(grupper)}"
+            g = grupper.setdefault(nøkkel, {"ringer": [], "a": set(), "m": set()})
+            g["ringer"].append(t["r"])
+            g["a"].update(t["a"])
+            g["m"].update(t.get("m") or [])
+
+        eiendommer = []
+        for g in grupper.values():
+            adresser = sorted(g["a"])
+            navn = navngi(adresser, navneliste)
+            for del_ in flate(g["ringer"]):
+                if len(del_) < 4:
+                    continue
+                oppføring = {"r": forenkle(del_), "a": adresser, "m": sorted(g["m"])}
+                if navn:
+                    oppføring["navn"] = navn
+                eiendommer.append(oppføring)
         adresser = sorted({a for t in liste for a in t["a"]})
         # «209/346» er en matrikkeladresse uten gatenavn, ikke en gate.
         gater = sorted(

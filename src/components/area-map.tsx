@@ -17,7 +17,7 @@ import "leaflet/dist/leaflet.css";
 export type Bygning = { r: [number, number][]; a: string[] };
 
 /** Én eiendom: grensen, adressene på den, og matrikkelnummeret. */
-export type Eiendom = { r: [number, number][]; a: string[]; m: string[] };
+export type Eiendom = { r: [number, number][]; a: string[]; m: string[]; navn?: string };
 
 /** Et kvartal, slik kartet trenger det: eiendommene i det. */
 export type Kvartal = { teiger: Eiendom[] };
@@ -51,6 +51,31 @@ export const KATEGORI_FARGER: Record<string, string> = {
 };
 
 const AKSENT = "#b3892f";
+
+/**
+ * «Sagadammen 1–26» framfor tjue husnumre på rad. Husnumre med bokstav
+ * («12A») teller som ett nummer, slik en megler ville skrevet det.
+ */
+function adresselinje(adresser: string[]): string {
+  if (!adresser.length) return "Uten adresse";
+  const perGate = new Map<string, number[]>();
+  for (const a of adresser) {
+    const m = a.match(/^(.*?)\s+(\d+)\s*\p{L}?$/u);
+    if (!m) continue;
+    const liste = perGate.get(m[1]) ?? [];
+    liste.push(Number(m[2]));
+    perGate.set(m[1], liste);
+  }
+  if (!perGate.size) return adresser.slice(0, 3).join(" · ");
+  const deler: string[] = [];
+  for (const [gate, numre] of perGate) {
+    const lav = Math.min(...numre);
+    const høy = Math.max(...numre);
+    deler.push(lav === høy ? `${gate} ${lav}` : `${gate} ${lav}–${høy}`);
+  }
+  const vist = deler.slice(0, 3).join(" · ");
+  return deler.length > 3 ? `${vist} m.fl.` : vist;
+}
 
 /**
  * Farger til kvartalsflatene. Nabokvartaler får ulik farge, ellers flyter
@@ -155,10 +180,12 @@ export default function AreaMap({
           const lys = { color: farge, weight: 2, opacity: 1, fillColor: farge, fillOpacity: 0.42 };
 
           const felt = L.polygon(e.r, { ...hvil, interactive: true }).addTo(map);
-          const adresser = e.a.length ? e.a.slice(0, 4).join(" · ") : "Uten adresse";
-          const mer = e.a.length > 4 ? ` m.fl. (${e.a.length})` : "";
-          const matrikkel = e.m.length ? `gnr/bnr ${e.m.join(", ")}` : "";
-          felt.bindTooltip(`<b>${adresser}${mer}</b>${matrikkel ? `<br>${matrikkel}` : ""}`, {
+          const overskrift = e.navn ?? adresselinje(e.a);
+          const under = [
+            e.navn ? adresselinje(e.a) : "",
+            e.m.length ? `gnr/bnr ${e.m.join(", ")}` : "",
+          ].filter(Boolean);
+          felt.bindTooltip(`<b>${overskrift}</b><br>${under.join("<br>")}`, {
             direction: "top",
             opacity: 0.97,
             sticky: true,
