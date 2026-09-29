@@ -19,14 +19,8 @@ export type Bygning = { r: [number, number][]; a: string[] };
 /** Én eiendom: grensen, adressene på den, og matrikkelnummeret. */
 export type Eiendom = { r: [number, number][]; a: string[]; m: string[] };
 
-/** Et kvartal: den sammenslåtte flaten, eiendommene inni, og fargen. */
-export type Kvartal = {
-  flate: [number, number][][];
-  gater: string[];
-  antall: number;
-  teiger: Eiendom[];
-  farge?: number;
-};
+/** Et kvartal, slik kartet trenger det: eiendommene i det. */
+export type Kvartal = { teiger: Eiendom[] };
 
 export type MapDot = {
   lat: number;

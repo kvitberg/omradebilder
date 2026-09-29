@@ -577,19 +577,44 @@ async function main() {
     await fs.writeFile(path.join(OUT_DIR, "adresse-til-bygard.json"), "{}");
   }
 
-  // Byggene i kvartalene, til laget på kartet. Fila lages av
-  // `npm run hent-bygg` og `npm run bygg`, og bare kvartaler som fortsatt
-  // brukes tas med.
+  // Eiendomsgrensene til kartlaget. Fila lages av `npm run teiger` og
+  // `npm run bygg`; her beholdes bare eiendommene i nærheten av et bilde.
+  // Kvartalet er ikke et brukbart mål lenger — i Grefsen er det limt
+  // sammen av to tusen adresser, og da forsvant hele Kjelsås fra kartet.
   try {
     const raw = await fs.readFile(path.join(OUT_DIR, "bygg.json"), "utf-8");
-    const alle = JSON.parse(raw) as Record<string, unknown[]>;
-    const trimmet = Object.fromEntries(
-      Object.entries(alle).filter(([id]) => relevante.has(id))
-    );
+    type Eiendom = { r: [number, number][]; a: string[]; m: string[] };
+    const alle = JSON.parse(raw) as Record<
+      string,
+      { teiger: Eiendom[]; gater: string[]; antall: number; farge?: number }
+    >;
+
+    const NÆRHET_M = 250;
+    const punkter = slim.map((p) => [p.lat!, p.lng!] as [number, number]);
+    const nærEtBilde = (e: Eiendom) =>
+      e.r.some(([lat, lng]) =>
+        punkter.some(([plat, plng]) => {
+          if (Math.abs(plat - lat) > 0.005 || Math.abs(plng - lng) > 0.01) return false;
+          const dy = (plat - lat) * 111320;
+          const dx = (plng - lng) * 111320 * Math.cos((lat * Math.PI) / 180);
+          return Math.hypot(dx, dy) <= NÆRHET_M;
+        })
+      );
+
+    const trimmet: Record<string, { teiger: Eiendom[] }> = {};
+    let eiendommer = 0;
+    for (const [id, kvartal] of Object.entries(alle)) {
+      const nære = kvartal.teiger.filter(nærEtBilde);
+      if (!nære.length) continue;
+      trimmet[id] = { teiger: nære };
+      eiendommer += nære.length;
+    }
     await fs.writeFile(path.join(OUT_DIR, "bygg.json"), JSON.stringify(trimmet));
-    console.log(`  bygg.json: ${Object.keys(trimmet).length} kvartaler`);
+    console.log(
+      `  bygg.json: ${eiendommer} eiendommer i ${Object.keys(trimmet).length} kvartaler`
+    );
   } catch {
-    // Ingen byggfil ennå — kartet klarer seg uten laget.
+    // Ingen fil ennå — kartet klarer seg uten laget.
   }
 
   const size = async (f: string) =>

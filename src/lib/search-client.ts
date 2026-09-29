@@ -238,13 +238,7 @@ async function fetchGeonorge(query: string, kommunenummer?: string): Promise<Sug
  */
 export type Bygg = { r: [number, number][]; a: string[] };
 export type Eiendom = { r: [number, number][]; a: string[]; m: string[] };
-export type Kvartal = {
-  flate: [number, number][][];
-  gater: string[];
-  antall: number;
-  teiger: Eiendom[];
-  farge?: number;
-};
+export type Kvartal = { teiger: Eiendom[] };
 
 let byggCache: Record<string, Kvartal> | null | undefined;
 
