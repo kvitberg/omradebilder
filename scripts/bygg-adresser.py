@@ -131,6 +131,212 @@ def gardsrom(teiger):
     """
     Hvilke adresser deler et gårdsrom.
 
+    Eiendommen bildet ligger på er utgangspunktet — matrikkelenheten, ikke
+    den enkelte teigen, for et borettslag eier gjerne grunnen som flere
+    teiger. Har eiendommen fire adresser eller mer, er den et lag i seg
+    selv: Grefsenkollveien 12A–E er Grefsen Terrassehus, og gårdsrommet
+    der hører ikke til nr. 14 og 20.
+
+    Er eiendommen mindre enn det, er den ett hus i et kvartal, og
+    gårdsrommet deles med naboene som grenser til: det er slik Omsens gate
+    6 og Hegermanns gate 7 deler sitt.
+    """
+    EGET_LAG = 4
+    ut = {}
+    for bid, liste in teiger.items():
+        # Teiger med samme matrikkelnummer er én eiendom.
+        grupper = {}
+        for t in liste:
+            if len(t["r"]) < 4:
+                continue
+            nøkkel = ",".join(sorted(set(t.get("m") or []))) or f"teig{len(grupper)}"
+            g = grupper.setdefault(nøkkel, {"former": [], "a": set()})
+            p = Polygon([(x, y) for y, x in t["r"]])
+            if not p.is_valid:
+                p = p.buffer(0)
+            if not p.is_empty:
+                g["former"].append(p)
+            g["a"].update(t["a"])
+
+        nøkler = [k for k, g in grupper.items() if g["former"]]
+        oppføringer = []
+        for nøkkel in nøkler:
+            g = grupper[nøkkel]
+            adresser = set(g["a"])
+            if len(adresser) < EGET_LAG:
+                for annen in nøkler:
+                    if annen == nøkkel:
+                        continue
+                    # En halv meter slingring: nabogrenser er ikke helt like.
+                    if any(
+                        a.distance(b) <= 0.5 / 111320
+                        for a in g["former"]
+                        for b in grupper[annen]["former"]
+                    ):
+                        adresser.update(grupper[annen]["a"])
+            if not adresser:
+                continue
+            for form in g["former"]:
+                ringer = [form] if form.geom_type == "Polygon" else list(form.geoms)
+                for r in ringer:
+                    if r.is_empty:
+                        continue
+                    oppføringer.append(
+                        {
+                            "r": [[round(y, 6), round(x, 6)] for x, y in r.exterior.coords],
+                            "a": sorted(adresser),
+                        }
+                    )
+        if oppføringer:
+            ut[bid] = oppføringer
+    return ut
+
+
+def krets_per_adresse(teiger):
+    """
+    Adressen → eiendommene den deler gårdsrom med.
+
+    Oppslag på adresse, ikke på punkt: et bilde som heter «Grefsenkollveien
+    12C» hører til den eiendommen, selv om fotografen sto på fellesgrunnen
+    rundt, som favner fire gater.
+    """
+    EGET_LAG = 4
+    ut = {}
+    for liste in teiger.values():
+        grupper = {}
+        for t in liste:
+            if len(t["r"]) < 4:
+                continue
+            nøkkel = ",".join(sorted(set(t.get("m") or []))) or None
+            if not nøkkel:
+                continue
+            g = grupper.setdefault(nøkkel, {"former": [], "a": set()})
+            p = Polygon([(x, y) for y, x in t["r"]])
+            if not p.is_valid:
+                p = p.buffer(0)
+            if not p.is_empty:
+                g["former"].append(p)
+            g["a"].update(t["a"])
+
+        nøkler = list(grupper)
+        for nøkkel in nøkler:
+            g = grupper[nøkkel]
+            adresser = set(g["a"])
+            if not adresser:
+                continue
+            if len(adresser) < EGET_LAG:
+                for annen in nøkler:
+                    if annen == nøkkel:
+                        continue
+                    if any(
+                        a.distance(b) <= 0.5 / 111320
+                        for a in g["former"]
+                        for b in grupper[annen]["former"]
+                    ):
+                        adresser.update(grupper[annen]["a"])
+            krets = sorted(adresser)
+            for a in g["a"]:
+                # Minste krets vinner: en adresse kan ligge i flere lag.
+                if a not in ut or len(krets) < len(ut[a]):
+                    ut[a] = krets
+    return ut
+
+
+def kjente_navn(punkter):
+    """
+    Navn vi kjenner fra før: borettslag som spenner flere husnumre
+    (data/borettslag.json) og kallenavn på bygårder (data/bakgard-navn.json).
+    Begge er adresselister.
+    """
+    ut = {}
+    for fil in ("data/borettslag.json", "data/bakgard-navn.json"):
+        try:
+            rå = json.load(open(fil, encoding="utf-8"))
+        except FileNotFoundError:
+            continue
+        for navn, verdi in rå.items():
+            if navn == "_":
+                continue
+            if isinstance(verdi, dict):
+                adr = set(verdi.get("adresser") or [])
+                for gate in verdi.get("gater") or []:
+                    adr |= {a for a in punkter if a.startswith(gate + " ")}
+            elif isinstance(verdi, list):
+                adr = set(verdi)
+            else:
+                adr = {verdi}
+            if adr:
+                ut[navn] = adr
+    return ut
+
+
+def navngi(adresser, navneliste):
+    """
+    Navnet på laget, når vi kjenner det: Myrer borettslag, Grefsen
+    Terrassehus. Kilden er data/borettslag.json og data/bakgard-navn.json,
+    som Scott og jeg har fylt ut underveis.
+    """
+    sett = set(adresser)
+    beste, treff = None, 0
+    for navn, liste in navneliste.items():
+        felles = len(sett & liste)
+        if felles > treff:
+            beste, treff = navn, felles
+    # Halvparten av adressene må høre til laget før vi setter navnet.
+    return beste if treff and treff >= min(2, len(sett)) else None
+
+
+def forenkle(ring):
+    """
+    Grensene tegnes i småskala, så centimeterpresisjon er bare vekt.
+    Halvannen meter toleranse og fem desimaler holder kartet skarpt og
+    tar filen fra 1,8 til under en halv megabyte.
+    """
+    p = Polygon([(x, y) for y, x in ring])
+    if not p.is_valid:
+        p = p.buffer(0)
+    if p.is_empty or p.geom_type != "Polygon":
+        return [[round(y, 5), round(x, 5)] for y, x in ring]
+    enkel = p.simplify(0.000015, preserve_topology=True)
+    return [[round(y, 5), round(x, 5)] for x, y in enkel.exterior.coords]
+
+
+def flate(ringer):
+    """
+    Teigene i et kvartal slås sammen til én flate.
+
+    Et borettslag er gjerne flere teiger som ligger inntil hverandre; tegnet
+    hver for seg blir det et lappeteppe med streker tvers gjennom gården.
+    Sammenslått blir det ett svakt overlag, slik Scott ba om.
+    """
+    former = []
+    for r in ringer:
+        if len(r) < 4:
+            continue
+        p = Polygon([(x, y) for y, x in r])  # shapely vil ha (x, y)
+        if not p.is_valid:
+            p = p.buffer(0)
+        if not p.is_empty:
+            former.append(p)
+    if not former:
+        return []
+
+    slått = unary_union(former)
+    # En halv meter i grader: fjerner målestøy uten å flytte grensen synlig.
+    slått = slått.simplify(0.000006, preserve_topology=True)
+    deler = getattr(slått, "geoms", [slått])
+    ut = []
+    for d in deler:
+        if d.geom_type != "Polygon" or d.is_empty:
+            continue
+        ut.append([[round(y, 6), round(x, 6)] for x, y in d.exterior.coords])
+    return ut
+
+
+def gardsrom(teiger):
+    """
+    Hvilke adresser deler et gårdsrom.
+
     Kvartalet er limt sammen av teiger som deler hjørner, og spenner av og
     til over en gate — da ble et gårdsrom vist til naboer tvers over veien.
     En eiendom og de eiendommene den grenser til er den rette kretsen: de
@@ -269,6 +475,8 @@ def main():
 
     with open("data/gardsrom.json", "w", encoding="utf-8") as f:
         json.dump(gardsrom(teiger), f, ensure_ascii=False, separators=(",", ":"))
+    with open("data/gardsrom-adresse.json", "w", encoding="utf-8") as f:
+        json.dump(krets_per_adresse(teiger), f, ensure_ascii=False, separators=(",", ":"))
 
     for bid, farge in farger({b: v["flate"] for b, v in ut.items()}).items():
         ut[bid]["farge"] = farge

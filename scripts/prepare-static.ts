@@ -193,6 +193,20 @@ async function main() {
   }
   const alleTeiger = Object.values(gardsrom).flat();
 
+  /**
+   * Adressen → eiendommene den deler gårdsrom med. Står adressen i navnet
+   * på bildet, er det den som gjelder: fotografen kan ha stått på
+   * fellesgrunnen rundt, og den favner gjerne flere lag.
+   */
+  let kretsPerAdresse: Record<string, string[]> = {};
+  try {
+    kretsPerAdresse = JSON.parse(
+      await fs.readFile(path.join(process.cwd(), "data", "gardsrom-adresse.json"), "utf-8")
+    );
+  } catch {
+    kretsPerAdresse = {};
+  }
+
   /** Stråletesten: ligger punktet inni ringen? */
   function inni(lat: number, lng: number, ring: [number, number][]): boolean {
     let inne = false;
@@ -205,13 +219,16 @@ async function main() {
   }
 
   function gardsromFor(lat: number, lng: number): string[] | null {
+    // Flere eiendommer kan dekke samme punkt: et borettslags fellesgrunn
+    // omslutter gjerne terrassehuset inni. Den minste er den riktige —
+    // ellers fikk Grefsenkollveien 12 med seg både nr. 14 og nr. 20.
+    let beste: string[] | null = null;
     for (const t of alleTeiger) {
-      if (t.r.length >= 4 && inni(lat, lng, t.r)) {
-        const kjente = t.a.filter((a) => bygarder.adresseTilBygard[a] || utenBokstav.has(a));
-        if (kjente.length) return kjente;
-      }
+      if (t.r.length < 4 || !inni(lat, lng, t.r)) continue;
+      const kjente = t.a.filter((a) => bygarder.adresseTilBygard[a] || utenBokstav.has(a));
+      if (kjente.length && (!beste || kjente.length < beste.length)) beste = kjente;
     }
-    return null;
+    return beste;
   }
 
   /**
@@ -455,8 +472,14 @@ async function main() {
       // teig, er det den kretsen som gjelder, ikke hele kvartalet: kvartalet
       // rundt Magnus' gate er limt sammen tvers over gata, og bakgården lakk
       // til naboene på andre siden. Adressen i navnet tas med i kretsen.
+      // Adressen i navnet går foran punktet: «Grefsenkollveien 12C» hører
+      // til nr. 12, ikke til fellesgrunnen som strekker seg til nr. 14 og 20.
+      const navnAdresse = adresseINavn(p.placeName);
       const krets =
-        erFelles && !erBygning && lat !== null && lng !== null ? gardsromFor(lat, lng) : null;
+        erFelles && !erBygning
+          ? (navnAdresse ? kretsPerAdresse[navnAdresse] : null) ??
+            (lat !== null && lng !== null ? gardsromFor(lat, lng) : null)
+          : null;
       if (krets) {
         adresser = [...new Set([...krets, ...(adresser ?? [])])].sort();
       }
