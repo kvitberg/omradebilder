@@ -18,6 +18,7 @@ export default function Gate({ children }: { children: ReactNode }) {
 function Port() {
   const [brukernavn, setBrukernavn] = useState("");
   const [passord, setPassord] = useState("");
+  const [vis, setVis] = useState(false);
   const [feil, setFeil] = useState(false);
 
   async function send(e: FormEvent) {
@@ -51,9 +52,9 @@ function Port() {
             passordet du har fått.
           </p>
 
-          <form onSubmit={send} className="cover-form">
-            <label className="mb-7 flex items-center gap-4 border-b border-rule pb-3">
-              <span className="sr-only">Brukernavn</span>
+          <form onSubmit={send} className="logg-inn">
+            <label className="logg-inn-felt">
+              <span className="logg-inn-merke">Brukernavn</span>
               <input
                 type="text"
                 autoComplete="username"
@@ -64,36 +65,36 @@ function Port() {
                   setBrukernavn(e.target.value);
                   setFeil(false);
                 }}
-                placeholder="Brukernavn"
-                aria-label="Brukernavn"
                 aria-invalid={feil || undefined}
-                className="cover-input min-w-0 flex-1 bg-transparent font-light tracking-tight placeholder:text-ink-soft/70 focus:outline-none"
               />
             </label>
 
-            <div className="flex items-center gap-4 border-b border-ink pb-3">
+            <div className="logg-inn-felt">
+              <span className="logg-inn-merke">
+                <label htmlFor="passord">Passord</label>
+                <button type="button" onClick={() => setVis(!vis)} className="download-link">
+                  {vis ? "Skjul" : "Vis"}
+                </button>
+              </span>
               <input
-                type="password"
+                id="passord"
+                type={vis ? "text" : "password"}
                 autoComplete="current-password"
                 value={passord}
                 onChange={(e) => {
                   setPassord(e.target.value);
                   setFeil(false);
                 }}
-                placeholder="Passord"
-                aria-label="Passord"
                 aria-invalid={feil || undefined}
-                className="cover-input min-w-0 flex-1 bg-transparent font-light tracking-tight placeholder:text-ink-soft/70 focus:outline-none"
               />
-              <button
-                type="submit"
-                aria-label="Logg inn"
-                className="shrink-0 text-xl leading-none transition-transform hover:translate-x-1"
-              >
-                →
-              </button>
             </div>
-            <p aria-live="polite" className="mt-7 min-h-[1.5em] text-[13px] text-ink">
+
+            <button type="submit" className="logg-inn-knapp">
+              Logg inn
+              <span aria-hidden>&rarr;</span>
+            </button>
+
+            <p aria-live="polite" className="logg-inn-feil">
               {feil && "Feil brukernavn eller passord."}
             </p>
           </form>

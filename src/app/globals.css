@@ -255,3 +255,89 @@ body {
 .area-map .leaflet-marker-draggable {
   cursor: grab;
 }
+
+/*
+ * Innloggingen står i sin egen smale spalte. Forsidens søkefelt får gå
+ * over hele flaten — der er linjen en del av oppslaget — men to
+ * innloggingsfelt på attenhundre piksler leser som en feil.
+ */
+.logg-inn {
+  width: min(100%, 22rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.logg-inn-felt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.logg-inn-merke {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.logg-inn input {
+  width: 100%;
+  padding-bottom: 0.5rem;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  background: none;
+  font: inherit;
+  font-size: 1.05rem;
+  color: var(--ink);
+  outline: none;
+}
+.logg-inn input:focus {
+  border-bottom-width: 2px;
+  padding-bottom: calc(0.5rem - 1px);
+}
+.logg-inn input[aria-invalid="true"] {
+  border-bottom-color: #b04a39;
+}
+/* Nettleserens autofyll maler feltet lyseblått; her holder vi papiret. */
+.logg-inn input:-webkit-autofill,
+.logg-inn input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--ink);
+  -webkit-box-shadow: 0 0 0 100px var(--paper) inset;
+  caret-color: var(--ink);
+}
+.logg-inn-knapp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.25rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.logg-inn-knapp:hover,
+.logg-inn-knapp:focus-visible {
+  border-color: var(--ink);
+  background: var(--paper-deep);
+}
+.logg-inn-knapp span {
+  font-size: 15px;
+  line-height: 1;
+}
+.logg-inn-feil {
+  min-height: 1.4em;
+  margin: 0;
+  font-size: 13px;
+  color: #b04a39;
+}
