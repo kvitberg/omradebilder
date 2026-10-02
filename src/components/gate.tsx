@@ -1,21 +1,13 @@
 "use client";
 
 import { useState, useSyncExternalStore, type FormEvent, type ReactNode } from "react";
-import {
-  BRUKERE,
-  PASSORD_SJEKKSUM,
-  abonner,
-  erLåstOpp,
-  loggInn,
-  sjekksum,
-  type Bruker,
-} from "@/lib/kode";
+import { PASSORD_SJEKKSUM, abonner, erLåstOpp, finnBruker, loggInn, sjekksum } from "@/lib/kode";
 
 /**
- * Innloggingen foran portalen: samme forside-typografi som resten, men
- * med meglerhusene på rad og ett passordfelt. Siden er statisk eksportert,
- * så den første rendringen kjenner ikke nettleserens lagring — porten
- * vises til useSyncExternalStore har lest om noen alt er logget inn.
+ * Innloggingen foran portalen: samme forside-typografi som resten, med
+ * brukernavn og passord. Siden er statisk eksportert, så den første
+ * rendringen kjenner ikke nettleserens lagring — porten vises til
+ * useSyncExternalStore har lest om noen alt er logget inn.
  */
 export default function Gate({ children }: { children: ReactNode }) {
   const åpen = useSyncExternalStore(abonner, erLåstOpp, () => false);
@@ -24,17 +16,21 @@ export default function Gate({ children }: { children: ReactNode }) {
 }
 
 function Port() {
-  const [valgt, setValgt] = useState<Bruker>(BRUKERE[0]);
+  const [brukernavn, setBrukernavn] = useState("");
   const [passord, setPassord] = useState("");
   const [feil, setFeil] = useState(false);
 
   async function send(e: FormEvent) {
     e.preventDefault();
-    if ((await sjekksum(passord.trim())) !== PASSORD_SJEKKSUM) {
+    const bruker = finnBruker(brukernavn);
+    const riktig = (await sjekksum(passord.trim())) === PASSORD_SJEKKSUM;
+    // Én felles beskjed: hvilken av delene som er feil, er ikke noe
+    // innloggingen skal røpe.
+    if (!bruker || !riktig) {
       setFeil(true);
       return;
     }
-    loggInn(valgt);
+    loggInn(bruker);
   }
 
   return (
@@ -51,46 +47,29 @@ function Port() {
           </p>
           <h1 className="cover-title">Områdebilder</h1>
           <p className="cover-lede mt-7 text-ink-soft">
-            Arkivet er forbeholdt meglerne vi samarbeider med. Velg kontoret ditt og skriv
+            Arkivet er forbeholdt meglerne vi samarbeider med. Logg inn med brukernavnet og
             passordet du har fått.
           </p>
 
           <form onSubmit={send} className="cover-form">
-            <fieldset className="border-0 p-0">
-              <legend className="mb-4 text-[10px] uppercase tracking-[0.28em] text-ink-soft">
-                Kontor
-              </legend>
-              <div className="mb-8 flex flex-col gap-px border-y border-rule">
-                {BRUKERE.map((bruker) => {
-                  const aktiv = bruker.id === valgt.id;
-                  return (
-                    <label
-                      key={bruker.id}
-                      className={`flex cursor-pointer items-center gap-4 py-3 text-[15px] transition-colors ${
-                        aktiv ? "text-ink" : "text-ink-soft hover:text-ink"
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="kontor"
-                        value={bruker.id}
-                        checked={aktiv}
-                        onChange={() => setValgt(bruker)}
-                        className="sr-only"
-                      />
-                      {/* Samme lille kvadrat som markerer fellesarealer i filteret. */}
-                      <span
-                        aria-hidden
-                        className={`h-2.5 w-2.5 shrink-0 border transition-colors ${
-                          aktiv ? "border-ink bg-ink" : "border-rule"
-                        }`}
-                      />
-                      {bruker.navn}
-                    </label>
-                  );
-                })}
-              </div>
-            </fieldset>
+            <label className="mb-7 flex items-center gap-4 border-b border-rule pb-3">
+              <span className="sr-only">Brukernavn</span>
+              <input
+                type="text"
+                autoComplete="username"
+                autoCapitalize="characters"
+                spellCheck={false}
+                value={brukernavn}
+                onChange={(e) => {
+                  setBrukernavn(e.target.value);
+                  setFeil(false);
+                }}
+                placeholder="Brukernavn"
+                aria-label="Brukernavn"
+                aria-invalid={feil || undefined}
+                className="cover-input min-w-0 flex-1 bg-transparent font-light tracking-tight placeholder:text-ink-soft/70 focus:outline-none"
+              />
+            </label>
 
             <div className="flex items-center gap-4 border-b border-ink pb-3">
               <input
@@ -115,7 +94,7 @@ function Port() {
               </button>
             </div>
             <p aria-live="polite" className="mt-7 min-h-[1.5em] text-[13px] text-ink">
-              {feil && "Feil passord."}
+              {feil && "Feil brukernavn eller passord."}
             </p>
           </form>
         </div>

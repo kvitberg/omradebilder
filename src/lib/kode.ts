@@ -1,20 +1,26 @@
 /**
  * Innloggingen til portalen.
  *
- * Tre meglerhus deler passord. Det sjekkes i nettleseren mot en sjekksum,
+ * Tre meglerkontorer med hvert sitt brukernavn og felles passord. Det sjekkes i nettleseren mot en sjekksum,
  * så selve passordet står ikke i kildekoden — men dette er en dør med lås,
  * ikke en vegg: siden er statisk, og bilder og data ligger på faste
  * adresser for den som leter. Riktig passord huskes i nettleseren, sammen
  * med hvem som logget inn, så det skrives bare én gang.
  */
 
-export type Bruker = { id: string; navn: string };
+export type Bruker = { id: string; brukernavn: string; navn: string };
 
 export const BRUKERE: Bruker[] = [
-  { id: "renomme", navn: "PrivatMegleren Renommé" },
-  { id: "premium", navn: "PrivatMegleren Premium" },
-  { id: "em1", navn: "Eiendomsmegler 1" },
+  { id: "renomme", brukernavn: "PMR", navn: "PrivatMegleren Renommé" },
+  { id: "premium", brukernavn: "PMP", navn: "PrivatMegleren Premium" },
+  { id: "em1", brukernavn: "EM1", navn: "Eiendomsmegler 1" },
 ];
+
+/** Brukernavnet slås opp uten hensyn til store bokstaver og mellomrom. */
+export function finnBruker(brukernavn: string): Bruker | null {
+  const søkt = brukernavn.trim().toLowerCase();
+  return BRUKERE.find((b) => b.brukernavn.toLowerCase() === søkt) ?? null;
+}
 
 /** SHA-256 av passordet. Passordet selv ligger ikke i repoet. */
 export const PASSORD_SJEKKSUM = "2d10da64f48f3f13143d2ca467d110ce2b9ee730d1835898ed7668ca9cadf463";
@@ -75,7 +81,12 @@ export function abonner(cb: () => void) {
   };
 }
 
-/** Navnet på den innloggede, til bunnlinjen i presentasjonen. */
+/** Navnet på den innloggede, til toppen av presentasjonen. */
 export function innloggetNavn(): string | null {
   return innlogget()?.navn ?? null;
+}
+
+/** Brukernavnet, til smal skjerm der det fulle navnet ikke får plass. */
+export function innloggetKort(): string | null {
+  return innlogget()?.brukernavn ?? null;
 }

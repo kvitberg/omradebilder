@@ -14,7 +14,7 @@ import {
   type Suggestion,
 } from "@/lib/search-client";
 import { FELLESAREAL_KATEGORIER } from "@/lib/categories";
-import { PASSORD_SJEKKSUM, abonner, innloggetNavn, loggUt } from "@/lib/kode";
+import { PASSORD_SJEKKSUM, abonner, innloggetKort, innloggetNavn, loggUt } from "@/lib/kode";
 import AreaMap, { KATEGORI_FARGER, type Kvartal, type MapDot } from "@/components/area-map";
 
 /**
@@ -24,9 +24,13 @@ import AreaMap, { KATEGORI_FARGER, type Kvartal, type MapDot } from "@/component
  */
 type Sted = { navn: string; bilde: Photo; serie: Photo[] };
 
-/** Navnet på kontoret som er logget inn, lest i nettleseren. */
+/** Kontoret som er logget inn, lest i nettleseren. */
 function useKontor(): string | null {
   return useSyncExternalStore(abonner, innloggetNavn, () => null);
+}
+
+function useKontorKort(): string | null {
+  return useSyncExternalStore(abonner, innloggetKort, () => null);
 }
 
 /** Ett magasinoppslag: én kategori, maks tre steder. */
@@ -768,10 +772,14 @@ function Cover({
 /** Kontoret som er logget inn, med utlogging. Står der «Fotografisk arkiv» sto. */
 function Kontorlinje() {
   const kontor = useKontor();
+  const kort = useKontorKort();
   if (!kontor) return <span>Fotografisk arkiv</span>;
   return (
-    <span className="flex flex-wrap items-baseline justify-end gap-x-4 gap-y-1 text-right">
-      <span className="text-ink">{kontor}</span>
+    <span className="flex shrink-0 items-baseline gap-4 whitespace-nowrap">
+      {/* Fullt navn når det er plass, ellers brukernavnet: «PrivatMegleren
+          Premium» med sperret versalsats er bredere enn en telefon. */}
+      <span className="text-ink sm:hidden">{kort}</span>
+      <span className="hidden text-ink sm:inline">{kontor}</span>
       <button type="button" onClick={loggUt} className="download-link">
         Logg ut
       </button>
