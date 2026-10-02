@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { FormEvent, MouseEvent } from "react";
 import {
   search,
@@ -14,7 +14,7 @@ import {
   type Suggestion,
 } from "@/lib/search-client";
 import { FELLESAREAL_KATEGORIER } from "@/lib/categories";
-import { KODE_SJEKKSUM, erLåstOpp, låsOpp, sjekksum } from "@/lib/kode";
+import { PASSORD_SJEKKSUM, abonner, innloggetNavn, loggUt } from "@/lib/kode";
 import AreaMap, { KATEGORI_FARGER, type Kvartal, type MapDot } from "@/components/area-map";
 
 /**
@@ -23,6 +23,11 @@ import AreaMap, { KATEGORI_FARGER, type Kvartal, type MapDot } from "@/component
  * som ett sted med «· 101 bilder» i bildeteksten blir de en ressurs.
  */
 type Sted = { navn: string; bilde: Photo; serie: Photo[] };
+
+/** Navnet på kontoret som er logget inn, lest i nettleseren. */
+function useKontor(): string | null {
+  return useSyncExternalStore(abonner, innloggetNavn, () => null);
+}
 
 /** Ett magasinoppslag: én kategori, maks tre steder. */
 type SpreadData = {
@@ -676,9 +681,9 @@ function Cover({
   return (
     <section className="relative flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14 lg:h-screen">
 
-      <header className="relative z-10 flex shrink-0 items-start justify-between text-[10px] uppercase tracking-[0.28em] text-ink-soft">
+      <header className="relative z-10 flex shrink-0 items-start justify-between gap-4 text-[10px] uppercase tracking-[0.28em] text-ink-soft">
         <span>Områdebilder</span>
-        <span>Fotografisk arkiv</span>
+        <Kontorlinje />
       </header>
 
       <div className="relative z-10 flex flex-1 items-center py-10">
@@ -757,6 +762,20 @@ function Cover({
         <MetaCell label="Side" value="01" align="right" />
       </footer>
     </section>
+  );
+}
+
+/** Kontoret som er logget inn, med utlogging. Står der «Fotografisk arkiv» sto. */
+function Kontorlinje() {
+  const kontor = useKontor();
+  if (!kontor) return <span>Fotografisk arkiv</span>;
+  return (
+    <span className="flex flex-wrap items-baseline justify-end gap-x-4 gap-y-1 text-right">
+      <span className="text-ink">{kontor}</span>
+      <button type="button" onClick={loggUt} className="download-link">
+        Logg ut
+      </button>
+    </span>
   );
 }
 
@@ -1116,14 +1135,11 @@ function SeriesView({ sted, onClose }: { sted: Sted; onClose: () => void }) {
  */
 function DownloadLink({ url, filnavn }: { url: string; filnavn: string | null }) {
   const [henter, setHenter] = useState(false);
-  const [spør, setSpør] = useState(false);
-  const [kode, setKode] = useState("");
-  const [feil, setFeil] = useState(false);
   // Gamle Immich-lenker (med nøkkel) må hentes som blob. Lenker via
   // mellomtjeneren får koden som sjekksum i adressen og laster ned selv.
   const viaBlob = url.includes("/api/assets/");
   const viaProxy = /\/original\/[0-9a-f-]{36}$/.test(url);
-  const href = viaProxy ? `${url}?t=${KODE_SJEKKSUM}` : url;
+  const href = viaProxy ? `${url}?t=${PASSORD_SJEKKSUM}` : url;
 
   const hentBlob = async () => {
     setHenter(true);
@@ -1149,55 +1165,12 @@ function DownloadLink({ url, filnavn }: { url: string; filnavn: string | null })
       e.preventDefault();
       return;
     }
-    if (!erLåstOpp()) {
-      e.preventDefault();
-      setSpør(true);
-      return;
-    }
     // Dropbox-lenken laster ned av seg selv; bare Immich trenger omveien.
     if (viaBlob) {
       e.preventDefault();
       void hentBlob();
     }
   };
-
-  const sendKode = async (e: FormEvent) => {
-    e.preventDefault();
-    if ((await sjekksum(kode.trim())) !== KODE_SJEKKSUM) {
-      setFeil(true);
-      return;
-    }
-    låsOpp();
-    setSpør(false);
-    setFeil(false);
-    if (viaBlob) void hentBlob();
-    else window.location.assign(href);
-  };
-
-  if (spør) {
-    return (
-      <form onSubmit={sendKode} className="download-code" title="Skriv koden for å laste ned">
-        <input
-          type="password"
-          inputMode="numeric"
-          autoComplete="off"
-          autoFocus
-          value={kode}
-          onChange={(e) => {
-            setKode(e.target.value);
-            setFeil(false);
-          }}
-          placeholder="Kode"
-          aria-label="Kode for nedlasting"
-          aria-invalid={feil || undefined}
-        />
-        <button type="submit" aria-label="Lås opp">
-          &rarr;
-        </button>
-        {feil && <span className="download-code-feil">Feil kode</span>}
-      </form>
-    );
-  }
 
   return (
     <a href={href} onClick={lastNed} download={filnavn ?? undefined} className="download-link">

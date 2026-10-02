@@ -1,14 +1,25 @@
 /**
- * Koden som åpner portalen og nedlastingene.
+ * Innloggingen til portalen.
  *
- * Den sjekkes i nettleseren mot en sjekksum, så selve koden står ikke i
- * kildekoden. Men dette er en dørterskel, ikke en lås: siden er statisk,
- * og bilder og data ligger på faste adresser for den som leter. Riktig
- * kode huskes i nettleseren, så den skrives bare én gang.
+ * Tre meglerhus deler passord. Det sjekkes i nettleseren mot en sjekksum,
+ * så selve passordet står ikke i kildekoden — men dette er en dør med lås,
+ * ikke en vegg: siden er statisk, og bilder og data ligger på faste
+ * adresser for den som leter. Riktig passord huskes i nettleseren, sammen
+ * med hvem som logget inn, så det skrives bare én gang.
  */
 
-export const KODE_SJEKKSUM = "9fca429aefd9c3a81991f74f24361957f69b99dcfc09ee0e346c7675a3ccc081";
-const KODE_NØKKEL = "omradebilder-kode";
+export type Bruker = { id: string; navn: string };
+
+export const BRUKERE: Bruker[] = [
+  { id: "renomme", navn: "PrivatMegleren Renommé" },
+  { id: "premium", navn: "PrivatMegleren Premium" },
+  { id: "em1", navn: "Eiendomsmegler 1" },
+];
+
+/** SHA-256 av passordet. Passordet selv ligger ikke i repoet. */
+export const PASSORD_SJEKKSUM = "2d10da64f48f3f13143d2ca467d110ce2b9ee730d1835898ed7668ca9cadf463";
+
+const NØKKEL = "omradebilder-bruker";
 
 export async function sjekksum(tekst: string): Promise<string> {
   const data = new TextEncoder().encode(tekst);
@@ -16,27 +27,45 @@ export async function sjekksum(tekst: string): Promise<string> {
   return Array.from(new Uint8Array(hash), (b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-export function erLåstOpp(): boolean {
+/** Den innloggede brukeren, eller null. */
+export function innlogget(): Bruker | null {
   try {
-    return localStorage.getItem(KODE_NØKKEL) === KODE_SJEKKSUM;
+    const lagret = localStorage.getItem(NØKKEL);
+    if (!lagret) return null;
+    const { id, nøkkel } = JSON.parse(lagret) as { id?: string; nøkkel?: string };
+    if (nøkkel !== PASSORD_SJEKKSUM) return null;
+    return BRUKERE.find((b) => b.id === id) ?? null;
   } catch {
-    return false;
+    return null;
   }
 }
 
-// Porten på forsiden lytter her, så den forsvinner i det koden godtas.
+export function erLåstOpp(): boolean {
+  return innlogget() !== null;
+}
+
+// Porten på forsiden lytter her, så den forsvinner i det passordet godtas.
 const lyttere = new Set<() => void>();
 
-export function låsOpp() {
+export function loggInn(bruker: Bruker) {
   try {
-    localStorage.setItem(KODE_NØKKEL, KODE_SJEKKSUM);
+    localStorage.setItem(NØKKEL, JSON.stringify({ id: bruker.id, nøkkel: PASSORD_SJEKKSUM }));
   } catch {
-    // Uten lagring må koden skrives igjen neste gang — det går fint.
+    // Uten lagring må passordet skrives igjen neste gang — det går fint.
   }
   for (const cb of lyttere) cb();
 }
 
-/** For useSyncExternalStore: varsler ved opplåsing, også fra en annen fane. */
+export function loggUt() {
+  try {
+    localStorage.removeItem(NØKKEL);
+  } catch {
+    // Ingenting å fjerne.
+  }
+  for (const cb of lyttere) cb();
+}
+
+/** For useSyncExternalStore: varsler ved innlogging, også fra en annen fane. */
 export function abonner(cb: () => void) {
   lyttere.add(cb);
   window.addEventListener("storage", cb);
@@ -44,4 +73,9 @@ export function abonner(cb: () => void) {
     lyttere.delete(cb);
     window.removeEventListener("storage", cb);
   };
+}
+
+/** Navnet på den innloggede, til bunnlinjen i presentasjonen. */
+export function innloggetNavn(): string | null {
+  return innlogget()?.navn ?? null;
 }
