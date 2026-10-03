@@ -30,5 +30,8 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  // worker/ kjører på Cloudflare og bygges av wrangler, med sine egne
+  // globale typer. Appens tsconfig kjenner ikke KVNamespace og har ikke
+  // noe der å gjøre.
+  "exclude": ["node_modules", "worker"]
 }

@@ -361,10 +361,9 @@ body {
  */
 @media (min-width: 1024px) and (min-height: 720px) {
   .oppslag {
-    height: 100vh;
-    /* Rullingen stopper på oppslagskanten, så man lander på et helt
-       oppslag og ikke midt mellom to. «proximity» gjør det bare når man
-       allerede er i nærheten — den overstyrer ikke den som vil rulle fritt. */
+    /* Høyden er et gulv, ikke et tak: min-h-screen fra oppsettet holder
+       oppslaget på en skjermhøyde, og et oppslag med uvanlig lang
+       områdetekst får vokse forbi den i stedet for å klemme teksten. */
     scroll-snap-align: start;
   }
   html {
@@ -412,4 +411,72 @@ body {
     opacity: 1;
     transform: none;
   }
+}
+
+/* ---------------------------------------------------------- Feilmeldingen */
+
+/*
+ * Skjemaet for å melde fra om noe som er galt — feil navn på et sted, et
+ * bilde som har havnet på feil adresse. Det er et betaverktøy og skal ut
+ * før lansering, så det er holdt i samme drakt som resten uten å ta plass
+ * i oppsettet: samme slør som bildeserien, men et smalt kort.
+ */
+.melding-kort {
+  width: min(92vw, 30rem);
+  padding: 1.75rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: 0 12px 40px rgb(18 17 15 / 0.25);
+}
+.melding-kort textarea {
+  width: 100%;
+  min-height: 7.5rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink);
+  resize: vertical;
+}
+.melding-kort textarea:focus-visible {
+  outline: none;
+  border-color: var(--ink);
+}
+.melding-knapp {
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.melding-knapp:hover:not(:disabled),
+.melding-knapp:focus-visible:not(:disabled) {
+  border-color: var(--ink);
+  background: var(--paper-deep);
+}
+.melding-knapp:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Etikett som bare skjermleseren trenger. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }

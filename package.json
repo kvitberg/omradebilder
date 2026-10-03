@@ -24,7 +24,8 @@
     "hent-bygg": "python3 scripts/hent-bygg.py",
     "bygg": "python3 scripts/bygg-adresser.py",
     "teiger": "tsx scripts/hent-teiger.ts",
-    "rett-posisjon": "tsx scripts/rett-posisjon.ts"
+    "rett-posisjon": "tsx scripts/rett-posisjon.ts",
+    "rapporter": "tsx scripts/rapporter.ts"
   },
   "dependencies": {
     "dropbox": "^10.46.0",

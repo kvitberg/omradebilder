@@ -23,6 +23,43 @@ export const FELLESAREAL_KATEGORIER = new Set(["bakgard", "takterrasse", "fasade
  */
 export const BYGNING_KATEGORIER = new Set(["takterrasse", "fasade"]);
 
+/**
+ * Rekkefølgen kategoriene presenteres i.
+ *
+ * CATEGORIES under står i den rekkefølgen nøkkelordene skal prøves i, og
+ * den må ikke røres — «fasade» må komme før «nabolag», ellers endrer
+ * klassifiseringen seg. Dette er noe annet: rekkefølgen en megler leser
+ * dem i.
+ *
+ * Fellesarealene åpner, fordi de er det eneste som hører til nettopp denne
+ * adressen; resten av nabolaget deler man med naboen. Så kommer nabolaget
+ * selv, som setter stemningen. Deretter hverdagen i den rekkefølgen den
+ * faktisk oppleves: kaffen og maten, grøntområdene, dagligvaren, veien til
+ * jobb, skolen, treningen, kulturen.
+ */
+export const REKKEFØLGE: string[] = [
+  "bakgard",
+  "takterrasse",
+  "fasade",
+  "nabolag",
+  "kafe",
+  "restaurant",
+  "park",
+  "natur",
+  "butikk",
+  "kollektiv",
+  "skole",
+  "aktivitet",
+  "kultur",
+  "annet",
+];
+
+/** Plassen i presentasjonen; ukjente kategorier havner bakerst. */
+export function rekkefølge(kategoriId: string): number {
+  const i = REKKEFØLGE.indexOf(kategoriId);
+  return i === -1 ? REKKEFØLGE.length : i;
+}
+
 export const CATEGORIES: Category[] = [
   {
     id: "kafe",

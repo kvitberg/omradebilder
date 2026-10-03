@@ -7,3 +7,9 @@ compatibility_date = "2026-09-01"
 #   KODE_SJEKKSUM     — SHA-256 av koden til siden (samme som i src/lib/kode.ts)
 [vars]
 IMMICH_URL = "https://immich.vikran.net"
+
+# Feilmeldinger fra portalen under beta. Lagret som JSON, én nøkkel per
+# melding, lest med `npm run rapporter`.
+[[kv_namespaces]]
+binding = "RAPPORTER"
+id = "4247df8d89744c1ba7a43a60bcac708e"
