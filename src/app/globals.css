@@ -341,3 +341,37 @@ body {
   font-size: 13px;
   color: #b04a39;
 }
+
+/* ------------------------------------------------------- Magasinoppslaget */
+
+/*
+ * Oppslaget er bygget for å fylle skjermen: kartet og bildene strekker seg
+ * ut til kanten, og man blar videre i stedet for å rulle. Det formatet
+ * krever at vinduet faktisk er høyt nok.
+ *
+ * Er det lavere, må spaltene dele på en høyde som ikke finnes. Da krympet
+ * områdeteksten forbi sitt eget innhold, og siden den står med justify-end,
+ * fløt den oppover og la seg over bildeteksten til fotoet over — streken
+ * over «Området» gikk tvers gjennom «Last ned».
+ *
+ * Derfor gjelder den låste høyden bare fra 720 px og oppover. På lavere
+ * vinduer får oppslaget den plassen det trenger, og siden ruller det siste
+ * stykket. Oppsettet er det samme; det er bare taket som løftes.
+ */
+@media (min-width: 1024px) and (min-height: 720px) {
+  .oppslag-rot {
+    height: 100vh;
+    overflow: hidden;
+  }
+  .oppslag {
+    height: 100vh;
+  }
+  /* Spaltene deler høyden mellom seg — bare når det er en høyde å dele. */
+  .strekk {
+    flex: 1 1 0%;
+  }
+  /* Bildet fyller sin andel i stedet for å holde 4:3. */
+  .strekk-bilde {
+    aspect-ratio: auto;
+  }
+}
