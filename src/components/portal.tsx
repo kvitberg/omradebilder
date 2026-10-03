@@ -92,28 +92,20 @@ function grupperSteder(photos: Photo[]): Sted[] {
 
 function buildSpreads(groups: Group[]): SpreadData[] {
   const spreads: SpreadData[] = [];
-  // Åpningen er kartet og områdeteksten alene. Teksten er det eneste
-  // sammendraget av søket, og noen adresser gir den tolv linjer; klemt inn
-  // ved siden av et bilde fikk den ikke plass, og la seg over bildeteksten.
-  if (groups.length > 0) {
-    spreads.push({
-      category: groups[0].category,
-      steder: [],
-      part: 0,
-      partCount: 0,
-      intro: true,
-    });
-  }
   for (const group of groups) {
     const queue = grupperSteder(group.photos);
     const mine: SpreadData[] = [];
     while (queue.length) {
+      const isFirstOverall = spreads.length + mine.length === 0;
+      // Åpningsoppslaget: kartet tar hovedplassen, og høyre spalte deles
+      // mellom ett bilde og områdeteksten.
+      const take = isFirstOverall ? 1 : PHOTOS_PER_SPREAD;
       mine.push({
         category: group.category,
-        steder: queue.splice(0, PHOTOS_PER_SPREAD),
+        steder: queue.splice(0, take),
         part: 0,
         partCount: 0,
-        intro: false,
+        intro: isFirstOverall,
       });
     }
     mine.forEach((sp, i) => {
@@ -970,9 +962,7 @@ function Spread({
         ) : (
           <span>Områdebilder</span>
         )}
-        <span className="shrink-0 text-ink">
-          {spread.intro ? "Oversikt" : spread.category.label}
-        </span>
+        <span className="shrink-0 text-ink">{spread.category.label}</span>
       </header>
 
       <div className="grid flex-auto grid-cols-1 gap-10 py-8 lg:grid-cols-12 lg:gap-12">
@@ -1126,11 +1116,9 @@ function Spread({
           className={`flex gap-5 ${soloHero ? "lg:col-span-3" : "lg:col-span-5"}`}
         >
           <span className="vertical-rl hidden shrink-0 rotate-180 self-start text-[10px] uppercase tracking-[0.3em] text-ink-soft lg:block">
-            {spread.intro
-              ? "Områdebilder"
-              : spread.partCount > 1
-                ? `Del ${spread.part} av ${spread.partCount}`
-                : `${spread.steder.length} ${spread.steder.length === 1 ? "sted" : "steder"}`}
+            {spread.partCount > 1
+              ? `Del ${spread.part} av ${spread.partCount}`
+              : `${spread.steder.length} ${spread.steder.length === 1 ? "sted" : "steder"}`}
           </span>
 
           <div className="flex min-w-0 flex-auto flex-col gap-5">
@@ -1146,7 +1134,7 @@ function Spread({
             {/* På første oppslag står områdeteksten der det tredje bildet
                 ellers ville stått — en kort tekst om det søket faktisk fant. */}
             {spread.intro && areaText && (
-              <div data-inngang="4" className="flex shrink-0 flex-col">
+              <div data-inngang="4" className="order-first flex shrink-0 flex-col lg:order-none">
                 <p className="mb-3 border-t border-rule pt-4 text-[10px] uppercase tracking-[0.3em] text-ink-soft">
                   Området
                 </p>
@@ -1168,12 +1156,7 @@ function Spread({
           {/* Betaverktøy — ut før lansering. */}
           <button
             type="button"
-            onClick={() =>
-              onMeld({
-                adresse: address,
-                kategori: spread.intro ? "Oversikt" : spread.category.label,
-              })
-            }
+            onClick={() => onMeld({ adresse: address, kategori: spread.category.label })}
             className="download-link"
           >
             Meld feil
@@ -1183,7 +1166,7 @@ function Spread({
               Nytt søk
             </button>
           ) : (
-            <span>{spread.intro ? "Oversikt" : spread.category.label}</span>
+            <span>{spread.category.label}</span>
           )}
         </span>
       </footer>
