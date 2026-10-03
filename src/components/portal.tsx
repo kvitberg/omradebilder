@@ -33,17 +33,8 @@ function useKontorKort(): string | null {
   return useSyncExternalStore(abonner, innloggetKort, () => null);
 }
 
-/** Ett magasinoppslag: én kategori, maks tre steder. */
-type SpreadData = {
-  category: Category;
-  steder: Sted[];
-  part: number;
-  partCount: number;
-  /** Første oppslag i resultatet: én bildeplass er byttet ut med områdeteksten. */
-  intro: boolean;
-};
-
-const PHOTOS_PER_SPREAD = 3;
+/** Én kategori som egen bolk på siden. */
+type Seksjon = { category: Category; steder: Sted[] };
 
 /**
  * Kategorier som hører til adressen selv, ikke til nabolaget rundt. De
@@ -72,31 +63,11 @@ function grupperSteder(photos: Photo[]): Sted[] {
   return [...steder.values()];
 }
 
-function buildSpreads(groups: Group[]): SpreadData[] {
-  const spreads: SpreadData[] = [];
-  for (const group of groups) {
-    const queue = grupperSteder(group.photos);
-    const mine: SpreadData[] = [];
-    while (queue.length) {
-      const isFirstOverall = spreads.length + mine.length === 0;
-      // Første oppslag: kartet tar hovedplassen og områdeteksten den tredje,
-      // så bare én bildeplass er igjen.
-      const take = isFirstOverall ? 1 : PHOTOS_PER_SPREAD;
-      mine.push({
-        category: group.category,
-        steder: queue.splice(0, take),
-        part: 0,
-        partCount: 0,
-        intro: isFirstOverall,
-      });
-    }
-    mine.forEach((sp, i) => {
-      sp.part = i + 1;
-      sp.partCount = mine.length;
-    });
-    spreads.push(...mine);
-  }
-  return spreads;
+function byggSeksjoner(groups: Group[]): Seksjon[] {
+  return groups.map((group) => ({
+    category: group.category,
+    steder: grupperSteder(group.photos),
+  }));
 }
 
 /* -------------------------------------------------------- Områdetekst */
@@ -255,7 +226,6 @@ function composeAreaText(groups: Group[], address: string, radiusMeters: number)
   return setninger.join(" ");
 }
 
-const pageLabel = (n: number) => String(n).padStart(2, "0");
 const formatRadius = (m: number) => (m >= 1000 ? `${m / 1000} km` : `${m} m`);
 /** Miniatyrstien er allerede gjort klar med basePath av søkemodulen. */
 const thumbnailUrl = (photo: Photo) => photo.thumb ?? "";
@@ -283,7 +253,8 @@ export default function Portal({
     radius: number;
     center: { lat: number; lng: number };
   } | null>(null);
-  const [page, setPage] = useState(0); // 0 = forside
+  // Forsiden eller resultatet — hele presentasjonen ruller på én side.
+  const [forside, setForside] = useState(true);
   const [åpentSted, setÅpentSted] = useState<Sted | null>(null);
   const [bygg, setBygg] = useState<Kvartal[]>([]);
 
@@ -292,7 +263,7 @@ export default function Portal({
 
   // Oppslagene avledes av gruppene og filteret, så et filterklikk bygger
   // sidene på nytt uten et nytt søk.
-  const spreads = useMemo(() => {
+  const seksjoner = useMemo(() => {
     if (!groups) return null;
     const synlige = groups.filter((g) => !skjulte.has(g.category.id));
     // Fellesarealene åpner presentasjonen — de er det adressen har som
@@ -301,7 +272,7 @@ export default function Portal({
       (a, b) =>
         (FELLESAREAL.has(b.category.id) ? 1 : 0) - (FELLESAREAL.has(a.category.id) ? 1 : 0)
     );
-    return buildSpreads(sortert);
+    return byggSeksjoner(sortert);
   }, [groups, skjulte]);
 
   // Kartet viser det samme som sidene — skrus en kategori av, forsvinner
@@ -311,11 +282,9 @@ export default function Portal({
     [mapDots, skjulte]
   );
 
-  const totalPages = 1 + (spreads?.length ?? 0);
-
-  const goTo = useCallback(
-    (next: number) => setPage(Math.max(0, Math.min(next, totalPages - 1))),
-    [totalPages]
+  const antallSteder = useMemo(
+    () => seksjoner?.reduce((n, sek) => n + sek.steder.length, 0) ?? 0,
+    [seksjoner]
   );
 
   /** Skrur én kategori av eller på. */
@@ -326,25 +295,11 @@ export default function Portal({
       else neste.add(id);
       return neste;
     });
-    setPage(1);
   }
 
   function visAlle() {
     setSkjulte(new Set());
-    setPage(1);
   }
-
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.target instanceof HTMLInputElement) return;
-      // Med en serie åpen blar pilene i serien, ikke mellom oppslag.
-      if (åpentSted) return;
-      if (e.key === "ArrowRight") goTo(page + 1);
-      if (e.key === "ArrowLeft") goTo(page - 1);
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [page, goTo, åpentSted]);
 
   const runSearch = useCallback(
     async (query: string, radiusMeters: number, coords: Suggestion | null) => {
@@ -357,7 +312,6 @@ export default function Portal({
 
       try {
         const data = await search(trimmed, radiusMeters, coords);
-        const built = buildSpreads(data.groups);
         setGroups(data.groups);
         setSkjulte(new Set());
         setAreaText(composeAreaText(data.groups, trimmed, radiusMeters));
@@ -399,7 +353,9 @@ export default function Portal({
         setBygg(alle ? Object.values(alle).filter(nær) : []);
         setWarning(data.warning ?? null);
         setSearched({ address: trimmed, radius: radiusMeters, center: data.center });
-        setPage(built.length > 0 ? 1 : 0);
+        setForside(data.groups.length === 0);
+        // Et nytt søk er en ny presentasjon; den begynner øverst.
+        window.scrollTo({ top: 0 });
       } catch (err) {
         setError(
           err instanceof SearchError ? err.message : "Noe gikk galt under søket"
@@ -452,18 +408,17 @@ export default function Portal({
     runSearch(s.label, radius, s);
   }
 
-  const spread = page > 0 && spreads ? spreads[page - 1] : null;
+  const visResultat = !forside && seksjoner !== null && seksjoner.length > 0;
 
   return (
-    <div className="relative min-h-screen w-full lg:h-screen lg:overflow-hidden">
+    <div className="relative min-h-screen w-full">
       {/* Hårfin ramme, som kanten på et trykt oppslag. */}
       <div className="pointer-events-none fixed inset-4 z-20 border border-rule sm:inset-6" />
 
-      {spread ? (
-        <Spread
-          spread={spread}
-          page={page}
-          totalPages={totalPages}
+      {visResultat && seksjoner ? (
+        <Resultat
+          seksjoner={seksjoner}
+          antallSteder={antallSteder}
           address={searched?.address ?? ""}
           radius={searched?.radius ?? radius}
           center={searched?.center ?? null}
@@ -476,7 +431,7 @@ export default function Portal({
           onEndreRadius={endreRadius}
           laster={loading}
           areaText={areaText}
-          goTo={goTo}
+          onForside={() => setForside(true)}
           onÅpne={setÅpentSted}
           onFlyttSøk={flyttSøk}
         />
@@ -496,10 +451,10 @@ export default function Portal({
           onSubmit={handleSubmit}
           photoCount={photoCount}
           updatedAt={updatedAt}
-          emptyResult={spreads !== null && spreads.length === 0 && searched !== null}
+          emptyResult={seksjoner !== null && seksjoner.length === 0 && searched !== null}
           searched={searched}
-          resultPageCount={spreads?.length ?? 0}
-          onResume={() => goTo(1)}
+          antallSteder={antallSteder}
+          onResume={() => setForside(false)}
         />
       )}
 
@@ -663,7 +618,7 @@ function Cover({
   updatedAt,
   emptyResult,
   searched,
-  resultPageCount,
+  antallSteder,
   onResume,
 }: {
   address: string;
@@ -679,11 +634,11 @@ function Cover({
   updatedAt: string | null;
   emptyResult: boolean;
   searched: { address: string; radius: number } | null;
-  resultPageCount: number;
+  antallSteder: number;
   onResume: () => void;
 }) {
   return (
-    <section className="relative flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14 lg:h-screen">
+    <section className="relative flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14">
 
       <header className="relative z-10 flex shrink-0 items-start justify-between gap-4 text-[10px] uppercase tracking-[0.28em] text-ink-soft">
         <span>Områdebilder</span>
@@ -742,28 +697,28 @@ function Cover({
                 {searched.address}».
               </p>
             )}
-            {resultPageCount > 0 && searched && (
+            {antallSteder > 0 && searched && (
               <button
                 type="button"
                 onClick={onResume}
                 className="text-[11px] uppercase tracking-[0.18em] text-ink underline underline-offset-[6px] transition-opacity hover:opacity-60"
               >
-                Se {resultPageCount} {resultPageCount === 1 ? "side" : "sider"} for «
-                {searched.address}» →
+                Se {antallSteder} {antallSteder === 1 ? "sted" : "steder"} ved «{searched.address}»
+                →
               </button>
             )}
           </div>
         </div>
       </div>
 
-      <footer className="relative z-10 grid shrink-0 grid-cols-2 gap-6 border-t border-rule pt-5 text-[10px] uppercase tracking-[0.2em] sm:grid-cols-4">
+      <footer className="relative z-10 grid shrink-0 grid-cols-2 gap-6 border-t border-rule pt-5 text-[10px] uppercase tracking-[0.2em] sm:grid-cols-3">
         <MetaCell label="Arkiv" value="Områdebilder" />
         <MetaCell label="Bilder i samlingen" value={photoCount > 0 ? String(photoCount) : "—"} />
         <MetaCell
           label="Sist oppdatert"
           value={updatedAt ? new Date(updatedAt).toLocaleDateString("no-NO") : "—"}
+          align="right"
         />
-        <MetaCell label="Side" value="01" align="right" />
       </footer>
     </section>
   );
@@ -804,12 +759,20 @@ function MetaCell({
   );
 }
 
-/* ------------------------------------------------------------- Oppslagene */
+/* ------------------------------------------------------------- Resultatet */
 
-function Spread({
-  spread,
-  page,
-  totalPages,
+/**
+ * Hele presentasjonen på én rullende side.
+ *
+ * Dette var et magasin man bladde i: ett oppslag om gangen, låst til
+ * skjermhøyden. Det ga pene sider så lenge det var lite stoff, men klemte
+ * innholdet sammen når det ble mye av det — bildeteksten la seg oppå
+ * overskriften under, fordi fleks-spaltene fikk krympe forbi sitt eget
+ * innhold. Nå ruller siden, og hver bolk får den høyden den trenger.
+ */
+function Resultat({
+  seksjoner,
+  antallSteder,
   address,
   radius,
   center,
@@ -822,13 +785,12 @@ function Spread({
   onEndreRadius,
   laster,
   areaText,
-  goTo,
+  onForside,
   onÅpne,
   onFlyttSøk,
 }: {
-  spread: SpreadData;
-  page: number;
-  totalPages: number;
+  seksjoner: Seksjon[];
+  antallSteder: number;
   address: string;
   radius: number;
   center: { lat: number; lng: number } | null;
@@ -841,204 +803,173 @@ function Spread({
   onEndreRadius: (meter: number) => void;
   laster: boolean;
   areaText: string;
-  goTo: (n: number) => void;
+  onForside: () => void;
   onÅpne: (sted: Sted) => void;
   onFlyttSøk: (lat: number, lng: number) => void;
 }) {
-  const [hero, ...rest] = spread.steder;
-  // På første oppslag står kartet i hovedplassen; alle fotoene går til høyre.
-  const heroIsMap = spread.intro && center !== null;
-  const rightSteder = heroIsMap ? spread.steder : rest;
-  const soloHero = !heroIsMap && rest.length === 0;
-
   return (
-    <section className="flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14 lg:h-screen">
-      <header className="flex shrink-0 items-baseline justify-between text-[10px] uppercase tracking-[0.28em] text-ink-soft">
-        <button type="button" onClick={() => goTo(0)} title="Til forsiden" className="home-link">
+    <section className="flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14">
+      <header className="flex items-baseline justify-between gap-4 text-[10px] uppercase tracking-[0.28em] text-ink-soft">
+        <button type="button" onClick={onForside} title="Til forsiden" className="home-link">
           Områdebilder
         </button>
-        <span className="shrink-0 text-ink">{spread.category.label}</span>
+        <Kontorlinje />
       </header>
 
-      <div className="grid min-h-0 flex-1 grid-cols-1 gap-10 py-8 lg:grid-cols-12 lg:gap-12">
-        {/* Venstre: kartet (første oppslag) eller hovedbildet, med tekst under. */}
-        <div className={`flex min-h-0 flex-col ${soloHero ? "lg:col-span-9" : "lg:col-span-7"}`}>
-          {heroIsMap && center ? (
-            <figure className="flex min-h-0 flex-1 flex-col">
-              <div className="min-h-[220px] flex-1 overflow-hidden border border-rule">
-                <AreaMap
-                  center={center}
-                  radiusMeters={radius}
-                  dots={mapDots}
-                  bygg={bygg}
-                  onFlytt={onFlyttSøk}
-                />
-              </div>
-              <figcaption className="mt-2 shrink-0 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
-                <div className="flex items-baseline justify-between gap-3">
-                  <span className="min-w-0 truncate">{address.split(",")[0]}</span>
-                  <span className="shrink-0">{formatRadius(radius)} gangavstand</span>
-                </div>
-                {/* Filteret får egen linje: med ni kategorier flyter det ellers
-                    ut av kolonnen og legger seg over områdeteksten. */}
-                <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                  {mapLegend.map((item) => {
-                    const av = skjulte.has(item.id);
-                    return (
-                      <button
-                        key={item.id}
-                        type="button"
-                        aria-pressed={!av}
-                        onClick={() => onVekslKategori(item.id)}
-                        title={
-                          FELLESAREAL.has(item.id)
-                            ? `Hører til denne adressen — ${av ? "vis" : "skjul"}`
-                            : av
-                              ? `Vis ${item.label.toLowerCase()}`
-                              : `Skjul ${item.label.toLowerCase()}`
-                        }
-                        className={`flex items-center gap-1.5 whitespace-nowrap uppercase tracking-[0.18em] transition-opacity hover:text-ink ${
-                          av ? "opacity-35 line-through" : ""
-                        }`}
-                      >
-                        <span
-                          className="inline-block h-2 w-2 shrink-0 rounded-full"
-                          style={{
-                            background: av
-                              ? "transparent"
-                              : KATEGORI_FARGER[item.id] ?? KATEGORI_FARGER.annet,
-                            boxShadow: av
-                              ? `inset 0 0 0 1px ${KATEGORI_FARGER[item.id] ?? KATEGORI_FARGER.annet}`
-                              : undefined,
-                          }}
-                        />
-                        {item.label}
-                        {FELLESAREAL.has(item.id) && <span aria-hidden>&#9642;</span>}
-                      </button>
-                    );
-                  })}
-                  {skjulte.size > 0 && (
-                    <button
-                      type="button"
-                      onClick={onVisAlle}
-                      className="whitespace-nowrap uppercase tracking-[0.18em] text-ink underline underline-offset-4"
-                    >
-                      Vis alle
-                    </button>
-                  )}
-                </div>
-              </figcaption>
-            </figure>
-          ) : (
-            <Frame sted={hero} onÅpne={onÅpne} className="min-h-[220px] lg:flex-1" />
-          )}
-
-          {heroIsMap ? (
-            // Kartet tegner allerede radius-sirkelen, så kontrollen hører
-            // hjemme her framfor kategoriteksten.
-            <div className="mt-6 grid shrink-0 grid-cols-1 gap-5 sm:grid-cols-12">
-              <h2 className="text-xl font-semibold uppercase leading-[0.95] tracking-tight sm:col-span-4">
-                Gangavstand
-              </h2>
-              <div className="sm:col-span-8">
-                <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-                  {RADIUS_OPTIONS.map((opt) => (
-                    <button
-                      key={opt.value}
-                      type="button"
-                      disabled={laster}
-                      onClick={() => onEndreRadius(opt.value)}
-                      className={`text-[11px] uppercase tracking-[0.18em] transition-colors disabled:opacity-40 ${
-                        radius === opt.value
-                          ? "text-ink underline underline-offset-[6px]"
-                          : "text-ink-soft hover:text-ink"
-                      }`}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
-                  {laster && (
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-ink-soft">
-                      Søker …
-                    </span>
-                  )}
-                </div>
-                <p className="mt-3 text-[13px] leading-relaxed text-ink-soft">
-                  Juster hvor stort område presentasjonen dekker. Sirkelen på kartet viser
-                  utsnittet.
-                </p>
-              </div>
-            </div>
-          ) : (
-            <div className="mt-6 grid shrink-0 grid-cols-1 gap-5 sm:grid-cols-12">
-              <h2 className="text-xl font-semibold uppercase leading-[0.95] tracking-tight sm:col-span-4">
-                {spread.category.label}
-              </h2>
-              <p className="text-[13px] leading-relaxed text-ink-soft sm:col-span-8">
-                {spread.category.description}
-              </p>
-            </div>
-          )}
-        </div>
-
-        {/* Høyre: rotert etikett og de mindre bildene stablet. */}
-        <div className={`flex min-h-0 gap-5 ${soloHero ? "lg:col-span-3" : "lg:col-span-5"}`}>
-          <span className="vertical-rl hidden shrink-0 rotate-180 self-start text-[10px] uppercase tracking-[0.3em] text-ink-soft lg:block">
-            {spread.partCount > 1
-              ? `Del ${spread.part} av ${spread.partCount}`
-              : `${spread.steder.length} ${spread.steder.length === 1 ? "sted" : "steder"}`}
-          </span>
-
-          <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-5">
-            {rightSteder.map((sted) => (
-              <Frame
-                key={sted.bilde.id}
-                sted={sted}
-                onÅpne={onÅpne}
-                className="min-h-[150px] lg:flex-1"
+      {/* Åpningen: kartet til venstre, adressen og områdeteksten til høyre. */}
+      <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+        <figure className="lg:col-span-7">
+          <div className="aspect-[4/3] overflow-hidden border border-rule sm:aspect-[16/10]">
+            {center && (
+              <AreaMap
+                center={center}
+                radiusMeters={radius}
+                dots={mapDots}
+                bygg={bygg}
+                onFlytt={onFlyttSøk}
               />
-            ))}
-            {/* På første oppslag står områdeteksten der det tredje bildet
-                ellers ville stått — en kort tekst om det søket faktisk fant. */}
-            {spread.intro && areaText && (
-              <div className="flex min-h-0 flex-col justify-end lg:flex-1">
-                <p className="mb-3 border-t border-rule pt-4 text-[10px] uppercase tracking-[0.3em] text-ink-soft">
-                  Området
-                </p>
-                <p className="text-[13px] leading-relaxed text-ink-soft">{areaText}</p>
-              </div>
             )}
+          </div>
+          <figcaption className="mt-3 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="min-w-0 truncate">{address.split(",")[0]}</span>
+              <span className="shrink-0">{formatRadius(radius)} gangavstand</span>
+            </div>
+            {/* Filteret får egen linje: med ni kategorier flyter det ellers
+                ut av kolonnen. */}
+            <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
+              {mapLegend.map((item) => {
+                const av = skjulte.has(item.id);
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    aria-pressed={!av}
+                    onClick={() => onVekslKategori(item.id)}
+                    title={
+                      FELLESAREAL.has(item.id)
+                        ? `Hører til denne adressen — ${av ? "vis" : "skjul"}`
+                        : av
+                          ? `Vis ${item.label.toLowerCase()}`
+                          : `Skjul ${item.label.toLowerCase()}`
+                    }
+                    className={`flex items-center gap-1.5 whitespace-nowrap uppercase tracking-[0.18em] transition-opacity hover:text-ink ${
+                      av ? "opacity-35 line-through" : ""
+                    }`}
+                  >
+                    <span
+                      className="inline-block h-2 w-2 shrink-0 rounded-full"
+                      style={{
+                        background: av
+                          ? "transparent"
+                          : KATEGORI_FARGER[item.id] ?? KATEGORI_FARGER.annet,
+                        boxShadow: av
+                          ? `inset 0 0 0 1px ${KATEGORI_FARGER[item.id] ?? KATEGORI_FARGER.annet}`
+                          : undefined,
+                      }}
+                    />
+                    {item.label}
+                    {FELLESAREAL.has(item.id) && <span aria-hidden>&#9642;</span>}
+                  </button>
+                );
+              })}
+              {skjulte.size > 0 && (
+                <button
+                  type="button"
+                  onClick={onVisAlle}
+                  className="whitespace-nowrap uppercase tracking-[0.18em] text-ink underline underline-offset-4"
+                >
+                  Vis alle
+                </button>
+              )}
+            </div>
+          </figcaption>
+        </figure>
+
+        <div className="lg:col-span-5">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-ink-soft">Området</p>
+          <h1 className="mt-3 text-2xl font-semibold uppercase leading-[0.95] tracking-tight sm:text-3xl">
+            {address.split(",")[0]}
+          </h1>
+          {areaText && (
+            <p className="mt-5 text-[13px] leading-relaxed text-ink-soft">{areaText}</p>
+          )}
+
+          {/* Kartet tegner allerede sirkelen, så radiusvalget hører hjemme her. */}
+          <div className="mt-8 border-t border-rule pt-5">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-ink-soft">Gangavstand</p>
+            <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
+              {RADIUS_OPTIONS.map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  disabled={laster}
+                  onClick={() => onEndreRadius(opt.value)}
+                  className={`text-[11px] uppercase tracking-[0.18em] transition-colors disabled:opacity-40 ${
+                    radius === opt.value
+                      ? "text-ink underline underline-offset-[6px]"
+                      : "text-ink-soft hover:text-ink"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+              {laster && (
+                <span className="text-[10px] uppercase tracking-[0.2em] text-ink-soft">
+                  Søker …
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>
 
-      <footer className="flex shrink-0 items-center justify-between border-t border-rule pt-5 text-[10px] uppercase tracking-[0.2em] text-ink-soft">
-        <span className="text-[13px] tracking-[0.18em] text-ink">Side {pageLabel(page + 1)}</span>
-        <span className="hidden truncate px-4 sm:block">{address}</span>
-        <Nav page={page} totalPages={totalPages} goTo={goTo} />
+      {/* Én bolk per kategori, i full bredde under hverandre. */}
+      {seksjoner.map((sek) => (
+        <section key={sek.category.id} className="mt-16">
+          <div className="grid grid-cols-1 gap-x-5 gap-y-3 border-t border-rule pt-6 sm:grid-cols-12">
+            <h2 className="text-xl font-semibold uppercase leading-[0.95] tracking-tight sm:col-span-4">
+              {sek.category.label}
+            </h2>
+            <p className="text-[13px] leading-relaxed text-ink-soft sm:col-span-6">
+              {sek.category.description}
+            </p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-ink-soft sm:col-span-2 sm:text-right">
+              {sek.steder.length} {sek.steder.length === 1 ? "sted" : "steder"}
+            </p>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {sek.steder.map((sted) => (
+              <Frame key={sted.bilde.id} sted={sted} onÅpne={onÅpne} />
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <footer className="mt-16 flex flex-wrap items-baseline justify-between gap-4 border-t border-rule pt-5 text-[10px] uppercase tracking-[0.2em] text-ink-soft">
+        <span className="text-ink">
+          {antallSteder} {antallSteder === 1 ? "sted" : "steder"} innen {formatRadius(radius)}
+        </span>
+        <span className="hidden min-w-0 truncate sm:block">{address}</span>
+        <button type="button" onClick={onForside} className="download-link">
+          Nytt søk
+        </button>
       </footer>
     </section>
   );
 }
 
-function Frame({
-  sted,
-  onÅpne,
-  className,
-}: {
-  sted: Sted;
-  onÅpne: (sted: Sted) => void;
-  className?: string;
-}) {
+function Frame({ sted, onÅpne }: { sted: Sted; onÅpne: (sted: Sted) => void }) {
   const photo = sted.bilde;
   const antall = sted.serie.length;
   return (
-    <figure className={`flex min-h-0 flex-col ${className ?? ""}`}>
+    <figure>
       <button
         type="button"
         onClick={() => onÅpne(sted)}
         title={antall > 1 ? `Se alle ${antall} bildene` : "Se bildet ubeskåret"}
-        className="block aspect-[4/3] min-h-0 w-full cursor-zoom-in overflow-hidden bg-paper-deep lg:aspect-auto lg:flex-1"
+        className="block aspect-[4/3] w-full cursor-zoom-in overflow-hidden bg-paper-deep"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -1048,8 +979,10 @@ function Frame({
           className="h-full w-full object-cover"
         />
       </button>
-      <figcaption className="mt-2 flex shrink-0 items-baseline justify-between gap-3 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
-        <span className="truncate">
+      {/* Stedsnavnet kan bli langt; avstand og nedlasting skal aldri vike for
+          det, så de står på egen, fast bredde til høyre. */}
+      <figcaption className="mt-3 flex items-baseline justify-between gap-3 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
+        <span className="min-w-0 truncate">
           {sted.navn}
           {antall > 1 && <span className="text-ink"> · {antall} bilder</span>}
         </span>
@@ -1184,45 +1117,5 @@ function DownloadLink({ url, filnavn }: { url: string; filnavn: string | null })
     <a href={href} onClick={lastNed} download={filnavn ?? undefined} className="download-link">
       {henter ? "Henter\u2026" : "Last ned"}
     </a>
-  );
-}
-
-/* ------------------------------------------------------------ Navigasjon */
-
-function Nav({
-  page,
-  totalPages,
-  goTo,
-}: {
-  page: number;
-  totalPages: number;
-  goTo: (n: number) => void;
-}) {
-  // Bladingen er det man bruker mest i en visning; den skal være lett å
-  // treffe og lett å se. Tallene står i blekkfargen, ikke den dempede,
-  // og knappene er 44 px — det minste som er behagelig å trykke på.
-  const knapp =
-    "flex h-11 w-11 items-center justify-center border border-rule bg-paper text-lg leading-none text-ink transition-colors hover:border-ink hover:bg-paper-deep disabled:opacity-25 disabled:hover:border-rule disabled:hover:bg-paper";
-  return (
-    <nav className="flex items-center gap-4">
-      <span className="text-[13px] tracking-[0.18em] text-ink tabular-nums">
-        {pageLabel(page + 1)} / {pageLabel(totalPages)}
-      </span>
-      <button
-        onClick={() => goTo(page - 1)}
-        aria-label={page === 1 ? "Tilbake til søk" : "Forrige side"}
-        className={knapp}
-      >
-        ←
-      </button>
-      <button
-        onClick={() => goTo(page + 1)}
-        disabled={page === totalPages - 1}
-        aria-label="Neste side"
-        className={knapp}
-      >
-        →
-      </button>
-    </nav>
   );
 }
