@@ -283,7 +283,8 @@ export default function Portal({
     radius: number;
     center: { lat: number; lng: number };
   } | null>(null);
-  const [page, setPage] = useState(0); // 0 = forside
+  // Forsiden, eller hele presentasjonen. Oppslagene står under hverandre.
+  const [forside, setForside] = useState(true);
   const [åpentSted, setÅpentSted] = useState<Sted | null>(null);
   const [bygg, setBygg] = useState<Kvartal[]>([]);
 
@@ -311,13 +312,6 @@ export default function Portal({
     [mapDots, skjulte]
   );
 
-  const totalPages = 1 + (spreads?.length ?? 0);
-
-  const goTo = useCallback(
-    (next: number) => setPage(Math.max(0, Math.min(next, totalPages - 1))),
-    [totalPages]
-  );
-
   /** Skrur én kategori av eller på. */
   function vekslKategori(id: string) {
     setSkjulte((nå) => {
@@ -326,25 +320,11 @@ export default function Portal({
       else neste.add(id);
       return neste;
     });
-    setPage(1);
   }
 
   function visAlle() {
     setSkjulte(new Set());
-    setPage(1);
   }
-
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.target instanceof HTMLInputElement) return;
-      // Med en serie åpen blar pilene i serien, ikke mellom oppslag.
-      if (åpentSted) return;
-      if (e.key === "ArrowRight") goTo(page + 1);
-      if (e.key === "ArrowLeft") goTo(page - 1);
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [page, goTo, åpentSted]);
 
   const runSearch = useCallback(
     async (query: string, radiusMeters: number, coords: Suggestion | null) => {
@@ -357,7 +337,6 @@ export default function Portal({
 
       try {
         const data = await search(trimmed, radiusMeters, coords);
-        const built = buildSpreads(data.groups);
         setGroups(data.groups);
         setSkjulte(new Set());
         setAreaText(composeAreaText(data.groups, trimmed, radiusMeters));
@@ -399,7 +378,9 @@ export default function Portal({
         setBygg(alle ? Object.values(alle).filter(nær) : []);
         setWarning(data.warning ?? null);
         setSearched({ address: trimmed, radius: radiusMeters, center: data.center });
-        setPage(built.length > 0 ? 1 : 0);
+        setForside(data.groups.length === 0);
+        // Et nytt søk er en ny presentasjon; den begynner på første oppslag.
+        window.scrollTo({ top: 0 });
       } catch (err) {
         setError(
           err instanceof SearchError ? err.message : "Noe gikk galt under søket"
@@ -452,34 +433,37 @@ export default function Portal({
     runSearch(s.label, radius, s);
   }
 
-  const spread = page > 0 && spreads ? spreads[page - 1] : null;
+  const visOppslag = !forside && spreads !== null && spreads.length > 0;
 
   return (
-    <div className="oppslag-rot relative min-h-screen w-full">
+    <div className="relative min-h-screen w-full">
       {/* Hårfin ramme, som kanten på et trykt oppslag. */}
       <div className="pointer-events-none fixed inset-4 z-20 border border-rule sm:inset-6" />
 
-      {spread ? (
-        <Spread
-          spread={spread}
-          page={page}
-          totalPages={totalPages}
-          address={searched?.address ?? ""}
-          radius={searched?.radius ?? radius}
-          center={searched?.center ?? null}
-          mapDots={synligeDots}
-          bygg={bygg}
-          mapLegend={mapLegend}
-          skjulte={skjulte}
-          onVekslKategori={vekslKategori}
-          onVisAlle={visAlle}
-          onEndreRadius={endreRadius}
-          laster={loading}
-          areaText={areaText}
-          goTo={goTo}
-          onÅpne={setÅpentSted}
-          onFlyttSøk={flyttSøk}
-        />
+      {visOppslag && spreads ? (
+        spreads.map((sp, i) => (
+          <Spread
+            key={`${sp.category.id}-${sp.part}-${i}`}
+            spread={sp}
+            nummer={i + 1}
+            antall={spreads.length}
+            address={searched?.address ?? ""}
+            radius={searched?.radius ?? radius}
+            center={searched?.center ?? null}
+            mapDots={synligeDots}
+            bygg={bygg}
+            mapLegend={mapLegend}
+            skjulte={skjulte}
+            onVekslKategori={vekslKategori}
+            onVisAlle={visAlle}
+            onEndreRadius={endreRadius}
+            laster={loading}
+            areaText={areaText}
+            onForside={() => setForside(true)}
+            onÅpne={setÅpentSted}
+            onFlyttSøk={flyttSøk}
+          />
+        ))
       ) : (
         <Cover
           address={address}
@@ -499,7 +483,7 @@ export default function Portal({
           emptyResult={spreads !== null && spreads.length === 0 && searched !== null}
           searched={searched}
           resultPageCount={spreads?.length ?? 0}
-          onResume={() => goTo(1)}
+          onResume={() => setForside(false)}
         />
       )}
 
@@ -806,10 +790,49 @@ function MetaCell({
 
 /* ------------------------------------------------------------- Oppslagene */
 
+/**
+ * Sier fra når oppslaget er rullet inn i bildet, én gang.
+ *
+ * Elementene i oppslaget ligger 50 px under sin plass til det skjer, og
+ * glir opp i tur og orden. Observatøren kobles fra etter første treff:
+ * et oppslag man ruller tilbake til, skal stå ferdig — ikke spille om
+ * igjen hver gang det passerer.
+ */
+function useInngang<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  const [inne, setInne] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    // Uten observatør viser vi alt med én gang; et usynlig oppslag er
+    // verre enn et uanimert.
+    if (typeof IntersectionObserver === "undefined") {
+      const id = requestAnimationFrame(() => setInne(true));
+      return () => cancelAnimationFrame(id);
+    }
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (!e.isIntersecting) return;
+        // Vent én frame, ellers rekker ikke nettleseren å se
+        // utgangsposisjonen og hopper rett til den ferdige.
+        requestAnimationFrame(() => setInne(true));
+        io.disconnect();
+      },
+      // Oppslaget skal være godt inne i bildet før det starter.
+      { rootMargin: "0px 0px -15% 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return [ref, inne] as const;
+}
+
 function Spread({
   spread,
-  page,
-  totalPages,
+  nummer,
+  antall,
   address,
   radius,
   center,
@@ -822,13 +845,13 @@ function Spread({
   onEndreRadius,
   laster,
   areaText,
-  goTo,
+  onForside,
   onÅpne,
   onFlyttSøk,
 }: {
   spread: SpreadData;
-  page: number;
-  totalPages: number;
+  nummer: number;
+  antall: number;
   address: string;
   radius: number;
   center: { lat: number; lng: number } | null;
@@ -841,10 +864,11 @@ function Spread({
   onEndreRadius: (meter: number) => void;
   laster: boolean;
   areaText: string;
-  goTo: (n: number) => void;
+  onForside: () => void;
   onÅpne: (sted: Sted) => void;
   onFlyttSøk: (lat: number, lng: number) => void;
 }) {
+  const [oppslagsRef, inne] = useInngang<HTMLElement>();
   const [hero, ...rest] = spread.steder;
   // På første oppslag står kartet i hovedplassen; alle fotoene går til høyre.
   const heroIsMap = spread.intro && center !== null;
@@ -852,11 +876,19 @@ function Spread({
   const soloHero = !heroIsMap && rest.length === 0;
 
   return (
-    <section className="oppslag flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14">
+    <section
+      ref={oppslagsRef}
+      data-inne={inne ? "ja" : undefined}
+      className="oppslag flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14"
+    >
       <header className="flex shrink-0 items-baseline justify-between text-[10px] uppercase tracking-[0.28em] text-ink-soft">
-        <button type="button" onClick={() => goTo(0)} title="Til forsiden" className="home-link">
-          Områdebilder
-        </button>
+        {nummer === 1 ? (
+          <button type="button" onClick={onForside} title="Til forsiden" className="home-link">
+            Områdebilder
+          </button>
+        ) : (
+          <span>Områdebilder</span>
+        )}
         <span className="shrink-0 text-ink">{spread.category.label}</span>
       </header>
 
@@ -864,7 +896,7 @@ function Spread({
         {/* Venstre: kartet (første oppslag) eller hovedbildet, med tekst under. */}
         <div className={`flex min-h-0 flex-col ${soloHero ? "lg:col-span-9" : "lg:col-span-7"}`}>
           {heroIsMap && center ? (
-            <figure className="flex min-h-0 flex-1 flex-col">
+            <figure data-inngang="1" className="flex min-h-0 flex-1 flex-col">
               <div className="min-h-[220px] flex-1 overflow-hidden border border-rule">
                 <AreaMap
                   center={center}
@@ -930,13 +962,13 @@ function Spread({
               </figcaption>
             </figure>
           ) : (
-            <Frame sted={hero} onÅpne={onÅpne} className="strekk min-h-[220px]" />
+            <Frame sted={hero} onÅpne={onÅpne} inngang={1} className="strekk min-h-[220px]" />
           )}
 
           {heroIsMap ? (
             // Kartet tegner allerede radius-sirkelen, så kontrollen hører
             // hjemme her framfor kategoriteksten.
-            <div className="mt-6 grid shrink-0 grid-cols-1 gap-5 sm:grid-cols-12">
+            <div data-inngang="3" className="mt-6 grid shrink-0 grid-cols-1 gap-5 sm:grid-cols-12">
               <h2 className="text-xl font-semibold uppercase leading-[0.95] tracking-tight sm:col-span-4">
                 Gangavstand
               </h2>
@@ -970,7 +1002,7 @@ function Spread({
               </div>
             </div>
           ) : (
-            <div className="mt-6 grid shrink-0 grid-cols-1 gap-5 sm:grid-cols-12">
+            <div data-inngang="3" className="mt-6 grid shrink-0 grid-cols-1 gap-5 sm:grid-cols-12">
               <h2 className="text-xl font-semibold uppercase leading-[0.95] tracking-tight sm:col-span-4">
                 {spread.category.label}
               </h2>
@@ -990,18 +1022,19 @@ function Spread({
           </span>
 
           <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-5">
-            {rightSteder.map((sted) => (
+            {rightSteder.map((sted, i) => (
               <Frame
                 key={sted.bilde.id}
                 sted={sted}
                 onÅpne={onÅpne}
+                inngang={Math.min(2 + i, 4)}
                 className="strekk min-h-[150px]"
               />
             ))}
             {/* På første oppslag står områdeteksten der det tredje bildet
                 ellers ville stått — en kort tekst om det søket faktisk fant. */}
             {spread.intro && areaText && (
-              <div className="strekk flex min-h-0 flex-col justify-end">
+              <div data-inngang="4" className="strekk flex min-h-0 flex-col justify-end">
                 <p className="mb-3 border-t border-rule pt-4 text-[10px] uppercase tracking-[0.3em] text-ink-soft">
                   Området
                 </p>
@@ -1013,9 +1046,17 @@ function Spread({
       </div>
 
       <footer className="flex shrink-0 items-center justify-between border-t border-rule pt-5 text-[10px] uppercase tracking-[0.2em] text-ink-soft">
-        <span className="text-[13px] tracking-[0.18em] text-ink">Side {pageLabel(page + 1)}</span>
-        <span className="hidden truncate px-4 sm:block">{address}</span>
-        <Nav page={page} totalPages={totalPages} goTo={goTo} />
+        <span className="text-[13px] tracking-[0.18em] text-ink tabular-nums">
+          {pageLabel(nummer)} / {pageLabel(antall)}
+        </span>
+        <span className="hidden min-w-0 truncate px-4 sm:block">{address}</span>
+        {nummer === antall ? (
+          <button type="button" onClick={onForside} className="download-link">
+            Nytt søk
+          </button>
+        ) : (
+          <span className="shrink-0">{spread.category.label}</span>
+        )}
       </footer>
     </section>
   );
@@ -1025,15 +1066,18 @@ function Frame({
   sted,
   onÅpne,
   className,
+  inngang,
 }: {
   sted: Sted;
   onÅpne: (sted: Sted) => void;
   className?: string;
+  /** Plassen i inngangen, 1–4. Styrer bare forsinkelsen. */
+  inngang?: number;
 }) {
   const photo = sted.bilde;
   const antall = sted.serie.length;
   return (
-    <figure className={`flex min-h-0 flex-col ${className ?? ""}`}>
+    <figure data-inngang={inngang} className={`flex min-h-0 flex-col ${className ?? ""}`}>
       <button
         type="button"
         onClick={() => onÅpne(sted)}
@@ -1184,45 +1228,5 @@ function DownloadLink({ url, filnavn }: { url: string; filnavn: string | null })
     <a href={href} onClick={lastNed} download={filnavn ?? undefined} className="download-link">
       {henter ? "Henter\u2026" : "Last ned"}
     </a>
-  );
-}
-
-/* ------------------------------------------------------------ Navigasjon */
-
-function Nav({
-  page,
-  totalPages,
-  goTo,
-}: {
-  page: number;
-  totalPages: number;
-  goTo: (n: number) => void;
-}) {
-  // Bladingen er det man bruker mest i en visning; den skal være lett å
-  // treffe og lett å se. Tallene står i blekkfargen, ikke den dempede,
-  // og knappene er 44 px — det minste som er behagelig å trykke på.
-  const knapp =
-    "flex h-11 w-11 items-center justify-center border border-rule bg-paper text-lg leading-none text-ink transition-colors hover:border-ink hover:bg-paper-deep disabled:opacity-25 disabled:hover:border-rule disabled:hover:bg-paper";
-  return (
-    <nav className="flex items-center gap-4">
-      <span className="text-[13px] tracking-[0.18em] text-ink tabular-nums">
-        {pageLabel(page + 1)} / {pageLabel(totalPages)}
-      </span>
-      <button
-        onClick={() => goTo(page - 1)}
-        aria-label={page === 1 ? "Tilbake til søk" : "Forrige side"}
-        className={knapp}
-      >
-        ←
-      </button>
-      <button
-        onClick={() => goTo(page + 1)}
-        disabled={page === totalPages - 1}
-        aria-label="Neste side"
-        className={knapp}
-      >
-        →
-      </button>
-    </nav>
   );
 }

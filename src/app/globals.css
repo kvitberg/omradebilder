@@ -345,26 +345,30 @@ body {
 /* ------------------------------------------------------- Magasinoppslaget */
 
 /*
- * Oppslaget er bygget for å fylle skjermen: kartet og bildene strekker seg
- * ut til kanten, og man blar videre i stedet for å rulle. Det formatet
- * krever at vinduet faktisk er høyt nok.
+ * Presentasjonen er én side man ruller gjennom, men den er satt som et
+ * magasin: hvert oppslag fyller skjermen, med kartet eller hovedbildet til
+ * venstre og de mindre bildene stablet til høyre.
  *
- * Er det lavere, må spaltene dele på en høyde som ikke finnes. Da krympet
- * områdeteksten forbi sitt eget innhold, og siden den står med justify-end,
- * fløt den oppover og la seg over bildeteksten til fotoet over — streken
- * over «Området» gikk tvers gjennom «Last ned».
+ * Det formatet krever at vinduet faktisk er høyt nok. Er det lavere, må
+ * spaltene dele på en høyde som ikke finnes. Da ble områdeteksten krympet
+ * forbi sitt eget innhold, og siden den står med justify-end, fløt den
+ * oppover og la seg over bildeteksten til fotoet over — streken over
+ * «Området» gikk tvers gjennom «Last ned».
  *
  * Derfor gjelder den låste høyden bare fra 720 px og oppover. På lavere
- * vinduer får oppslaget den plassen det trenger, og siden ruller det siste
- * stykket. Oppsettet er det samme; det er bare taket som løftes.
+ * vinduer får oppslaget den plassen det trenger. Oppsettet er det samme;
+ * det er bare taket som løftes.
  */
 @media (min-width: 1024px) and (min-height: 720px) {
-  .oppslag-rot {
-    height: 100vh;
-    overflow: hidden;
-  }
   .oppslag {
     height: 100vh;
+    /* Rullingen stopper på oppslagskanten, så man lander på et helt
+       oppslag og ikke midt mellom to. «proximity» gjør det bare når man
+       allerede er i nærheten — den overstyrer ikke den som vil rulle fritt. */
+    scroll-snap-align: start;
+  }
+  html {
+    scroll-snap-type: y proximity;
   }
   /* Spaltene deler høyden mellom seg — bare når det er en høyde å dele. */
   .strekk {
@@ -373,5 +377,39 @@ body {
   /* Bildet fyller sin andel i stedet for å holde 4:3. */
   .strekk-bilde {
     aspect-ratio: auto;
+  }
+}
+
+/* ------------------------------------------------------------- Inngangen */
+
+/*
+ * Oppslaget kommer inn når det rulles i syne: elementene starter 50 px
+ * under sin plass og glir opp, forskjøvet 150 ms fra hverandre så det
+ * leses som én bevegelse og ikke som fire løsrevne.
+ *
+ * Kurven er lang ut og rolig inn — bevegelsen skal merkes, ikke ses.
+ * Utgangsposisjonen settes bare når noen faktisk vil ha bevegelse; den
+ * som har slått det av i systemet, får oppslaget ferdig satt med én gang.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .oppslag [data-inngang] {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+      opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .oppslag [data-inngang="2"] {
+    transition-delay: 0.15s;
+  }
+  .oppslag [data-inngang="3"] {
+    transition-delay: 0.3s;
+  }
+  .oppslag [data-inngang="4"] {
+    transition-delay: 0.45s;
+  }
+  .oppslag[data-inne="ja"] [data-inngang] {
+    opacity: 1;
+    transform: none;
   }
 }
