@@ -57,6 +57,13 @@
     "kategori": "butikk",
     "kilde": "osm"
   },
+  "Bolgen og Moi": {
+    "kategori": "restaurant",
+    "navn": "Bølgen & Moi",
+    "lat": 59.90902,
+    "lng": 10.72285,
+    "kilde": "manuell"
+  },
   "Boulangerie M": {
     "kategori": "kafe",
     "kilde": "osm"
@@ -182,16 +189,16 @@
     "kategori": "nabolag",
     "kilde": "osm"
   },
+  "Gråbein": {
+    "kategori": "restaurant",
+    "kilde": "osm"
+  },
   "Grønnland": {
     "kategori": "nabolag",
     "navn": "Grønland",
     "lat": 59.91252,
     "lng": 10.76209,
     "kilde": "manuell"
-  },
-  "Gråbein": {
-    "kategori": "restaurant",
-    "kilde": "osm"
   },
   "Gyldenløves gate": {
     "kategori": "nabolag",
@@ -213,6 +220,11 @@
     "kategori": "restaurant",
     "navn": "Hrimnir Ramen",
     "kilde": "osm"
+  },
+  "Håndbakt Tøyen": {
+    "kategori": "kafe",
+    "navn": "Factory Tøyen",
+    "kilde": "manuell"
   },
   "Isdammen": {
     "kategori": "nabolag",
@@ -287,6 +299,11 @@
   "Løren": {
     "kategori": "nabolag",
     "kilde": "osm"
+  },
+  "Mad Goat Tap House": {
+    "kategori": "nabolag",
+    "navn": "Teaterplassen",
+    "kilde": "manuell"
   },
   "Majorstuen": {
     "kategori": "nabolag",
@@ -408,6 +425,11 @@
     "kategori": "restaurant",
     "kilde": "osm"
   },
+  "Rock In": {
+    "kategori": "nabolag",
+    "navn": "Grønland",
+    "kilde": "manuell"
+  },
   "Rostockgata": {
     "kategori": "nabolag",
     "kilde": "osm"
@@ -437,6 +459,11 @@
     "kategori": "nabolag",
     "kilde": "osm"
   },
+  "Skaal matbar": {
+    "kategori": "restaurant",
+    "navn": "SKAAL Matbar",
+    "kilde": "osm"
+  },
   "Skeidbanen": {
     "kategori": "aktivitet",
     "kilde": "osm"
@@ -447,11 +474,6 @@
   },
   "Skøyen": {
     "kategori": "nabolag",
-    "kilde": "osm"
-  },
-  "Skaal matbar": {
-    "kategori": "restaurant",
-    "navn": "SKAAL Matbar",
     "kilde": "osm"
   },
   "Slemdal skole": {
@@ -514,6 +536,10 @@
   "Søylegården": {
     "kategori": "nabolag",
     "kilde": "osm"
+  },
+  "Teaterplassen": {
+    "kategori": "nabolag",
+    "kilde": "manuell"
   },
   "Teisen": {
     "kategori": "nabolag",
@@ -618,15 +644,6 @@
     "navn": "ZZ Pizza",
     "kilde": "osm"
   },
-  "Østensjø": {
-    "kategori": "nabolag",
-    "kilde": "osm"
-  },
-  "Øyungen": {
-    "kategori": "nabolag",
-    "navn": "Øyungen hyttefelt",
-    "kilde": "osm"
-  },
   "Åkebergveien": {
     "kategori": "nabolag",
     "kilde": "osm"
@@ -651,11 +668,13 @@
     "kategori": "nabolag",
     "kilde": "osm"
   },
-  "Bolgen og Moi": {
-    "kategori": "restaurant",
-    "navn": "Bølgen & Moi",
-    "lat": 59.90902,
-    "lng": 10.72285,
-    "kilde": "manuell"
+  "Østensjø": {
+    "kategori": "nabolag",
+    "kilde": "osm"
+  },
+  "Øyungen": {
+    "kategori": "nabolag",
+    "navn": "Øyungen hyttefelt",
+    "kilde": "osm"
   }
 }
