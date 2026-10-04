@@ -65,7 +65,7 @@ async function medForsøk<T>(gjør: () => Promise<T>, hva: string): Promise<T> {
     } catch (err) {
       sist = err;
       const vent = 2000 * 2 ** i;
-      process.stderr.write(`\n  ${hva} feilet (${String(err).slice(0, 60)}), venter ${vent / 1000}s\n`);
+      console.log(`  ${hva} feilet (${String(err).slice(0, 60)}), venter ${vent / 1000}s`);
       await new Promise((r) => setTimeout(r, vent));
     }
   }
@@ -111,16 +111,17 @@ async function gåGjennom(): Promise<Mappe[]> {
       }
 
       state.cursor = svar.result.cursor;
-      if (++siden % 10 === 0) {
+      // Lagres ofte: en avbrutt gjennomgang skal koste minutter, ikke timer.
+      if (++siden % 2 === 0) {
         await lagre();
-        process.stderr.write(`\r  ${state.antall} oppføringer, ${mapper.size} mapper …`);
+        console.log(`  ${state.antall} oppføringer, ${mapper.size} mapper`);
       }
       if (!svar.result.has_more) break;
     }
 
     state.ferdig = true;
     await lagre();
-    process.stderr.write(`\r  ${state.antall} oppføringer, ${mapper.size} mapper\n`);
+    console.log(`  ferdig: ${state.antall} oppføringer, ${mapper.size} mapper`);
   }
 
   const tre: Mappe[] = state.mapper

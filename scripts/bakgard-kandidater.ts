@@ -32,8 +32,28 @@ const STIKKORD: Array<[RegExp, string]> = [
   [/\bfasade/i, "fasade"],
 ];
 
-// Samme mønster som prepare-static: «Grüners gate 1», «Magnus' gate 1A».
-const ADRESSE = /(\p{Lu}[\p{L}.']*(?:\s+\p{Ll}[\p{L}.']*)*\s+\d+\s*\p{L}?)/gu;
+/**
+ * Adressen i et mappenavn.
+ *
+ * Mønsteret i prepare-static krever små bokstaver i ordene etter det
+ * første, og mistet dermed hver gate oppkalt etter en person med både
+ * for- og etternavn: «Agathe Grøndahls gate 2B» ble til «Grøndahls gate
+ * 2B», som ikke finnes. Her tillates store bokstaver underveis, og
+ * treffet prøves mot adresseregisteret ord for ord fra venstre — så
+ * «Juli Agathe Grøndahls gate 2B» faller tilbake på den delen som er en
+ * ekte adresse.
+ */
+const ADRESSE = /(\p{Lu}[\p{L}.']*(?:\s+\p{L}[\p{L}.']*)*\s+\d+\s*\p{L}?)/gu;
+
+/** Prøver treffet, så uten første ord, så uten de to første, og så videre. */
+function slåOppAdresse(rå: string, kjent: Map<string, string>): string | null {
+  const ord = rå.replace(/\s+/g, " ").trim().split(" ");
+  for (let i = 0; i < ord.length - 1; i++) {
+    const treff = kjent.get(ord.slice(i).join(" ").toLowerCase());
+    if (treff) return treff;
+  }
+  return null;
+}
 
 type Treff = {
   adresse: string;
@@ -41,8 +61,19 @@ type Treff = {
   bilder: number;
   iSesong: number;
   måneder: Record<number, number>;
-  /** Adressene som deler gårdsrommet, matrikkelen. */
+  /** Adressene som deler gårdsrommet, matrikkelen. Tom uten teigdata. */
   deler: string[];
+  /**
+   * Har adressen en gårdsromssirkel?
+   *
+   * Teiger hentes bare for kvartaler det allerede finnes bilder i, så en
+   * bygård uten bilder har ingen sirkel — og var usynlig for dette søket
+   * før. Englandsgården på Torshov er et slikt tilfelle: fjorten adresser
+   * i navnelista, 173 bilder i Dropbox, ingen teiger.
+   */
+  sirkel: boolean;
+  /** Antall adresser i samme bygård. Eneste signal når sirkelen mangler. */
+  bygård: number;
   stikkord: string | null;
   alleredeInne: boolean;
   harBakgårdAlt: boolean;
@@ -62,6 +93,18 @@ const nøkkel = (a: string) => a.replace(/\s+/g, " ").trim().toLowerCase();
 async function main() {
   const tre = JSON.parse(await fs.readFile(path.join(CACHE, "dropbox-tre.json"), "utf-8")) as Mappe[];
   const gardsrom = await les<Record<string, string[]>>("data/gardsrom-adresse.json", {});
+  const bygarder = await les<{ adresseTilBygard?: Record<string, string> }>(
+    "data/bygarder.json",
+    {}
+  );
+  const adresseTilBygård = bygarder.adresseTilBygard ?? {};
+  // Hvor mange adresser deler bygård? En enebolig står alene; en bygård
+  // har fire eller flere oppganger. Det er det eneste holdepunktet for om
+  // det finnes et gårdsrom når teigene ikke er hentet.
+  const bygårdStørrelse = new Map<string, number>();
+  for (const b of Object.values(adresseTilBygård)) {
+    bygårdStørrelse.set(b, (bygårdStørrelse.get(b) ?? 0) + 1);
+  }
   const index = await les<{
     photos: Array<{ dropboxPath?: string; category?: string; adresser?: string[] }>;
   }>("data/index.json", { photos: [] });
@@ -80,9 +123,10 @@ async function main() {
     for (const a of p.adresser ?? []) dekket.add(nøkkel(a));
   }
 
-  // Matrikkelen, slått opp uten hensyn til store bokstaver og husbokstav.
+  // Hele adresseregisteret, ikke bare adressene med gårdsrom. Slås opp
+  // uten hensyn til store bokstaver og husbokstav.
   const kjent = new Map<string, string>();
-  for (const a of Object.keys(gardsrom)) {
+  for (const a of Object.keys(adresseTilBygård)) {
     kjent.set(nøkkel(a), a);
     const grunn = nøkkel(a.replace(/\s*\p{Lu}$/u, ""));
     if (!kjent.has(grunn)) kjent.set(grunn, a);
@@ -109,12 +153,14 @@ async function main() {
     );
 
     for (const rå of funnet) {
-      const offisiell = kjent.get(nøkkel(rå));
+      const offisiell = slåOppAdresse(rå, kjent);
       if (!offisiell) continue;
       const deler = gardsrom[offisiell] ?? [];
-      // Et gårdsrom man deler med noen er en bakgård. Står adressen alene,
-      // er det som regel en enebolig eller en teig uten fellesareal.
-      if (deler.length < 2) continue;
+      const størrelse = bygårdStørrelse.get(adresseTilBygård[offisiell] ?? "") ?? 0;
+      // Et delt gårdsrom er bevis for en bakgård. Mangler teigene, er en
+      // bygård med minst fire oppganger det nærmeste vi kommer — en
+      // enebolig har en hage, ikke et gårdsrom.
+      if (deler.length < 2 && størrelse < 4) continue;
 
       const t = samlet.get(offisiell) ?? {
         adresse: offisiell,
@@ -123,6 +169,8 @@ async function main() {
         iSesong: 0,
         måneder: {},
         deler,
+        sirkel: deler.length >= 2,
+        bygård: størrelse,
         stikkord: null,
         alleredeInne: false,
         harBakgårdAlt: dekket.has(nøkkel(offisiell)),
@@ -142,7 +190,14 @@ async function main() {
 
   const alle = [...samlet.values()];
   const nye = alle.filter((t) => !t.alleredeInne && !t.harBakgårdAlt);
-  nye.sort((a, b) => Number(!!b.stikkord) - Number(!!a.stikkord) || b.iSesong - a.iSesong);
+  // Stikkord først, så de med gårdsromssirkel: der vet vi at bakgården
+  // finnes, og bildet kan bindes presist med en gang.
+  nye.sort(
+    (a, b) =>
+      Number(!!b.stikkord) - Number(!!a.stikkord) ||
+      Number(b.sirkel) - Number(a.sirkel) ||
+      b.iSesong - a.iSesong
+  );
 
   await fs.writeFile(path.join(CACHE, "bakgard-kandidater.json"), JSON.stringify(nye, null, 1));
 
@@ -157,7 +212,9 @@ async function main() {
   console.log(
     [
       `${tre.length} mapper i Dropbox gjennomgått`,
-      `${alle.length} adresser matrikkelen kjenner, med delt gårdsrom og bilder i sesong`,
+      `${alle.length} adresser med bilder i sesong`,
+      `  ${alle.filter((t) => t.sirkel).length} med gårdsromssirkel i matrikkelen`,
+      `  ${alle.filter((t) => !t.sirkel).length} i bygård, men uten teigdata ennå`,
       `${alle.filter((t) => t.alleredeInne).length} er allerede i portalen`,
       `${alle.filter((t) => t.harBakgårdAlt).length} har alt et fellesareal i portalen`,
       `${nye.length} nye kandidater`,
@@ -174,9 +231,17 @@ async function main() {
     }
   }
 
-  console.log(`\n=== ${nye.length - sikre.length} adresser å se gjennom ===\n`);
-  for (const t of nye.filter((x) => !x.stikkord).slice(0, 80)) {
+  const medSirkel = nye.filter((x) => !x.stikkord && x.sirkel);
+  console.log(`\n=== ${medSirkel.length} med gårdsrom i matrikkelen ===\n`);
+  for (const t of medSirkel.slice(0, 50)) {
     console.log(`  ${t.adresse} — ${t.deler.length} adresser deler gårdsrommet`);
+    console.log(`     ${t.iSesong} i sesong (${mndTekst(t.måneder)})  ·  ${t.mapper[0]}`);
+  }
+
+  const utenSirkel = nye.filter((x) => !x.stikkord && !x.sirkel);
+  console.log(`\n=== ${utenSirkel.length} i bygård, teiger ikke hentet ===\n`);
+  for (const t of utenSirkel.slice(0, 30)) {
+    console.log(`  ${t.adresse} — bygård med ${t.bygård} adresser`);
     console.log(`     ${t.iSesong} i sesong (${mndTekst(t.måneder)})  ·  ${t.mapper[0]}`);
   }
   console.log(`\nHele lista: .cache/bakgard-kandidater.json`);
