@@ -25,7 +25,9 @@
     "bygg": "python3 scripts/bygg-adresser.py",
     "teiger": "tsx scripts/hent-teiger.ts",
     "rett-posisjon": "tsx scripts/rett-posisjon.ts",
-    "rapporter": "tsx scripts/rapporter.ts"
+    "rapporter": "tsx scripts/rapporter.ts",
+    "finn-bakgarder": "tsx scripts/finn-bakgarder.ts",
+    "bakgard-kandidater": "tsx scripts/bakgard-kandidater.ts"
   },
   "dependencies": {
     "dropbox": "^10.46.0",
