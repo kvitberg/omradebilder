@@ -8,6 +8,7 @@ import { categoryFromTags, detectCategory } from "../src/lib/categories";
 import { lookupPoi, type Poi } from "../src/lib/poi";
 import { parkVedPunkt } from "../src/lib/parker";
 import type { PhotoEntry, SearchIndex } from "../src/lib/index-store";
+import { lagThumbnavn } from "../src/lib/thumbs";
 
 /**
  * Henter bilder fra et delt Immich-album og fletter dem inn i indeksen.
@@ -132,10 +133,7 @@ async function nearestAddress(lat: number, lng: number): Promise<string | null> 
   return result;
 }
 
-/** Samme filnavnkonvensjon som prepare-static utleder fra id-en. */
-function thumbFileName(id: string) {
-  return id.replace(/^id:/, "").replace(/[^A-Za-z0-9_-]/g, "") + ".webp";
-}
+/* Filnavnet avledes i src/lib/thumbs.ts, felles med prepare-static. */
 
 async function exists(p: string) {
   try {
@@ -166,6 +164,9 @@ async function main() {
 
   console.log(`Henter album fra ${IMMICH_URL} ...`);
   const ids = await listAssetIds();
+  // Immich-id-ene er uuid-er og kan ikke kollidere seg imellom, men navnet
+  // skal utledes av samme funksjon som prepare-static leser med.
+  const thumbFileName = lagThumbnavn(ids.map((id) => `immich:${id}`));
   console.log(`Fant ${ids.length} bilder.\n`);
 
   await fs.mkdir(OUT_DIR, { recursive: true });

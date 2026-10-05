@@ -8,6 +8,7 @@ import type { Dropbox } from "dropbox";
 import { getDropboxClient } from "../src/lib/dropbox";
 import { toArrayBuffer } from "../src/lib/dropbox-binary";
 import type { SearchIndex } from "../src/lib/index-store";
+import { lagThumbnavn } from "../src/lib/thumbs";
 
 /**
  * Laster ned én miniatyr per bilde fra Dropbox og lagrer den under
@@ -37,10 +38,10 @@ const FORCE = process.argv.includes("--force");
 const MAX_WIDTH = 1000;
 const QUALITY = 60;
 
-/** Dropbox-id-er ser ut som "id:aBc123" — vi trenger et trygt filnavn. */
-function thumbFileName(id: string) {
-  return id.replace(/^id:/, "").replace(/[^A-Za-z0-9_-]/g, "") + ".webp";
-}
+/**
+ * Filnavnet avledes nå i src/lib/thumbs.ts, som også tar høyde for at to
+ * Dropbox-id-er kan skille seg bare på store og små bokstaver.
+ */
 
 async function exists(p: string) {
   try {
@@ -98,6 +99,9 @@ async function main() {
   let failed = 0;
   let bytes = 0;
 
+  // Navnet må avledes av hele settet: to id-er som bare skiller seg på
+  // store og små bokstaver deler fil på macOS, og må holdes fra hverandre.
+  const thumbFileName = lagThumbnavn(index.photos.map((p) => p.id));
   const queue = [...index.photos];
   const started = Date.now();
 

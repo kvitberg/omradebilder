@@ -9,6 +9,7 @@ import {
   FELLESAREAL_KATEGORIER as FELLESAREAL,
 } from "../src/lib/categories";
 import { iOsloOmradet } from "../src/lib/geocode";
+import { lagThumbnavn } from "../src/lib/thumbs";
 
 /**
  * Lager datafilene den statiske siden laster i nettleseren.
@@ -417,8 +418,9 @@ async function main() {
     )
   );
 
+  const navnFor = lagThumbnavn(index.photos.map((p) => p.id));
   const thumbFor = (id: string) => {
-    const file = id.replace(/^id:/, "").replace(/[^A-Za-z0-9_-]/g, "") + ".webp";
+    const file = navnFor(id);
     return onDisk.has(file) ? `/thumbs/${file}` : null;
   };
 
