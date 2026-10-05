@@ -55,6 +55,12 @@ const tester = [
   ["Christian Schous vei 5 har dem ikke", () => felles("Christian Schous vei 5") === 0],
   ["Akebakkeskogen 33 har borettslagets bilder", () => bundetTil("Akebakkeskogen 33").length >= 3],
   ["Nordstjerneveien 6 har Myrer-bildene", () => viser("Nordstjerneveien 6", "Kurveien 42") > 0],
+  // Nydalen: matrikkelen registrerer én felles grunn over 24 adresser i tre
+  // gater, men Nycoveien og Sandakerveien er ikke samme gård.
+  ["Nycoveien 18 har gårdsrommet", () => felles("Nycoveien 18") > 0],
+  ["Vitaminveien 14 deler det", () => felles("Vitaminveien 14") > 0],
+  ["Sandakerveien 103 har ikke Nycoveien-gårdsrommet",
+    () => viser("Sandakerveien 103", "Nycoveien 18") === 0],
   ["Myrerskogveien 12 er ikke i Myrer borettslag", () => viser("Myrerskogveien 12", "Kurveien 42") === 0],
   // Grefsenkollen fra Dropbox holdes utenfor
   ["Grefsenkollen kommer bare fra Immich", () => idx.filter((p) => p.placeName === "Grefsenkollen").every((p) => p.id.startsWith("immich:"))],

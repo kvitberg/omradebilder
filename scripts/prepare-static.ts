@@ -265,6 +265,51 @@ async function main() {
     return laget ? [...new Set([...adresser, ...laget.adresser])].sort() : adresser;
   }
 
+  /**
+   * Gårdsrommet ved et punkt, sett fra nærmeste adresse.
+   *
+   * Teigen som omslutter punktet er ikke alltid ett gårdsrom. I Nydalen
+   * registrerer matrikkelen én felles grunn over 24 adresser i tre gater —
+   * Nycoveien, Vitaminveien og Sandakerveien 103–110 — og et bakgårdsbilde
+   * derfra dukket opp hos alle 24. De er ikke samme gård.
+   *
+   * Nærmeste adresse har sitt eget gårdsrom i matrikkelen, og det er
+   * finere oppdelt: Nycoveien 18 deler med 16, uten Sandakerveien. Det er
+   * den kretsen som gjelder. Finnes ingen slik, er den omsluttende teigen
+   * fortsatt bedre enn ingenting.
+   */
+  function kretsVedPunkt(lat: number, lng: number): string[] | null {
+    const nær = adresseFraPunkt(lat, lng, 80);
+    const egen = nær ? kretsPerAdresse[nær] : null;
+    return egen ?? gardsromFor(lat, lng);
+  }
+
+  /**
+   * Den av adressene som ligger nærmest punktet.
+   *
+   * Et fellesareal uten eget navn døpes etter adressen sin, og da må det
+   * være den man faktisk står ved. Før ble den første i den sorterte lista
+   * brukt: gårdsrommet i Nydalen, som matrikkelen registrerer på 24
+   * adresser i tre gater, het «Nycoveien 10» fordi N kommer først — mens
+   * bildet er tatt elleve meter fra Nycoveien 18.
+   */
+  function nærmesteAv(adresser: string[], lat: number, lng: number): string | null {
+    let beste: string | null = null;
+    let kortest = Infinity;
+    for (const a of adresser) {
+      const pkt = adressepunkter[a];
+      if (!pkt) continue;
+      const dy = (pkt[0] - lat) * 111320;
+      const dx = (pkt[1] - lng) * 111320 * Math.cos((lat * Math.PI) / 180);
+      const d = Math.hypot(dx, dy);
+      if (d < kortest) {
+        kortest = d;
+        beste = a;
+      }
+    }
+    return beste;
+  }
+
   /** Nærmeste adresse innen `maks` meter — lenger unna er vi ikke i samme kvartal. */
   function adresseFraPunkt(lat: number, lng: number, maks = 80): string | null {
     const R = 6371000;
@@ -430,6 +475,17 @@ async function main() {
   const publishable = index.photos
     .map((p) => {
       const overstyring = steder[p.placeName];
+      /**
+       * Navnet bindingen skal tro på.
+       *
+       * Står stedet i steder.json med et rettet navn, er det rettelsen som
+       * gjelder — også når adressen skal slås opp. Bildene fra Nycoveien 10
+       * het «Dronningens kebab» fra OpenStreetMap; uten adresse i navnet
+       * falt bindingen tilbake på punktet, og punktet traff fellesteigen
+       * som dekker to gårdsrom. Bakgården dukket opp i Sandakerveien 103
+       * på den andre siden.
+       */
+      const bindenavn = overstyring?.navn ?? p.placeName;
       // Et gårdsnavn fra navnelisten er et bevisst valg, og veier tyngre
       // enn stedsoppslaget i steder.json — der er Søylegården bare et
       // «nabolag», fordi OSM merker punktet som et sted. Da ble gården
@@ -462,7 +518,7 @@ async function main() {
       // utvides til alle oppgangene med samme husnummer. Kvartalet brukes
       // ikke — det var slik Magnus' gate 13 fikk takterrassen til nr. 1A.
       const erBygning = BYGNING.has(ønsket);
-      let adresser = erFelles ? adresserFor(p.placeName) : null;
+      let adresser = erFelles ? adresserFor(bindenavn) : null;
       if (erBygning) {
         if (!adresser && lat !== null && lng !== null) {
           const nærmeste = adresseFraPunkt(lat, lng, 40);
@@ -476,11 +532,11 @@ async function main() {
       // til naboene på andre siden. Adressen i navnet tas med i kretsen.
       // Adressen i navnet går foran punktet: «Grefsenkollveien 12C» hører
       // til nr. 12, ikke til fellesgrunnen som strekker seg til nr. 14 og 20.
-      const navnAdresse = adresseINavn(p.placeName);
+      const navnAdresse = adresseINavn(bindenavn);
       const krets =
         erFelles && !erBygning
           ? (navnAdresse ? kretsPerAdresse[navnAdresse] : null) ??
-            (lat !== null && lng !== null ? gardsromFor(lat, lng) : null)
+            (lat !== null && lng !== null ? kretsVedPunkt(lat, lng) : null)
           : null;
       if (krets) {
         adresser = [...new Set([...krets, ...(adresser ?? [])])].sort();
@@ -490,7 +546,7 @@ async function main() {
       // noe sted på kartet — er tatt på eiendommen: blokka, lekeplassen,
       // inngangen. Det hører til adressen, ikke til alle i gangavstand.
       // Grefsenkollveien 16A dukket ellers opp hos alle naboene.
-      const stedsnavn0 = p.placeName.trim();
+      const stedsnavn0 = bindenavn.trim();
       if (!erFelles && adressepunkter[stedsnavn0]) {
         adresser = heleBygningen([stedsnavn0]);
       }
@@ -524,14 +580,16 @@ async function main() {
       // fra kartet — og da endte et gårdsrom opp med å hete «Dronningens
       // kebab» etter nærmeste butikk. Navn som allerede bærer et husnummer
       // er gode nok som de er.
-      const navn = overstyring?.navn ?? p.placeName;
+      const navn = bindenavn;
       // «003082-4.jpg» er ikke et sted. Uten beskrivelse i Immich faller
       // navnet tilbake på filnavnet, og da er adressen bedre.
       const erFilnavn = /\.(jpe?g|png|heic|webp|tiff?)$/i.test(navn.trim());
       const fraKart = p.id.startsWith("immich:") && (erFilnavn || !/\d/.test(navn));
       const stedsnavn =
         ((erFelles || erFilnavn) && fraKart && kanKnyttes
-          ? adresser?.[0] ??
+          ? (adresser && lat !== null && lng !== null
+              ? nærmesteAv(adresser, lat, lng)
+              : adresser?.[0]) ??
             (lat !== null && lng !== null ? adresseFraPunkt(lat, lng) : null)
           : null) ?? navn;
 
