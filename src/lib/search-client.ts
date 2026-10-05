@@ -157,13 +157,20 @@ export async function search(
     }))
     // Et bilde bundet til en adresse eller et kvartal er et fellesareal —
     // gårdsrom, takterrasse eller fasade — og hører til dem som deler
-    // bygningen, ikke til alle innen gangavstand. Adressen er den presise
-    // koblingen; kvartalet fanger naboene rundt samme gårdsrom. Mangler
-    // begge, falt oppslaget gjennom, og avstand er det beste vi har.
+    // bygningen, ikke til alle innen gangavstand.
+    //
+    // Har bildet en adresseliste, er den svaret. Den er satt av
+    // prepare-static, som utvider til hele gårdsrommet der matrikkelen
+    // kjenner et. Kvartalet er noe annet og mye større: oslo-00838 er 35
+    // adresser i fem gater. Da bakgården i Mastrups gate 5 ble lagt inn —
+    // et kvartal uten teigdata, så lista ble stående på én adresse —
+    // dukket den opp i Omsens gate 3 på andre siden av kvartalet.
+    //
+    // Kvartalet brukes derfor bare når bildet ikke har noen adresse.
+    // Mangler begge, falt oppslaget gjennom, og avstand er det beste vi har.
     .filter((p) => {
       if (p.adresser?.length) {
-        const treffer = p.adresser.some((a) => a.toLowerCase() === søktAdresse.toLowerCase());
-        return treffer || (!!p.bygardId && p.bygardId === bygardId);
+        return p.adresser.some((a) => a.toLowerCase() === søktAdresse.toLowerCase());
       }
       if (p.bygardId) return bygardId !== null && p.bygardId === bygardId;
       return p.distanceMeters <= radiusMeters;

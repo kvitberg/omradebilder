@@ -16,7 +16,7 @@ const FELLES = new Set(["bakgard", "takterrasse", "fasade"]);
 function bundetTil(adr) {
   const b = a2b[adr] ?? null;
   return idx.filter((p) => {
-    if (p.adresser?.length) return p.adresser.includes(adr) || (!!p.bygardId && p.bygardId === b);
+    if (p.adresser?.length) return p.adresser.includes(adr);
     if (p.bygardId) return b !== null && p.bygardId === b;
     return false;
   });
