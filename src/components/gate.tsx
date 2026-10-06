@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useSyncExternalStore, type FormEvent, type ReactNode } from "react";
-import { PASSORD_SJEKKSUM, abonner, erLåstOpp, finnBruker, loggInn, sjekksum } from "@/lib/kode";
+import { abonner, erLåstOpp, finnBruker, loggInn, sjekksum } from "@/lib/kode";
 
 /**
  * Innloggingen foran portalen: samme forside-typografi som resten, med
@@ -24,7 +24,10 @@ function Port() {
   async function send(e: FormEvent) {
     e.preventDefault();
     const bruker = finnBruker(brukernavn);
-    const riktig = (await sjekksum(passord.trim())) === PASSORD_SJEKKSUM;
+    // Mot brukerens eget passord, ikke mot ett felles: admin har sitt eget,
+    // og de tre kontorene deler et annet.
+    const skrevet = await sjekksum(passord.trim());
+    const riktig = !!bruker && skrevet === bruker.sjekksum;
     // Én felles beskjed: hvilken av delene som er feil, er ikke noe
     // innloggingen skal røpe.
     if (!bruker || !riktig) {

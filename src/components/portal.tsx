@@ -24,16 +24,19 @@ import { FELLESAREAL_KATEGORIER, rekkefølge } from "@/lib/categories";
 import {
   PASSORD_SJEKKSUM,
   abonner,
+  erAdmin,
   innloggetKort,
   innloggetNavn,
   loggUt,
 } from "@/lib/kode";
+import { hentNedlastinger, type Nedlasting } from "@/lib/nedlasting";
 import AreaMap, {
   KATEGORI_FARGER,
   type Kvartal,
   type MapDot,
 } from "@/components/area-map";
 import { sendRapport, type RapportKontekst } from "@/lib/rapport";
+import { loggNedlasting } from "@/lib/nedlasting";
 
 /**
  * Ett sted i presentasjonen: ett bilde vises, resten av serien ligger bak.
@@ -49,6 +52,11 @@ function useKontor(): string | null {
 
 function useKontorKort(): string | null {
   return useSyncExternalStore(abonner, innloggetKort, () => null);
+}
+
+/** Er den innloggede admin? Usant på tjeneren, så siden ikke blinker. */
+function useAdmin(): boolean {
+  return useSyncExternalStore(abonner, erAdmin, () => false);
 }
 
 /** Ett magasinoppslag: én kategori, maks tre steder. */
@@ -322,6 +330,8 @@ export default function Portal({
   const [åpentSted, setÅpentSted] = useState<Sted | null>(null);
   // Betaverktøy: skjemaet for å melde fra om noe som er galt.
   const [melding, setMelding] = useState<RapportKontekst | null>(null);
+  // Nedlastingsloggen, bare for admin.
+  const [visAdmin, setVisAdmin] = useState(false);
   const [bygg, setBygg] = useState<Kvartal[]>([]);
 
   // Koordinater fra et valgt adresseforslag, så vi slipper å geokode på nytt.
@@ -376,6 +386,7 @@ export default function Portal({
         setMapDots(
           data.groups.flatMap((g) =>
             g.photos.map((ph) => ({
+              id: ph.id,
               lat: ph.lat,
               lng: ph.lng,
               category: g.category.id,
@@ -476,6 +487,15 @@ export default function Portal({
 
   const visOppslag = !forside && spreads !== null && spreads.length > 0;
 
+  if (visAdmin) {
+    return (
+      <div className="relative min-h-screen w-full">
+        <div className="pointer-events-none fixed inset-4 z-20 border border-rule sm:inset-6" />
+        <Nedlastingslogg onLukk={() => setVisAdmin(false)} />
+      </div>
+    );
+  }
+
   return (
     <div className="relative min-h-screen w-full">
       {/* Hårfin ramme, som kanten på et trykt oppslag. */}
@@ -528,6 +548,7 @@ export default function Portal({
           searched={searched}
           resultPageCount={spreads?.length ?? 0}
           onResume={() => setForside(false)}
+          onAdmin={() => setVisAdmin(true)}
         />
       )}
 
@@ -708,6 +729,7 @@ function Cover({
   searched,
   resultPageCount,
   onResume,
+  onAdmin,
 }: {
   address: string;
   onAddressChange: (v: string) => void;
@@ -724,12 +746,13 @@ function Cover({
   searched: { address: string; radius: number } | null;
   resultPageCount: number;
   onResume: () => void;
+  onAdmin: () => void;
 }) {
   return (
     <section className="oppslag relative flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14">
       <header className="relative z-10 flex shrink-0 items-start justify-between gap-4 text-[10px] uppercase tracking-[0.28em] text-ink-soft">
         <span>Områdebilder</span>
-        <Kontorlinje />
+        <Kontorlinje onAdmin={onAdmin} />
       </header>
 
       <div className="relative z-10 flex flex-1 items-center py-10">
@@ -820,12 +843,18 @@ function Cover({
 }
 
 /** Kontoret som er logget inn, med utlogging. Står der «Fotografisk arkiv» sto. */
-function Kontorlinje() {
+function Kontorlinje({ onAdmin }: { onAdmin?: () => void }) {
   const kontor = useKontor();
   const kort = useKontorKort();
+  const admin = useAdmin();
   if (!kontor) return <span>Fotografisk arkiv</span>;
   return (
     <span className="flex shrink-0 items-baseline gap-4 whitespace-nowrap">
+      {admin && onAdmin && (
+        <button type="button" onClick={onAdmin} className="download-link">
+          Nedlastinger
+        </button>
+      )}
       {/* Fullt navn når det er plass, ellers brukernavnet: «PrivatMegleren
           Premium» med sperret versalsats er bredere enn en telefon. */}
       <span className="text-ink sm:hidden">{kort}</span>
@@ -1217,7 +1246,7 @@ function Frame({
         <span className="flex shrink-0 items-baseline gap-3">
           <span>{photo.distanceMeters} m</span>
           {photo.original && (
-            <DownloadLink url={photo.original} filnavn={photo.filnavn} />
+            <DownloadLink url={photo.original} filnavn={photo.filnavn} photo={photo} />
           )}
         </span>
       </figcaption>
@@ -1335,13 +1364,204 @@ function SeriesView({
               Meld feil
             </button>
             {photo.original && (
-              <DownloadLink url={photo.original} filnavn={photo.filnavn} />
+              <DownloadLink url={photo.original} filnavn={photo.filnavn} photo={photo} />
             )}
             <span className="hidden sm:inline">Esc lukker</span>
           </span>
         </footer>
       </div>
     </div>
+  );
+}
+
+/* ------------------------------------------------------- Nedlastingsloggen */
+
+/**
+ * Hvem som har lastet ned hva.
+ *
+ * Originalfilene hentes rett fra Dropbox eller Immich, så loggen føres av
+ * nettleseren idet nedlastingen starter. Den fanger knappetrykk, ikke
+ * høyreklikk — men meglerne trykker, og det er dem vi vil vite om.
+ *
+ * Siden er bare synlig for admin, og loggen ligger bak admin-passordets
+ * sjekksum hos mellomtjeneren. Å skrive om id-en i nettleseren gir ingen
+ * tilgang.
+ */
+function Nedlastingslogg({ onLukk }: { onLukk: () => void }) {
+  const [rader, setRader] = useState<Nedlasting[] | null>(null);
+  /** Tidspunktet loggen ble hentet, så «siste sju dager» står stille. */
+  const [hentet, setHentet] = useState(0);
+  const [feil, setFeil] = useState<string | null>(null);
+  const [kontor, setKontor] = useState<string | null>(null);
+  const [søk, setSøk] = useState("");
+
+  useEffect(() => {
+    let avbrutt = false;
+    hentNedlastinger()
+      .then((r) => {
+        if (avbrutt) return;
+        setRader(r);
+        setHentet(Date.now());
+      })
+      .catch((e) => {
+        if (!avbrutt) setFeil(e instanceof Error ? e.message : "Noe gikk galt");
+      });
+    return () => {
+      avbrutt = true;
+    };
+  }, []);
+
+  const kontorer = useMemo(() => {
+    const tell = new Map<string, number>();
+    for (const r of rader ?? []) {
+      const k = r.kontor ?? "Ukjent";
+      tell.set(k, (tell.get(k) ?? 0) + 1);
+    }
+    return [...tell.entries()].sort((a, b) => b[1] - a[1]);
+  }, [rader]);
+
+  const synlige = useMemo(() => {
+    const q = søk.trim().toLowerCase();
+    return (rader ?? []).filter((r) => {
+      if (kontor && (r.kontor ?? "Ukjent") !== kontor) return false;
+      if (!q) return true;
+      return [r.sted, r.filnavn, r.adresse, r.kategori].some((f) =>
+        (f ?? "").toLowerCase().includes(q)
+      );
+    });
+  }, [rader, kontor, søk]);
+
+  const sisteUke = useMemo(() => {
+    if (!hentet) return 0;
+    const grense = hentet - 7 * 24 * 3600 * 1000;
+    return (rader ?? []).filter((r) => Date.parse(r.tid) >= grense).length;
+  }, [rader, hentet]);
+
+  const unikeBilder = useMemo(
+    () => new Set((rader ?? []).map((r) => r.bildeId).filter(Boolean)).size,
+    [rader]
+  );
+
+  const tid = (iso: string) => {
+    const d = new Date(iso);
+    return `${d.toLocaleDateString("no-NO")} ${d.toLocaleTimeString("no-NO", {
+      hour: "2-digit",
+      minute: "2-digit",
+    })}`;
+  };
+
+  return (
+    <section className="flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14">
+      <header className="flex items-baseline justify-between gap-4 text-[10px] uppercase tracking-[0.28em] text-ink-soft">
+        <button type="button" onClick={onLukk} className="home-link">
+          Områdebilder
+        </button>
+        <span className="shrink-0 text-ink">Nedlastinger</span>
+      </header>
+
+      <h1 className="mt-10 text-2xl font-semibold uppercase leading-[0.95] tracking-tight sm:text-3xl">
+        Hvem laster ned hva
+      </h1>
+
+      {feil && (
+        <p className="mt-6 text-[15px] text-ink">
+          Fikk ikke hentet loggen: {feil}. Er admin-passordet satt med{" "}
+          <span className="font-mono text-[13px]">npm run admin-passord</span>?
+        </p>
+      )}
+
+      {!rader && !feil && (
+        <p className="mt-6 text-[15px] text-ink-soft">Henter loggen …</p>
+      )}
+
+      {rader && (
+        <>
+          <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-5 border-y border-rule py-5">
+            <MetaCell label="Nedlastinger" value={String(rader.length)} />
+            <MetaCell label="Siste sju dager" value={String(sisteUke)} />
+            <MetaCell label="Ulike bilder" value={String(unikeBilder)} />
+            <MetaCell label="Kontorer" value={String(kontorer.length)} />
+          </dl>
+
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+            <button
+              type="button"
+              onClick={() => setKontor(null)}
+              className={`text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                kontor === null ? "text-ink underline underline-offset-[6px]" : "text-ink-soft hover:text-ink"
+              }`}
+            >
+              Alle
+            </button>
+            {kontorer.map(([navn, n]) => (
+              <button
+                key={navn}
+                type="button"
+                onClick={() => setKontor(navn)}
+                className={`text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                  kontor === navn
+                    ? "text-ink underline underline-offset-[6px]"
+                    : "text-ink-soft hover:text-ink"
+                }`}
+              >
+                {navn} ({n})
+              </button>
+            ))}
+            <input
+              type="search"
+              value={søk}
+              onChange={(e) => setSøk(e.target.value)}
+              placeholder="Søk i sted, fil eller adresse"
+              className="logg-sok"
+              aria-label="Søk i loggen"
+            />
+          </div>
+
+          {synlige.length === 0 ? (
+            <p className="mt-10 text-[15px] text-ink-soft">
+              {rader.length === 0
+                ? "Ingen nedlastinger ennå. Loggen fylles idet noen trykker «Last ned»."
+                : "Ingen treff."}
+            </p>
+          ) : (
+            <div className="logg-tabell mt-8">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tid</th>
+                    <th>Kontor</th>
+                    <th>Sted</th>
+                    <th>Fil</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {synlige.slice(0, 500).map((r, i) => (
+                    <tr key={`${r.tid}-${i}`}>
+                      <td className="logg-tid">{tid(r.tid)}</td>
+                      <td>{r.kontor ?? "—"}</td>
+                      <td>{r.sted ?? "—"}</td>
+                      <td className="logg-fil">{r.filnavn ?? "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              {synlige.length > 500 && (
+                <p className="mt-4 text-[13px] text-ink-soft">
+                  Viser de 500 nyeste av {synlige.length}. Søk for å snevre inn.
+                </p>
+              )}
+            </div>
+          )}
+        </>
+      )}
+
+      <footer className="mt-auto flex items-baseline justify-between gap-4 border-t border-rule pt-5 text-[10px] uppercase tracking-[0.2em] text-ink-soft">
+        <span className="text-ink">Fotostallen</span>
+        <button type="button" onClick={onLukk} className="download-link">
+          Til forsiden
+        </button>
+      </footer>
+    </section>
   );
 }
 
@@ -1468,9 +1688,12 @@ function Feilmelding({
 function DownloadLink({
   url,
   filnavn,
+  photo,
 }: {
   url: string;
   filnavn: string | null;
+  /** Til loggen: hvilket bilde det var. */
+  photo?: Photo;
 }) {
   const [henter, setHenter] = useState(false);
   // Gamle Immich-lenker (med nøkkel) må hentes som blob. Lenker via
@@ -1503,6 +1726,16 @@ function DownloadLink({
       e.preventDefault();
       return;
     }
+    // Loggen føres uansett hvilken vei fila kommer, og venter aldri.
+    loggNedlasting({
+      kontor: innloggetNavn(),
+      bruker: innloggetKort(),
+      bildeId: photo?.id ?? null,
+      filnavn: filnavn ?? null,
+      sted: photo?.placeName ?? null,
+      kategori: null,
+      adresse: null,
+    });
     // Dropbox-lenken laster ned av seg selv; bare Immich trenger omveien.
     if (viaBlob) {
       e.preventDefault();

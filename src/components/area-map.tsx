@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import type { Map as LeafletMap } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { innloggetKort, innloggetNavn } from "@/lib/kode";
+import { loggNedlasting } from "@/lib/nedlasting";
 
 /**
  * Kartet på første oppslag: adressen i sentrum, en stiplet sirkel for
@@ -23,6 +25,8 @@ export type Eiendom = { r: [number, number][]; a: string[]; m: string[]; navn?: 
 export type Kvartal = { teiger: Eiendom[] };
 
 export type MapDot = {
+  /** Bildets id, så nedlastingen kan loggføres. */
+  id: string;
   lat: number;
   lng: number;
   category: string;
@@ -261,6 +265,15 @@ export default function AreaMap({
         last.addEventListener("click", async (e) => {
           const d = serie[i];
           if (!d.original) return;
+          loggNedlasting({
+            kontor: innloggetNavn(),
+            bruker: innloggetKort(),
+            bildeId: d.id,
+            filnavn: d.filnavn,
+            sted: d.placeName,
+            kategori: d.category,
+            adresse: null,
+          });
           // Immich sender fila «inline»; da må den hentes som blob for å
           // lastes ned med riktig navn. Dropbox-lenkene laster ned selv.
           if (!d.original.includes("/api/assets/")) return;

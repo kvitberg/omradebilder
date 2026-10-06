@@ -13,7 +13,10 @@ type Env = {
   IMMICH_URL: string;
   IMMICH_SHARE_KEY: string;
   KODE_SJEKKSUM: string;
+  /** SHA-256 av admin-passordet. Settes med `npm run admin-passord`. */
+  ADMIN_SJEKKSUM: string;
   RAPPORTER: KVNamespace;
+  NEDLASTINGER: KVNamespace;
 };
 
 const CORS = {
@@ -32,6 +35,71 @@ const CORS = {
  * hva brukeren så på, og leses med `npm run rapporter`.
  */
 const MAKS_TEKST = 4000;
+
+/**
+ * Loggfører at noen lastet ned et bilde.
+ *
+ * Nedlastingene går rett til Dropbox eller Immich, ikke gjennom denne
+ * tjeneren, så det er nettleseren som melder fra idet den starter. Det
+ * fanger den som trykker på knappen, ikke den som høyreklikker og lagrer —
+ * men det er meglerne vi vil vite om, og de trykker.
+ */
+async function taImotNedlasting(req: Request, env: Env): Promise<Response> {
+  let inn: Record<string, unknown>;
+  try {
+    inn = (await req.json()) as Record<string, unknown>;
+  } catch {
+    return new Response("Ugyldig JSON", { status: 400, headers: CORS });
+  }
+
+  const tekst = (v: unknown, maks: number) => String(v ?? "").slice(0, maks) || null;
+  const rad = {
+    tid: new Date().toISOString(),
+    kontor: tekst(inn.kontor, 80),
+    bruker: tekst(inn.bruker, 40),
+    bildeId: tekst(inn.bildeId, 80),
+    filnavn: tekst(inn.filnavn, 200),
+    sted: tekst(inn.sted, 200),
+    kategori: tekst(inn.kategori, 80),
+    adresse: tekst(inn.adresse, 200),
+  };
+
+  const nøkkel = `${rad.tid}-${crypto.randomUUID().slice(0, 8)}`;
+  await env.NEDLASTINGER.put(nøkkel, JSON.stringify(rad));
+
+  return new Response(JSON.stringify({ ok: true }), {
+    headers: { ...CORS, "content-type": "application/json" },
+  });
+}
+
+/**
+ * Hele loggen, til admin-siden.
+ *
+ * Dette er en annen dør enn resten: den vanlige koden holder ikke, ellers
+ * kunne hvilken som helst megler lese hva de andre laster ned.
+ */
+async function lesNedlastinger(env: Env): Promise<Response> {
+  const rader: unknown[] = [];
+  let cursor: string | undefined;
+  // KV lister tusen om gangen; vi tar de nyeste 5000 og stopper der.
+  for (let side = 0; side < 5; side++) {
+    const liste = await env.NEDLASTINGER.list({ limit: 1000, cursor });
+    const verdier = await Promise.all(liste.keys.map((k) => env.NEDLASTINGER.get(k.name)));
+    for (const v of verdier) {
+      if (!v) continue;
+      try {
+        rader.push(JSON.parse(v));
+      } catch {
+        /* en ødelagt rad skal ikke velte resten */
+      }
+    }
+    if (liste.list_complete) break;
+    cursor = liste.cursor;
+  }
+  return new Response(JSON.stringify({ rader }), {
+    headers: { ...CORS, "content-type": "application/json" },
+  });
+}
 
 async function taImotRapport(req: Request, env: Env): Promise<Response> {
   if (req.headers.get("content-type")?.includes("application/json") !== true) {
@@ -76,6 +144,22 @@ export default {
     if (req.method === "OPTIONS") return new Response(null, { headers: CORS });
 
     const url = new URL(req.url);
+
+    if (url.pathname === "/nedlasting") {
+      if (req.method !== "POST") return new Response("Bruk POST", { status: 405, headers: CORS });
+      if (url.searchParams.get("t") !== env.KODE_SJEKKSUM) {
+        return new Response("Koden mangler eller er feil", { status: 403, headers: CORS });
+      }
+      return taImotNedlasting(req, env);
+    }
+
+    if (url.pathname === "/nedlastinger") {
+      const admin = (env.ADMIN_SJEKKSUM ?? "").trim();
+      if (!admin || url.searchParams.get("t") !== admin) {
+        return new Response("Bare for admin", { status: 403, headers: CORS });
+      }
+      return lesNedlastinger(env);
+    }
 
     if (url.pathname === "/rapport") {
       if (req.method !== "POST") {

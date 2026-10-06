@@ -13,3 +13,8 @@ IMMICH_URL = "https://immich.vikran.net"
 [[kv_namespaces]]
 binding = "RAPPORTER"
 id = "4247df8d89744c1ba7a43a60bcac708e"
+
+# Hvem som laster ned hvilke bilder. Leses av admin-siden i portalen.
+[[kv_namespaces]]
+binding = "NEDLASTINGER"
+id = "66fa31e6eedb4413a40d7dfc4cd2b9c7"

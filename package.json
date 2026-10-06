@@ -27,7 +27,8 @@
     "rett-posisjon": "tsx scripts/rett-posisjon.ts",
     "rapporter": "tsx scripts/rapporter.ts",
     "finn-bakgarder": "tsx scripts/finn-bakgarder.ts",
-    "bakgard-kandidater": "tsx scripts/bakgard-kandidater.ts"
+    "bakgard-kandidater": "tsx scripts/bakgard-kandidater.ts",
+    "admin-passord": "tsx scripts/admin-passord.ts"
   },
   "dependencies": {
     "dropbox": "^10.46.0",
