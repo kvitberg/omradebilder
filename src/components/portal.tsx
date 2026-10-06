@@ -1380,13 +1380,19 @@ function SeriesView({
 
 /** Ett bilde slik loggen og indeksen til sammen beskriver det. */
 type Nedlastet = {
-  bildeId: string;
+  /** Nøkkelen raden grupperes på: et sted, eller ett bilde. */
+  nøkkel: string;
   sted: string;
-  /** «bilde 3 av 11» — plassen i serien fra samme sted. */
+  /** «bilde 3 av 11» — bare når raden er ett bilde. */
   nr: number;
   av: number;
   filnavn: string | null;
   kategori: string | null;
+  fotograf: string | null;
+  /** Nedlastinger i de tre vinduene, og i alt. */
+  døgn: number;
+  uke: number;
+  måned: number;
   antall: number;
   sist: string;
 };
@@ -1428,6 +1434,8 @@ function Nedlastingslogg({ onLukk }: { onLukk: () => void }) {
   const [hentet, setHentet] = useState(0);
   const [kontor, setKontor] = useState<string | null>(null);
   const [søk, setSøk] = useState("");
+  /** Én rad per sted, eller én per bilde. */
+  const [nivå, setNivå] = useState<"sted" | "bilde">("sted");
 
   useEffect(() => {
     let avbrutt = false;
@@ -1469,45 +1477,69 @@ function Nedlastingslogg({ onLukk }: { onLukk: () => void }) {
     return [...t.entries()].sort((a, b) => b[1] - a[1]);
   }, [rader]);
 
-  /** Ett innslag per bilde, med antall nedlastinger. */
-  const perBilde = useMemo<Nedlastet[]>(() => {
+  /**
+   * Én rad per sted, eller per bilde, med de tre tidsvinduene.
+   *
+   * Vinduene regnes fra tidspunktet loggen ble hentet, ikke fra «nå», så
+   * tallene står stille mens siden er åpen.
+   */
+  const samlet = useMemo<Nedlastet[]>(() => {
+    const dag = hentet - 24 * 3600 * 1000;
+    const uke = hentet - 7 * 24 * 3600 * 1000;
+    const mnd = hentet - 30 * 24 * 3600 * 1000;
     const t = new Map<string, Nedlastet>();
+
     for (const r of valgte) {
-      if (!r.bildeId) continue;
-      const b = bilder?.get(r.bildeId);
-      const plass = serier.get(r.bildeId);
+      const b = r.bildeId ? bilder?.get(r.bildeId) : undefined;
+      const sted = b?.placeName ?? r.sted ?? "Ukjent sted";
+      const plass = r.bildeId ? serier.get(r.bildeId) : undefined;
+      const nøkkel = nivå === "sted" ? sted : (r.bildeId ?? sted);
       const rad =
-        t.get(r.bildeId) ??
+        t.get(nøkkel) ??
         ({
-          bildeId: r.bildeId,
-          sted: b?.placeName ?? r.sted ?? "Ukjent sted",
-          nr: plass?.nr ?? 0,
-          av: plass?.av ?? 0,
-          filnavn: b?.filnavn ?? r.filnavn ?? null,
+          nøkkel,
+          sted,
+          nr: nivå === "bilde" ? plass?.nr ?? 0 : 0,
+          av: nivå === "bilde" ? plass?.av ?? 0 : 0,
+          filnavn: nivå === "bilde" ? b?.filnavn ?? r.filnavn ?? null : null,
           kategori: b?.category ?? r.kategori ?? null,
+          fotograf: (b as { fotograf?: string } | undefined)?.fotograf ?? null,
+          døgn: 0,
+          uke: 0,
+          måned: 0,
           antall: 0,
           sist: r.tid,
         } satisfies Nedlastet);
+      const t0 = Date.parse(r.tid);
       rad.antall++;
+      if (hentet && t0 >= mnd) rad.måned++;
+      if (hentet && t0 >= uke) rad.uke++;
+      if (hentet && t0 >= dag) rad.døgn++;
       if (r.tid > rad.sist) rad.sist = r.tid;
-      t.set(r.bildeId, rad);
+      t.set(nøkkel, rad);
     }
+
     const q = søk.trim().toLowerCase();
     return [...t.values()]
       .filter((x) =>
-        !q ? true : [x.sted, x.filnavn].some((f) => (f ?? "").toLowerCase().includes(q))
+        !q
+          ? true
+          : [x.sted, x.filnavn, x.fotograf].some((f) => (f ?? "").toLowerCase().includes(q))
       )
-      .sort((a, b) => b.antall - a.antall || b.sist.localeCompare(a.sist));
-  }, [valgte, bilder, serier, søk]);
+      .sort((a, b) => b.måned - a.måned || b.antall - a.antall || b.sist.localeCompare(a.sist));
+  }, [valgte, bilder, serier, søk, nivå, hentet]);
+
+  /** Fotografkolonnen vises først når noen bilder faktisk har en. */
+  const harFotograf = useMemo(() => samlet.some((x) => x.fotograf), [samlet]);
 
   const perKategori = useMemo(() => {
     const t = new Map<string, number>();
-    for (const x of perBilde) {
+    for (const x of samlet) {
       const k = x.kategori ? getCategory(x.kategori).label : "Ukjent";
       t.set(k, (t.get(k) ?? 0) + x.antall);
     }
     return [...t.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8);
-  }, [perBilde]);
+  }, [samlet]);
 
   const perMåned = useMemo(() => {
     const t = new Map<string, number>();
@@ -1525,7 +1557,6 @@ function Nedlastingslogg({ onLukk }: { onLukk: () => void }) {
     const [år, m] = s.split("-");
     return `${["jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "des"][Number(m) - 1]} ${år.slice(2)}`;
   };
-  const dato = (iso: string) => new Date(iso).toLocaleDateString("no-NO");
 
   return (
     <section className="flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14">
@@ -1553,7 +1584,7 @@ function Nedlastingslogg({ onLukk }: { onLukk: () => void }) {
           <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-5 border-y border-rule py-5">
             <MetaCell label="Nedlastinger" value={String(valgte.length)} />
             <MetaCell label="Siste sju dager" value={String(sisteUke)} />
-            <MetaCell label="Ulike bilder" value={String(perBilde.length)} />
+            <MetaCell label={nivå === "sted" ? "Ulike steder" : "Ulike bilder"} value={String(samlet.length)} />
             <MetaCell label="Kontorer" value={String(kontorer.length)} />
           </dl>
 
@@ -1613,38 +1644,63 @@ function Nedlastingslogg({ onLukk }: { onLukk: () => void }) {
               </div>
 
               <section className="dash-kort mt-6">
-                <h2>Mest nedlastede bilder</h2>
+                <div className="flex flex-wrap items-baseline justify-between gap-4">
+                  <h2>Mest nedlastet</h2>
+                  <span className="flex items-baseline gap-4">
+                    {(["sted", "bilde"] as const).map((v) => (
+                      <button
+                        key={v}
+                        type="button"
+                        onClick={() => setNivå(v)}
+                        className={`text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                          nivå === v
+                            ? "text-ink underline underline-offset-[6px]"
+                            : "text-ink-soft hover:text-ink"
+                        }`}
+                      >
+                        {v === "sted" ? "Per sted" : "Per bilde"}
+                      </button>
+                    ))}
+                  </span>
+                </div>
                 <div className="logg-tabell mt-4">
                   <table>
                     <thead>
                       <tr>
-                        <th>Bilde</th>
+                        <th>{nivå === "sted" ? "Sted" : "Bilde"}</th>
+                        {harFotograf && <th>Fotograf</th>}
                         <th>Kategori</th>
-                        <th>Fil</th>
-                        <th className="dash-h">Ganger</th>
-                        <th>Sist</th>
+                        <th className="dash-h">Siste døgn</th>
+                        <th className="dash-h">Siste uke</th>
+                        <th className="dash-h">Siste måned</th>
+                        <th className="dash-h">I alt</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {perBilde.slice(0, 200).map((x) => (
-                        <tr key={x.bildeId}>
+                      {samlet.slice(0, 200).map((x) => (
+                        <tr key={x.nøkkel}>
                           <td>
                             <span className="text-ink">{x.sted}</span>
                             {x.av > 1 && (
                               <span className="text-ink-soft"> · bilde {x.nr} av {x.av}</span>
                             )}
+                            {x.filnavn && (
+                              <span className="logg-fil"> {x.filnavn}</span>
+                            )}
                           </td>
+                          {harFotograf && <td>{x.fotograf ?? "—"}</td>}
                           <td>{x.kategori ? getCategory(x.kategori).label : "—"}</td>
-                          <td className="logg-fil">{x.filnavn ?? "—"}</td>
+                          <td className="dash-h dash-antall">{x.døgn || "—"}</td>
+                          <td className="dash-h dash-antall">{x.uke || "—"}</td>
+                          <td className="dash-h dash-antall">{x.måned || "—"}</td>
                           <td className="dash-h dash-antall">{x.antall}</td>
-                          <td className="logg-tid">{dato(x.sist)}</td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
-                  {perBilde.length > 200 && (
+                  {samlet.length > 200 && (
                     <p className="mt-4 text-[13px] text-ink-soft">
-                      Viser de 200 mest nedlastede av {perBilde.length}. Søk for å snevre inn.
+                      Viser de 200 mest nedlastede av {samlet.length}. Søk for å snevre inn.
                     </p>
                   )}
                 </div>
