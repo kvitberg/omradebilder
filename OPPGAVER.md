@@ -4,47 +4,39 @@ Ting vi vet om og ikke har tatt ennå. Nyeste øverst i hver bolk.
 
 ## Venter på en avgjørelse
 
-### Betaling til fotografer — to fundamenter mangler
+### Betaling til fotografer: en pott delt etter andel
 
-Baktanken med admin-siden er å betale fotografene for bildene som lastes
-ned. Det stiller to krav dagens data ikke tåler.
+Modellen er som Spotify. En sum kommer inn i måneden, og hver fotograf får
+den andelen av potten som tilsvarer andelen av nedlastingene.
 
-**Attribusjonen må være eksakt, ikke gjettet.** Fotografen står ingen
-steder: alle Immich-bildene har samme eier, ingen har artist- eller
-copyright-felt, og Dropbox-bildene ligger under `/Felles/Områdebilder JPG`
-uten navn i stien. Kameramodellen er hentet inn (`npm run kamera`) og
-dekker 1712 av 3433 bilder — men den er en gjetning: deler to fotografer et
-hus, eller bruker én to, blir pengene feil. Til nysgjerrighet holder det,
-til utbetaling gjør det ikke.
+Det er en god modell for oss på ett punkt: **bare forholdstallene betyr
+noe**. Mister vi en nedlasting her og der fordi nettleseren ikke rakk å
+melde fra, rammer det alle likt, og andelene står seg. Vi trenger ikke
+telle riktig i absolutt forstand.
 
-De 1721 øvrige har ingen EXIF i denne veien og får ingen fotograf uansett.
+Men den gjør én ting mye verre. Når potten er fast, **tar en oppdiktet
+nedlasting penger fra de andre fotografene**. Og terskelen er lav: koden
+som kreves for å skrive til loggen ligger i JavaScript-en hver innlogget
+megler laster ned. Testet 6. oktober — en rad ble lagt inn fra kommando-
+linjen, uten innlogging, med den koden. Som hygiene var det til å leve med.
+Som regnskap er det ikke det.
 
-Veien videre er å tagge fotografen i Immich, slik kategoriene allerede
-tagges. Det er manuelt, men presist, og taggen følger bildet.
+Løsningen er den samme som før: **tell der fila serveres, ikke der knappen
+trykkes.** Mellomtjeneren gjør det riktig fordi fila går gjennom den.
+Dropbox-lenkene går utenom og kan ikke telles i det hele tatt.
 
-**Tellingen må skje hos oss, ikke i nettleseren.** I dag går 1719
-nedlastinger rett til Dropbox og 1714 rett til Immich — ingen innom vår
-egen tjener. Loggen er nettleserens egen melding, sendt uten å vente:
+**To regler må settes før dette kan regnes ut:**
 
-- den kan gå tapt (nettverk, lukket fane) og teller for lite
-- den kan sendes på nytt av hvem som helst med meglerkoden og teller for mye
-- den sier at nedlastingen *startet*, ikke at fila kom fram
+1. Samme bilde, samme kontor, samme måned — én eller mange? Å telle unike
+   per måned er lettere å forsvare overfor fotografene og mye vanskeligere
+   å blåse opp. Et bilde lastet ned på nytt er som regel en tapt fil, ikke
+   en ny bruk.
+2. De 1721 bildene uten fotograf: skal de spise av potten? Enten holdes de
+   utenfor nevneren, eller så tilfaller andelen Fotostallen. Ellers lekker
+   potten.
 
-Det holder til å se hva meglerne bruker. Det holder ikke som grunnlag for
-en faktura.
-
-Mellomtjeneren i `worker/` teller riktig fordi fila går gjennom den — den
-er ferdig bygget og står avslått (`ORIGINAL_PROXY` er tom). Slås den på,
-blir Immich-halvparten talt hos oss. Dropbox-lenkene går utenom uansett.
-
-**Det peker på Dropbox-spørsmålet.** Skal fotografer betales per
-nedlasting, er det et problem at halve arkivet ligger utenfor den tellende
-veien og uten attribusjon. Flyttes alt til Immich, løses begge deler på én
-gang: taggen gir fotografen, mellomtjeneren gir tellingen.
-
-**Uavklart uansett vei:** teller tre nedlastinger av samme bilde som tre,
-eller som ett bruk? Og er enheten per nedlasting, per unike bilde i et
-oppdrag, eller en andel?
+**Og én ting til:** en fotograf vil spørre hvorfor andelen ble 4 %. Loggen
+må kunne hentes ut per måned, så svaret kan etterprøves.
 
 ### Gårdsrom som er for grove
 Matrikkelen deler ikke alltid opp fellesgrunn i enkeltgårdsrom. Der den bare
