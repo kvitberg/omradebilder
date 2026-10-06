@@ -4,36 +4,47 @@ Ting vi vet om og ikke har tatt ennå. Nyeste øverst i hver bolk.
 
 ## Venter på en avgjørelse
 
-### Hvem har tatt bildet
-Fotografen står ingen steder i dataene. Alle Immich-bildene har samme eier
-(delingskontoen), og ingen har artist- eller copyright-felt. Dropbox-bildene
-i portalen ligger alle under `/Felles/Områdebilder JPG`, uten navn i stien.
+### Betaling til fotografer — to fundamenter mangler
 
-Kameramodellen er det eneste som skiller, og den er nå hentet inn i
-`data/index.json` for alle Immich-bildene (`npm run kamera`):
+Baktanken med admin-siden er å betale fotografene for bildene som lastes
+ned. Det stiller to krav dagens data ikke tåler.
 
-| Modell | Bilder |
-|---|---|
-| Canon EOS R5 | 937 |
-| Canon EOS R5m2 | 368 |
-| Leica Q2 | 367 |
-| Leica Q3 43 | 341 |
-| DJI FC9313 | 40 |
-| Canon EOS R | 29 |
-| DJI FC8482 | 10 |
-| Canon EOS 6D | 7 |
-| Canon EOS R6m2 | 6 |
-| DJI FC220 | 1 |
+**Attribusjonen må være eksakt, ikke gjettet.** Fotografen står ingen
+steder: alle Immich-bildene har samme eier, ingen har artist- eller
+copyright-felt, og Dropbox-bildene ligger under `/Felles/Områdebilder JPG`
+uten navn i stien. Kameramodellen er hentet inn (`npm run kamera`) og
+dekker 1712 av 3433 bilder — men den er en gjetning: deler to fotografer et
+hus, eller bruker én to, blir pengene feil. Til nysgjerrighet holder det,
+til utbetaling gjør det ikke.
 
-`data/fotografer.json` er klar til å oversette modell til navn, og
-prepare-static publiserer `fotograf` så snart den er fylt ut. Kameraet
-sendes ikke ut til nettleseren før det skjer — det er 1712 strenger uten
-nytte. De 1719 Dropbox-bildene har ingen EXIF i denne veien og får ingen
-fotograf uansett.
+De 1721 øvrige har ingen EXIF i denne veien og får ingen fotograf uansett.
 
-Tre veier: fyll ut modell-til-navn der det er entydig, tagg fotografen i
-Immich slik kategoriene allerede tagges, eller la det ligge.
+Veien videre er å tagge fotografen i Immich, slik kategoriene allerede
+tagges. Det er manuelt, men presist, og taggen følger bildet.
 
+**Tellingen må skje hos oss, ikke i nettleseren.** I dag går 1719
+nedlastinger rett til Dropbox og 1714 rett til Immich — ingen innom vår
+egen tjener. Loggen er nettleserens egen melding, sendt uten å vente:
+
+- den kan gå tapt (nettverk, lukket fane) og teller for lite
+- den kan sendes på nytt av hvem som helst med meglerkoden og teller for mye
+- den sier at nedlastingen *startet*, ikke at fila kom fram
+
+Det holder til å se hva meglerne bruker. Det holder ikke som grunnlag for
+en faktura.
+
+Mellomtjeneren i `worker/` teller riktig fordi fila går gjennom den — den
+er ferdig bygget og står avslått (`ORIGINAL_PROXY` er tom). Slås den på,
+blir Immich-halvparten talt hos oss. Dropbox-lenkene går utenom uansett.
+
+**Det peker på Dropbox-spørsmålet.** Skal fotografer betales per
+nedlasting, er det et problem at halve arkivet ligger utenfor den tellende
+veien og uten attribusjon. Flyttes alt til Immich, løses begge deler på én
+gang: taggen gir fotografen, mellomtjeneren gir tellingen.
+
+**Uavklart uansett vei:** teller tre nedlastinger av samme bilde som tre,
+eller som ett bruk? Og er enheten per nedlasting, per unike bilde i et
+oppdrag, eller en andel?
 
 ### Gårdsrom som er for grove
 Matrikkelen deler ikke alltid opp fellesgrunn i enkeltgårdsrom. Der den bare
