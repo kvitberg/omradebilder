@@ -32,7 +32,7 @@ export const PASSORD_SJEKKSUM = "2d10da64f48f3f13143d2ca467d110ce2b9ee730d183589
  * sjekksummen hit og legger den samme inn hos mellomtjeneren. Står den tom,
  * finnes ikke admin-brukeren, og loggen er utilgjengelig for alle.
  */
-export const ADMIN_SJEKKSUM = "";
+export const ADMIN_SJEKKSUM = "9fca429aefd9c3a81991f74f24361957f69b99dcfc09ee0e346c7675a3ccc081";
 
 export const BRUKERE: Bruker[] = [
   { id: "renomme", brukernavn: "PMR", navn: "PrivatMegleren Renommé", sjekksum: PASSORD_SJEKKSUM },
