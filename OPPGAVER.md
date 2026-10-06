@@ -4,6 +4,37 @@ Ting vi vet om og ikke har tatt ennå. Nyeste øverst i hver bolk.
 
 ## Venter på en avgjørelse
 
+### Hvem har tatt bildet
+Fotografen står ingen steder i dataene. Alle Immich-bildene har samme eier
+(delingskontoen), og ingen har artist- eller copyright-felt. Dropbox-bildene
+i portalen ligger alle under `/Felles/Områdebilder JPG`, uten navn i stien.
+
+Kameramodellen er det eneste som skiller, og den er nå hentet inn i
+`data/index.json` for alle Immich-bildene (`npm run kamera`):
+
+| Modell | Bilder |
+|---|---|
+| Canon EOS R5 | 937 |
+| Canon EOS R5m2 | 368 |
+| Leica Q2 | 367 |
+| Leica Q3 43 | 341 |
+| DJI FC9313 | 40 |
+| Canon EOS R | 29 |
+| DJI FC8482 | 10 |
+| Canon EOS 6D | 7 |
+| Canon EOS R6m2 | 6 |
+| DJI FC220 | 1 |
+
+`data/fotografer.json` er klar til å oversette modell til navn, og
+prepare-static publiserer `fotograf` så snart den er fylt ut. Kameraet
+sendes ikke ut til nettleseren før det skjer — det er 1712 strenger uten
+nytte. De 1719 Dropbox-bildene har ingen EXIF i denne veien og får ingen
+fotograf uansett.
+
+Tre veier: fyll ut modell-til-navn der det er entydig, tagg fotografen i
+Immich slik kategoriene allerede tagges, eller la det ligge.
+
+
 ### Gårdsrom som er for grove
 Matrikkelen deler ikke alltid opp fellesgrunn i enkeltgårdsrom. Der den bare
 har det grove laget, binder vi bakgårdsbilder altfor bredt:

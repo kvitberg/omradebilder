@@ -34,6 +34,14 @@ export type PhotoEntry = {
   original?: string | null;
   /** Filnavnet nedlastingen får, f.eks. «1H0A1798.jpg». */
   filnavn?: string | null;
+  /**
+   * Kameraet bildet er tatt med, «Canon Canon EOS R5m2».
+   *
+   * Fotografen står ingen steder i bildene: alle Immich-bildene har samme
+   * eier, og ingen har artist- eller copyright-felt. Kameraet er det
+   * nærmeste vi kommer, og oversettes til et navn i data/fotografer.json.
+   */
+  kamera?: string | null;
 };
 
 export type SearchIndex = {

@@ -28,6 +28,9 @@ export type SearchPhoto = {
   filnavn: string | null;
   /** Kvartalet bildet er bundet til, til byggelaget på kartet. */
   bygardId: string | null;
+  /** Kameraet, og fotografen det er oversatt til. Begge kan mangle. */
+  kamera?: string | null;
+  fotograf?: string | null;
 };
 
 export type Group = { category: Category; photos: SearchPhoto[] };
@@ -253,6 +256,18 @@ let byggCache: Record<string, Kvartal> | null | undefined;
  * Omrisset av byggene i kvartalene som har bilder, fra OpenStreetMap.
  * Kartet tegner dem som et lag over adressen man har søkt opp.
  */
+/**
+ * Hele bildeindeksen, til admin-siden.
+ *
+ * Nedlastingsloggen kjenner bare bilde-id-en; sted, kamera og fotograf
+ * ligger her. Indeksen er allerede hentet av søket, så dette koster
+ * ingenting ekstra.
+ */
+export async function alleBilder(): Promise<PhotoEntry[]> {
+  const index = await loadIndex();
+  return index.photos;
+}
+
 export async function loadBygg(): Promise<Record<string, Kvartal> | null> {
   if (byggCache !== undefined) return byggCache;
   try {

@@ -538,3 +538,73 @@ body {
   color: var(--ink-soft);
   overflow-wrap: anywhere;
 }
+
+/* ------------------------------------------------------------ Dashbordet */
+
+/*
+ * Admin-siden er et verktøy, ikke et oppslag: kortene skal skannes, ikke
+ * leses. Tallene er tabulære, søylene er liggende så lange navn får plass,
+ * og kortene har bare en hårfin ramme — ingen skygger.
+ */
+.dash-rutenett {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+}
+.dash-kort {
+  min-width: 0;
+  padding: 1.1rem 1.25rem 1.25rem;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+}
+.dash-kort h2 {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.dash-soyler {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.dash-soyler li {
+  display: grid;
+  grid-template-columns: minmax(0, 7.5rem) 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 12px;
+}
+.dash-soyle-navn {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink-soft);
+}
+.dash-soyle-spor {
+  height: 7px;
+  background: var(--rule);
+}
+.dash-soyle-fyll {
+  display: block;
+  height: 100%;
+  background: var(--ink);
+  min-width: 2px;
+}
+.dash-soyle-tall {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.dash-h {
+  text-align: right;
+}
+.dash-antall {
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
+  color: var(--ink);
+}
