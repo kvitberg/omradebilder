@@ -1561,7 +1561,8 @@ function Nedlastingslogg({ onLukk }: { onLukk: () => void }) {
   return (
     <section className="flex min-h-screen flex-col px-10 py-12 sm:px-16 sm:py-14">
       <header className="flex items-baseline justify-between gap-4 text-[10px] uppercase tracking-[0.28em] text-ink-soft">
-        <button type="button" onClick={onLukk} className="home-link">
+        {/* Tittelen viker først: «Nedlastinger» sier hvor man er. */}
+        <button type="button" onClick={onLukk} className="home-link min-w-0 truncate">
           Områdebilder
         </button>
         <span className="shrink-0 text-ink">Nedlastinger</span>
@@ -1581,7 +1582,7 @@ function Nedlastingslogg({ onLukk }: { onLukk: () => void }) {
 
       {rader && (
         <>
-          <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-5 border-y border-rule py-5">
+          <dl className="dash-tall mt-8 flex flex-wrap gap-x-10 gap-y-5">
             <MetaCell label="Nedlastinger" value={String(valgte.length)} />
             <MetaCell label="Siste sju dager" value={String(sisteUke)} />
             <MetaCell label={nivå === "sted" ? "Ulike steder" : "Ulike bilder"} value={String(samlet.length)} />

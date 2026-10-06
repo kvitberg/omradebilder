@@ -28,14 +28,19 @@
  * før — rammefargen og et anstrøk av den dempede blekkfargen — og laget
  * står fast når man blar, så lyset ikke hopper fra oppslag til oppslag.
  */
+/*
+ * Bakgrunnen er papiret med kategorifargene svakt under: mose, oker og
+ * skiferblå, de samme som prikkene på kartet. Grå på grå ble for stille —
+ * dette gir dybde uten å trekke oppmerksomhet fra fotografiene, og det er
+ * flaten glasset på admin-siden ligger på.
+ */
 body {
   background:
-    radial-gradient(58% 52% at 6% 4%, rgb(107 104 98 / 0.12) 0%, rgb(242 240 236 / 0) 72%),
-    radial-gradient(65% 58% at 98% 8%, rgb(201 197 189 / 0.45) 0%, rgb(242 240 236 / 0) 70%),
-    radial-gradient(60% 50% at 92% 98%, rgb(107 104 98 / 0.13) 0%, rgb(242 240 236 / 0) 72%),
-    radial-gradient(62% 55% at 2% 96%, rgb(201 197 189 / 0.4) 0%, rgb(242 240 236 / 0) 70%),
-    radial-gradient(75% 60% at 48% 42%, rgb(255 254 252 / 0.6) 0%, rgb(242 240 236 / 0) 72%),
-    var(--paper);
+    radial-gradient(85% 65% at 10% 16%, rgb(74 124 78 / 0.26) 0%, transparent 64%),
+    radial-gradient(70% 60% at 88% 12%, rgb(179 137 47 / 0.24) 0%, transparent 66%),
+    radial-gradient(80% 70% at 74% 92%, rgb(47 93 140 / 0.22) 0%, transparent 68%),
+    radial-gradient(70% 55% at 20% 88%, rgb(138 79 125 / 0.14) 0%, transparent 70%),
+    linear-gradient(160deg, #f4f2ee 0%, #eceae4 60%, #e4e1da 100%);
   background-attachment: fixed;
   color: var(--ink);
   font-family: var(--font-archivo), Helvetica, Arial, sans-serif;
@@ -491,9 +496,12 @@ body {
 .logg-sok {
   flex: 1 1 14rem;
   min-width: 0;
-  padding: 0.45rem 0.6rem;
-  border: 1px solid var(--rule);
-  background: var(--paper);
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgb(255 255 255 / 0.8);
+  background: rgb(255 255 255 / 0.5);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   font: inherit;
   font-size: 13px;
   color: var(--ink);
@@ -551,11 +559,29 @@ body {
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
 }
-.dash-kort {
+/*
+ * Kortene på admin-siden er frostet glass over bakgrunnen. Det er den ene
+ * siden som tåler det: et verktøy med tall og tabeller, ikke et oppslag der
+ * fotografiene skal ha roen.
+ */
+.dash-kort,
+.dash-tall {
   min-width: 0;
+  border-radius: 18px;
+  border: 1px solid rgb(255 255 255 / 0.8);
+  background: rgb(255 255 255 / 0.52);
+  /* Prefiksen først: byggeverktøyet slår de to sammen og beholder den
+     siste, og med standardlinjen først ble bare -webkit- igjen — den
+     støtter ikke alle nettlesere, så glasset ble aldri uskarpt. */
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  backdrop-filter: blur(18px) saturate(1.1);
+  box-shadow: 0 14px 38px rgb(90 86 78 / 0.14);
+}
+.dash-kort {
   padding: 1.1rem 1.25rem 1.25rem;
-  border: 1px solid var(--rule);
-  background: var(--paper-deep);
+}
+.dash-tall {
+  padding: 1.15rem 1.35rem;
 }
 .dash-kort h2 {
   margin: 0;
@@ -588,11 +614,13 @@ body {
 }
 .dash-soyle-spor {
   height: 7px;
-  background: var(--rule);
+  border-radius: 4px;
+  background: rgb(18 17 15 / 0.1);
 }
 .dash-soyle-fyll {
   display: block;
   height: 100%;
+  border-radius: 4px;
   background: var(--ink);
   min-width: 2px;
 }
