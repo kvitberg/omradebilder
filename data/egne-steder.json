@@ -1,0 +1,3 @@
+{
+  "_": "Steder OpenStreetMap ikke har som flate, eller har feil. Punkt og radius i meter; et bilde innenfor radien får navnet. Disse går foran alt annet. Kategori må være en id fra src/lib/categories.ts — butikk, park, kafe, restaurant, kultur, aktivitet, skole, natur, nabolag."
+}

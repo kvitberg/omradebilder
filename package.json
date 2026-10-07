@@ -29,7 +29,8 @@
     "finn-bakgarder": "tsx scripts/finn-bakgarder.ts",
     "bakgard-kandidater": "tsx scripts/bakgard-kandidater.ts",
     "admin-passord": "tsx scripts/admin-passord.ts",
-    "kamera": "tsx scripts/hent-kamera.ts"
+    "kamera": "tsx scripts/hent-kamera.ts",
+    "hent-steder": "python3 scripts/hent-steder.py"
   },
   "dependencies": {
     "dropbox": "^10.46.0",

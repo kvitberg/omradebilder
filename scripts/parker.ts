@@ -4,7 +4,7 @@ config({ path: ".env.local" });
 import fs from "node:fs/promises";
 import path from "node:path";
 import { FELLESAREAL_KATEGORIER } from "../src/lib/categories";
-import { parkVedPunkt } from "../src/lib/parker";
+import { stedVedPunkt } from "../src/lib/parker";
 import type { SearchIndex } from "../src/lib/index-store";
 
 /**
@@ -34,12 +34,12 @@ async function main() {
   console.log(`${kandidater.length} bilder har en adresse som navn.`);
 
   // Bildeserier deler punkt; ett oppslag per punkt.
-  const svar = new Map<string, ReturnType<typeof parkVedPunkt>>();
+  const svar = new Map<string, ReturnType<typeof stedVedPunkt>>();
   let endret = 0;
   for (const [i, p] of kandidater.entries()) {
     const key = `${p.lat!.toFixed(4)},${p.lng!.toFixed(4)}`;
     if (!svar.has(key)) {
-      svar.set(key, parkVedPunkt(p.lat!, p.lng!));
+      svar.set(key, stedVedPunkt(p.lat!, p.lng!));
     }
     const park = svar.get(key);
     if (park) {

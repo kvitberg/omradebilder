@@ -6,7 +6,7 @@ import path from "node:path";
 import sharp from "sharp";
 import { categoryFromTags, detectCategory } from "../src/lib/categories";
 import { lookupPoi, type Poi } from "../src/lib/poi";
-import { parkVedPunkt } from "../src/lib/parker";
+import { stedVedPunkt } from "../src/lib/parker";
 import type { PhotoEntry, SearchIndex } from "../src/lib/index-store";
 import { lagThumbnavn } from "../src/lib/thumbs";
 
@@ -233,7 +233,7 @@ async function main() {
         let placeName = description ?? poi?.name ?? null;
         // Står fotografen midt i en park, er det parken som er stedet —
         // ikke nærmeste adresse, som ville bundet bildet til en eiendom.
-        const park = !placeName && hasGps ? parkVedPunkt(lat!, lng!) : null;
+        const park = !placeName && hasGps ? stedVedPunkt(lat!, lng!) : null;
         if (park) placeName = park.name;
         if (!placeName && hasGps) {
           placeName = await nearestAddress(lat!, lng!);
