@@ -1436,14 +1436,20 @@ function Nedlastingslogg({ onLukk }: { onLukk: () => void }) {
   const [søk, setSøk] = useState("");
   /** Én rad per sted, eller én per bilde. */
   const [nivå, setNivå] = useState<"sted" | "bilde">("sted");
+  /**
+   * Fotostallens egne nedlastinger.
+   *
+   * De loggføres, så man kan se at loggen virker når man tester selv, men
+   * holdes utenfor tallene: de er gjennomgang, ikke bruk, og potten skal
+   * etter hvert deles ut i penger.
+   */
+  const [visEgne, setVisEgne] = useState(false);
 
   useEffect(() => {
     let avbrutt = false;
     Promise.all([hentNedlastinger(), alleBilder()])
-      .then(([rå, alle]) => {
+      .then(([logg, alle]) => {
         if (avbrutt) return;
-        // Rader fra før admin ble holdt utenfor loggingen.
-        const logg = rå.filter((r) => r.bruker !== ADMIN_BRUKER);
         // Plassen i serien: bildene fra samme sted, i indeksens rekkefølge.
         const perSted = new Map<string, string[]>();
         for (const b of alle) {
@@ -1469,15 +1475,28 @@ function Nedlastingslogg({ onLukk }: { onLukk: () => void }) {
   }, []);
 
   const valgte = useMemo(
-    () => (rader ?? []).filter((r) => !kontor || (r.kontor ?? "Ukjent") === kontor),
-    [rader, kontor]
+    () =>
+      (rader ?? []).filter(
+        (r) =>
+          (visEgne || r.bruker !== ADMIN_BRUKER) && (!kontor || (r.kontor ?? "Ukjent") === kontor)
+      ),
+    [rader, kontor, visEgne]
+  );
+
+  /** Hvor mange egne rader som er skjult akkurat nå. */
+  const antallEgne = useMemo(
+    () => (rader ?? []).filter((r) => r.bruker === ADMIN_BRUKER).length,
+    [rader]
   );
 
   const kontorer = useMemo(() => {
     const t = new Map<string, number>();
-    for (const r of rader ?? []) t.set(r.kontor ?? "Ukjent", (t.get(r.kontor ?? "Ukjent") ?? 0) + 1);
+    for (const r of rader ?? []) {
+      if (!visEgne && r.bruker === ADMIN_BRUKER) continue;
+      t.set(r.kontor ?? "Ukjent", (t.get(r.kontor ?? "Ukjent") ?? 0) + 1);
+    }
     return [...t.entries()].sort((a, b) => b[1] - a[1]);
-  }, [rader]);
+  }, [rader, visEgne]);
 
   /**
    * Én rad per sted, eller per bilde, med de tre tidsvinduene.
@@ -1613,6 +1632,19 @@ function Nedlastingslogg({ onLukk }: { onLukk: () => void }) {
                 {navn} ({n})
               </button>
             ))}
+            {antallEgne > 0 && (
+              <button
+                type="button"
+                onClick={() => setVisEgne((v) => !v)}
+                aria-pressed={visEgne}
+                title="Fotostallens egne nedlastinger holdes utenfor tallene"
+                className={`text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                  visEgne ? "text-ink underline underline-offset-[6px]" : "text-ink-soft hover:text-ink"
+                }`}
+              >
+                Egne ({antallEgne})
+              </button>
+            )}
             <input
               type="search"
               value={søk}

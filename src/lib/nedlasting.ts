@@ -1,4 +1,4 @@
-import { ADMIN_SJEKKSUM, PASSORD_SJEKKSUM, erAdmin } from "./kode";
+import { ADMIN_SJEKKSUM, PASSORD_SJEKKSUM } from "./kode";
 
 /**
  * Nedlastingsloggen.
@@ -28,9 +28,9 @@ export type Nedlasting = {
 export const ADMIN_BRUKER = "ADMIN";
 
 export function loggNedlasting(rad: Omit<Nedlasting, "tid">): void {
-  // Fotostallens egne gjennomganger er ikke bruk. De ville ligget i samme
-  // pott som meglernes, og potten skal etter hvert deles ut i penger.
-  if (erAdmin()) return;
+  // Fotostallens egne runder loggføres også — ellers er det umulig å se at
+  // loggen virker når man tester selv. De holdes utenfor tallene i stedet,
+  // der de ville ligget i samme pott som meglernes.
   try {
     void fetch(`${TJENER}/nedlasting?t=${PASSORD_SJEKKSUM}`, {
       method: "POST",
