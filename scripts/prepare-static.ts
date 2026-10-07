@@ -443,12 +443,16 @@ async function main() {
     return null;
   }
 
+  /** Samlenavnet for bildene som ennå ligger i Dropbox. */
+  const DROPBOX_FOTOGRAF = "Dropbox-arkivet";
+
   /**
-   * Kameramodell → fotograf.
+   * Navnet fra Immich → navnet som skal vises.
    *
-   * Fotografen står ikke i bildene — alle har samme eier i Immich, og ingen
-   * har artist-felt — så kameraet er det nærmeste vi kommer. Dropbox-bildene
-   * har ingen EXIF i denne veien og blir stående uten.
+   * Fotografen er den som lastet opp bildet: fotografene deler sine egne
+   * album inn i hovedalbumet, så opplasteren er den som holdt kameraet.
+   * Denne fila er bare til omdøping — et tomt navn skjuler fotografen,
+   * som for testkontoen.
    */
   let fotografer: Record<string, string> = {};
   try {
@@ -636,11 +640,18 @@ async function main() {
     ...(p.bygardId ? { bygardId: p.bygardId } : {}),
     ...(p.adresser?.length ? { adresser: p.adresser } : {}),
     ...(p.original ? { original: utenNøkkel(p.original), filnavn: p.filnavn ?? null } : {}),
-    // Kameraet ligger i data/index.json, men sendes ikke ut: fotografen
-    // venter på en plan, og inntil da er det 1712 strenger hver megler
-    // laster ned uten å få noe igjen for det. Slipp dem løs her når
-    // data/fotografer.json er fylt ut.
-    ...(p.kamera && fotografer[p.kamera] ? { fotograf: fotografer[p.kamera] } : {}),
+    // Kameraet blir i data/index.json; det er fotografen som skal ut.
+    //
+    // Dropbox-bildene har ingen opplaster å slå opp — de ligger under
+    // /Felles uten navn i stien — og samles under ett navn i stedet for å
+    // stå tomme. Arkivet skal etter hvert bare være Immich, og da forsvinner
+    // den gruppa av seg selv.
+    ...(() => {
+      const rå = p.fotograf ?? (p.id.startsWith("immich:") ? null : DROPBOX_FOTOGRAF);
+      if (!rå) return {};
+      const vist = rå in fotografer ? fotografer[rå] : rå;
+      return vist ? { fotograf: vist } : {};
+    })(),
   }));
 
   await fs.writeFile(

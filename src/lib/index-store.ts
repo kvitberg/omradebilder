@@ -35,6 +35,14 @@ export type PhotoEntry = {
   /** Filnavnet nedlastingen får, f.eks. «1H0A1798.jpg». */
   filnavn?: string | null;
   /**
+   * Hvem som lastet opp bildet i Immich.
+   *
+   * Fotografene deler sine egne album inn i hovedalbumet, så opplasteren er
+   * fotografen. Navnet hentes fra albumets medlemsliste ved synkronisering.
+   * Dropbox-bildene har ingen slik kilde og står uten.
+   */
+  fotograf?: string | null;
+  /**
    * Kameraet bildet er tatt med, «Canon Canon EOS R5m2».
    *
    * Fotografen står ingen steder i bildene: alle Immich-bildene har samme

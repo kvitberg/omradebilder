@@ -35,6 +35,8 @@ type ImmichAsset = {
   fileCreatedAt: string;
   /** Tagger satt i Immich — den mest pålitelige kilden til kategori. */
   tags?: Array<{ name?: string; value?: string }>;
+  /** Hvem som lastet opp. Fotografene deler sine egne album inn i hovedalbumet. */
+  ownerId?: string;
   exifInfo?: {
     latitude?: number | null;
     longitude?: number | null;
@@ -55,11 +57,37 @@ function ekteBeskrivelse(tekst: string | null | undefined): string | null {
   return t && !PLASSHOLDERE.test(t) ? t : null;
 }
 
+/** Settes av listAssetIds, så hovedløpet vet hvilket album vi er i. */
+let albumIdFunnet: string | null = null;
+
 async function api<T>(pathname: string): Promise<T> {
   const sep = pathname.includes("?") ? "&" : "?";
   const res = await fetch(`${IMMICH_URL}/api${pathname}${sep}key=${SHARE_KEY}`);
   if (!res.ok) throw new Error(`${pathname}: HTTP ${res.status}`);
   return res.json() as Promise<T>;
+}
+
+/**
+ * Medlemmene i albumet: id → navn.
+ *
+ * Fotografen står ikke i selve bildet — ingen artist- eller copyright-felt
+ * — men Immich vet hvem som lastet det opp, og albumet kjenner navnene til
+ * alle som deler inn i det. Delingsnøkkelen får lese dem; ingen API-nøkkel
+ * trengs.
+ */
+async function hentEiere(albumId: string): Promise<Map<string, string>> {
+  const navn = new Map<string, string>();
+  try {
+    const album = await api<{
+      albumUsers?: Array<{ user?: { id?: string; name?: string } }>;
+    }>(`/albums/${albumId}`);
+    for (const m of album.albumUsers ?? []) {
+      if (m.user?.id && m.user.name) navn.set(m.user.id, m.user.name);
+    }
+  } catch {
+    // Uten navnelisten blir fotografen stående tom; verre ting finnes.
+  }
+  return navn;
 }
 
 async function listAssetIds(): Promise<string[]> {
@@ -73,6 +101,7 @@ async function listAssetIds(): Promise<string[]> {
   }
 
   const albumId = share.album.id;
+  albumIdFunnet = albumId;
   const buckets = await api<Array<{ timeBucket: string }>>(`/timeline/buckets?albumId=${albumId}`);
 
   const ids: string[] = [];
@@ -164,6 +193,8 @@ async function main() {
 
   console.log(`Henter album fra ${IMMICH_URL} ...`);
   const ids = await listAssetIds();
+  const eiere = albumIdFunnet ? await hentEiere(albumIdFunnet) : new Map<string, string>();
+  if (eiere.size) console.log(`${eiere.size} medlemmer i albumet: ${[...eiere.values()].join(", ")}`);
   // Immich-id-ene er uuid-er og kan ikke kollidere seg imellom, men navnet
   // skal utledes av samme funksjon som prepare-static leser med.
   const thumbFileName = lagThumbnavn(ids.map((id) => `immich:${id}`));
@@ -242,6 +273,9 @@ async function main() {
           thumb: `/thumbs/${thumbFileName(entryId)}`,
           original: `${IMMICH_URL}/api/assets/${asset.id}/original?key=${SHARE_KEY}`,
           filnavn: asset.originalFileName,
+          ...(asset.ownerId && eiere.get(asset.ownerId)
+            ? { fotograf: eiere.get(asset.ownerId) }
+            : {}),
         });
       } catch (err) {
         failed++;
