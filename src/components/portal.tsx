@@ -31,7 +31,7 @@ import {
   innloggetNavn,
   loggUt,
 } from "@/lib/kode";
-import { hentNedlastinger, type Nedlasting } from "@/lib/nedlasting";
+import { ADMIN_BRUKER, hentNedlastinger, type Nedlasting } from "@/lib/nedlasting";
 import AreaMap, {
   KATEGORI_FARGER,
   type Kvartal,
@@ -1440,8 +1440,10 @@ function Nedlastingslogg({ onLukk }: { onLukk: () => void }) {
   useEffect(() => {
     let avbrutt = false;
     Promise.all([hentNedlastinger(), alleBilder()])
-      .then(([logg, alle]) => {
+      .then(([rå, alle]) => {
         if (avbrutt) return;
+        // Rader fra før admin ble holdt utenfor loggingen.
+        const logg = rå.filter((r) => r.bruker !== ADMIN_BRUKER);
         // Plassen i serien: bildene fra samme sted, i indeksens rekkefølge.
         const perSted = new Map<string, string[]>();
         for (const b of alle) {
