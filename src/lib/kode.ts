@@ -1,7 +1,7 @@
 /**
  * Innloggingen til portalen.
  *
- * Fem meglerkontorer deler ett passord, og admin har sitt eget. Passordene
+ * Seks brukere deler ett passord, og admin har sitt eget. Passordene
  * sjekkes i nettleseren mot en sjekksum, så de står ikke i kildekoden — men
  * dette er en dør med lås, ikke en vegg: siden er statisk, og bilder og
  * data ligger på faste adresser for den som leter. Riktig passord huskes i
@@ -42,6 +42,7 @@ export const BRUKERE: Bruker[] = [
   // nedlastingsloggen, og et gjettet kontornavn der er verre enn et kort.
   { id: "jso", brukernavn: "JSO", navn: "JSO", sjekksum: PASSORD_SJEKKSUM },
   { id: "pmn", brukernavn: "PMN", navn: "PMN", sjekksum: PASSORD_SJEKKSUM },
+  { id: "kristine", brukernavn: "Kristine", navn: "Kristine", sjekksum: PASSORD_SJEKKSUM },
   ...(ADMIN_SJEKKSUM
     ? [
         {
