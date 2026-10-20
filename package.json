@@ -30,7 +30,8 @@
     "bakgard-kandidater": "tsx scripts/bakgard-kandidater.ts",
     "admin-passord": "tsx scripts/admin-passord.ts",
     "kamera": "tsx scripts/hent-kamera.ts",
-    "hent-steder": "python3 scripts/hent-steder.py"
+    "hent-steder": "python3 scripts/hent-steder.py",
+    "tagg-rapport": "tsx scripts/tagg-rapport.ts"
   },
   "dependencies": {
     "dropbox": "^10.46.0",
