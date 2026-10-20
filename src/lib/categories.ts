@@ -14,7 +14,12 @@ export type Category = {
  * Disse vises bare til adressene de er knyttet til, aldri til nabolaget
  * rundt. Derfor stilles det strengere krav til dem enn til de øvrige.
  */
-export const FELLESAREAL_KATEGORIER = new Set(["bakgard", "takterrasse", "fasade"]);
+export const FELLESAREAL_KATEGORIER = new Set([
+  "bakgard",
+  "takterrasse",
+  "fasade",
+  "parkering",
+]);
 
 /**
  * Fellesarealene som hører til én bygning, ikke til kvartalet. Et gårdsrom
@@ -41,6 +46,7 @@ export const REKKEFØLGE: string[] = [
   "bakgard",
   "takterrasse",
   "fasade",
+  "parkering",
   "nabolag",
   "kafe",
   "restaurant",
@@ -74,6 +80,13 @@ export const CATEGORIES: Category[] = [
     description:
       "Spisesteder i nabolaget — fasader, inngangspartier og uteserveringer slik de møter deg fra fortauet.",
     keywords: ["restaurant", "resturant", "spisested", "bistro"],
+  },
+  {
+    id: "parkering",
+    label: "Parkering",
+    description:
+      "Garasjen, plassene og innkjørselen — det som følger eiendommen, ikke nabolaget rundt.",
+    keywords: ["parkering", "garasjeanlegg", "parkeringskjeller"],
   },
   {
     id: "park",
@@ -183,11 +196,13 @@ export const TAGG_TIL_KATEGORI: Record<string, string> = {
   restaurant: "restaurant",
   bar: "restaurant",
   pub: "restaurant",
+  pizza: "restaurant",
   // Uteområder
   park: "park",
   lekeplass: "park",
   badeplass: "natur",
-  natur: "natur",
+  // Scott bruker «Natur» om grøntområder, ikke om villmark.
+  natur: "park",
   utsikt: "natur",
   // Fellesarealer — følger bygningen, ikke gangavstanden
   fellesareal: "bakgard",
@@ -196,6 +211,7 @@ export const TAGG_TIL_KATEGORI: Record<string, string> = {
   gårdsrom: "bakgard",
   innhage: "bakgard",
   takterrasse: "takterrasse",
+  parkering: "parkering",
   // Kollektiv
   busstopp: "kollektiv",
   trikkestopp: "kollektiv",
@@ -203,11 +219,14 @@ export const TAGG_TIL_KATEGORI: Record<string, string> = {
   "t-banestasjon": "kollektiv",
   tbanestasjon: "kollektiv",
   kollektiv: "kollektiv",
+  ferge: "kollektiv",
+  båthavn: "kollektiv",
   // Handel
   matbutikk: "butikk",
   dagligvare: "butikk",
   butikk: "butikk",
   kjøpesenter: "butikk",
+  torg: "butikk",
   // Øvrig
   skole: "skole",
   barnehage: "skole",
@@ -218,6 +237,7 @@ export const TAGG_TIL_KATEGORI: Record<string, string> = {
   kultur: "kultur",
   idrettsarena: "aktivitet",
   idrett: "aktivitet",
+  trening: "aktivitet",
   treningssenter: "aktivitet",
   fasade: "fasade",
   nabolag: "nabolag",

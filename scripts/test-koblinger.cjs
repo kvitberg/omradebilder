@@ -30,7 +30,14 @@ const tester = [
   ["Hegermanns gate 7 har gårdsrommet", () => felles("Hegermanns gate 7") > 0],
   ["Omsens gate 3 har det ikke", () => felles("Omsens gate 3") === 0],
   ["Knud Graahs gate 6 har Søylegården", () => viser("Knud Graahs gate 6", "Søylegården") > 0],
-  ["Vogts gate 57A har ingen av Torshov-gårdene", () => felles("Vogts gate 57A") === 0],
+  // Vogts gate 57A har sin egen fasade og bakgård fra naboppgangen 57B —
+  // samme bygning. Det testen skal fange er at Torshov-gårdsrommet på andre
+  // siden av kvartalet ikke lekker hit.
+  ["Vogts gate 57A har ikke Kvartal VI", () => viser("Vogts gate 57A", "Kvartal VI") === 0],
+  ["Vogts gate 57A har bare sin egen bygning", () =>
+    bundetTil("Vogts gate 57A")
+      .filter((p) => FELLES.has(p.category))
+      .every((p) => p.placeName.startsWith("Vogts gate 57"))],
   // Grefsen terrassehus og Brekkeveien
   ["Grefsenkollveien 12C har terrassehuset", () => viser("Grefsenkollveien 12C", "Grefsen Terrassehus") > 0],
   ["Grefsenkollveien 14A har ikke terrassehuset", () => viser("Grefsenkollveien 14A", "Grefsen Terrassehus") === 0],

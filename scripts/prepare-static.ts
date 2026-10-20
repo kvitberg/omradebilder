@@ -489,6 +489,37 @@ async function main() {
     return onDisk.has(file) ? `/thumbs/${file}` : null;
   };
 
+  /**
+   * Én skrivemåte per sted.
+   *
+   * «Tøyen Torg» og «Tøyen torg» er samme sted, men ble to i presentasjonen
+   * og to rader i nedlastingsloggen — som skal bli utbetalingsgrunnlag.
+   * Den varianten flest bilder bruker vinner. Står det likt — og det gjør
+   * det som regel, siden de fleste varianter er ett bilde mot ett — velges
+   * den med flest store bokstaver: egennavn skrives med stor forbokstav,
+   * og «Sinsen T-bane» er riktigere enn «Sinsen t-bane».
+   */
+  const skrivemåte = (() => {
+    const tell = new Map<string, Map<string, number>>();
+    for (const p of index.photos) {
+      const navn = (steder[p.placeName]?.navn ?? p.placeName).trim();
+      if (!navn) continue;
+      const k = navn.toLowerCase();
+      const m = tell.get(k) ?? new Map<string, number>();
+      m.set(navn, (m.get(navn) ?? 0) + 1);
+      tell.set(k, m);
+    }
+    const valgt = new Map<string, string>();
+    for (const [k, m] of tell) {
+      const store = (t: string) => [...t].filter((c) => c >= "A" && c <= "Z" || "ÆØÅ".includes(c)).length;
+      const beste = [...m.entries()].sort(
+        (a, b) => b[1] - a[1] || store(b[0]) - store(a[0]) || a[0].localeCompare(b[0], "no")
+      )[0][0];
+      valgt.set(k, beste);
+    }
+    return valgt;
+  })();
+
   // Bilder uten posisjon kan aldri treffes av et søk, og bilder uten miniatyr
   // ville bare blitt et hull i oppslaget. Begge utelates.
   const utelatte = await utelatteMapper();
@@ -605,13 +636,15 @@ async function main() {
       // navnet tilbake på filnavnet, og da er adressen bedre.
       const erFilnavn = /\.(jpe?g|png|heic|webp|tiff?)$/i.test(navn.trim());
       const fraKart = p.id.startsWith("immich:") && (erFilnavn || !/\d/.test(navn));
-      const stedsnavn =
+      const valgtNavn =
         ((erFelles || erFilnavn) && fraKart && kanKnyttes
           ? (adresser && lat !== null && lng !== null
               ? nærmesteAv(adresser, lat, lng)
               : adresser?.[0]) ??
             (lat !== null && lng !== null ? adresseFraPunkt(lat, lng) : null)
           : null) ?? navn;
+      // Samme sted, samme skrivemåte.
+      const stedsnavn = skrivemåte.get(valgtNavn.trim().toLowerCase()) ?? valgtNavn;
 
       return {
         ...p,
