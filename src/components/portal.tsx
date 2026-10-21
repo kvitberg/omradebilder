@@ -48,6 +48,20 @@ import { loggNedlasting } from "@/lib/nedlasting";
  */
 type Sted = { navn: string; bilde: Photo; serie: Photo[] };
 
+/**
+ * Fotografene bak et sted, slik de krediteres i bildeteksten.
+ *
+ * Et sted er gjerne én fotograf, men en serie kan være delt. To navn får
+ * stå; flere ville sprengt linja, og da sier «m.fl.» det som trengs.
+ * Bilder uten navn teller ikke med — fotografen skjules ved å sette navnet
+ * tomt i data/fotografer.json, og da skal det ikke stå noe.
+ */
+function fotografFor(serie: Photo[]): string | null {
+  const navn = [...new Set(serie.map((p) => p.fotograf).filter(Boolean))] as string[];
+  if (!navn.length) return null;
+  return navn.length <= 2 ? navn.join(", ") : `${navn[0]} m.fl.`;
+}
+
 /** Kontoret som er logget inn, lest i nettleseren. */
 function useKontor(): string | null {
   return useSyncExternalStore(abonner, innloggetNavn, () => null);
@@ -1235,6 +1249,7 @@ function Frame({
 }) {
   const photo = sted.bilde;
   const antall = sted.serie.length;
+  const fotograf = fotografFor(sted.serie);
   return (
     <figure
       data-inngang={inngang}
@@ -1254,18 +1269,26 @@ function Frame({
           className="h-full w-full object-cover"
         />
       </button>
-      <figcaption className="mt-2 flex shrink-0 items-baseline justify-between gap-3 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
+      {/* To rader, ikke én. Med fotografen på samme linje hadde høyre
+        gruppe ikke noe å krympe med — den er shrink-0 fordi avstanden og
+        nedlastingslenken ikke tåler å brekke — og stedsnavnet la seg oppå
+        krediteringen i smale spalter. Stedet eier første rad, opplysningene
+        om bildet den andre. */}
+      <figcaption className="mt-2 flex shrink-0 flex-col gap-0.5 text-[10px] uppercase tracking-[0.18em] text-ink-soft">
         <span className="flex min-w-0 items-baseline gap-1.5">
           <span className="truncate">{sted.navn}</span>
           {antall > 1 && (
             <span className="shrink-0 text-ink">· {antall} bilder</span>
           )}
         </span>
-        <span className="flex shrink-0 items-baseline gap-3">
-          <span>{photo.distanceMeters} m</span>
-          {photo.original && (
-            <DownloadLink url={photo.original} filnavn={photo.filnavn} photo={photo} />
-          )}
+        <span className="flex items-baseline justify-between gap-3">
+          <span className="min-w-0 truncate">{fotograf ? `Foto ${fotograf}` : ""}</span>
+          <span className="flex shrink-0 items-baseline gap-3">
+            <span>{photo.distanceMeters} m</span>
+            {photo.original && (
+              <DownloadLink url={photo.original} filnavn={photo.filnavn} photo={photo} />
+            )}
+          </span>
         </span>
       </figcaption>
     </figure>
@@ -1316,6 +1339,7 @@ function SeriesView({
         <header className="flex shrink-0 items-baseline justify-between gap-4 text-[10px] uppercase tracking-[0.28em] text-ink-soft">
           <span className="min-w-0 truncate text-ink">{photo.placeName}</span>
           <span className="flex shrink-0 items-baseline gap-5">
+            {photo.fotograf && <span>Foto {photo.fotograf}</span>}
             <span>{photo.distanceMeters} m</span>
             <button
               type="button"

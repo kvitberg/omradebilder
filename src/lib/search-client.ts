@@ -13,6 +13,15 @@ import type { SearchIndex, PhotoEntry } from "@/lib/index-store";
 
 const DEFAULT_RADIUS_METERS = 1000;
 
+/**
+ * Hvor langt et adressetreff får ligge fra adressen det er søkt på.
+ *
+ * Romslig med vilje: et borettslag kan strekke seg et stykke, og
+ * Akebakkeskogen dekker 147 adresser. Grensen er satt for å fange en
+ * annen by, ikke for å stramme inn en gård.
+ */
+const SAMME_STED_M = 2000;
+
 export type Category = { id: string; label: string; description: string };
 
 export type SearchPhoto = {
@@ -30,6 +39,7 @@ export type SearchPhoto = {
   bygardId: string | null;
   /** Kameraet, og fotografen det er oversatt til. Begge kan mangle. */
   kamera?: string | null;
+  /** Den som tok bildet, til krediteringen i bildeteksten. */
   fotograf?: string | null;
 };
 
@@ -173,7 +183,15 @@ export async function search(
     // Mangler begge, falt oppslaget gjennom, og avstand er det beste vi har.
     .filter((p) => {
       if (p.adresser?.length) {
-        return p.adresser.some((a) => a.toLowerCase() === søktAdresse.toLowerCase());
+        return (
+          p.adresser.some((a) => a.toLowerCase() === søktAdresse.toLowerCase()) &&
+          // Gatenavnet alene holder ikke. «Hans Nielsen Hauges gate 12»
+          // finnes i Oslo, Notodden, Hamar og Trondheim, og uten denne
+          // grensen viste et søk på Notodden-adressen Oslo-bildene — 94 km
+          // unna, inne i en gangavstand på 750 meter. Et fellesareal ligger
+          // på adressen sin; er det en mil unna, er det en annen by.
+          p.distanceMeters <= SAMME_STED_M
+        );
       }
       if (p.bygardId) return bygardId !== null && p.bygardId === bygardId;
       return p.distanceMeters <= radiusMeters;
@@ -194,6 +212,7 @@ export async function search(
         original: p.original ?? null,
         filnavn: p.filnavn ?? null,
         bygardId: p.bygardId ?? null,
+        fotograf: p.fotograf ?? null,
       })),
   })).filter((g) => g.photos.length > 0);
 

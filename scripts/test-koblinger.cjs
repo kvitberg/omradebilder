@@ -30,7 +30,11 @@ function avstand([alat, alng], [blat, blng]) {
 const nærEtFellesbilde = (t, m) =>
   t.r.some((hjørne) => felllespunkt.some((q) => avstand(hjørne, q) <= m));
 
-/** Samme regel som søket i nettleseren (src/lib/search-client.ts). */
+/**
+ * Samme regel som søket i nettleseren (src/lib/search-client.ts), bortsett
+ * fra avstandsgrensen på adressetreff: den skiller byer med samme gatenavn,
+ * og alle adressene her er i Oslo.
+ */
 function bundetTil(adr) {
   const b = a2b[adr] ?? null;
   return idx.filter((p) => {
