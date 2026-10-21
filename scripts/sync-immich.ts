@@ -304,10 +304,6 @@ async function main() {
           !description && hasGps && gjettNavn ? await cachedPoi(lat!, lng!) : { status: "tomt" };
         const poi = oppslag.status === "treff" ? oppslag.poi : null;
         let placeName = description ?? poi?.name ?? null;
-        // Står fotografen midt i en park, er det parken som er stedet —
-        // ikke nærmeste adresse, som ville bundet bildet til en eiendom.
-        const park = !placeName && hasGps ? stedVedPunkt(lat!, lng!) : null;
-        if (park) placeName = park.name;
         /**
          * Fant vi ingenting nå, er navnet vi hadde fra før bedre enn gata.
          *
@@ -324,6 +320,14 @@ async function main() {
         if (!placeName && gjettNavn && før?.placeName) {
           placeName = før.placeName;
         }
+        // Står fotografen midt i en park, er det parken som er stedet — ikke
+        // nærmeste adresse, som ville bundet bildet til en eiendom. Men
+        // flaten kommer etter navnet vi alt har: lot jeg den gå først, ble
+        // «Brasserie Hansken» til «Christiania torv» og «Birk Sport» til
+        // «Myraløkka». Et navn funnet med et oppslag som virket veier
+        // tyngre enn en flate bildet tilfeldigvis står inni.
+        const park = !placeName && hasGps ? stedVedPunkt(lat!, lng!) : null;
+        if (park) placeName = park.name;
         if (!placeName && hasGps) {
           placeName = await nearestAddress(lat!, lng!);
         }

@@ -3,6 +3,10 @@
     "name": "Havnepromenaden infopunkt 12: Sørenga",
     "categoryId": "kultur"
   },
+  "59.9065,10.7529": {
+    "name": "Operastranda",
+    "categoryId": "natur"
+  },
   "59.9074,10.7575": {
     "name": "Palate",
     "categoryId": "restaurant"
@@ -25,11 +29,24 @@
     "categoryId": "park"
   },
   "59.9338,10.7669": null,
+  "59.9340,10.7608": {
+    "name": "Panduro Hobby",
+    "categoryId": "butikk"
+  },
+  "59.9341,10.7615": {
+    "name": "Rema 1000 Torshov",
+    "categoryId": "butikk"
+  },
   "59.9347,10.7645": {
     "name": "Kaffebrenneriet",
     "categoryId": "kafe"
   },
+  "59.9348,10.7627": null,
   "59.9350,10.7639": null,
+  "59.9350,10.7641": {
+    "name": "Backstube",
+    "categoryId": "kafe"
+  },
   "59.9351,10.7633": null,
   "59.9361,10.7638": null,
   "59.9362,10.7600": null,
@@ -37,6 +54,7 @@
     "name": "Soria Moria",
     "categoryId": "kultur"
   },
+  "59.9369,10.7693": null,
   "59.9371,10.7709": null,
   "59.9375,10.7565": {
     "name": "Folkvang",
@@ -50,10 +68,25 @@
     "name": "Nordpolen skole",
     "categoryId": "skole"
   },
+  "59.9400,10.7873": null,
+  "59.9412,10.7540": null,
   "59.9416,10.7956": null,
   "59.9420,10.7997": null,
   "59.9434,10.8023": null,
   "59.9455,10.8036": null,
+  "59.9456,10.7722": {
+    "name": "Sabi Sushi Storo",
+    "categoryId": "restaurant"
+  },
   "59.9473,10.7766": null,
-  "59.9555,10.7961": null
+  "59.9512,10.7971": null,
+  "59.9555,10.7961": null,
+  "59.9589,10.8035": {
+    "name": "Grefsenkollen",
+    "categoryId": "restaurant"
+  },
+  "59.9590,10.8042": {
+    "name": "Grefsenkollen",
+    "categoryId": "restaurant"
+  }
 }
