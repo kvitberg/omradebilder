@@ -59,6 +59,28 @@ To veier:
 
 Helningen er mot avstandstaket.
 
+### Stedsoppslaget er utilgjengelig herfra
+
+Photon (`photon.komoot.io`), gratistjenesten portalen slår opp steder i, svarer
+ikke fra denne maskinen — hvert kall feiler med «fetch failed». Synken 21.
+oktober fikk derfor bare 5 navn fra oppslaget mot flere hundre før.
+
+Det gjør ingen skade nå: synken skiller «ingen kafé her» fra «jeg fikk ikke
+spurt», og beholder navnene den alt har når tjenesten er nede. Men **nye
+steder blir ikke oppdaget** før oppslaget virker igjen. Et bilde fra en ny
+kafé får nærmeste gateadresse som navn.
+
+To veier:
+
+1. **Google Places.** Sett `GOOGLE_PLACES_API_KEY` i `.env.local`. Koden
+   støtter det alt, og den er klart mest treffsikker. Koster penger per kall,
+   men diskbufferen (`data/poi-cache.json`) gjør at hvert koordinat bare
+   spørres én gang.
+2. **Finn ut hvorfor Photon er stengt** — rate-grense etter 2121 kall på rad,
+   eller noe i nettet her. Prøv igjen fra en annen linje.
+
+Hellingen er mot Google-nøkkelen: bufferen gjør kostnaden til en engangssum.
+
 ### 1060 Dropbox-bilder uten posisjon
 Mappene er navngitt etter område, ikke adresse: Fornebu (84), Kampen (46),
 Aker brygge og Tjuvholmen (46), Grünerløkka (39), Holmenkollen (30, stavet

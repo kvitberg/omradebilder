@@ -235,14 +235,36 @@ async function lookupPhoton(lat: number, lng: number): Promise<Poi | null> {
 
 /* ------------------------------------------------------------- Felles */
 
-export async function lookupPoi(lat: number, lng: number): Promise<Poi | null> {
+/**
+ * Utfallet av et stedsoppslag — og hvorfor det ikke bare er «Poi | null».
+ *
+ * «Ingen kafé her» og «jeg fikk ikke spurt» er to helt ulike svar, men begge
+ * ble null. Da Photon var utilgjengelig under en sync, leste synken det som
+ * at stedene ikke fantes, og skrev 551 gode navn om til gateadresser:
+ * «Operahuset i Oslo» ble «Kirsten Flagstads plass 1». Ingenting i loggen
+ * sa at noe var galt.
+ *
+ * Nå skilles de. «tomt» er et svar å stole på og kan bufres; «utilgjengelig»
+ * er ingen kunnskap, og den som spør må beholde det den alt visste.
+ */
+export type Stedsoppslag =
+  | { status: "treff"; poi: Poi }
+  | { status: "tomt" }
+  | { status: "utilgjengelig" };
+
+export async function lookupPoiStatus(lat: number, lng: number): Promise<Stedsoppslag> {
   const googleKey = process.env.GOOGLE_PLACES_API_KEY;
-  if (googleKey) {
-    return lookupGoogle(lat, lng, googleKey);
-  }
   try {
-    return await lookupPhoton(lat, lng);
+    const poi = googleKey
+      ? await lookupGoogle(lat, lng, googleKey)
+      : await lookupPhoton(lat, lng);
+    return poi ? { status: "treff", poi } : { status: "tomt" };
   } catch {
-    return null;
+    return { status: "utilgjengelig" };
   }
+}
+
+export async function lookupPoi(lat: number, lng: number): Promise<Poi | null> {
+  const svar = await lookupPoiStatus(lat, lng);
+  return svar.status === "treff" ? svar.poi : null;
 }

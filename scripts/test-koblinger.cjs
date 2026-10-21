@@ -10,7 +10,7 @@ const root = path.join(__dirname, "..");
 const idx = require(path.join(root, "public/data/index.json")).photos;
 const a2b = require(path.join(root, "public/data/adresse-til-bygard.json"));
 
-const FELLES = new Set(["bakgard", "takterrasse", "fasade"]);
+const FELLES = new Set(["bakgard", "takterrasse", "fasade", "parkering"]);
 
 /** Samme regel som søket i nettleseren (src/lib/search-client.ts). */
 function bundetTil(adr) {

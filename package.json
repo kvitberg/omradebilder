@@ -31,7 +31,8 @@
     "admin-passord": "tsx scripts/admin-passord.ts",
     "kamera": "tsx scripts/hent-kamera.ts",
     "hent-steder": "python3 scripts/hent-steder.py",
-    "tagg-rapport": "tsx scripts/tagg-rapport.ts"
+    "tagg-rapport": "tsx scripts/tagg-rapport.ts",
+    "test:tagger": "tsx scripts/test-tagger.ts"
   },
   "dependencies": {
     "dropbox": "^10.46.0",

@@ -244,12 +244,44 @@ export const TAGG_TIL_KATEGORI: Record<string, string> = {
 };
 
 /** Første tagg som er kjent, eller null. */
-export function categoryFromTags(tags: string[]): string | null {
-  for (const tag of tags) {
-    const treff = TAGG_TIL_KATEGORI[tag.trim().toLowerCase()];
-    if (treff) return treff;
+/**
+ * «Fellesareal» er en sekkepost, de andre er påstander.
+ *
+ * Et bilde kan bære flere tagger, og Immich gir dem ikke i noen bestemt
+ * rekkefølge. Tok vi den første som traff, avgjorde tilfeldigheter: en kafé
+ * tagget «fellesareal» ble bygningens bakgård og dukket opp hos hver
+ * oppgang i huset.
+ *
+ * Derfor rangeres de. En eksplisitt «bakgård» eller «takterrasse» er et
+ * bevisst valg om hvilken bygning bildet hører til, og veier tyngst — et
+ * dronebilde av et gårdsrom med en kafé i er fortsatt et gårdsrom. Så
+ * kommer stedet, som er det bildet faktisk viser. «Fellesareal» alene sier
+ * bare at noe hører til huset, og taper derfor mot et sted; «nabolag» sier
+ * minst av alt og kommer sist.
+ */
+const GENERISK_FELLESAREAL = new Set(["fellesareal"]);
+
+function taggrang(tag: string, kategori: string): number {
+  if (FELLESAREAL_KATEGORIER.has(kategori)) {
+    return GENERISK_FELLESAREAL.has(tag) ? 2 : 0;
   }
-  return null;
+  return kategori === "nabolag" ? 3 : 1;
+}
+
+export function categoryFromTags(tags: string[]): string | null {
+  let valgt: string | null = null;
+  let best = Infinity;
+  for (const tag of tags) {
+    const navn = tag.trim().toLowerCase();
+    const treff = TAGG_TIL_KATEGORI[navn];
+    if (!treff) continue;
+    const rang = taggrang(navn, treff);
+    if (rang < best) {
+      best = rang;
+      valgt = treff;
+    }
+  }
+  return valgt;
 }
 
 const CATEGORY_BY_ID = new Map(CATEGORIES.map((c) => [c.id, c]));

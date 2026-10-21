@@ -612,7 +612,12 @@ async function main() {
       // En bakgård uten brukbart kvartal — i Grefsen er kvartalet en klump
       // på to tusen adresser — knyttes til bygningen i stedet, slik
       // takterrassene gjør. Ellers ble den «annet» og vist til hele nabolaget.
-      if (erFelles && !erBygning && !bygardId) {
+      //
+      // Men bare når vi ikke alt har en krets. Kjørte den over en krets,
+      // vokste den: matrikkelen sier Sandakerveien 29D deler gårdsrom med
+      // 29E og Bentsebrugata, mens hele bygningen er 29D til 29J — og
+      // bakgården dukket opp i oppganger som vender mot en annen side.
+      if (erFelles && !erBygning && !bygardId && !krets) {
         if (!adresser && lat !== null && lng !== null) {
           const nærmeste = adresseFraPunkt(lat, lng, 40);
           if (nærmeste) adresser = [nærmeste];

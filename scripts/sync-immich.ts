@@ -5,7 +5,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 import { categoryFromTags, detectCategory } from "../src/lib/categories";
-import { lookupPoi, type Poi } from "../src/lib/poi";
+import { lookupPoiStatus, type Poi, type Stedsoppslag } from "../src/lib/poi";
 import { stedVedPunkt } from "../src/lib/parker";
 import type { PhotoEntry, SearchIndex } from "../src/lib/index-store";
 import { lagThumbnavn } from "../src/lib/thumbs";
@@ -124,18 +124,55 @@ async function listAssetIds(): Promise<string[]> {
  */
 const addressCache = new Map<string, string | null>();
 // POI-oppslaget mellomlagres på samme måte — bildeserier deler sted.
+/**
+ * Stedsoppslagene, bufret på disk.
+ *
+ * Bufferen lå bare i minnet, så hver sync spurte Photon på nytt for hvert
+ * koordinat — over to tusen oppslag på rad, som er mer enn gratistjenesten
+ * tåler. Var den nede, forsvant navnene. Nå huskes et svar for godt: det
+ * gjør synken rask, og det gjør den uavhengig av at tjenesten er oppe.
+ *
+ * Bare svar å stole på havner her. «Utilgjengelig» er ingen kunnskap og
+ * bufres ikke, ellers ville en nede tjeneste blitt husket som sannhet.
+ */
+const POI_CACHE_PATH = path.join(process.cwd(), "data", "poi-cache.json");
 const poiCache = new Map<string, Poi | null>();
+let poiUtilgjengelig = 0;
+let poiCacheEndret = false;
 
-async function cachedPoi(lat: number, lng: number): Promise<Poi | null> {
+async function lesPoiCache() {
+  try {
+    const rå = JSON.parse(await fs.readFile(POI_CACHE_PATH, "utf-8")) as Record<string, Poi | null>;
+    for (const [k, v] of Object.entries(rå)) poiCache.set(k, v);
+  } catch {
+    // Ingen buffer ennå.
+  }
+}
+
+async function skrivPoiCache() {
+  if (!poiCacheEndret) return;
+  const ut = Object.fromEntries([...poiCache.entries()].sort(([a], [b]) => a.localeCompare(b)));
+  await fs.writeFile(POI_CACHE_PATH, JSON.stringify(ut, null, 2));
+}
+
+async function cachedPoi(lat: number, lng: number): Promise<Stedsoppslag> {
   const cacheKey = `${lat.toFixed(4)},${lng.toFixed(4)}`;
-  if (poiCache.has(cacheKey)) return poiCache.get(cacheKey)!;
-  const poi = await lookupPoi(lat, lng);
-  poiCache.set(cacheKey, poi);
+  if (poiCache.has(cacheKey)) {
+    const bufret = poiCache.get(cacheKey)!;
+    return bufret ? { status: "treff", poi: bufret } : { status: "tomt" };
+  }
+  const svar = await lookupPoiStatus(lat, lng);
+  if (svar.status === "utilgjengelig") {
+    poiUtilgjengelig++;
+  } else {
+    poiCache.set(cacheKey, svar.status === "treff" ? svar.poi : null);
+    poiCacheEndret = true;
+  }
   // Uten Google-nøkkel går oppslaget mot Photon, som vil ha rolig tempo.
   if (!process.env.GOOGLE_PLACES_API_KEY) {
     await new Promise((r) => setTimeout(r, 400));
   }
-  return poi;
+  return svar;
 }
 
 async function nearestAddress(lat: number, lng: number): Promise<string | null> {
@@ -202,6 +239,19 @@ async function main() {
 
   await fs.mkdir(OUT_DIR, { recursive: true });
 
+  await lesPoiCache();
+
+  // Forrige indeks leses før løkka, ikke etter. Den er ikke bare noe å
+  // flette inn til slutt — den er det portalen alt vet, og det eneste
+  // som holder når et oppslag ikke svarer.
+  let index: SearchIndex;
+  try {
+    index = JSON.parse(await fs.readFile(INDEX_PATH, "utf-8"));
+  } catch {
+    index = { generatedAt: null, photos: [] };
+  }
+  const forrige = new Map(index.photos.map((p) => [p.id, p]));
+
   const photos: PhotoEntry[] = [];
   const feilede = new Set<string>();
   let withGps = 0;
@@ -229,8 +279,19 @@ async function main() {
         // Stedsnavn i prioritert rekkefølge: fotografens egen beskrivelse,
         // stedet som faktisk ligger på koordinatet (kafeen, parken), og til
         // slutt nærmeste adresse som nøytral reserve.
-        const poi = !description && hasGps ? await cachedPoi(lat!, lng!) : null;
+        const entryId = `immich:${asset.id}`;
+        const før = forrige.get(entryId);
+        const oppslag: Stedsoppslag =
+          !description && hasGps ? await cachedPoi(lat!, lng!) : { status: "tomt" };
+        const poi = oppslag.status === "treff" ? oppslag.poi : null;
+        const stedetUkjent = oppslag.status === "utilgjengelig";
         let placeName = description ?? poi?.name ?? null;
+        // Svarte ikke stedsoppslaget, er navnet vi alt hadde den beste
+        // kunnskapen som finnes. Falt vi tilbake på nærmeste adresse her,
+        // ble «Operahuset i Oslo» til «Kirsten Flagstads plass 1».
+        if (!placeName && stedetUkjent && før?.placeName) {
+          placeName = før.placeName;
+        }
         // Står fotografen midt i en park, er det parken som er stedet —
         // ikke nærmeste adresse, som ville bundet bildet til en eiendom.
         const park = !placeName && hasGps ? stedVedPunkt(lat!, lng!) : null;
@@ -253,9 +314,11 @@ async function main() {
             ? fraTag
             : fraTekst.categoryId !== "annet"
               ? fraTekst.categoryId
-              : poi?.categoryId ?? park?.categoryId ?? "annet";
+              : poi?.categoryId ??
+                park?.categoryId ??
+                (stedetUkjent ? før?.category : null) ??
+                "annet";
 
-        const entryId = `immich:${asset.id}`;
         const outPath = path.join(OUT_DIR, thumbFileName(entryId));
         if (!(await exists(outPath))) {
           await fs.writeFile(outPath, await fetchThumb(asset.id));
@@ -291,12 +354,6 @@ async function main() {
   await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 
   // Flett inn: alt fra Immich byttes ut, alt annet beholdes urørt.
-  let index: SearchIndex;
-  try {
-    index = JSON.parse(await fs.readFile(INDEX_PATH, "utf-8"));
-  } catch {
-    index = { generatedAt: null, photos: [] };
-  }
   const others = index.photos.filter((p) => !p.id.startsWith("immich:"));
 
   // Bilder som feilet i denne runden beholdes fra forrige. En treg kveld
@@ -316,6 +373,13 @@ async function main() {
   console.log(
     `  ${withGps} med GPS, ${named} med stedsnavn — ${fromPoi} fra stedsoppslag (${process.env.GOOGLE_PLACES_API_KEY ? "Google Places" : "OpenStreetMap"})`
   );
+  if (poiUtilgjengelig) {
+    console.log(
+      `  ⚠ ${poiUtilgjengelig} stedsoppslag svarte ikke. Navnene fra forrige sync er beholdt;\n` +
+        `    kjør på nytt når tjenesten er oppe for å få med nye steder.`
+    );
+  }
+  await skrivPoiCache();
   console.log(`Indeksen har nå ${index.photos.length} bilder totalt (${others.length} fra før).`);
 }
 
