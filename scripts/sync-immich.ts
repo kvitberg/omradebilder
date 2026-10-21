@@ -73,10 +73,37 @@ function ekteBeskrivelse(tekst: string | null | undefined): string | null {
   return t && !PLASSHOLDERE.test(t) ? t : null;
 }
 
+/**
+ * Henter, og prøver igjen når nettet svikter.
+ *
+ * Synken hadde ingen gjenforsøk: ett glipp og bildet falt ut av runden.
+ * Med to album ble det 7000 kall på rad, og da svarte serveren «fetch
+ * failed» på 2892 av dem — ikke en avvisning, men en linje som ga seg
+ * under vedvarende last. Tre forsøk med økende pause tar unna det.
+ *
+ * En 4xx prøves ikke om igjen; da er det ikke nettet som er problemet,
+ * og et nytt forsøk ville bare vente forgjeves.
+ */
+async function hentMedForsøk(url: string, hva: string): Promise<Response> {
+  let sist: Error = new Error(hva);
+  for (let forsøk = 1; forsøk <= 3; forsøk++) {
+    try {
+      const res = await fetch(url);
+      if (res.ok) return res;
+      sist = new Error(`${hva}: HTTP ${res.status}`);
+      if (res.status < 500 && res.status !== 429) throw sist;
+    } catch (err) {
+      sist = err instanceof Error ? err : new Error(String(err));
+      if (sist.message.includes("HTTP 4")) throw sist;
+    }
+    if (forsøk < 3) await new Promise((r) => setTimeout(r, forsøk * 1200));
+  }
+  throw sist;
+}
+
 async function api<T>(pathname: string, key: string): Promise<T> {
   const sep = pathname.includes("?") ? "&" : "?";
-  const res = await fetch(`${IMMICH_URL}/api${pathname}${sep}key=${key}`);
-  if (!res.ok) throw new Error(`${pathname}: HTTP ${res.status}`);
+  const res = await hentMedForsøk(`${IMMICH_URL}/api${pathname}${sep}key=${key}`, pathname);
   return res.json() as Promise<T>;
 }
 
@@ -228,10 +255,10 @@ async function exists(p: string) {
 }
 
 async function fetchThumb(assetId: string, key: string): Promise<Buffer> {
-  const res = await fetch(
-    `${IMMICH_URL}/api/assets/${assetId}/thumbnail?size=preview&key=${key}`
+  const res = await hentMedForsøk(
+    `${IMMICH_URL}/api/assets/${assetId}/thumbnail?size=preview&key=${key}`,
+    `thumbnail ${assetId}`
   );
-  if (!res.ok) throw new Error(`thumbnail ${assetId}: HTTP ${res.status}`);
   const jpeg = Buffer.from(await res.arrayBuffer());
   return sharp(jpeg)
     .resize({ width: MAX_WIDTH, withoutEnlargement: true })
