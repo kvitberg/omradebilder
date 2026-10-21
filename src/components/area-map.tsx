@@ -67,8 +67,15 @@ export const KATEGORI_FARGER: Record<string, string> = {
 
 const AKSENT = "#b3892f";
 
-/** Eiendommene vi har tegnet, men ikke har bilder fra. */
-export const VENTER = "#9a9792";
+/**
+ * Eiendommene vi har tegnet, men ikke har bilder fra.
+ *
+ * Grå var første forsøk, og den forsvant: flaten gikk i ett med de
+ * gråtonefiltrerte bygningsfotavtrykkene, så kartet sa ikke hva som var
+ * tegnet. Terrakotta står mot flisene og leser som en egen farge ved siden
+ * av matrikkelfargene, ikke som en dempet utgave av dem.
+ */
+export const VENTER = "#c2703d";
 
 /**
  * «Sagadammen 1–26» framfor tjue husnumre på rad. Husnumre med bokstav
@@ -191,12 +198,16 @@ export default function AreaMap({
           // tegnet, men ikke fotografert, ligger grå — da sier flaten hva
           // arkivet faktisk dekker, i stedet for å farge alt likt.
           const farge = e.b ? KVARTAL_FARGER[sum % KVARTAL_FARGER.length] : VENTER;
-          const hvil = e.b
-            ? { color: farge, weight: 1, opacity: 0.7, fillColor: farge, fillOpacity: 0.18 }
-            : { color: farge, weight: 0.8, opacity: 0.5, fillColor: farge, fillOpacity: 0.22 };
-          const lys = e.b
-            ? { color: farge, weight: 2, opacity: 1, fillColor: farge, fillOpacity: 0.42 }
-            : { color: farge, weight: 1.5, opacity: 0.8, fillColor: farge, fillOpacity: 0.34 };
+          // Samme vekt som fargeflatene: de to gruppene er likeverdige
+          // opplysninger, og skiller seg bare på farge.
+          const hvil = {
+            color: farge,
+            weight: 1,
+            opacity: 0.7,
+            fillColor: farge,
+            fillOpacity: 0.18,
+          };
+          const lys = { color: farge, weight: 2, opacity: 1, fillColor: farge, fillOpacity: 0.42 };
 
           const felt = L.polygon(e.r, { ...hvil, interactive: true }).addTo(map);
           const overskrift = e.navn ?? adresselinje(e.a);

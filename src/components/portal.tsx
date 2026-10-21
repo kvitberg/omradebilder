@@ -1088,8 +1088,8 @@ function Spread({
                         className="inline-block h-2 w-2 shrink-0 rounded-[2px]"
                         style={{ background: VENTER, opacity: 0.55 }}
                       />
-                      Grå flater er gårder vi har tegnet, men ikke har bilder
-                      fra ennå.
+                      Oransje flater er gårder vi har tegnet, men ikke har
+                      bilder fra ennå.
                     </p>
                   )}
                 </figcaption>
