@@ -21,7 +21,23 @@ import { lagThumbnavn } from "../src/lib/thumbs";
  */
 
 const IMMICH_URL = process.env.IMMICH_URL || "https://immich.vikran.net";
-const SHARE_KEY = process.env.IMMICH_SHARE_KEY || "";
+/**
+ * Delingsnøklene, én per album Scott deler inn i portalen.
+ *
+ * Arkivet vokste ut av ett album. Nøkkelen følger derfor hvert bilde
+ * gjennom løpet i stedet for å ligge som en global: den trengs igjen når
+ * miniatyren hentes og når originallenken settes, og to album har hver sin.
+ *
+ * IMMICH_SHARE_KEYS tar flere skilt med komma; IMMICH_SHARE_KEY virker som
+ * før og regnes som den første.
+ */
+const SHARE_KEYS = [
+  ...(process.env.IMMICH_SHARE_KEY ? [process.env.IMMICH_SHARE_KEY] : []),
+  ...(process.env.IMMICH_SHARE_KEYS ?? "").split(","),
+]
+  .map((k) => k.trim())
+  .filter(Boolean)
+  .filter((k, i, alle) => alle.indexOf(k) === i);
 
 const OUT_DIR = path.join(process.cwd(), "public", "thumbs");
 const INDEX_PATH = path.join(process.cwd(), "data", "index.json");
@@ -57,12 +73,9 @@ function ekteBeskrivelse(tekst: string | null | undefined): string | null {
   return t && !PLASSHOLDERE.test(t) ? t : null;
 }
 
-/** Settes av listAssetIds, så hovedløpet vet hvilket album vi er i. */
-let albumIdFunnet: string | null = null;
-
-async function api<T>(pathname: string): Promise<T> {
+async function api<T>(pathname: string, key: string): Promise<T> {
   const sep = pathname.includes("?") ? "&" : "?";
-  const res = await fetch(`${IMMICH_URL}/api${pathname}${sep}key=${SHARE_KEY}`);
+  const res = await fetch(`${IMMICH_URL}/api${pathname}${sep}key=${key}`);
   if (!res.ok) throw new Error(`${pathname}: HTTP ${res.status}`);
   return res.json() as Promise<T>;
 }
@@ -75,12 +88,12 @@ async function api<T>(pathname: string): Promise<T> {
  * alle som deler inn i det. Delingsnøkkelen får lese dem; ingen API-nøkkel
  * trengs.
  */
-async function hentEiere(albumId: string): Promise<Map<string, string>> {
+async function hentEiere(albumId: string, key: string): Promise<Map<string, string>> {
   const navn = new Map<string, string>();
   try {
     const album = await api<{
       albumUsers?: Array<{ user?: { id?: string; name?: string } }>;
-    }>(`/albums/${albumId}`);
+    }>(`/albums/${albumId}`, key);
     for (const m of album.albumUsers ?? []) {
       if (m.user?.id && m.user.name) navn.set(m.user.id, m.user.name);
     }
@@ -90,30 +103,34 @@ async function hentEiere(albumId: string): Promise<Map<string, string>> {
   return navn;
 }
 
-async function listAssetIds(): Promise<string[]> {
+async function listAssetIds(key: string): Promise<{ ids: string[]; albumId: string | null }> {
   const share = await api<{ type: string; album?: { id: string }; assets: Array<{ id: string }> }>(
-    "/shared-links/me"
+    "/shared-links/me",
+    key
   );
 
   // En delt lenke kan peke på et album eller på enkeltbilder.
   if (share.type !== "ALBUM" || !share.album) {
-    return share.assets.map((a) => a.id);
+    return { ids: share.assets.map((a) => a.id), albumId: null };
   }
 
   const albumId = share.album.id;
-  albumIdFunnet = albumId;
-  const buckets = await api<Array<{ timeBucket: string }>>(`/timeline/buckets?albumId=${albumId}`);
+  const buckets = await api<Array<{ timeBucket: string }>>(
+    `/timeline/buckets?albumId=${albumId}`,
+    key
+  );
 
   const ids: string[] = [];
   for (const bucket of buckets) {
     const data = await api<Array<{ id: string }> | { id: string[] }>(
-      `/timeline/bucket?albumId=${albumId}&timeBucket=${bucket.timeBucket}`
+      `/timeline/bucket?albumId=${albumId}&timeBucket=${bucket.timeBucket}`,
+      key
     );
     // Eldre Immich svarer med en liste av objekter, nyere med kolonneformat.
     if (Array.isArray(data)) ids.push(...data.map((a) => a.id));
     else ids.push(...data.id);
   }
-  return ids;
+  return { ids, albumId };
 }
 
 /**
@@ -210,9 +227,9 @@ async function exists(p: string) {
   }
 }
 
-async function fetchThumb(assetId: string): Promise<Buffer> {
+async function fetchThumb(assetId: string, key: string): Promise<Buffer> {
   const res = await fetch(
-    `${IMMICH_URL}/api/assets/${assetId}/thumbnail?size=preview&key=${SHARE_KEY}`
+    `${IMMICH_URL}/api/assets/${assetId}/thumbnail?size=preview&key=${key}`
   );
   if (!res.ok) throw new Error(`thumbnail ${assetId}: HTTP ${res.status}`);
   const jpeg = Buffer.from(await res.arrayBuffer());
@@ -223,19 +240,51 @@ async function fetchThumb(assetId: string): Promise<Buffer> {
 }
 
 async function main() {
-  if (!SHARE_KEY) {
+  if (!SHARE_KEYS.length) {
     console.error("Sett IMMICH_SHARE_KEY i .env.local (nøkkelen fra delingslenken).");
+    console.error("Flere album skilles med komma i IMMICH_SHARE_KEYS.");
     process.exit(1);
   }
 
-  console.log(`Henter album fra ${IMMICH_URL} ...`);
-  const ids = await listAssetIds();
-  const eiere = albumIdFunnet ? await hentEiere(albumIdFunnet) : new Map<string, string>();
-  if (eiere.size) console.log(`${eiere.size} medlemmer i albumet: ${[...eiere.values()].join(", ")}`);
+  console.log(`Henter ${SHARE_KEYS.length} album fra ${IMMICH_URL} ...`);
+  // Hvert bilde bærer nøkkelen det kom fra. Samme bilde kan ligge i to
+  // album; da gjelder det første, og nøkkelen derfra virker like godt.
+  const oppgaver: Array<{ id: string; key: string }> = [];
+  const sett = new Set<string>();
+  const eiere = new Map<string, string>();
+  for (const key of SHARE_KEYS) {
+    let funn: { ids: string[]; albumId: string | null };
+    try {
+      funn = await listAssetIds(key);
+    } catch (err) {
+      console.error(`  ✗ albumet med nøkkel …${key.slice(-6)}: ${(err as Error).message}`);
+      continue;
+    }
+    let nye = 0;
+    for (const id of funn.ids) {
+      if (sett.has(id)) continue;
+      sett.add(id);
+      oppgaver.push({ id, key });
+      nye++;
+    }
+    if (funn.albumId) {
+      for (const [id, navn] of await hentEiere(funn.albumId, key)) eiere.set(id, navn);
+    }
+    console.log(
+      `  …${key.slice(-6)}: ${funn.ids.length} bilder` +
+        (nye === funn.ids.length ? "" : `, ${nye} nye`)
+    );
+  }
+  if (!oppgaver.length) {
+    console.error("Ingen bilder å hente — sjekk at delingslenkene virker.");
+    process.exit(1);
+  }
+  if (eiere.size) console.log(`${eiere.size} medlemmer i albumene: ${[...eiere.values()].join(", ")}`);
+  const ids = oppgaver.map((o) => o.id);
   // Immich-id-ene er uuid-er og kan ikke kollidere seg imellom, men navnet
   // skal utledes av samme funksjon som prepare-static leser med.
   const thumbFileName = lagThumbnavn(ids.map((id) => `immich:${id}`));
-  console.log(`Fant ${ids.length} bilder.\n`);
+  console.log(`Fant ${ids.length} bilder i alt.\n`);
 
   await fs.mkdir(OUT_DIR, { recursive: true });
 
@@ -259,16 +308,17 @@ async function main() {
   let fromPoi = 0;
   let failed = 0;
 
-  const queue = [...ids];
+  const queue = [...oppgaver];
   const started = Date.now();
 
   async function worker() {
     while (queue.length) {
-      const assetId = queue.shift();
-      if (!assetId) return;
+      const oppgave = queue.shift();
+      if (!oppgave) return;
+      const { id: assetId, key } = oppgave;
 
       try {
-        const asset = await api<ImmichAsset>(`/assets/${assetId}`);
+        const asset = await api<ImmichAsset>(`/assets/${assetId}`, key);
         const lat = asset.exifInfo?.latitude ?? null;
         const lng = asset.exifInfo?.longitude ?? null;
         const hasGps = typeof lat === "number" && typeof lng === "number" && lat !== 0;
@@ -351,7 +401,7 @@ async function main() {
 
         const outPath = path.join(OUT_DIR, thumbFileName(entryId));
         if (!(await exists(outPath))) {
-          await fs.writeFile(outPath, await fetchThumb(asset.id));
+          await fs.writeFile(outPath, await fetchThumb(asset.id, key));
         }
 
         photos.push({
@@ -364,7 +414,7 @@ async function main() {
           locationSource: hasGps ? "exif" : "none",
           clientModified: asset.exifInfo?.dateTimeOriginal ?? asset.fileCreatedAt,
           thumb: `/thumbs/${thumbFileName(entryId)}`,
-          original: `${IMMICH_URL}/api/assets/${asset.id}/original?key=${SHARE_KEY}`,
+          original: `${IMMICH_URL}/api/assets/${asset.id}/original?key=${key}`,
           filnavn: asset.originalFileName,
           ...(asset.ownerId && eiere.get(asset.ownerId)
             ? { fotograf: eiere.get(asset.ownerId) }
