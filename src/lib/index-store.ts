@@ -43,6 +43,15 @@ export type PhotoEntry = {
    */
   fotograf?: string | null;
   /**
+   * Albumet bildet kom fra i Immich.
+   *
+   * Opplasteren er som regel fotografen, men ikke alltid: «Salg» lastes opp
+   * fra Fotostallens konto selv om bildene er tatt av en annen. Albumnavnet
+   * lar data/album-fotograf.json si hvem, uten å døpe om en konto som
+   * brukes andre steder.
+   */
+  album?: string | null;
+  /**
    * Kameraet bildet er tatt med, «Canon Canon EOS R5m2».
    *
    * Fotografen står ingen steder i bildene: alle Immich-bildene har samme

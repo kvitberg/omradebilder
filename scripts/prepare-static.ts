@@ -463,6 +463,23 @@ async function main() {
     fotografer = {};
   }
 
+  /**
+   * Album der opplasteren ikke er fotografen.
+   *
+   * «Salg» lastes opp fra Fotostallens konto, men bildene er tatt av en
+   * annen. Å døpe om kontoen ville smittet over på alt den eier andre
+   * steder — den står som medlem i hovedalbumet også — så overstyringen
+   * henger på albumet i stedet.
+   */
+  let albumFotograf: Record<string, string> = {};
+  try {
+    albumFotograf = JSON.parse(
+      await fs.readFile(path.join(process.cwd(), "data", "album-fotograf.json"), "utf-8")
+    );
+  } catch {
+    albumFotograf = {};
+  }
+
   // Overstyringer fra `npm run steder` (og dine egne rettelser der).
   let steder: Record<string, { kategori: string; navn?: string; lat?: number; lng?: number }> = {};
   try {
@@ -685,7 +702,9 @@ async function main() {
     // stå tomme. Arkivet skal etter hvert bare være Immich, og da forsvinner
     // den gruppa av seg selv.
     ...(() => {
-      const rå = p.fotograf ?? (p.id.startsWith("immich:") ? null : DROPBOX_FOTOGRAF);
+      const fraAlbum = p.album ? albumFotograf[p.album] : undefined;
+      const rå =
+        fraAlbum ?? p.fotograf ?? (p.id.startsWith("immich:") ? null : DROPBOX_FOTOGRAF);
       if (!rå) return {};
       const vist = rå in fotografer ? fotografer[rå] : rå;
       return vist ? { fotograf: vist } : {};

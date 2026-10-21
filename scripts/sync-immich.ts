@@ -130,18 +130,22 @@ async function hentEiere(albumId: string, key: string): Promise<Map<string, stri
   return navn;
 }
 
-async function listAssetIds(key: string): Promise<{ ids: string[]; albumId: string | null }> {
-  const share = await api<{ type: string; album?: { id: string }; assets: Array<{ id: string }> }>(
-    "/shared-links/me",
-    key
-  );
+async function listAssetIds(
+  key: string
+): Promise<{ ids: string[]; albumId: string | null; albumNavn: string | null }> {
+  const share = await api<{
+    type: string;
+    album?: { id: string; albumName?: string };
+    assets: Array<{ id: string }>;
+  }>("/shared-links/me", key);
 
   // En delt lenke kan peke på et album eller på enkeltbilder.
   if (share.type !== "ALBUM" || !share.album) {
-    return { ids: share.assets.map((a) => a.id), albumId: null };
+    return { ids: share.assets.map((a) => a.id), albumId: null, albumNavn: null };
   }
 
   const albumId = share.album.id;
+  const albumNavn = share.album.albumName ?? null;
   const buckets = await api<Array<{ timeBucket: string }>>(
     `/timeline/buckets?albumId=${albumId}`,
     key
@@ -157,7 +161,7 @@ async function listAssetIds(key: string): Promise<{ ids: string[]; albumId: stri
     if (Array.isArray(data)) ids.push(...data.map((a) => a.id));
     else ids.push(...data.id);
   }
-  return { ids, albumId };
+  return { ids, albumId, albumNavn };
 }
 
 /**
@@ -276,11 +280,11 @@ async function main() {
   console.log(`Henter ${SHARE_KEYS.length} album fra ${IMMICH_URL} ...`);
   // Hvert bilde bærer nøkkelen det kom fra. Samme bilde kan ligge i to
   // album; da gjelder det første, og nøkkelen derfra virker like godt.
-  const oppgaver: Array<{ id: string; key: string }> = [];
+  const oppgaver: Array<{ id: string; key: string; album: string | null }> = [];
   const sett = new Set<string>();
   const eiere = new Map<string, string>();
   for (const key of SHARE_KEYS) {
-    let funn: { ids: string[]; albumId: string | null };
+    let funn: { ids: string[]; albumId: string | null; albumNavn: string | null };
     try {
       funn = await listAssetIds(key);
     } catch (err) {
@@ -291,7 +295,7 @@ async function main() {
     for (const id of funn.ids) {
       if (sett.has(id)) continue;
       sett.add(id);
-      oppgaver.push({ id, key });
+      oppgaver.push({ id, key, album: funn.albumNavn });
       nye++;
     }
     if (funn.albumId) {
@@ -342,7 +346,7 @@ async function main() {
     while (queue.length) {
       const oppgave = queue.shift();
       if (!oppgave) return;
-      const { id: assetId, key } = oppgave;
+      const { id: assetId, key, album } = oppgave;
 
       try {
         const asset = await api<ImmichAsset>(`/assets/${assetId}`, key);
@@ -446,6 +450,7 @@ async function main() {
           ...(asset.ownerId && eiere.get(asset.ownerId)
             ? { fotograf: eiere.get(asset.ownerId) }
             : {}),
+          ...(album ? { album } : {}),
         });
       } catch (err) {
         failed++;
