@@ -767,10 +767,35 @@ async function main() {
      * kan ikke tilskrives én teig.
      */
     const medBilder = new Set<string>();
+    /** Hvor fellesarealbildene faktisk er tatt, slått opp på adresse. */
+    const punktFor = new Map<string, Array<[number, number]>>();
     for (const p of slim) {
       if (!FELLESAREAL.has(p.category)) continue;
-      for (const a of p.adresser ?? []) medBilder.add(a);
+      for (const a of p.adresser ?? []) {
+        medBilder.add(a);
+        if (p.lat === null || p.lng === null) continue;
+        const liste = punktFor.get(a);
+        if (liste) liste.push([p.lat, p.lng]);
+        else punktFor.set(a, [[p.lat, p.lng]]);
+      }
     }
+
+    /**
+     * Gårdsrommet deles av alle rundt det, ikke bare av adressene i
+     * bindingen.
+     *
+     * Bildet er registrert på de adressene matrikkelen gir oss, og i
+     * Erika Nissens gate ga det nr. 2, 6, 8 og 10 farge mens 4, 12 og 14
+     * ble grå — samme kvartal, samme bakgård, samme bilde. Matrikkelen
+     * hjelper ikke: her har hver eiendom sin egen krets på tre adresser,
+     * ikke ett felles gårdsrom.
+     *
+     * Men bildet er tatt inne i gården og har et punkt. Eiendommene som
+     * omkranser det punktet deler gården. Spredningen holdes innenfor
+     * kvartalet bildet hører til, ellers hopper den over gata: et kvartal
+     * er nettopp det gatene skiller.
+     */
+    const GÅRDSROM_M = 70;
 
     const trimmet: Record<string, { teiger: Eiendom[] }> = {};
     let eiendommer = 0;
@@ -778,8 +803,20 @@ async function main() {
     for (const [id, kvartal] of Object.entries(alle)) {
       const nære = kvartal.teiger.filter(nærEtBilde);
       if (!nære.length) continue;
+      const egnePunkter = nære.flatMap((e) =>
+        e.a.flatMap((a) => punktFor.get(a) ?? [])
+      );
+      const iGårdsrommet = (e: Eiendom) =>
+        e.r.some(([lat, lng]) =>
+          egnePunkter.some(([plat, plng]) => {
+            if (Math.abs(plat - lat) > 0.0012 || Math.abs(plng - lng) > 0.0022) return false;
+            const dy = (plat - lat) * 111320;
+            const dx = (plng - lng) * 111320 * Math.cos((lat * Math.PI) / 180);
+            return Math.hypot(dx, dy) <= GÅRDSROM_M;
+          })
+        );
       for (const e of nære) {
-        if (e.a.some((a) => medBilder.has(a))) {
+        if (e.a.some((a) => medBilder.has(a)) || iGårdsrommet(e)) {
           e.b = true;
           dekket++;
         } else {

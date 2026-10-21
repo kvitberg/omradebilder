@@ -16,10 +16,19 @@ const bygg = require(path.join(root, "public/data/bygg.json"));
 
 /** Alle eiendommene kartlaget tegner. */
 const teiger = Object.values(bygg).flatMap((k) => k.teiger);
-/** Adressene som har et fellesarealbilde bundet til seg. */
-const adrMedFelles = new Set(
-  idx.flatMap((p) => (FELLES.has(p.category) ? (p.adresser ?? []) : []))
-);
+/** Punktene fellesarealbildene er tatt i. */
+const felllespunkt = idx
+  .filter((p) => FELLES.has(p.category) && p.lat !== null)
+  .map((p) => [p.lat, p.lng]);
+
+/** Meter mellom to punkter, godt nok på bystørrelse. */
+function avstand([alat, alng], [blat, blng]) {
+  const dy = (alat - blat) * 111320;
+  const dx = (alng - blng) * 111320 * Math.cos((alat * Math.PI) / 180);
+  return Math.hypot(dx, dy);
+}
+const nærEtFellesbilde = (t, m) =>
+  t.r.some((hjørne) => felllespunkt.some((q) => avstand(hjørne, q) <= m));
 
 /** Samme regel som søket i nettleseren (src/lib/search-client.ts). */
 function bundetTil(adr) {
@@ -82,14 +91,22 @@ const tester = [
   ["Grefsenkollen kommer bare fra Immich", () => idx.filter((p) => p.placeName === "Grefsenkollen").every((p) => p.id.startsWith("immich:"))],
   // Alle fellesarealer må være knyttet til noe
   ["Alle fellesarealer er koblet", () => idx.filter((p) => FELLES.has(p.category)).every((p) => p.bygardId || p.adresser?.length)],
-  // Gråfargen på kartet: en eiendom er merket når vi har bilder fra den.
-  // Blir flagget feil, lover kartet bilder som ikke finnes — eller skjuler
-  // gårder vi faktisk har fotografert.
-  ["Hver merket eiendom har et fellesarealbilde",
-    () => teiger.filter((t) => t.b).every((t) => t.a.some((a) => adrMedFelles.has(a)))],
-  ["Hver umerket eiendom har ingen fellesarealbilder",
-    () => teiger.filter((t) => !t.b).every((t) => !t.a.some((a) => adrMedFelles.has(a)))],
-  ["Noen eiendommer er merket", () => teiger.some((t) => t.b)],
+  // Gråfargen på kartet: en eiendom er farget når vi har bilder fra gården.
+  // Erika Nissens gate er tilfellet Scott meldte — bildet er av bakgården
+  // hele kvartalet deler, men bare adressene i bindingen fikk farge, så
+  // nr. 2, 6, 8 og 10 lyste mens 4, 12 og 14 lå grå.
+  ["Hele kvartalet i Erika Nissens gate er farget",
+    () => bygg["oslo-01218"].teiger.every((t) => t.b)],
+  // Og motsatt: spredningen må holde seg i gårdsrommet. Grefsen-kvartalet
+  // er limt sammen av over tusen eiendommer, og et bilde der skal ikke
+  // farge dem alle.
+  ["Grefsen-kvartalet farges ikke i sin helhet",
+    () => {
+      const t = bygg["oslo-00009"].teiger;
+      return t.filter((x) => x.b).length < t.length / 4;
+    }],
+  ["Hver farget eiendom ligger nær et fellesarealbilde",
+    () => teiger.filter((t) => t.b).every((t) => nærEtFellesbilde(t, 120))],
   ["Noen eiendommer er grå", () => teiger.some((t) => !t.b)],
 ];
 
