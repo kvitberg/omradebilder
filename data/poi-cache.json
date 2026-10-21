@@ -3,6 +3,34 @@
     "name": "Havnepromenaden infopunkt 12: Sørenga",
     "categoryId": "kultur"
   },
+  "59.9053,10.7596": {
+    "name": "Meny Bjørvika",
+    "categoryId": "butikk"
+  },
+  "59.9055,10.7594": null,
+  "59.9055,10.7601": null,
+  "59.9059,10.7577": null,
+  "59.9059,10.7586": {
+    "name": "Libertine vinbar",
+    "categoryId": "restaurant"
+  },
+  "59.9059,10.7597": {
+    "name": "Lutlaget",
+    "categoryId": "restaurant"
+  },
+  "59.9060,10.7579": {
+    "name": "Libertine vinbar",
+    "categoryId": "restaurant"
+  },
+  "59.9061,10.7583": {
+    "name": "KUMI Oslobukta",
+    "categoryId": "kafe"
+  },
+  "59.9062,10.7575": {
+    "name": "Fiskeriet",
+    "categoryId": "restaurant"
+  },
+  "59.9063,10.7573": null,
   "59.9065,10.7529": {
     "name": "Operastranda",
     "categoryId": "natur"
@@ -10,6 +38,19 @@
   "59.9074,10.7575": {
     "name": "Palate",
     "categoryId": "restaurant"
+  },
+  "59.9077,10.7522": {
+    "name": "Operahuset i Oslo",
+    "categoryId": "kultur"
+  },
+  "59.9098,10.7467": null,
+  "59.9105,10.7396": {
+    "name": "Brasserie Hansken",
+    "categoryId": "restaurant"
+  },
+  "59.9115,10.7219": {
+    "name": "Ruseløkka barnehage",
+    "categoryId": "skole"
   },
   "59.9120,10.7189": {
     "name": "Babbo Collective",
@@ -20,9 +61,14 @@
     "name": "Tøyenbadet",
     "categoryId": "aktivitet"
   },
+  "59.9288,10.6963": {
+    "name": "Livshjulet",
+    "categoryId": "kultur"
+  },
   "59.9297,10.7990": null,
   "59.9309,10.8000": null,
   "59.9319,10.7923": null,
+  "59.9325,10.7231": null,
   "59.9333,10.7955": null,
   "59.9334,10.7924": {
     "name": "Sørøy-lottenes park",
@@ -48,6 +94,7 @@
     "categoryId": "kafe"
   },
   "59.9351,10.7633": null,
+  "59.9354,10.6799": null,
   "59.9361,10.7638": null,
   "59.9362,10.7600": null,
   "59.9362,10.7657": {
@@ -70,17 +117,40 @@
   },
   "59.9400,10.7873": null,
   "59.9412,10.7540": null,
+  "59.9414,10.7946": null,
   "59.9416,10.7956": null,
   "59.9420,10.7997": null,
+  "59.9421,10.7585": null,
   "59.9434,10.8023": null,
   "59.9455,10.8036": null,
   "59.9456,10.7722": {
     "name": "Sabi Sushi Storo",
     "categoryId": "restaurant"
   },
+  "59.9464,10.8149": {
+    "name": "Årvoll gård",
+    "categoryId": "kultur"
+  },
+  "59.9472,10.8179": null,
   "59.9473,10.7766": null,
+  "59.9475,10.8227": {
+    "name": "Kiwi Tonsenhagen",
+    "categoryId": "butikk"
+  },
+  "59.9476,10.8201": null,
+  "59.9477,10.8200": null,
   "59.9512,10.7971": null,
+  "59.9519,10.7977": null,
+  "59.9543,10.6565": {
+    "name": "Voksen kunstgressbane",
+    "categoryId": "aktivitet"
+  },
   "59.9555,10.7961": null,
+  "59.9556,10.7854": {
+    "name": "7-Eleven Grefsen",
+    "categoryId": "butikk"
+  },
+  "59.9574,10.7656": null,
   "59.9589,10.8035": {
     "name": "Grefsenkollen",
     "categoryId": "restaurant"
@@ -88,5 +158,10 @@
   "59.9590,10.8042": {
     "name": "Grefsenkollen",
     "categoryId": "restaurant"
-  }
+  },
+  "59.9658,10.7712": {
+    "name": "EVO Frysja",
+    "categoryId": "aktivitet"
+  },
+  "59.9668,10.7712": null
 }
