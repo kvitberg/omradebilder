@@ -281,8 +281,27 @@ async function main() {
         // slutt nærmeste adresse som nøytral reserve.
         const entryId = `immich:${asset.id}`;
         const før = forrige.get(entryId);
+
+        // Tagger i Immich går foran alt: de er satt av fotografen med
+        // vitende vilje, mens beskrivelse og stedsoppslag er tolkninger.
+        const tagger = (asset.tags ?? [])
+          .map((t) => t.value || t.name || "")
+          .filter(Boolean);
+        const taggetSom = categoryFromTags(tagger);
+
+        /**
+         * Et nabolagsbilde skal ikke hete utestedet på hjørnet.
+         *
+         * Stedsoppslaget gjetter på nærmeste navngitte sted, og uten tittel
+         * ble gjetningen navnet: «Amazonia by BAR» var et nabolagsbilde fra
+         * Tjuvholmen, «Thief Spa» og «MOONRISE.EAST.November» det samme.
+         * Taggen er fotografens utsagn om hva bildet viser, og den skal ikke
+         * overdøves av en gjetning. Har bildet en tittel, gjelder tittelen;
+         * ellers er det området eller adressen — ikke et sted vi antar.
+         */
+        const gjettNavn = taggetSom !== "nabolag";
         const oppslag: Stedsoppslag =
-          !description && hasGps ? await cachedPoi(lat!, lng!) : { status: "tomt" };
+          !description && hasGps && gjettNavn ? await cachedPoi(lat!, lng!) : { status: "tomt" };
         const poi = oppslag.status === "treff" ? oppslag.poi : null;
         const stedetUkjent = oppslag.status === "utilgjengelig";
         let placeName = description ?? poi?.name ?? null;
@@ -302,12 +321,7 @@ async function main() {
         if (placeName) named++;
         if (poi) fromPoi++;
 
-        // Tagger i Immich går foran alt: de er satt av fotografen med
-        // vitende vilje, mens beskrivelse og stedsoppslag er tolkninger.
-        const tagger = (asset.tags ?? [])
-          .map((t) => t.value || t.name || "")
-          .filter(Boolean);
-        const fraTag = categoryFromTags(tagger) ?? detectCategory(tagger).categoryId;
+        const fraTag = taggetSom ?? detectCategory(tagger).categoryId;
         const fraTekst = detectCategory([description ?? "", asset.originalFileName], { sisteErFilnavn: true });
         const categoryId =
           fraTag !== "annet"

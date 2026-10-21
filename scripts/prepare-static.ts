@@ -736,7 +736,7 @@ async function main() {
   // sammen av to tusen adresser, og da forsvant hele Kjelsås fra kartet.
   try {
     const raw = await fs.readFile(path.join(OUT_DIR, "bygg.json"), "utf-8");
-    type Eiendom = { r: [number, number][]; a: string[]; m: string[] };
+    type Eiendom = { r: [number, number][]; a: string[]; m: string[]; b?: true };
     const alle = JSON.parse(raw) as Record<
       string,
       { teiger: Eiendom[]; gater: string[]; antall: number; farge?: number }
@@ -754,17 +754,45 @@ async function main() {
         })
       );
 
+    /**
+     * Hvilke eiendommer vi faktisk har bilder fra.
+     *
+     * Kartet tegnet hver teig i samme farge, enten den hadde bilder eller
+     * ikke, så flaten sa ingenting om hva arkivet dekker. Nå merkes de som
+     * har et fellesarealbilde bundet til seg, og kartet gråer resten ut:
+     * tegnet, men venter på bilder.
+     *
+     * Målet er adressene, ikke kvartalet. Et bilde som bare er bundet til
+     * en bygård dekker hele kvartalet — i Grefsen to tusen adresser — og
+     * kan ikke tilskrives én teig.
+     */
+    const medBilder = new Set<string>();
+    for (const p of slim) {
+      if (!FELLESAREAL.has(p.category)) continue;
+      for (const a of p.adresser ?? []) medBilder.add(a);
+    }
+
     const trimmet: Record<string, { teiger: Eiendom[] }> = {};
     let eiendommer = 0;
+    let dekket = 0;
     for (const [id, kvartal] of Object.entries(alle)) {
       const nære = kvartal.teiger.filter(nærEtBilde);
       if (!nære.length) continue;
+      for (const e of nære) {
+        if (e.a.some((a) => medBilder.has(a))) {
+          e.b = true;
+          dekket++;
+        } else {
+          delete e.b;
+        }
+      }
       trimmet[id] = { teiger: nære };
       eiendommer += nære.length;
     }
     await fs.writeFile(path.join(OUT_DIR, "bygg.json"), JSON.stringify(trimmet));
     console.log(
-      `  bygg.json: ${eiendommer} eiendommer i ${Object.keys(trimmet).length} kvartaler`
+      `  bygg.json: ${eiendommer} eiendommer i ${Object.keys(trimmet).length} kvartaler` +
+        ` — ${dekket} med bilder, ${eiendommer - dekket} grå`
     );
   } catch {
     // Ingen fil ennå — kartet klarer seg uten laget.

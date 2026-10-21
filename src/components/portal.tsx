@@ -34,6 +34,7 @@ import {
 import { ADMIN_BRUKER, hentNedlastinger, type Nedlasting } from "@/lib/nedlasting";
 import AreaMap, {
   KATEGORI_FARGER,
+  VENTER,
   type Kvartal,
   type MapDot,
 } from "@/components/area-map";
@@ -1076,6 +1077,21 @@ function Spread({
                       </button>
                     )}
                   </div>
+                  {/* Gråfargen trenger en forklaring, men hører ikke i
+                    filteret over: det slår kategorier av og på, mens dette
+                    er en opplysning om kartet. Linjen kommer bare når det
+                    faktisk ligger grå flater i utsnittet. */}
+                  {bygg.some((k) => k.teiger.some((t) => !t.b)) && (
+                    <p className="mt-2 flex items-center gap-1.5 normal-case tracking-normal">
+                      <span
+                        aria-hidden
+                        className="inline-block h-2 w-2 shrink-0 rounded-[2px]"
+                        style={{ background: VENTER, opacity: 0.55 }}
+                      />
+                      Grå flater er gårder vi har tegnet, men ikke har bilder
+                      fra ennå.
+                    </p>
+                  )}
                 </figcaption>
               </figure>
             )

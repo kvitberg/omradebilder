@@ -12,6 +12,15 @@ const a2b = require(path.join(root, "public/data/adresse-til-bygard.json"));
 
 const FELLES = new Set(["bakgard", "takterrasse", "fasade", "parkering"]);
 
+const bygg = require(path.join(root, "public/data/bygg.json"));
+
+/** Alle eiendommene kartlaget tegner. */
+const teiger = Object.values(bygg).flatMap((k) => k.teiger);
+/** Adressene som har et fellesarealbilde bundet til seg. */
+const adrMedFelles = new Set(
+  idx.flatMap((p) => (FELLES.has(p.category) ? (p.adresser ?? []) : []))
+);
+
 /** Samme regel som søket i nettleseren (src/lib/search-client.ts). */
 function bundetTil(adr) {
   const b = a2b[adr] ?? null;
@@ -73,6 +82,15 @@ const tester = [
   ["Grefsenkollen kommer bare fra Immich", () => idx.filter((p) => p.placeName === "Grefsenkollen").every((p) => p.id.startsWith("immich:"))],
   // Alle fellesarealer må være knyttet til noe
   ["Alle fellesarealer er koblet", () => idx.filter((p) => FELLES.has(p.category)).every((p) => p.bygardId || p.adresser?.length)],
+  // Gråfargen på kartet: en eiendom er merket når vi har bilder fra den.
+  // Blir flagget feil, lover kartet bilder som ikke finnes — eller skjuler
+  // gårder vi faktisk har fotografert.
+  ["Hver merket eiendom har et fellesarealbilde",
+    () => teiger.filter((t) => t.b).every((t) => t.a.some((a) => adrMedFelles.has(a)))],
+  ["Hver umerket eiendom har ingen fellesarealbilder",
+    () => teiger.filter((t) => !t.b).every((t) => !t.a.some((a) => adrMedFelles.has(a)))],
+  ["Noen eiendommer er merket", () => teiger.some((t) => t.b)],
+  ["Noen eiendommer er grå", () => teiger.some((t) => !t.b)],
 ];
 
 let feil = 0;
