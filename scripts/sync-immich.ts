@@ -303,18 +303,27 @@ async function main() {
         const oppslag: Stedsoppslag =
           !description && hasGps && gjettNavn ? await cachedPoi(lat!, lng!) : { status: "tomt" };
         const poi = oppslag.status === "treff" ? oppslag.poi : null;
-        const stedetUkjent = oppslag.status === "utilgjengelig";
         let placeName = description ?? poi?.name ?? null;
-        // Svarte ikke stedsoppslaget, er navnet vi alt hadde den beste
-        // kunnskapen som finnes. Falt vi tilbake på nærmeste adresse her,
-        // ble «Operahuset i Oslo» til «Kirsten Flagstads plass 1».
-        if (!placeName && stedetUkjent && før?.placeName) {
-          placeName = før.placeName;
-        }
         // Står fotografen midt i en park, er det parken som er stedet —
         // ikke nærmeste adresse, som ville bundet bildet til en eiendom.
         const park = !placeName && hasGps ? stedVedPunkt(lat!, lng!) : null;
         if (park) placeName = park.name;
+        /**
+         * Fant vi ingenting nå, er navnet vi hadde fra før bedre enn gata.
+         *
+         * Først vernet dette bare mot at oppslaget var nede. Men «ingen
+         * treff» tømmer navnet like grundig: Photon svarte for Nordpolen
+         * skole og fant ingenting som passerte filtrene, og skolen ble til
+         * «Hans Nielsen Hauges gate 1». Torshovteatret og Kaffe & Brød gikk
+         * samme vei. Et navn vi en gang har funnet, kaster vi ikke fordi et
+         * senere oppslag kom tomt tilbake.
+         *
+         * Unntaket er bildene vi ikke skal gjette navn på i det hele tatt.
+         * Der er det gamle navnet selv en gjetning, og den skal bort.
+         */
+        if (!placeName && gjettNavn && før?.placeName) {
+          placeName = før.placeName;
+        }
         if (!placeName && hasGps) {
           placeName = await nearestAddress(lat!, lng!);
         }
@@ -330,7 +339,10 @@ async function main() {
               ? fraTekst.categoryId
               : poi?.categoryId ??
                 park?.categoryId ??
-                (stedetUkjent ? før?.category : null) ??
+                // Samme regel som for navnet: en kategori vi en gang har
+                // funnet er bedre enn «annet», uansett hvorfor oppslaget
+                // kom tomt tilbake denne gangen.
+                før?.category ??
                 "annet";
 
         const outPath = path.join(OUT_DIR, thumbFileName(entryId));

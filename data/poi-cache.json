@@ -1,4 +1,12 @@
 {
+  "59.9016,10.7509": {
+    "name": "Havnepromenaden infopunkt 12: Sørenga",
+    "categoryId": "kultur"
+  },
+  "59.9074,10.7575": {
+    "name": "Palate",
+    "categoryId": "restaurant"
+  },
   "59.9120,10.7189": {
     "name": "Babbo Collective",
     "categoryId": "kafe"
@@ -10,11 +18,42 @@
   },
   "59.9297,10.7990": null,
   "59.9309,10.8000": null,
+  "59.9319,10.7923": null,
   "59.9333,10.7955": null,
   "59.9334,10.7924": {
     "name": "Sørøy-lottenes park",
     "categoryId": "park"
   },
+  "59.9338,10.7669": null,
+  "59.9347,10.7645": {
+    "name": "Kaffebrenneriet",
+    "categoryId": "kafe"
+  },
+  "59.9350,10.7639": null,
+  "59.9351,10.7633": null,
+  "59.9361,10.7638": null,
+  "59.9362,10.7600": null,
+  "59.9362,10.7657": {
+    "name": "Soria Moria",
+    "categoryId": "kultur"
+  },
   "59.9371,10.7709": null,
-  "59.9473,10.7766": null
+  "59.9375,10.7565": {
+    "name": "Folkvang",
+    "categoryId": "restaurant"
+  },
+  "59.9383,10.7527": {
+    "name": "Sagene takhage",
+    "categoryId": "park"
+  },
+  "59.9398,10.7720": {
+    "name": "Nordpolen skole",
+    "categoryId": "skole"
+  },
+  "59.9416,10.7956": null,
+  "59.9420,10.7997": null,
+  "59.9434,10.8023": null,
+  "59.9455,10.8036": null,
+  "59.9473,10.7766": null,
+  "59.9555,10.7961": null
 }
